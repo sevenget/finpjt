@@ -11,6 +11,22 @@
 </head>
 <body>
 
+<script type="text/javascript">
+	function allowDrop(ev){
+		ev.preventDefault();
+	}
+	
+	function drag(ev){
+		ev.dataTransfer.setData("content", ev.target.id);
+	}
+	
+	function drop(ev){
+		ev.preventDefault();
+		var image = ev.dataTransfer.getData("content");
+		ev.target.appendChild(document.getElementById(image));
+	}
+</script>
+
 
 	<div id="head">
 		<%@ include file="/WEB-INF/views/include/header.jsp" %>
@@ -66,104 +82,53 @@
 				</div>
 				
 				<div id="regiMain2">
-					<h3 align="center">부가 기입란</h3><hr id="line1" width="500px" color="#aaa" size="1" class="hr">
+					<h3 align="center">7가지 중요도 선정(부가 기입란)</h3><hr id="line1" width="500px" color="#aaa" size="1" class="hr">
+					<div id="rankTable" style="position: absolute; top:31%;">
+						<div id="rank1" class="rank" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="rank_by">1순위</span></div>
+						<div id="rank2" class="rank" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="rank_by">2순위</span></div>
+						<div id="rank3" class="rank" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="rank_by">3순위</span></div>
+
+						<div id="rank4" class="rank" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="rank_by">4순위</span></div>
+						<div id="rank5" class="rank" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="rank_by">5순위</span></div>
+						<div id="rank6" class="rank" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="rank_by">6순위</span></div>
+						<div id="rank7" class="rank" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="rank_by">7순위</span></div>
+					</div>
 					
-					<table class="table_choice">
-						<tr>
-							<th class="" colspan="2" style="text-align:left; padding-left:30px;">7가지 중요도</th>
-						</tr>
-						<tr>
-							<th class="choice">1순위</th>
-							<td>
-								<input type="radio" name="one" value="1번">결혼
-								<input type="radio" name="one" value="2번">출산
-								<input type="radio" name="one" value="3번">내집마련
-								<input type="radio" name="one" value="4번">꿈
-								<input type="radio" name="one" value="5번">희망직업
-								<input type="radio" name="one" value="6번">인간관계
-								<input type="radio" name="one" value="7번">연애
-							</td>
-						</tr>
-						<tr>
-							<th class="choice">2순위</th>
-							<td>
-								<input type="radio" name="two" value="1번">결혼
-								<input type="radio" name="two" value="2번">출산
-								<input type="radio" name="two" value="3번">내집마련
-								<input type="radio" name="two" value="4번">꿈
-								<input type="radio" name="two" value="5번">희망직업
-								<input type="radio" name="two" value="6번">인간관계
-								<input type="radio" name="two" value="7번">연애
-							</td>
-						</tr>
-						<tr>
-							<th class="choice">3순위</th>
-							<td>
-								<input type="radio" name="three" value="1번">결혼
-								<input type="radio" name="three" value="2번">출산
-								<input type="radio" name="three" value="3번">내집마련
-								<input type="radio" name="three" value="4번">꿈
-								<input type="radio" name="three" value="5번">희망직업
-								<input type="radio" name="three" value="6번">인간관계
-								<input type="radio" name="three" value="7번">연애
-							</td>
-						</tr>
-						<tr>
-							<th class="choice">4순위</th>
-							<td>
-								<input type="radio" name="four" value="1번">결혼
-								<input type="radio" name="four" value="2번">출산
-								<input type="radio" name="four" value="3번">내집마련
-								<input type="radio" name="four" value="4번">꿈
-								<input type="radio" name="four" value="5번">희망직업
-								<input type="radio" name="four" value="6번">인간관계
-								<input type="radio" name="four" value="7번">연애
-							</td>
-						</tr>
-						<tr>
-							<th class="choice">5순위</th>
-							<td>
-								<input type="radio" name="five" value="1번">결혼
-								<input type="radio" name="five" value="2번">출산
-								<input type="radio" name="five" value="3번">내집마련
-								<input type="radio" name="five" value="4번">꿈
-								<input type="radio" name="five" value="5번">희망직업
-								<input type="radio" name="five" value="6번">인간관계
-								<input type="radio" name="five" value="7번">연애
-							</td>
-						</tr>
-						<tr>
-							<th class="choice">6순위</th>
-							<td>
-								<input type="radio" name="six" value="1번">결혼
-								<input type="radio" name="six" value="2번">출산
-								<input type="radio" name="six" value="3번">내집마련
-								<input type="radio" name="six" value="4번">꿈
-								<input type="radio" name="six" value="5번">희망직업
-								<input type="radio" name="six" value="6번">인간관계
-								<input type="radio" name="six" value="7번">연애
-							</td>
-						</tr>
-						<tr>
-							<th class="choice">7순위</th>
-							<td>
-								<input type="radio" name="seven" value="1번">결혼
-								<input type="radio" name="seven" value="2번">출산
-								<input type="radio" name="seven" value="3번">내집마련
-								<input type="radio" name="seven" value="4번">꿈
-								<input type="radio" name="seven" value="5번">희망직업
-								<input type="radio" name="seven" value="6번">인간관계
-								<input type="radio" name="seven" value="7번">연애
-							</td>
-						</tr>
-					</table>
+					<!-- 7가지 선택사항 -->
+					
+					<div id="choose" style="position: absolute; top:65%;">
+						<div class="box" id="box1" ondrop="drop(event)" ondragover="allowDrop(event)">
+							<img alt="logo" id="logo1" class="logo" src="../resources/img/job.jpg" draggable="true" ondragstart="drag(event)">
+						</div>
+
+						<div class="box" id="box2" ondrop="drop(event)" ondragover="allowDrop(event)">
+							<img alt="logo" id="logo2" class="logo" src="../resources/img/love.jpg" draggable="true" ondragstart="drag(event)">
+						</div>
+
+						<div class="box" id="box3" ondrop="drop(event)" ondragover="allowDrop(event)">
+							<img alt="logo" id="logo3" class="logo" src="../resources/img/home.jpg" draggable="true" ondragstart="drag(event)">
+						</div>
+
+						<div class="box" id="box4" ondrop="drop(event)" ondragover="allowDrop(event)">
+							<img alt="logo" id="logo4" class="logo" src="../resources/img/dream.jpg" draggable="true" ondragstart="drag(event)">
+						</div>
+
+						<div class="box" id="box5" ondrop="drop(event)" ondragover="allowDrop(event)">
+							<img alt="logo" id="logo5" class="logo" src="../resources/img/human.jpg" draggable="true" ondragstart="drag(event)">
+						</div>
+
+						<div class="box" id="box6" ondrop="drop(event)" ondragover="allowDrop(event)">
+							<img alt="logo" id="logo6" class="logo" src="../resources/img/child.jpg" draggable="true" ondragstart="drag(event)">
+						</div>
+
+						<div class="box" id="box7" ondrop="drop(event)" ondragover="allowDrop(event)">
+							<img alt="logo" id="logo7" class="logo" src="../resources/img/marry.jpg" draggable="true" ondragstart="drag(event)">
+						</div>
+					</div>
 				</div>
-				
-			</div>
 
 		</div>
 	</div>
-
 
 
 </body>
