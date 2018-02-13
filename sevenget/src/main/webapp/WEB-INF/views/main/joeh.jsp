@@ -25,7 +25,7 @@
 				
 				
 				<img src="../resources/img/plots/ggradar.png" />
-				<img alt="../resources/img/plots/ggradar.png" src="../resources/img/plots/wordcloud.png" />
+				<img alt="../resources/img/plotsggradar.png" src="../resources/img/plots/wordcloud.png" />
 				
 				<a href="detailpage">상세페이지 이동</a>
 				<a href="login">로그인페이지 이동</a>
