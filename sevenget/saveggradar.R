@@ -6,7 +6,7 @@ library(ggiraphExtra)
 
 # 데이터 불러오기
 getwd()
-setwd("C:/workspace/spring/sevenget/src/main/webapp/resources/img/plots")
+setwd("C:/Users/user/git/finpjt/sevenget/src/main/webapp/resources/img/plots")
 png(filename = 'ggradar.png', width = 510, height = 400)
 
 # Library
