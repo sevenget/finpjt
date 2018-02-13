@@ -24,7 +24,6 @@
 				<div></div>
 				
 				
-				<img src="../resources/img/logo.png" />
 				<img src="../resources/img/ggradar.png" />
 				<img src="../resources/img/wordcloud.png" />
 				
