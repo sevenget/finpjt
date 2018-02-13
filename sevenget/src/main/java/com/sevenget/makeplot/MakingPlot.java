@@ -8,7 +8,6 @@ public class MakingPlot {
 	public static void main(String[] args) throws IOException, InterruptedException {
 		
 		String dirPath = System.getProperty("user.dir"); //save current directory
-		
 		String x = "1:10"; //save R command to variable x
 		String y = "3*x+1+e"; //save R command to variable y
 				
@@ -36,7 +35,7 @@ public class MakingPlot {
 				
 		if(resultSign==0){ //case success
 			System.out.println("R operation success"); //show success message,
-		        System.out.println();
+		    System.out.println();
 
 			StringBuffer rOut = new StringBuffer(); //create variable rOut to get result from R
 			String inputLine;

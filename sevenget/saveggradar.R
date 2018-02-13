@@ -1,19 +1,10 @@
-# finalpjt
 library(rJava)
 library(dplyr)
 library(ggplot2)
-library(ggiraphExtra)
-
-# 데이터 불러오기
-getwd()
-setwd("C:/Users/user/git/finpjt/sevenget/src/main/webapp/resources/img/plots")
-
-# Library
+#library(ggiraphExtra)
 library(fmsb)
 
 
-# Create data: note in High school for several students
-set.seed(99)
 data=as.data.frame(matrix( sample( 0:10 , 14 , replace=T) , ncol=7))
 colnames(data)=c("연애" , "결혼" , "출산 및 육아" , "내집마련" , "인간관계", "꿈" , "희망" )
 rownames(data)=paste("mister" , letters[1:2] , sep="-")
@@ -24,20 +15,17 @@ data=rbind(rep(10,7) , rep(0,7) , data)
 colors_border=c(rgb(173/255, 215/255, 46/255, 0.9), rgb(101/255, 78/255, 163/255, 0.9))
 colors_in=c(rgb(193/255, 239/255, 56/255, 0.4), rgb(195/255, 188/255, 210/255, 0.4) )
 
-#png(filename = 'ggradar2.png', width = 510, height = 400)
+#png(filename = 'C:/Users/user/git/finpjt/sevenget/src/main/webapp/resources/img/plots/ggradar.png', width = 510, height = 400)
+
+
 
 radarchart( data  , axistype=1 , 
-            #custom polygon
-            pcol=colors_border , pfcol=colors_in , plwd=4 , plty=1,
-            #custom the grid
-            cglcol="grey", cglty=1, axislabcol="grey",seg = 5, caxislabels=seq(0,10,2), cglwd=0.8,
-            #custom labels
-            vlcex=0.8 
+            pcol=colors_border , pfcol=colors_in , plwd=4 , plty=1, #custom polygon
+            cglcol="grey", cglty=1, axislabcol="grey",seg = 5, caxislabels=seq(0,10,2), cglwd=0.8,  #custom polygon
+            vlcex=0.8 #custom labels
 )
 legend(x=0.7, y=1.4, legend = rownames(data[-c(1,2),]), bty = "n", pch=20 , col=colors_in , text.col = "grey", cex=1.2, pt.cex=3)
 
+dev.copy(png, 'ggradar.png')
+dev.off()
 
-
-
-dev.copy (png, 'ggradar.png')
-dev.off ()
