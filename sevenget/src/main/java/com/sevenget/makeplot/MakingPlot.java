@@ -26,7 +26,6 @@ public class MakingPlot {
 		cmd.append(y);
 				
 		System.out.println(cmd.toString()); 
-		//Rscript C:\workspace\spring\wordcloudPrint\wordcloudR.R C:\workspace\spring\wordcloudPrint 1:10 3*x+1+e
 
 
 		Process proc = Runtime.getRuntime().exec(cmd.toString()); 
