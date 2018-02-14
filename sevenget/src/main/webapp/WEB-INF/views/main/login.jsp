@@ -38,7 +38,7 @@
 									<td colspan="2"><button id="facebook" >페이스북 아이디로 로그인</button></td>
 								</tr>
 								<tr>
-									<td colspan="2"><button id="submit">회원가입</button></td><!-- 회원가입 버튼 누르면 회원가입페이지로 넘어가게 수정 완료. -->
+									<td colspan="2"><button id="submit"><img src="../img/f.png">회원가입</button></td><!-- 회원가입 버튼 누르면 회원가입페이지로 넘어가게 수정 완료. -->
 								</tr>
 						</table>
 					</form>
