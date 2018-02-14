@@ -20,21 +20,17 @@
 				</div>
 
 				<div class="top_left">
-					<a href="#">검색</a>
-					<div></div>
-					<!-- <a href="#">나의 관심사</a> <div></div> -->
-					<a href="#">Q&A</a>
-					<div></div>
-				</div>
-
-
-				<div class="top_right">
-					<a href="#">회원가입</a>
-					<div></div>
-					<a href="#">로그인</a>
-					<div></div>
-					<!-- <a href="#">MyPage</a>  로그인 했을 때만 보이게 -->
-				</div>
+					<a href="main">검색</a> <div></div>
+					<a href="void(0);" onclick="alert('준비 중입니다.');return false;">Q&A</a> <div></div>
+				</div>	
+				
+						
+ 				<div class="top_right">
+					<a href="#">로그아웃</a> <div></div> 
+					<a href="mypage">MyPage</a> <div></div>
+					
+				</div>	
+			 
 
 			</div>
 

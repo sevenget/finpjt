@@ -39,13 +39,22 @@ public class HomeController {
 		return "main/joeh";
 	}
 	
-	// 진짜 메인페이지(로그인 후 첫화면?)
+	// 진짜 메인페이지(로그인 후 첫화면)
 	@RequestMapping(value = "/main/main", method = RequestMethod.GET)
 	public String main(Locale locale, Model model) {
 		
 		
 		return "main/main";
 	}
+	
+	// 로그인 전 검색페이지
+		@RequestMapping(value = "/main/search", method = RequestMethod.GET)
+		public String search(Locale locale, Model model) {
+			
+			
+			return "main/search";
+		}
+		
 	
 	//기업 상세페이지
 	@RequestMapping(value = "/main/detailpage", method = RequestMethod.GET)

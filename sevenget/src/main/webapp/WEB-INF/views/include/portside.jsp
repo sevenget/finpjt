@@ -6,6 +6,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="../resources/css/portside.css" media="all"> <!-- 이거 css명 작업하시는 css 파일명으로 바꾸세요 안 그럼 저랑 꼬여요..!  -->
 <title>Insert title here</title>
+<script type="text/javascript">
+	function find_id() {
+		window.open("http://www.jobkorea.co.kr/", "_blank");
+	}
+</script>
+
 </head>
 <body>
 	
@@ -31,19 +37,19 @@
 	
 	<div id="portside2"> 
 		<div class="ad1">
-			<a href="#"><img src="../resources/img/ad1.png"></a>
+			<a href="void(0);" onclick="alert('준비 중입니다.');return false;"><img src="../resources/img/ad1.png"></a>
 		</div>
 	</div>
 	
 	<div id="portside2"> 
 		<div class="ad2">
-			<a href="#"><img src="../resources/img/ad2.png"></a>
+			<a href="void(0);" onclick="alert('준비 중입니다.');return false;"><img src="../resources/img/ad2.png"></a>
 		</div>
 	</div>
 	
 	<div id="portside2"> 
 		<div class="ad3">
-			<a href="#"><img src="../resources/img/ad33.png"></a>
+			<a onclick="find_id();"><img src="../resources/img/ad33.png"></a>
 		</div>
 	</div>
 	

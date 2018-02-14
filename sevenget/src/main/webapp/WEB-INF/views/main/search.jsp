@@ -5,14 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>7get-Search</title>
-<link rel="stylesheet" type="text/css" href="../resources/css/session.css " media="all" flush="false">
+<link rel="stylesheet" type="text/css" href="../resources/css/session.css?ver=0 " media="all" flush="false">
 <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src = "http://malsup.github.com/jquery.cycle2.js"></script>
 <link rel="stylesheet" href="../resources/css/searchMain.css" >
 </head>
 <body>
 	<div id="head">
-		<%@ include file="/WEB-INF/views/include/header.jsp" %>
+		<%@ include file="/WEB-INF/views/include/header2.jsp" %>
 	</div>		
 	<div id="all">
 		<div id=contect">
@@ -153,43 +153,24 @@
 					<div class="infoContHolder">
 						<div class="infocontholder_2">
 
-								<p class="head_member">회원 정보</p>
+								<p class="head_member">로그인</p>
 								<hr width="285px" color="#aaa" size="1" class="hr_member">
-						
-								<div class="ficture">
-									<img src="../resources/img/johnpic.jpg">
-								</div>
-							
-								<div class="membership">
-									<p>홍길동</p><br>
-									<p class="font">1990/02/10</p>
-									<p class="font">쾌도대학교 졸업</p>			
-								</div>
 								
-								<input type="button" value="MyPage" class="MyPage_btn" onclick="location.href='mypage';">
+							
+								<input type="text" class="login_id" placeholder="아이디" >
+								<input type="password" class="login_pw" placeholder="비밀번호" maxlength="20">
+								<input type="button" value="로그인" class="login_btn" >
+								<div class="face_btn">
+									<img src="../resources/img/f.png">
+									<p>페이스북 로그인</p>
+								</div>
+								<input type="button" value="회원가입" class="join_btn" onClick="location.href='register';">
+		
+	
 						</div>
 					</div>
 					
 					
-						<!-- 
-						<table>
-							<tr>
-								<td rowspan=3><img src="../resources/img/johnpic.jpg" onClick="location.href='mypage';"></td>
-								<td class="myinfo">이름</td>
-								<td class="myinfoCont">정주온</td>
-							</tr>
-							<tr>
-								<td class="myinfo">성별</td>
-								<td class="myinfoCont">남</td>		
-							</tr>
-							<tr>
-								<td class="myinfo">나이</td>
-								<td class="myinfoCont">28</td>		
-							</tr>
-						</table>
-						 -->
-						<!-- <img src="dd"> --><!-- 개인 중요도 plot 넣을 자리 -->
-			
 				</div>
 			</div>
 		</div>
