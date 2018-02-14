@@ -1,6 +1,3 @@
-install.packages("Rserve")
-library(Rserve)
-
 library(rJava)
 library(ggplot2)
 library(fmsb)
