@@ -36,6 +36,7 @@
 	 				border:1px solid red; 이거 추가해서 작업하면 더 보기 편해요 -->
 	 					<h4>7포</h4>	
 	 					<hr width="915px" color="#aaa" size="1" class="hr"> <!-- 구분선 -->
+	 					<img src="../resources/img/plots/ggradar.png" />
 	 				</div>
 	 				
 	 				

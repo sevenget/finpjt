@@ -1,57 +1,60 @@
 package com.sevenget.makeplot;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import org.rosuda.REngine.REXP;
+import org.rosuda.REngine.REXPMismatchException;
+import org.rosuda.REngine.REngineException;
+import org.rosuda.REngine.RList;
+import org.rosuda.REngine.Rserve.RConnection;
+import org.rosuda.REngine.Rserve.RserveException;
 
 public class MakingPlot {
-	public static void main(String[] args) throws IOException, InterruptedException {
-		
-		String dirPath = System.getProperty("user.dir"); //save current directory
-		
-		String x = "1:10"; //save R command to variable x
-		String y = "3*x+1+e"; //save R command to variable y
-				
-		StringBuffer cmd = new StringBuffer(); //StringBuffer for cmd command
-		cmd.append("Rscript");
-		cmd.append(" ");
-		cmd.append(dirPath);
-		cmd.append("\\");
-		cmd.append("saveggradar.R");
-		cmd.append(" ");
-		cmd.append(dirPath);
-		cmd.append(" ");
-		cmd.append(x);
-		cmd.append(" ");
-		cmd.append(y);
-				
-		System.out.println(cmd.toString()); 
-		//Rscript C:\workspace\spring\wordcloudPrint\wordcloudR.R C:\workspace\spring\wordcloudPrint 1:10 3*x+1+e
+	
+	public static void main(String[] args) throws REXPMismatchException, REngineException {
 
+		RConnection connection = null;
+		connection = new RConnection();
 
-		Process proc = Runtime.getRuntime().exec(cmd.toString()); 
-		//execute on cmd, save process into variable proc (interaction.R is running hear)
+		RList dataframe = connection.eval("{data=as.data.frame(matrix( sample( 0:10 , 14 , replace=T) , ncol=7))}").asList();
+		System.out.println(1);
+		connection.eval("colnames(data)=c('연애' , '결혼' , '육아 및 출산' , '꿈' , '희망', '내집마련', '인간관계' )");
+		System.out.println(2);
+		connection.eval("rownames(data)=paste('mister' , letters[1:2] , sep='-')");
+		System.out.println(3);
+		connection.eval("data=rbind(rep(10,7) , rep(0,7) , data)");
+		System.out.println(4);
+		connection.eval("colors_border=c(rgb(173/255, 215/255, 46/255,0.9), rgb(101/255, 78/255, 163/255,0.9))");
+		System.out.println(5);
+		connection.eval("colors_in=c( rgb(193/255, 239/255, 56/255,0.4), rgb(195/255, 188/255, 210/255,0.4))");
+		System.out.println(6);
+		connection.eval("library(ggplot2)");
+		connection.eval("library(fmsb)");
+		connection.eval("setwd('C:/Users/user/git/finpjt/sevenget/src/main/webapp/resources/img/plots')"); // 저장 장소 설정
+		connection.eval("png(filename = 'radarchart.png', width = 510, height = 400)"); // plot의 너비와 높이는 언제든지 변경가능!
+		connection.eval("radarchart( data  , axistype=1 , seg = 5, pcol=colors_border , pfcol=colors_in , plwd=4 , plty=1, cglcol='grey', cglty=1, axislabcol='grey', caxislabels=seq(0,10,2), cglwd=0.8,vlcex=0.8)");
+		System.out.println(7);
+		connection.eval("legend(x=0.7, y=1.3, legend = rownames(data[-c(1,2),]), bty = 'n', pch=20 , col=colors_in , text.col = 'grey', cex=1.2, pt.cex=3)");
+		connection.eval("dev.off ()");
+		System.out.println(8);
+		System.out.println("=========================");
 
-		int resultSign = proc.waitFor(); 
-		//wait for R process is over, if success return 0, else 1 or 2 or etc
-				
-		if(resultSign==0){ //case success
-			System.out.println("R operation success"); //show success message,
-		        System.out.println();
+		int cols = dataframe.size();
+		int rows = dataframe.at(0).length();
+		String[][] s = new String[cols][];
 
-			StringBuffer rOut = new StringBuffer(); //create variable rOut to get result from R
-			String inputLine;
-			BufferedReader inputBuf = new BufferedReader(new InputStreamReader(proc.getInputStream(), "UTF-8")); 
-		        //open input stream with encoding UTF-8
-			while (((inputLine = inputBuf.readLine()) != null)) { //get data until the end
-				rOut.append(inputLine); //write on variable "rOut"
-				rOut.append("\n"); //line seperator : "\n"
-			}
-			inputBuf.close(); //close input stream
-			
-			System.out.println(rOut.toString()); //show R response
-		}else{ //case failure
-			System.out.println("R error : "+resultSign);
+		for (int i = 0; i < cols; i++) {
+			s[i] = dataframe.at(i).asStrings();
 		}
+
+		for (int i = 0; i < cols; i++) {
+			for (int j = 0; j < rows; j++) {
+				System.out.print(s[i][j]+" ");
+			}
+			System.out.println();
+		}
+		
+		
+		//double[] userData = { 6, 7, 5, 7, 3, 6, 2 };
+		//double[] companyData = { 1, 10, 10, 3, 1, 5, 7 };
+		
 	}
 }
