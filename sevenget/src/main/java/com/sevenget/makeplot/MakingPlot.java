@@ -15,26 +15,18 @@ public class MakingPlot {
 		connection = new RConnection();
 
 		RList dataframe = connection.eval("{data=as.data.frame(matrix( sample( 0:10 , 14 , replace=T) , ncol=7))}").asList();
-		System.out.println(1);
 		connection.eval("colnames(data)=c('연애' , '결혼' , '육아 및 출산' , '꿈' , '희망', '내집마련', '인간관계' )");
-		System.out.println(2);
 		connection.eval("rownames(data)=paste('mister' , letters[1:2] , sep='-')");
-		System.out.println(3);
 		connection.eval("data=rbind(rep(10,7) , rep(0,7) , data)");
-		System.out.println(4);
 		connection.eval("colors_border=c(rgb(173/255, 215/255, 46/255,0.9), rgb(101/255, 78/255, 163/255,0.9))");
-		System.out.println(5);
 		connection.eval("colors_in=c( rgb(193/255, 239/255, 56/255,0.4), rgb(195/255, 188/255, 210/255,0.4))");
-		System.out.println(6);
 		connection.eval("library(ggplot2)");
 		connection.eval("library(fmsb)");
 		connection.eval("setwd('C:/Users/user/git/finpjt/sevenget/src/main/webapp/resources/img/plots')"); // 저장 장소 설정
 		connection.eval("png(filename = 'radarchart.png', width = 510, height = 400)"); // plot의 너비와 높이는 언제든지 변경가능!
 		connection.eval("radarchart( data  , axistype=1 , seg = 5, pcol=colors_border , pfcol=colors_in , plwd=4 , plty=1, cglcol='grey', cglty=1, axislabcol='grey', caxislabels=seq(0,10,2), cglwd=0.8,vlcex=0.8)");
-		System.out.println(7);
 		connection.eval("legend(x=0.7, y=1.3, legend = rownames(data[-c(1,2),]), bty = 'n', pch=20 , col=colors_in , text.col = 'grey', cex=1.2, pt.cex=3)");
 		connection.eval("dev.off ()");
-		System.out.println(8);
 		System.out.println("=========================");
 
 		int cols = dataframe.size();
