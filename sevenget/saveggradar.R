@@ -1,3 +1,6 @@
+install.packages("Rserve")
+library(Rserve)
+
 library(rJava)
 library(ggplot2)
 library(fmsb)
@@ -13,14 +16,6 @@ rownames(data)=paste("mister" , letters[1:2] , sep="-")
 data=rbind(rep(10,7) , rep(0,7) , data)
 
 
-
-
-
-#==================
-# Plot 1: Default radar chart proposed by the library:
-radarchart(data)
-
-
 #==================
 # Plot 2: Same plot with custom features  #ADD72E
 colors_border=c(rgb(173/255, 215/255, 46/255,0.9), rgb(101/255, 78/255, 163/255,0.9))
@@ -33,24 +28,4 @@ radarchart( data  , axistype=1 , seg = 5,
             vlcex=0.8           #custom  
 )
 legend(x=0.7, y=1, legend = rownames(data[-c(1,2),]), bty = "n", pch=20 , col=colors_in , text.col = "grey", cex=1.2, pt.cex=3)
-
-
-
-#=================
-# Plot3: If you remove the 2 first lines, the function compute the max and min of each variable with the available data:
-colors_border=c( rgb(0.2,0.5,0.5,0.9), rgb(0.8,0.2,0.5,0.9) , rgb(0.7,0.5,0.1,0.9) )
-colors_in=c( rgb(0.2,0.5,0.5,0.4), rgb(0.8,0.2,0.5,0.4) , rgb(0.7,0.5,0.1,0.4) )
-radarchart( data[-c(1,2),]  , axistype=0 , maxmin=F,
-            #custom polygon
-            pcol=colors_border , pfcol=colors_in , plwd=4 , plty=1,
-            #custom the grid
-            cglcol="grey", cglty=1, axislabcol="black", cglwd=0.8, 
-            #custom labels
-            vlcex=0.8 
-)
-legend(x=0.7, y=1, legend = rownames(data[-c(1,2),]), bty = "n", pch=20 , col=colors_in , text.col = "grey", cex=1.2, pt.cex=3)
-
-
-
-
 
