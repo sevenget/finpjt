@@ -5,10 +5,18 @@
 <head>
 <meta charset="UTF-8">
 <title>7get-Search</title>
-<link rel="stylesheet" type="text/css" href="../resources/css/session.css " media="all" flush="false">
 <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src = "http://malsup.github.com/jquery.cycle2.js"></script>
+<link rel="stylesheet" type="text/css" href="../resources/css/session.css " media="all" flush="false">
 <link rel="stylesheet" href="../resources/css/searchMain.css" >
+
+<script>
+	$(function(){
+		$('#searchBtn').click(function(){
+			$('#searchHolder form').submit();
+		})
+	})
+</script>
 </head>
 <body>
 	<div id="head">
@@ -23,23 +31,28 @@
 		<div id = "searchHolder">
 			
 			<!-- 검색 -->
-			<div class="search_filter">
-					<table>
-						<tr>
-							<td> 
-							<select>
-								<option>&nbsp&nbsp통합</option>
-								<option>&nbsp&nbsp기업</option>
-								<option>&nbsp&nbsp채용</option>								
-							</select>
-							<input type="text">
-							<img id="searchBtn" src = "../resources/img/searchBtn.png">
-							</td>
-							<td class="filter"> 필터</td>
-						</tr>
-					</table>
+			<div>
+				<form>
+						<input type="hidden" name="id" value="gold">
+						<table>
+							<tr>
+								<td> 
+									<select>
+										<option>&nbsp&nbsp통합</option>
+										<option>&nbsp&nbsp기업</option>
+										<option>&nbsp&nbsp채용</option>								
+									</select>
+									<nobr>
+										<input type="text">
+										<img id="searchBtn" src = "../resources/img/searchBtn.png">
+									</nobr>
+								</td>
+								<td class="filter"> 필터</td>
+							</tr>
+						</table>
+					</form>
 				</div>
-			</div>
+		</div>
 				
 			<div class="container2">
 				
