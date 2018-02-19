@@ -9,6 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import model.search.KeywordDAO;
+import model.search.KeywordVO;
+
 /**
  * Handles requests for the application home page.
  */
@@ -43,6 +46,15 @@ public class HomeController {
 	public String main(Locale locale, Model model) {
 		
 		
+		return "main/main";
+	}
+	
+	@RequestMapping(value = "/main/main", method = RequestMethod.POST)
+	public String mainSearched(String keyword, KeywordDAO dao) {
+		KeywordVO vo = new KeywordVO();
+		vo.setKeyword(keyword);
+		dao.insertKeyword(vo);
+		System.out.println("저장되었습니다");
 		return "main/main";
 	}
 	
@@ -94,5 +106,4 @@ public class HomeController {
 		
 		return "main/mypage2";
 	}
-	
 }

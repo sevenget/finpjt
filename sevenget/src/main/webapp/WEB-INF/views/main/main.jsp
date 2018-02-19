@@ -32,7 +32,7 @@
 			
 			<!-- 검색 -->
 			<div>
-				<form>
+				<form method="post">
 						<input type="hidden" name="id" value="gold">
 						<table>
 							<tr>
@@ -43,7 +43,7 @@
 										<option>&nbsp&nbsp채용</option>								
 									</select>
 									<nobr>
-										<input type="text">
+										<input name="keyword" type="text">
 										<img id="searchBtn" src = "../resources/img/searchBtn.png">
 									</nobr>
 								</td>
