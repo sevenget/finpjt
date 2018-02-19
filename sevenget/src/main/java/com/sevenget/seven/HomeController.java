@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Handles requests for the application home page.
@@ -93,6 +94,26 @@ public class HomeController {
 		
 		
 		return "main/mypage2";
+	}
+	
+	/*	//MakingPlot
+	@RequestMapping(value = "/main/mypage2", method = RequestMethod.GET)
+	public ModelAndView MPlot(Locale locale, Model model) {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("a");
+		
+		return mav;
+	}*/
+	
+		//loading
+	@RequestMapping(value = "/main/loadContent", method = RequestMethod.GET)
+	public String MPlot(Locale locale, Model model) {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("a");
+		
+		return "main/loadContent";
 	}
 	
 }
