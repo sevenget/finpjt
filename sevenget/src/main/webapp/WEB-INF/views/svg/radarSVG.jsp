@@ -7,25 +7,37 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<style>
-		.axis {
-			stroke: #555;
-			stroke-width: .2;
-		}
-		.scale {
-			fill: #f0f0f0;
-			stroke: #999;
-			stroke-width: .2;
-		}
-		.shape {
-			fill-opacity: .6;
-			stroke-width: .5;
-		}
-		.shape:hover { fill-opacity: .9; }
-
-		.shape.company { fill: #add72e; stroke: #edc951; }
-		.shape.user { fill: #c3bcd2; stroke: #654ea3; }
-	</style>
+<style>
+	.axis {
+		stroke: #555;
+		stroke-width: .2;
+	}
+	
+	.scale {
+		fill: grey;
+		stroke: grey;
+		stroke-width: .2;
+	}
+	
+	.shape {
+		fill-opacity: .6;
+		stroke-width: .5;
+	}
+	
+	.shape:hover {
+		fill-opacity: .9;
+	}
+	
+	.shape.company {
+		fill: #add72e;
+		stroke: #edc951;
+	}
+	
+	.shape.user {
+		fill: #c3bcd2;
+		stroke: #654ea3;
+	}
+</style>
 
 	<svg xmlns:dc="http://purl.org/dc/elements/1.1/"
 		xmlns:cc="http://creativecommons.org/ns#"
@@ -44,8 +56,7 @@
 		showgrid="false" showguides="false" inkscape:window-width="1920"
 		inkscape:window-height="1018" inkscape:window-x="-8"
 		inkscape:window-y="-8" inkscape:window-maximized="1"
-		inkscape:snap-page="false" />
-	<metadata id="metadata5"> <rdf:RDF>
+		inkscape:snap-page="false" /> <metadata id="metadata5"> <rdf:RDF>
 		<cc:Work rdf:about="">
 			<dc:format>image/svg+xml</dc:format>
 			<dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
