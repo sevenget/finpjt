@@ -1,11 +1,13 @@
 @charset "utf-8";
 
 #regiHead { width:1300px; height:90px; border:1px solid white; background-color: white; margin-bottom: 40px;}
-#regiMain { width:1300px; height:718px; border:1px solid white; background-color:white; margin-bottom: 40px;}
-.login { width:200px;margin:0 auto; margin-top:160px; border:0px;padding:0px}
-#id { width:200px; height:35px; }
-#pw { width:200px; height:35px; }
-#login {width:100px; height:80px; opacity:0.5;}
-#facebook { background-color:#3b5998; color:white; width:310px; height:38px; }
-#submit { background-color:#8772bf; color: white; width:310px; height:50px; }
+#regiMain { width:1300px; height:718px; border:1px solid white; background-color:white; margin-bottom: 40px; display:table}
+.login { width:200px;margin:0 auto; border:0px; /* margin-left:492px; */ margin-top:252px; }
+#id { width:200px; height:40px; }
+#pw { width:200px; height:40px; margin-top:3px;}
+#login {width:100px; height:100px; border:0; background-color:#ebebeb; color:#929292; font-size:15px; }
+#facebook { background-color:#3b5998; color:white; width:310px; height:50px; border:0; margin-top:7px; }
+#submit { background-color:#8772bf; color: white; width:310px; height:50px; border:0; margin-top:5px; }
 tr td{width:200px; height:30px;border:0;}
+
+.face_logo { width:20px; height:20px; }

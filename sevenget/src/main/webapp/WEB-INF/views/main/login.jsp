@@ -26,21 +26,28 @@
 				</div>
 				<div id="regiMain">
 					<form class="login" action="register">
-						<table class="login">
+							<table class="login">
 								<tr>
-									<td><input id="id" type="text" placeholder="아이디" ></td>
-									<td rowspan=2><input id="login" type="button" value="로그인" onClick="location.href='main';"></td><!-- 일단 로그인 버튼 누르면 무조건 메인페이지로 이동하게 만들어뒀어요!! -->
+									<td><input id="id" type="text" placeholder="아이디"></td>
+									<td rowspan=2><input id="login" type="button" value="로그인"
+										onClick="location.href='main';"></td>
+									<!-- 일단 로그인 버튼 누르면 무조건 메인페이지로 이동하게 만들어뒀어요!! -->
 								</tr>
 								<tr>
 									<td><input id="pw" type="text" placeholder="비밀번호"></td>
 								</tr>
 								<tr>
-									<td colspan="2"><button id="facebook" >페이스북 아이디로 로그인</button></td>
+									<td colspan="2"><button id="facebook">
+											<img src="../resources/img/f.png" class="face_logo">페이스북
+											아이디로 로그인
+										</button></td>
 								</tr>
 								<tr>
-									<td colspan="2"><button id="submit"><img src="../img/f.png">회원가입</button></td><!-- 회원가입 버튼 누르면 회원가입페이지로 넘어가게 수정 완료. -->
+									<td colspan="2"><button id="submit">회원가입</button></td>
+									<!-- 회원가입 버튼 누르면 회원가입페이지로 넘어가게 수정 완료. -->
 								</tr>
-						</table>
+							</table>
+
 					</form>
 				</div>
 			</div>
