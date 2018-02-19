@@ -1,6 +1,6 @@
 package com.sevenget.MemConcernDTO;
 
-public class MemconcernDto {
+public class MemConcernDto {
 	String id;
 	int dateCon;
 	int marryCon;

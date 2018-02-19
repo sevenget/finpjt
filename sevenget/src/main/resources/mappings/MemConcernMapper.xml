@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MemConcernDAO">
+	<resultMap type="keyword2" id="MemConcernMap">
+		<result column="id" property="id" />
+		<result column="dateCon" property="dateCon" />
+		<result column="marryCon" property="marryCon" />
+		<result column="babyCon" property="babyCon" />
+		<result column="houseCon" property="houseCon" />
+		<result column="relationCon" property="relationCon" />
+		<result column="dreamCon" property="dreamCon" />
+		<result column="hopeCon" property="hopeCon" />
+	</resultMap>
+	
+	<select id="getAll" resultType="keyword2">
+		SELECT * FROM memConcern
+	</select>
+
+	<select id="getById" parameterType="String" resultType="keyword2">
+		SELECT *
+		FROM memConcern
+		WHERE id = #{id}
+	</select>
+
+
+	<!-- <insert id="insertKeyword">
+		INSERT INTO memConcern VALUES(#{keyword},#{searchedNum})
+	</insert> -->
+</mapper>

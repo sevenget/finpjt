@@ -1,14 +1,13 @@
 package model.search;
 
 import org.apache.ibatis.session.SqlSession;
-
-import dbtest.SqlSessionFactoryBean;
+import model.common.*;
 
 public class KeywordDAO {
 	private SqlSession mybatis;
 	
 	KeywordDAO(){
-		mybatis = SqlSessionFactoryBean.getSqlSessionInstance();
+		mybatis = SqlSessionFatoryBean.getSqlSessionInstance();
 	}
 	public void insertKeyword(KeywordVO vo){
 		mybatis.insert("KeywordDAO.insertKeyword", vo);

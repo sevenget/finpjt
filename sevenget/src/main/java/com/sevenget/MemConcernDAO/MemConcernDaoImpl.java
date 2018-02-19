@@ -1,114 +1,158 @@
 package com.sevenget.MemConcernDAO;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
+import java.util.Scanner;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
-import org.springframework.stereotype.Repository;
+import org.apache.ibatis.session.SqlSession;
+
+import com.sevenget.MemConcernDTO.MemConcernDto;
+
+import model.common.SqlSessionFatoryBean;
+
 
 public class MemConcernDaoImpl implements MemConcernDao{
-	/*	@Repository // 빈객체 자동생성...? 어떤 클래스가 그 역할을 충족시켰거나 레파지토리의 stereotype (또는 데이터 접근계층이나 DAO로 알려진)이라는 표시
-	public class MemberDaoImpl implements MemberDao{
+	static private SqlSession session = null;
 		
-		@Autowired // 의존성 주입!! @Autowired 어노테이션을 사용하면 get/set 접근 메서드를 만들지 않아도 SpringFramework이 설정 파일을 통해서 알아서 get/set 접근 메서드 대신 일을 해주도록 함.
-		private JdbcTemplate jdbcTemplate;
+		static {
+			try {
+				/*String resource = "mappings/MemConcernMapper.xml";
+				System.out.println(1);
+				InputStream inputStream = Resources.getResourceAsStream(resource);
+				System.out.println(2);
+				SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+				System.out.println(3);*/
+				session = SqlSessionFatoryBean.getSqlSessionInstance();//방법2. 오토커밋이 안되는 걸 이렇게 해결!
+				System.out.println(4);
+				
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}	
 		
-		@Override
-	    public int getMemberCount() {
-	       String sql = "select count(*) from spring_member";
-	       int count = jdbcTemplate.queryForObject(sql, new RowMapper<Integer>() {
-
-	          @Override
-	          public Integer mapRow(ResultSet arg0, int arg1) throws SQLException {
-	             return arg0.getInt("count(*)");
-
-	          }});
-
-	       return count;
-	    }
-		@Override
-		public List<MemberDto> getMemberList(int startRow, int endRow) {
+		public static void main(String[] args) {
 			// TODO Auto-generated method stub
-			String sql = "select * from (select a.*, rownum rnum from (select * from spring_member order by reg_date desc) a ) where rnum >= ? and rnum <= ?";
-			// 1.  날짜에 따라 정렬 2.  정렬된 표에서 rnum생성해서 불러오기 3. 조건 안에서 전체 불러오기
+			MemConcernDaoImpl concern = new MemConcernDaoImpl();
+			concern.start();
+			System.out.println("시작");
+		}
+			private void start() {
+				// TODO Auto-generated method stub
+				Scanner input = new Scanner(System.in);
+				MemConcernDto concern = null;
+				String id = null;
 
-			List<MemberDto> list = jdbcTemplate.query(sql, new Object[]{startRow,endRow}, new RowMapper<MemberDto>(){
-
-				@Override
-				public MemberDto mapRow(ResultSet arg0, int arg1) throws SQLException {
-					// TODO Auto-generated method stub
-					MemberDto member = new MemberDto();
-					member.setId(arg0.getString("id"));
-					member.setPasswd(arg0.getString("passwd"));
-					member.setName(arg0.getString("name"));
-					member.setReg_date(arg0.getDate("reg_date"));
+				while(true){
+					System.out.println("==============================");
+					System.out.println("1. 프로그램 종료");
+					System.out.println("2. 모든 사용자 출력");
+					System.out.println("3. 특정 사용자 출력");
+					System.out.println("4. 사용자 추가");
+					System.out.println("5. 사용자 정보 변경/수정");
+					System.out.println("6. 사용자 정보 삭제");
+					System.out.println("7. 사용자 정보 전체 삭제");
+					System.out.println("==============================");
+					System.out.print("메뉴 선택 : ");
 					
-					return member; //list에 차곡차곡 쌓아주기..
-				}});
-			
-			return list;
-		}
+					int choice = Integer.parseInt(input.nextLine());
+					
+					switch(choice){
+						case 1:
+							System.out.println("프로그램이 종료됩니다.");
+							System.exit(0);//시스템 종료 명령문.
+							break;
+						case 2:
+							List<MemConcernDto> list;
+							
+							list = session.selectList("MemConcernDAO.getAll"); //concern.xml이랑 연결되어 있숑!
+							
+							for(MemConcernDto concern1 : list){
+								System.out.printf("id : %s\t비밀번호 : %s\t이름 : %s \n", concern.getId(),concern.getDateCon(),concern.getMarryCon(),concern.getBabyCon(),concern.getHouseCon(),concern.getRelationCon(),concern.getDreamCon(),concern.getHopeCon());
+							}
+							break;
+						case 3:
+							System.out.print("검색하고자 하는 아이디 입력 : ");
+							id = input.nextLine();
+							
+							//UserBean user = null;
+							
+							concern = (MemConcernDto) session.selectOne("MemConcernDAO.getById", id);
+							
+							if(concern == null){
+								System.out.println("검색된 아이디가 없습니다.");
+							}else{
+								System.out.printf("id : %s\t연애 : %s\t결혼 : %s\t육아및출산 : %s\t내집마련 : %s\t인간관계 : %s\t꿈 : %s\t희망 : %s\t결혼 : %s\t결혼 : %s\n",concern.getId(),concern.getDateCon(),concern.getMarryCon(),concern.getBabyCon(),concern.getHouseCon(),concern.getRelationCon(),concern.getDreamCon(),concern.getHopeCon());
+							}
+							break;
+/*						case 4: // ibatis는 오토커밋으로 우리가 저장한 내용을 프로그램 끝낼때 DB에 저장해주지만 MyBatis는 그렇지 않음! autocommit이 아님...
+							System.out.println("신규 사용자 추가");
+							concern = new MemConcernDto();
+							
+							System.out.print("새로운 사용자 아이디 입력 :");
+							concern.setId(input.nextLine());
+							System.out.print("새로운 사용자 비밀번호 입력 :");
+							concern.setPwd(input.nextLine());
+							System.out.print("새로운 사용자 이름 입력 :");
+							concern.setName(input.nextLine());
+							
+							session.insert("insertconcern", concern);
+							//session.commit(); // 방법 1. 지금까지 작업한 내용 DB에 반영해줌!!
+							break;
+						case 5:
+							System.out.printf("수정할 사용자 아이디 입력 : ");
+							id = input.nextLine();
+							
+						concern = (MemConcernDto) session.selectOne("selectconcernById", id);
+						
+						if(concern == null){
+							System.out.println("해당 아이디가 존재하지 않습니다.");
+						}else{
+							System.out.print("새로운 사용자 비밀번호 입력 :");
+							concern.setPwd(input.nextLine());
+							System.out.print("새로운 사용자 이름 입력 :");
+							concern.setName(input.nextLine());
+							
+							session.update("updateconcern", concern);
+							//session.commit(); // 방법 1. 지금까지 작업한 내용 DB에 반영해줌!!
 
-		@Override
-		public int insertMember(MemberDto member) {
-			// TODO Auto-generated method stub
-			String sql = "insert into spring_member values(?, ?, ?, sysdate)";
-			return jdbcTemplate.update(sql, 
-					new Object[]{member.getId(), 
-										  member.getPasswd(),
-										  member.getName()});
-		}
+						}
+							break;
+						case 6:
+							System.out.printf("삭제할 사용자 아이디 입력 : ");
+							id = input.nextLine();
 
-		@Override
-		public MemberDto getDetailMember(String id) {
-			// TODO Auto-generated method stub
-			String sql = "select * from spring_member where id=?";
-			MemberDto memberDto
-				= jdbcTemplate.queryForObject(sql, 
-												new Object[]{id},
-												new RowMapper<MemberDto>(){
+						concern = (MemConcernDto) session.selectOne("selectconcernById", id);
 
-							@Override
-							public MemberDto mapRow(ResultSet arg0, int arg1) throws SQLException {
-								// TODO Auto-generated method stub
-								MemberDto member = new MemberDto();
-								member.setId(arg0.getString("id"));
-								member.setPasswd(arg0.getString("passwd"));
-								member.setName(arg0.getString("name"));
-								member.setReg_date(arg0.getDate("reg_date"));
+						if(concern == null){
+							System.out.println("해당 아이디가 존재하지 않습니다.");
+						}else{
+							session.delete("deleteconcernById", concern);
+							//session.commit(); // 방법 1. 지금까지 작업한 내용 DB에 반영해줌!!
+							System.out.println("삭제 완료");
+						}
+							break;
+						case 7:
+							System.out.printf("정말로 삭제하시겠습니까? 1. Yes	2. No");
+							int YN = input.nextInt();
+							input.nextLine();
+							
+							if(YN == 1 ){
+								session.delete("deleteAllconcern");
+								//session.commit(); // 방법 1. 지금까지 작업한 내용 DB에 반영해줌!!
+
+								System.out.println("삭제 완료");
 								
-								System.out.printf("id:%s, passwd:%s, name:%s, data:%s \n",
-															 member.getId(), member.getPasswd(),
-															 member.getName(), member.getReg_date());
-								return member;
-							}});
-			
-			return memberDto;
-		}
-
-		@Override
-		public int updateMember(MemberDto memberDto) {
-			// TODO Auto-generated method stub
-			String sql = "update spring_member set passwd=?, name=? where id=?";
-			
-			return jdbcTemplate.update(sql, 
-					new Object[]{memberDto.getPasswd(), 
-										  memberDto.getName(),
-										  memberDto.getId()});
-			
-		}
-
-		@Override
-		public int deleteMember(String id) {
-			// TODO Auto-generated method stub
-			String sql = "delete from spring_member where id=?";
-			return jdbcTemplate.update(sql, new Object[]{id});
-		}
-*/
-		
-
-
+							}else if(YN == 2){
+								System.out.println("전체 사용자 삭제 취소");
+							}else{
+								System.out.println("대소문자 관계없이 y 또는 n을 입력해주세요.");
+							}
+							break;
+						default:
+							System.out.println("선택 메뉴를 확인하세요.");
+							break;*/
+					
+					}
+				}
+			}
 }
