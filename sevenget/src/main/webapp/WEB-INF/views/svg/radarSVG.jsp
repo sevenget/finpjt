@@ -7,36 +7,36 @@
 <title>Insert title here</title>
 </head>
 <body>
-<style>
-	.axis {
-		stroke: #555;
-		stroke-width: .2;
-	}
-	
-	.scale {
-		fill: grey;
-		stroke: grey;
-		stroke-width: .2;
-	}
-	
-	.shape {
-		fill-opacity: .6;
-		stroke-width: .5;
-	}
-	
-	.shape:hover {
-		fill-opacity: .9;
-	}
-	
-	.shape.company {
-		fill: #add72e;
-		stroke: #edc951;
-	}
-	
-	.shape.user {
-		fill: #c3bcd2;
-		stroke: #654ea3;
-	}
+	<style>
+.axis {
+	stroke: #555;
+	stroke-width: .2;
+}
+
+.scale {
+	fill: grey;
+	stroke: grey;
+	stroke-width: .2;
+}
+
+.shape {
+	fill-opacity: .6;
+	stroke-width: .5;
+}
+
+.shape:hover {
+	fill-opacity: .9;
+}
+
+.shape.company {
+	fill: #add72e;
+	stroke: #edc951;
+}
+
+.shape.user {
+	fill: #c3bcd2;
+	stroke: #654ea3;
+}
 </style>
 
 	<svg xmlns:dc="http://purl.org/dc/elements/1.1/"

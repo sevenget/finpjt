@@ -1,10 +1,54 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="com.sevenget.makeplot.MakingPlot" contentType="text/html;charset=UTF-8"%>
 <%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> --%>
 <!DOCTYPE html>
 <html>
 <head>
 <script type='text/javascript' src='../resources/js/jquery.js'></script>
+<script>
+function fLoadData()
+{
+	$.ajax({
+		//type: "POST",
+		url: "loadContent",
+		data: "",
+		success: function(resultText)
+		{
+			$('#loadData').html(resultText);
+		},
+		error: function() {
+			alert("호출 실패");
+		}
+	});
+}
+
+
+$(document).ready(function($)
+{
+	<% MakingPlot mp = new MakingPlot();%>
+	$('#viewLoading').hide();
+
+	$('#viewLoading')
+	.ajaxStart(function()
+	{
+		$('#viewLoading').css('position', 'absolute');
+		$('#viewLoading').css('left', $('#loadData').offset().left);
+		$('#viewLoading').css('top', $('#loadData').offset().top);
+		$('#viewLoading').css('width', $('#loadData').css('width'));
+		$('#viewLoading').css('height', $('#loadData').css('height'));
+
+		$(this).show();
+		//$(this).fadeIn(500);
+	})
+/* 	.ajaxStop(function()
+	{
+		$(this).hide();
+		$(this).fadeOut(500);
+	}); */
+});
+		
+</script>
 <style>
 /* 로딩 이미지의 위치와 투명도 조절 */
 	div#viewLoading {
@@ -17,15 +61,9 @@
 </style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css"
-	href="../resources/css/session.css " media="all" flush="false">
-<link rel="stylesheet" type="text/css"
-	href="../resources/css/loading.css " media="all" flush="false">
-<link rel="stylesheet" type="text/css" href="../resources/css/aaa.css "
-	media="all" flush="false">
+<link rel="stylesheet" type="text/css" href="../resources/css/session.css " media="all" flush="false">
+<link rel="stylesheet" type="text/css" href="../resources/css/loading.css " media="all" flush="false">
 <script src='https://code.jquery.com/jquery-3.0.0.min.js'></script>
-<script src="../resources/js/boardlist.js"></script>
-
 </head>
 <body>
 
@@ -47,20 +85,16 @@
 				<a href="mypage2">7포,리뷰페이지 이동</a> <br /> 
 				<a href="main">메인페이지 이동</a>
 
-				<br /> <br /> <br /> <br />
 				
-				<img src="../resources/img/plots/radarchart.png" />
+				<!-- <img src="../resources/img/plots/radarchart.png" /> -->
 
-				<div class="loading-container">
+				<!-- <div class="loading-container">
 					<div class="loading"></div>
 					<div id="loading-text">loading</div>
-				</div>
+				</div> -->
 				
 				
-				<%@include file="/WEB-INF/views/svg/radarSVG.jsp"%>
-
-
-
+				<%-- <%@include file="/WEB-INF/views/svg/radarSVG.jsp"%> --%>
 
 
 
@@ -69,14 +103,14 @@
 
 	<div style="margin-top:20px;">
 		구구단 1단<br />
-		<input type="button" value="호출" onClick="fLoadData()" style="cursor:pointer" />
+		<input type="button" value="호출" onClick="fLoadData()"  />
 	</div>
 
-<!-- 	<div id="loadData" style="width:500px; height: 200px; margin-top:20px; border:1px solid #CCCCCC; background:#EFEFEF;"></div>
+	<div id="loadData" style="width:500px; height: 200px; margin-top:20px; border:1px solid #CCCCCC; background:#EFEFEF;"></div>
 
 	<div id="viewLoading">
 		<img src="../resources/img/viewLoading.gif" />
-	</div> -->
+	</div> 
 	
 	
 	
