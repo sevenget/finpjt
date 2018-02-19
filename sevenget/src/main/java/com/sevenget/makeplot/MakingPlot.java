@@ -1,5 +1,6 @@
 package com.sevenget.makeplot;
 
+// 실행 전 Rserve.R 반드시 실행시키기
 import org.rosuda.REngine.REXP;
 import org.rosuda.REngine.REXPMismatchException;
 import org.rosuda.REngine.REngineException;
