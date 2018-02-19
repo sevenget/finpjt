@@ -5,7 +5,7 @@
 <configuration>
 	<properties resource="db.properties" />
 	<typeAliases>
-		<typeAlias type="dbtest.TestVO" alias="test"></typeAlias>
+		<typeAlias type="model.search.KeywordVO" alias="keyword"></typeAlias>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -19,6 +19,6 @@
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="dbtest/TestMapper.xml" />
+		<mapper resource="mappings/KeywordMapper.xml"/>
 	</mappers>
 </configuration>

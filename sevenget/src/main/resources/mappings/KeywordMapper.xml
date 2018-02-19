@@ -2,19 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="TestDAO">
+<mapper namespace="KeywordDAO">
 
-	<select id="getOneTest" parameterType="int" resultType="test">
+	<select id="getOneTest" parameterType="int" resultType="keyword">
 		SELECT *
 		FROM test
 		WHERE id = #{id}
 	</select>
 
-	<select id="getAll" resultType="test">
+	<select id="getAll" resultType="keyword">
 		SELECT * FROM test
 	</select>
 
-	<insert id="insertTest">
-		INSERT INTO test VALUES(#{id},#{name})
+	<insert id="insertKeyword">
+		INSERT INTO keywords VALUES(#{keyword},#{searchedNum})
 	</insert>
 </mapper>

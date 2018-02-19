@@ -5,30 +5,36 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="../resources/css/session.css " media="all" flush="false">
+<link rel="stylesheet" type="text/css" href="../resources/css/session.css"
+	media="all">
 <link rel="stylesheet" type="text/css" href="../resources/css/RightPage.css"
 	media="all">
 <!-- 이거 css명 작업하시는 css 파일명으로 바꾸세요 안 그럼 저랑 꼬여요..!  -->
 <script src='https://code.jquery.com/jquery-3.0.0.min.js'></script>
+<script src="http://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
+
+<script>
+
+		
+</script>
 
 </head>
 <body>
 
 
 	<div id="head">
-		<%@ include file="/WEB-INF/views/include/header.jsp" %>
+		<jsp:include page="../include/header.jsp" flush="false" />
 	</div>
 
 	<div id="all">
-		<div id=contect">
+		<div id="contect">
 
 			<!-- 여기 안에다 작업하시면 돼요 -->
 			<div class="container2">
 
 
 				<div class="left">
-					<%@ include file="/WEB-INF/views/include/portside.jsp" %>
-				
+					<jsp:include page="../include/portside.jsp" flush="false" />
 				</div>
 
 				<div class="right">
@@ -65,64 +71,20 @@
 						</div>
 						<div style="margin-top: 130px; clear: both">
 
-							<h4 style="padding-left: 50px">관심 기업 리스트</h4>
+							<h4 style="padding-left: 400px">관심 기업 리스트</h4>
 							<hr id="line4" width="840px" color="#aaa" size="1" class="hr"
 								style="margin-left: 30px">
 						</div>
 						<!-- 관심 기업 리스트 표 -->
-						<div style="clear: both;">
-						<table style="border:1px solid red ; float:left; margin-left:50px;">
-							<tr>
-								<td style="width: 220px; height: 150px;" >
-									aaa
-								</td>
-							</tr>
-						</table>
-						
-						<table style="border:1px solid red; float:left; margin-left:50px;">
-							<tr >
-								<td style="width: 220px; height: 150px;">
-								
-								</td>
-							</tr>
-						</table>
-						
-						<table style="border:1px solid red; float:left; margin-left:50px;">
-							<tr >
-								<td style="width: 220px; height: 150px;">
-								
-								</td>
-							</tr>
-						</table>
-						
+
+						<div id=btnHolder1 style="clear: both; margin-top: 150px; margin-left: 50px;">
+							<button id='btnPrev'>&lt;</button>
 						</div>
-						
-						<!-- 2번째 줄 -->
-						<div style="clear: both; margin-top: 10px;">
-						<table style="border:1px solid red ; float:left; margin-left:50px;">
-							<tr>
-								<td style="width: 220px; height: 150px;" >
-									
-								</td>
-							</tr>
-						</table>
-						
-						<table style="border:1px solid red; float:left; margin-left:50px;">
-							<tr >
-								<td style="width: 220px; height: 150px;">
-								
-								</td>
-							</tr>
-						</table>
-						
-						<table style="border:1px solid red; float:left; margin-left:50px;">
-							<tr >
-								<td style="width: 220px; height: 150px;">
-								
-								</td>
-							</tr>
-						</table>
-						
+						<div id="interComp" style="float: left;">
+							<jsp:include page="../include/interComp.jsp" />
+						</div>
+						<div id=btnHolder2 style="margin-left:10px;">
+							<button id='btnNext'>&gt;</button>
 						</div>
 
 					</div> <!--rightTop  -->
