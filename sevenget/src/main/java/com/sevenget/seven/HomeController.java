@@ -2,6 +2,8 @@ package com.sevenget.seven;
 
 import java.util.Locale;
 
+import org.rosuda.REngine.REXPMismatchException;
+import org.rosuda.REngine.REngineException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.sevenget.makeplot.MakingPlot;
 
 import model.search.KeywordDAO;
 import model.search.KeywordVO;
@@ -101,7 +105,15 @@ public class HomeController {
 	//loading
 	@RequestMapping(value = "/main/loading", method = RequestMethod.GET)
 	public String MPlot(Locale locale, Model model) {
-		
+		MakingPlot mplot = new MakingPlot();
+		try {
+			System.out.println("RRRRRRRRRRRRRRRRRRRRRRR");
+			mplot.mPlot();
+			System.out.println("NNNNNNNNNNNNNNNNNNNNN");
+		} catch (REXPMismatchException | REngineException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return "main/loading";
 	}
 	

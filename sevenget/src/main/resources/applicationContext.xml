@@ -14,8 +14,8 @@
 		<!-- <property name="number" value="1" /> -->
 	</bean>
 	
-	<bean id="makingPlot" class="com.sevenget.makeplot.MakingPlot">
+	<!-- <bean id="makingPlot" class="com.sevenget.makeplot.MakingPlot">
 	
-	</bean>
+	</bean> -->
 	
 </beans>
