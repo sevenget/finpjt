@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import model.search.KeywordDAO;
-import model.search.KeywordVO;
+import model.search.KeywordDTO;
 
 @Controller
 public class SearchController {
@@ -22,7 +22,7 @@ public class SearchController {
 		
 		@RequestMapping(value = "/main/main", method = RequestMethod.POST)
 		public String mainSearched(String keyword, KeywordDAO dao) {
-			KeywordVO vo = new KeywordVO();
+			KeywordDTO vo = new KeywordDTO();
 			vo.setKeyword(keyword);
 			dao.insertKeyword(vo);
 			System.out.println("저장되었습니다");

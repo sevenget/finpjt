@@ -37,6 +37,22 @@
 	function check() {
 		var forms = document.getElementById("form_1");
 		
+		if (forms.userId.value == "" || forms.userId.value.length <= 3) {
+			alert('아이디는 4글자 이상 입력해주세요.');
+			forms.userId.focus();
+			return false;
+		}
+
+		if (forms.pw.value == "" || forms.pw.value.length <= 7) {
+			alert('비밀번호는 8글자 이상 입력해주세요.');
+			forms.pw.focus();
+			return false;
+		} else if (forms.pw.value != forms.pwc.value) {
+			alert('비밀번호를 다시 확인하세요.');
+			forms.pwc.focus();
+			return false;
+		}
+		
 		if (forms.name.value == "" || forms.name.value.length <= 1) {
 			alert('이름을 제대로 입력하세요.');
 			forms.name.focus();
@@ -67,21 +83,7 @@
 			return false;
 		}
 		
-		if (forms.userId.value == "" || forms.userId.value.length <= 5) {
-			alert('아이디는 6글자 이상 입력해주세요.');
-			forms.userId.focus();
-			return false;
-		}
-
-		if (forms.pw.value == "" || forms.pw.value.length <= 7) {
-			alert('비밀번호는 8글자 이상 입력해주세요.');
-			forms.pw.focus();
-			return false;
-		} else if (forms.pw.value != forms.pwc.value) {
-			alert('비밀번호를 다시 확인하세요.');
-			forms.pwc.focus();
-			return false;
-		}
+		
 
 		var rank1 = $("#rank1").find("img").attr("id");
 		var rank2 = $("#rank2").find("img").attr("id");
@@ -91,14 +93,38 @@
 		var rank6 = $("#rank6").find("img").attr("id");
 		var rank7 = $("#rank7").find("img").attr("id");
 		
+		$("#ranking1").val(rank1);
+		$("#ranking2").val(rank2);
+		$("#ranking3").val(rank3);
+		$("#ranking4").val(rank4);
+		$("#ranking5").val(rank5);
+		$("#ranking6").val(rank6);
+		$("#ranking7").val(rank7);
+		
 		/* alert("rank1 = "+rank1+"\nrank2 = "+rank2+"\nrank3 = "+rank3+"\nrank4 = "+rank4+"\nrank5 = "+rank5+"\nrank6 = "+rank6+"\nrank7 = "+rank7); */
 
+		alert("rank1 = "+$("#ranking1").val()+"\nrank2 = "+$("#ranking2").val()+"\nrank3 = "+$("#ranking3").val()+"\nrank4 = "+$("#ranking4").val()+"\nrank5 = "+$("#ranking5").val()+"\nrank6 = "+$("#ranking6").val()+"\nrank7 = "+$("#ranking7").val());
 		if(rank1 == null || rank2 == null || rank3 == null || rank4 == null || rank5 == null || rank6 == null || rank7 == null){
 			alert("7가지 중요도 선정을 해주세요.");
 			return false;
 		}
 		
 		return true;
+	}
+	
+	function checkId() {
+		var forms = document.getElementById("form_1");
+		var id = forms.userId.value;
+		var url = "./member_id_check.jsp?id=" + forms.userId.value;
+
+		if (id.length == 0) {
+			alert("아이디를 입력하세요.");
+			joinform.userId.focus();
+			return false;
+		}
+		open(url, "confirmRepetition",
+				"toolbar=no,location=no,status=no,menubar=no,"
+						+ "scrollbars=no,resizable=no,width=400,height=200");
 	}
 	
 </script>
@@ -110,7 +136,7 @@
 
 	<div id="all">
 		<div id="contect">
-	
+	<form id="form_1" name="form_1" action="" method="get" onsubmit="return check()">
 		<!-- 여기 안에다 작업하시면 돼요 -->	
 			<div class="container2">
 				<div id="regiHead">
@@ -119,24 +145,14 @@
 				<div id="regiMain1">
 					<h3 align="center">필수 기입란</h3><hr id="line1" width="500px" color="#aaa" size="1" class="hr">
 					
-				<form id="form_1" name="form_1" action="" method="get" onsubmit="return check()">
+				
 					
 					<table class="table_abs" >
 						<tr>
-							<td>이름</td>
-							<td class="input_td"><input id="name" name="name" class="table_input" type="text" placeholder="이름"></td>
-						</tr>
-						<tr>
-							<td>생년월일</td>
-							<td class="input_td"><input id="birth" name="birth" class="table_input" type="text" placeholder="생년월일(예시. 920101)" maxlength="6"></td>
-						</tr>
-						<tr>
-							<td>이메일</td>
-							<td class="input_td"><input id="mail" name="mail" class="table_input" type="email" placeholder="이메일"></td>
-						</tr>
-						<tr>
 							<td>아이디</td>
-							<td class="input_td"><input id="userId" name="userId" class="table_input" type="text" placeholder="아이디(6자 이상)"></td>
+							<td class="input_td"><input id="userId" name="userId" class="table_input" type="text" placeholder="아이디(4자 이상)"></td>
+							<td class="" ><input type="button" value="중복확인"
+													onclick="checkId(this.form)"></td>
 						</tr>
 						<tr>
 							<td>비밀번호</td>
@@ -146,6 +162,24 @@
 							<td>비밀번호 확인</td>
 							<td class="input_td"><input id="pwc" name="pwc" class="table_input" type="password" placeholder="비밀번호 확인"></td>
 						</tr>
+					
+						<tr>
+							<td>이름</td>
+							<td class="input_td"><input id="name" name="name" class="table_input" type="text" placeholder="이름"></td>
+						</tr>
+						<tr>
+							<td>생년월일</td>
+							<td class="input_td"><input id="birth" name="birth" class="table_input" type="text" placeholder="생년월일(예시. 920101)" maxlength="6"></td>
+						</tr>
+						<tr>
+							<td>주 소</td>
+							<td class="input_td"><input id="addr" name="addr" class="table_input" type="text" placeholder="주소 입력"></td>
+						</tr>
+						<tr>
+							<td>이메일</td>
+							<td class="input_td"><input id="mail" name="mail" class="table_input" type="email" placeholder="이메일"></td>
+						</tr>
+						
 						<tr>
 							<td colspan="2"><input id="submit" class="table_input" type="submit" value="회원가입"></td>
 						</tr>
@@ -157,23 +191,23 @@
 						</tr>
 					</table>
 					
-					</form>
+					
 					
 				</div>
 				
 				<div id="regiMain2">
 					<h3 align="center">7가지 중요도 선정(마우스로 끌어서 이동)</h3><hr id="line1" width="500px" color="#aaa" size="1" class="hr">
 					<div id="rankTable" style="position: absolute; top:31%;">
-						<form id="form_2" action="">
-							<div id="rank1" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">1순위</span></div>
-							<div id="rank2" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">2순위</span></div>
-							<div id="rank3" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">3순위</span></div>
-	
-							<div id="rank4" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">4순위</span></div>
-							<div id="rank5" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">5순위</span></div>
-							<div id="rank6" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">6순위</span></div>
-							<div id="rank7" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">7순위</span></div>
-						</form>
+						
+							<div id="rank1" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">1순위</span><input id="ranking1" name="rank1" type="hidden" value=""></div>
+							<div id="rank2" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">2순위</span><input id="ranking2" name="rank2" type="hidden" value=""></div>
+							<div id="rank3" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">3순위</span><input id="ranking3" name="rank3" type="hidden" value=""></div>
+
+							<div id="rank4" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">4순위</span><input id="ranking4" name="rank4" type="hidden" value=""></div>
+							<div id="rank5" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">5순위</span><input id="ranking5" name="rank5" type="hidden" value=""></div>
+							<div id="rank6" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">6순위</span><input id="ranking6" name="rank6" type="hidden" value=""></div>
+							<div id="rank7" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">7순위</span><input id="ranking7" name="rank7" type="hidden" value=""></div>
+						
 					</div>
 					
 					<!-- 7가지 선택사항 -->
@@ -211,6 +245,7 @@
 				
 			
 		</div>
+</form>
 	</div>
 
 

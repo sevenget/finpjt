@@ -2,13 +2,13 @@ package dbtest;
 
 import org.apache.ibatis.session.SqlSession;
 
-import model.common.SqlSessionFatoryBean;
+import model.common.SqlSessionFactoryBean;
 
 public class TestDAO {
 	private SqlSession mybatis;
 	
 	public TestDAO() {
-		mybatis = SqlSessionFatoryBean.getSqlSessionInstance();
+		mybatis = SqlSessionFactoryBean.getSqlSessionInstance();
 	}
 	
 	public void insertTest(TestVO vo) {

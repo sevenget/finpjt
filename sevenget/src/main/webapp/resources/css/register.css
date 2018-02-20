@@ -11,6 +11,7 @@
 
 .table_abs {  border:0; margin-top:40px; margin-left:auto; margin-right:auto; height:500px; }
 .table_input { height:30px; width:220px; }
+#idCheck { height:30px; width:100px; }
 .input_td { padding-left:15px; width:220px; }
 #submit { background-color:#8772bf; color: white; width:100%; height:50px; margin-top:30px; }
 #facebook { width:100%; height:50px; background-color:#3b5998; color:white; }

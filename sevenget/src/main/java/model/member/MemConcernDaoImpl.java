@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import org.apache.ibatis.session.SqlSession;
 
-import model.common.SqlSessionFatoryBean;
+import model.common.SqlSessionFactoryBean;
 
 
 public class MemConcernDaoImpl implements MemConcernDao{
@@ -13,7 +13,7 @@ public class MemConcernDaoImpl implements MemConcernDao{
 		
 		static {
 			try {
-				session = SqlSessionFatoryBean.getSqlSessionInstance();//방법2. 오토커밋이 안되는 걸 이렇게 해결!
+				session = SqlSessionFactoryBean.getSqlSessionInstance();//방법2. 오토커밋이 안되는 걸 이렇게 해결!
 				System.out.println(4);
 				
 			} catch (Exception e) {

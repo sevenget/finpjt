@@ -6,11 +6,13 @@ import model.common.*;
 public class KeywordDAO {
 	private SqlSession mybatis;
 	
-	KeywordDAO(){
-		mybatis = SqlSessionFatoryBean.getSqlSessionInstance();
+	public KeywordDAO(){
+		mybatis = SqlSessionFactoryBean.getSqlSessionInstance();
 	}
-	public void insertKeyword(KeywordVO vo){
+	public void insertKeyword(KeywordDTO vo){
 		mybatis.insert("KeywordDAO.insertKeyword", vo);
 		mybatis.commit();
 	}
+	
+
 }

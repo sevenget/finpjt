@@ -5,7 +5,8 @@
 <configuration>
 	<properties resource="db.properties" />
 	<typeAliases>
-		<typeAlias type="model.search.KeywordVO" alias="keyword"></typeAlias>
+		<typeAlias type="model.search.KeywordDTO" alias="keyword"></typeAlias>
+		<typeAlias type="model.company.CompanyBasicDTO" alias="companybasic"></typeAlias>
 		<typeAlias type="com.sevenget.MemConcernDTO.MemConcernDto" alias="keyword2"></typeAlias>
 	</typeAliases>
 	<environments default="development">
@@ -22,5 +23,6 @@
 	<mappers>
 		<mapper resource="mappings/KeywordMapper.xml"/>
 		<mapper resource="mappings/MemConcernMapper.xml"/>
+		<mapper resource="mappings/CompanyBasicMapper.xml"/>
 	</mappers>
 </configuration>
