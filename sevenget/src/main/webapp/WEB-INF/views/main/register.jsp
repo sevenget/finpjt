@@ -162,7 +162,7 @@
 				</div>
 				
 				<div id="regiMain2">
-					<h3 align="center">7가지 중요도 선정(부가 기입란)</h3><hr id="line1" width="500px" color="#aaa" size="1" class="hr">
+					<h3 align="center">7가지 중요도 선정(마우스로 끌어서 이동)</h3><hr id="line1" width="500px" color="#aaa" size="1" class="hr">
 					<div id="rankTable" style="position: absolute; top:31%;">
 						<form id="form_2" action="">
 							<div id="rank1" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">1순위</span></div>
