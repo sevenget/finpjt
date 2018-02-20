@@ -103,31 +103,31 @@
 					
 					<div id="choose" style="position: absolute; top:65%;">
 						<div class="box" id="box1" ondrop="drop(event,this)" ondragover="allowDrop(event)">
-							<img alt="logo" id="logo1" class="logo" src="../resources/img/job.jpg" draggable="true" ondragstart="drag(event)">
+							<img id="logo1" class="logo" src="../resources/img/job.jpg" draggable="true" ondragstart="drag(event)">
 						</div>
 
 						<div class="box" id="box2" ondrop="drop(event,this)" ondragover="allowDrop(event)">
-							<img alt="logo" id="logo2" class="logo" src="../resources/img/love.jpg" draggable="true" ondragstart="drag(event)">
+							<img id="logo2" class="logo" src="../resources/img/love.jpg" draggable="true" ondragstart="drag(event)">
 						</div>
 
 						<div class="box" id="box3" ondrop="drop(event,this)" ondragover="allowDrop(event)">
-							<img alt="logo" id="logo3" class="logo" src="../resources/img/home.jpg" draggable="true" ondragstart="drag(event)">
+							<img id="logo3" class="logo" src="../resources/img/home.jpg" draggable="true" ondragstart="drag(event)">
 						</div>
 
 						<div class="box" id="box4" ondrop="drop(event,this)" ondragover="allowDrop(event)">
-							<img alt="logo" id="logo4" class="logo" src="../resources/img/dream.jpg" draggable="true" ondragstart="drag(event)">
+							<img id="logo4" class="logo" src="../resources/img/dream.jpg" draggable="true" ondragstart="drag(event)">
 						</div>
 
 						<div class="box" id="box5" ondrop="drop(event,this)" ondragover="allowDrop(event)">
-							<img alt="logo" id="logo5" class="logo" src="../resources/img/human.jpg" draggable="true" ondragstart="drag(event)">
+							<img id="logo5" class="logo" src="../resources/img/human.jpg" draggable="true" ondragstart="drag(event)">
 						</div>
 
 						<div class="box" id="box6" ondrop="drop(event,this)" ondragover="allowDrop(event)">
-							<img alt="logo" id="logo6" class="logo" src="../resources/img/child.jpg" draggable="true" ondragstart="drag(event)">
+							<img id="logo6" class="logo" src="../resources/img/child.jpg" draggable="true" ondragstart="drag(event)">
 						</div>
 
 						<div class="box" id="box7" ondrop="drop(event,this)" ondragover="allowDrop(event)">
-							<img alt="logo" id="logo7" class="logo" src="../resources/img/marry.jpg" draggable="true" ondragstart="drag(event)">
+							<img id="logo7" class="logo" src="../resources/img/marry.jpg" draggable="true" ondragstart="drag(event)">
 						</div>
 					</div>
 				</div>
