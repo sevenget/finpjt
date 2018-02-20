@@ -1,21 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
-	
-	<!--	@Required, @Autowired, @Configuration, JSR_250(@PostConstruct 등) 어노테이션을 사용하기 위한 태그 추가. -->
-	<context:annotation-config /><!--	@Required 어노테이션을 달아둔 것과 같이 보기  -->
-	
-	
-	<bean id="memConcern" class="com.sevenget.MemConcernDTO">
-		<!-- <property name="number" value="1" /> -->
-	</bean>
-	
-	<!-- <bean id="makingPlot" class="com.sevenget.makeplot.MakingPlot">
-	
-	</bean> -->
-	
+
+
+
 </beans>

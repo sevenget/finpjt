@@ -7,7 +7,8 @@
 	<typeAliases>
 		<typeAlias type="model.search.KeywordDTO" alias="keyword"></typeAlias>
 		<typeAlias type="model.company.CompanyBasicDTO" alias="companybasic"></typeAlias>
-		<typeAlias type="com.sevenget.MemConcernDTO.MemConcernDto" alias="keyword2"></typeAlias>
+		<typeAlias type="model.member.MemConcernDto" alias="keyword2"></typeAlias>
+		<typeAlias type="model.plots.PlotsDto" alias="plts"></typeAlias>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -24,5 +25,6 @@
 		<mapper resource="mappings/KeywordMapper.xml"/>
 		<mapper resource="mappings/MemConcernMapper.xml"/>
 		<mapper resource="mappings/CompanyBasicMapper.xml"/>
+		<mapper resource="mappings/PlotsMapper.xml"/>
 	</mappers>
 </configuration>

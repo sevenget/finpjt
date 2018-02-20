@@ -2,23 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="PlotsDAO">
-	<resultMap type="keywordplts" id="PlotsMap">
-		<result column="id" property="id" />
-		<result column="dateCon" property="dateCon" />
-		<result column="marryCon" property="marryCon" />
-		<result column="babyCon" property="babyCon" />
-		<result column="houseCon" property="houseCon" />
-		<result column="relationCon" property="relationCon" />
-		<result column="dreamCon" property="dreamCon" />
-		<result column="hopeCon" property="hopeCon" />
+<mapper namespace="PlotsDao">
+<!-- 	<resultMap type="keywordplts" id="PlotsMap">
+		<result column="memid" property="memid" />
+		<result column="plotpng" property="plotpng" />
+		<result column="savedTime" property="savedTime" />
 	</resultMap>
-
-	<select id="getAll" resultType="keywordplts">
+ -->
+	<select id="getAll" resultType="plts">
 		SELECT * FROM plots
 	</select>
 
-	<select id="getById" parameterType="String" resultType="keywordplts">
+	<select id="getById" parameterType="String" resultType="plts">
 		SELECT *
 		FROM plots
 		WHERE memid = #{memid}
@@ -29,4 +24,9 @@
 		INSERT INTO plots
 		VALUES(#{memid},#{plotpng})
 	</insert>
+	
+	<update id="updatePlts">
+		UPDATE plots
+		SET plotpng = #{plotpng} WHERE memid = #{memid}
+	</update>
 </mapper>
