@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="PlotsDao">
-<!-- 	<resultMap type="keywordplts" id="PlotsMap">
+<mapper namespace="model.PlotsDao">
+ 	<resultMap type="model.PlotsDto" id="PlotsMap">
 		<result column="memid" property="memid" />
 		<result column="plotpng" property="plotpng" />
 		<result column="savedTime" property="savedTime" />
 	</resultMap>
- -->
+
 	<select id="getAll" resultType="plts">
 		SELECT * FROM plots
 	</select>
