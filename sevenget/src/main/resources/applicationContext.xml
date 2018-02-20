@@ -10,8 +10,12 @@
 	<context:annotation-config /><!--	@Required 어노테이션을 달아둔 것과 같이 보기  -->
 	
 	
-	<bean id="memConcern" class="com.sevenget.makeplot">
+	<bean id="memConcern" class="com.sevenget.MemConcernDTO">
 		<!-- <property name="number" value="1" /> -->
 	</bean>
-
+	
+	<bean id="makingPlot" class="com.sevenget.makeplot.MakingPlot">
+	
+	</bean>
+	
 </beans>

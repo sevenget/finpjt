@@ -10,7 +10,7 @@ import org.rosuda.REngine.Rserve.RserveException;
 
 public class MakingPlot {
 	
-	public static void main(String[] args) throws REXPMismatchException, REngineException {
+	public void mPlot() throws REXPMismatchException, REngineException {
 
 		RConnection connection = null;
 		connection = new RConnection();

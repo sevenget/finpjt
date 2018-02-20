@@ -16,7 +16,7 @@ public class SearchController {
 		@RequestMapping(value = "/main/main", method = RequestMethod.GET)
 		public String main(Locale locale, Model model) {
 			
-			
+			System.out.println(1);
 			return "main/main";
 		}
 		

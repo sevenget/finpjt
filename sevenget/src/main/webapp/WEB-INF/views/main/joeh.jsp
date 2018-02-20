@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page import="com.sevenget.makeplot.MakingPlot" contentType="text/html;charset=UTF-8"%>
 <%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> --%>
 <!DOCTYPE html>
 <html>
@@ -11,7 +10,7 @@ function fLoadData()
 {
 	$.ajax({
 		//type: "POST",
-		url: "loadContent",
+		url: "loading",//loadContent
 		data: "",
 		success: function(resultText)
 		{
@@ -26,7 +25,6 @@ function fLoadData()
 
 $(document).ready(function($)
 {
-	<% MakingPlot mp = new MakingPlot();%>
 	$('#viewLoading').hide();
 
 	$('#viewLoading')
@@ -49,6 +47,7 @@ $(document).ready(function($)
 });
 		
 </script>
+
 <style>
 /* 로딩 이미지의 위치와 투명도 조절 */
 	div#viewLoading {

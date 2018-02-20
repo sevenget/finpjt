@@ -4,6 +4,7 @@ import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,9 @@ import model.search.KeywordVO;
 
 @Controller
 public class HomeController {
+	
+	/*@Autowired
+	private MakingPlot mPlot;*/
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -94,12 +98,16 @@ public class HomeController {
 		return mav;
 	}*/
 	
-		//loading
-	@RequestMapping(value = "/main/loadContent", method = RequestMethod.GET)
+	//loading
+	@RequestMapping(value = "/main/loading", method = RequestMethod.GET)
 	public String MPlot(Locale locale, Model model) {
-		ModelAndView mav = new ModelAndView();
 		
-		mav.addObject("a");
+		return "main/loading";
+	}
+	
+	//loadContent
+	@RequestMapping(value = "/main/loadContent", method = RequestMethod.GET)
+	public String LContent(Locale locale, Model model) {
 		
 		return "main/loadContent";
 	}
