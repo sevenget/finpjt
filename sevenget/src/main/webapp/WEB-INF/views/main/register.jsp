@@ -39,12 +39,24 @@
 		
 		if (forms.name.value == "" || forms.name.value.length <= 1) {
 			alert('이름을 제대로 입력하세요.');
-			forms.id.focus();
+			forms.name.focus();
+			return false;
+		}
+		if (!isNaN(Number(forms.name.value))) {
+			alert('이름에 숫자를입력할 수 없습니다.')
+			forms.name.value = "";
+			forms.name.focus();
 			return false;
 		}
 		
 		if (forms.birth.value == "" || forms.birth.value.length != 6 ) {
 			alert('생년월일을 제대로 입력하세요.');
+			forms.birth.focus();
+			return false;
+		}
+		if (isNaN(Number(forms.birth.value))) {
+			alert('생년월일에 문자를 입력할 수 없습니다.')
+			forms.birth.value = "";
 			forms.birth.focus();
 			return false;
 		}
