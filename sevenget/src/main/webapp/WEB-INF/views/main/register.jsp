@@ -51,27 +51,27 @@
 					<table class="table_abs" >
 						<tr>
 							<td>이름</td>
-							<td class="input_td"><input class="table_input" type="text" placeholder="이름"></td>
+							<td class="input_td"><input id="name" class="table_input" type="text" placeholder="이름"></td>
 						</tr>
 						<tr>
 							<td>생년월일</td>
-							<td class="input_td"><input class="table_input" type="text" placeholder="생년월일(예시. 920101)" maxlength="6"></td>
+							<td class="input_td"><input id="birth" class="table_input" type="text" placeholder="생년월일(예시. 920101)" maxlength="6"></td>
 						</tr>
 						<tr>
 							<td>이메일</td>
-							<td class="input_td"><input class="table_input" type="email" placeholder="이메일"></td>
+							<td class="input_td"><input id="mail" class="table_input" type="email" placeholder="이메일"></td>
 						</tr>
 						<tr>
 							<td>아이디</td>
-							<td class="input_td"><input class="table_input" type="text" placeholder="아이디(6자 이상)"></td>
+							<td class="input_td"><input id="id" class="table_input" type="text" placeholder="아이디(6자 이상)"></td>
 						</tr>
 						<tr>
 							<td>비밀번호</td>
-							<td class="input_td"><input class="table_input" type="password" placeholder="비밀번호(8자 이상)"></td>
+							<td class="input_td"><input id="pw" class="table_input" type="password" placeholder="비밀번호(8자 이상)"></td>
 						</tr>
 						<tr>
 							<td>비밀번호 확인</td>
-							<td class="input_td"><input class="table_input" type="password" placeholder="비밀번호 확인"></td>
+							<td class="input_td"><input id="pwc" class="table_input" type="password" placeholder="비밀번호 확인"></td>
 						</tr>
 						<tr>
 							<td colspan="2"><input id="submit" class="table_input" type="submit" value="회원가입"></td>
