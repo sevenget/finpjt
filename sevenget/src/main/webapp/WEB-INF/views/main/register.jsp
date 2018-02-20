@@ -12,6 +12,8 @@
 <body>
 
 <script type="text/javascript">
+	/* 이미지 드래그 앤 드랍 */
+
 	function allowDrop(ev){
 		ev.preventDefault();
 	}
@@ -28,8 +30,65 @@
 		}else{
 			alert("겹쳐지기X");
 		}
-
 	}
+	/* --------------------------------------------------------------------------- */
+	
+	/* 회원가입 유효성 검사 */
+	function check() {
+		var forms = document.getElementById("form_1");
+		
+		if (forms.name.value == "" || forms.name.value.length <= 1) {
+			alert('이름을 제대로 입력하세요.');
+			forms.id.focus();
+			return false;
+		}
+		
+		if (forms.birth.value == "" || forms.birth.value.length != 6 ) {
+			alert('생년월일을 제대로 입력하세요.');
+			forms.birth.focus();
+			return false;
+		}
+		
+		if (forms.mail.value == "" || forms.mail.value.length <= 1) {
+			alert('이메일 주소를 확인해주세요.');
+			forms.mail.focus();
+			return false;
+		}
+		
+		if (forms.userId.value == "" || forms.userId.value.length <= 5) {
+			alert('아이디는 6글자 이상 입력해주세요.');
+			forms.userId.focus();
+			return false;
+		}
+
+		if (forms.pw.value == "" || forms.pw.value.length <= 7) {
+			alert('비밀번호는 8글자 이상 입력해주세요.');
+			forms.pw.focus();
+			return false;
+		} else if (forms.pw.value != forms.pwc.value) {
+			alert('비밀번호를 다시 확인하세요.');
+			forms.pwc.focus();
+			return false;
+		}
+
+		var rank1 = $("#rank1").find("img").attr("id");
+		var rank2 = $("#rank2").find("img").attr("id");
+		var rank3 = $("#rank3").find("img").attr("id");
+		var rank4 = $("#rank4").find("img").attr("id");
+		var rank5 = $("#rank5").find("img").attr("id");
+		var rank6 = $("#rank6").find("img").attr("id");
+		var rank7 = $("#rank7").find("img").attr("id");
+		
+		/* alert("rank1 = "+rank1+"\nrank2 = "+rank2+"\nrank3 = "+rank3+"\nrank4 = "+rank4+"\nrank5 = "+rank5+"\nrank6 = "+rank6+"\nrank7 = "+rank7); */
+
+		if(rank1 == null || rank2 == null || rank3 == null || rank4 == null || rank5 == null || rank6 == null || rank7 == null){
+			alert("7가지 중요도 선정을 해주세요.");
+			return false;
+		}
+		
+		return true;
+	}
+	
 </script>
 
 
@@ -48,7 +107,7 @@
 				<div id="regiMain1">
 					<h3 align="center">필수 기입란</h3><hr id="line1" width="500px" color="#aaa" size="1" class="hr">
 					
-				<form id="form_1" action="" method="get">
+				<form id="form_1" name="form_1" action="" method="get" onsubmit="return check()">
 					
 					<table class="table_abs" >
 						<tr>
@@ -93,14 +152,16 @@
 				<div id="regiMain2">
 					<h3 align="center">7가지 중요도 선정(부가 기입란)</h3><hr id="line1" width="500px" color="#aaa" size="1" class="hr">
 					<div id="rankTable" style="position: absolute; top:31%;">
-						<div id="rank1" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">1순위</span></div>
-						<div id="rank2" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">2순위</span></div>
-						<div id="rank3" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">3순위</span></div>
-
-						<div id="rank4" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">4순위</span></div>
-						<div id="rank5" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">5순위</span></div>
-						<div id="rank6" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">6순위</span></div>
-						<div id="rank7" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">7순위</span></div>
+						<form id="form_2" action="">
+							<div id="rank1" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">1순위</span></div>
+							<div id="rank2" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">2순위</span></div>
+							<div id="rank3" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">3순위</span></div>
+	
+							<div id="rank4" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">4순위</span></div>
+							<div id="rank5" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">5순위</span></div>
+							<div id="rank6" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">6순위</span></div>
+							<div id="rank7" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">7순위</span></div>
+						</form>
 					</div>
 					
 					<!-- 7가지 선택사항 -->
