@@ -1,6 +1,6 @@
 package model.search;
 
-public class KeywordVO {
+public class KeywordDTO {
 	private String keyword;
 	private int searchedNum;
 

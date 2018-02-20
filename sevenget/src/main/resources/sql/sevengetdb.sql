@@ -4,7 +4,14 @@ create table memBasicInfo(
 	id   varchar2(40) constraint membasicinfo_id_pk primary key,
    	password varchar2(20) not null,
    	name varchar2(20) not null,
-   	birth date
+   	birth date,
+   	dateCon number(2),
+  	marryCon number(2),
+   	babyCon number(2),
+   	houseCon number(2),
+   	relationCon number(2),
+   	dreamCon number(2),
+   	hopeCon number(2)
 );
 
 -- 회원 속성
@@ -15,23 +22,13 @@ create table memDetail(
    	score number(3) constraint memdetail_score_nn  not null
 );
 
--- 회원별 중요도
-drop table memConcern purge;
-create table memConcern(
-   id varchar2(20) constraint memconcern_id_fk references memBasicInfo(id),
-   dateCon number(2),
-   marryCon number(2),
-   babyCon number(2),
-   houseCon number(2),
-   relationCon number(2),
-   dreamCon number(2),
-   hopeCon number(2)
-);
 
 -- 기업 관련 --
 drop table companybasicinfo purge;
+alter table companyBasicInfo drop constraint companybasicinfo_cid_pk cascade;
 create table companyBasicInfo(
    cid number(10) constraint companybasicinfo_cid_pk primary key,
+   clogo varchar(100),
    cname varchar(50) constraint companybasicinfo_cname_nn not null, 
    cmission varchar(200),
    sales number(20),
