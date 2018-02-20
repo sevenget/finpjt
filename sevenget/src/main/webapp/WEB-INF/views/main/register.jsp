@@ -48,6 +48,8 @@
 				<div id="regiMain1">
 					<h3 align="center">필수 기입란</h3><hr id="line1" width="500px" color="#aaa" size="1" class="hr">
 					
+				<form id="form_1" action="" method="get">
+					
 					<table class="table_abs" >
 						<tr>
 							<td>이름</td>
@@ -80,9 +82,11 @@
 							<th colspan="2"><span>또는</span></th>
 						</tr>
 						<tr>
-							<td colspan="2"><button id="facebook" class="table_input" >페이스북으로 1초만에 가입</button></td>
+							<td colspan="2"><button id="facebook" class="table_input" onclick="alert('준비중');">페이스북으로 1초만에 가입</button></td>
 						</tr>
 					</table>
+					
+					</form>
 					
 				</div>
 				
@@ -131,7 +135,8 @@
 						</div>
 					</div>
 				</div>
-
+				
+			
 		</div>
 	</div>
 
