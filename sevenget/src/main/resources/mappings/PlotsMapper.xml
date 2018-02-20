@@ -6,7 +6,7 @@
  	<resultMap type="model.PlotsDto" id="PlotsMap">
 		<result column="memid" property="memid" />
 		<result column="plotpng" property="plotpng" />
-		<result column="savedTime" property="savedTime" />
+		<result column="savedtime" property="savedtime" />
 	</resultMap>
 
 	<select id="getAll" resultType="plts">

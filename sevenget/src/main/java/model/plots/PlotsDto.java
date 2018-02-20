@@ -5,7 +5,7 @@ import java.sql.Date;
 public class PlotsDto {
 	String memid;
 	String plotpng;
-	Date savedTime;
+	Date savedtime;
 	
 	public String getMemid() {
 		return memid;
@@ -19,10 +19,10 @@ public class PlotsDto {
 	public void setPlotpng(String plotpng) {
 		this.plotpng = plotpng;
 	}
-	public Date getSavedTime() {
-		return savedTime;
+	public Date getSavedtime() {
+		return savedtime;
 	}
-	public void setSavedTime(Date savedTime) {
-		this.savedTime = savedTime;
+	public void setSavedtime(Date savedtime) {
+		this.savedtime = savedtime;
 	}
 }
