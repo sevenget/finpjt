@@ -1,4 +1,4 @@
-package com.sevenget.MemConcernDTO;
+package model.member;
 
 public class MemConcernDto {
 	String id;

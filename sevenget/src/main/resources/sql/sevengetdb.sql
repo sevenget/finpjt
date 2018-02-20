@@ -104,4 +104,4 @@ create table plots(
 );
 
 select * from plots;
-insert into plots values(memmid="111", plotpng="111.png")
+insert into plots values('mem', 'mem.png', sysdate)

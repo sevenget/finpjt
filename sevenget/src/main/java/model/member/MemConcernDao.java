@@ -1,4 +1,4 @@
-package com.sevenget.MemConcernDAO;
+package model.member;
 
 import java.util.List;
 

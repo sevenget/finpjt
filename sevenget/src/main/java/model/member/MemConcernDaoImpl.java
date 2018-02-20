@@ -1,11 +1,9 @@
-package com.sevenget.MemConcernDAO;
+package model.member;
 
 import java.util.List;
 import java.util.Scanner;
 
 import org.apache.ibatis.session.SqlSession;
-
-import com.sevenget.MemConcernDTO.MemConcernDto;
 
 import model.common.SqlSessionFatoryBean;
 

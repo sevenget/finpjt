@@ -1,4 +1,4 @@
-package com.sevenget.PlotsDTO;
+package model.plots;
 
 import java.sql.Date;
 

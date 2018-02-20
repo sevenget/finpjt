@@ -1,11 +1,9 @@
-package com.sevenget.PlotsDAO;
+package model.plots;
 /*만들어진 plot의 저장 및 수정에 대한 내용을 우선적으로 만듦*/
 import java.util.List;
 import java.util.Scanner;
 
 import org.apache.ibatis.session.SqlSession;
-
-import com.sevenget.PlotsDTO.PlotsDto;
 
 import model.common.SqlSessionFatoryBean;
 

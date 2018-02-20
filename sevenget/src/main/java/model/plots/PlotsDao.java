@@ -1,4 +1,4 @@
-package com.sevenget.PlotsDAO;
+package model.plots;
 
 import java.util.List;
 
