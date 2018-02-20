@@ -5,6 +5,9 @@ create table memBasicInfo(
    	password varchar2(20) not null,
    	name varchar2(20) not null,
    	birth date,
+   	gender varchar2(2) constraint membasicinfo_gender_ck check(gender in ('M', 'F')),
+   	address varchar2(100) not null,
+   	email varchar2(30),
    	dateCon number(2),
   	marryCon number(2),
    	babyCon number(2),
@@ -13,6 +16,8 @@ create table memBasicInfo(
    	dreamCon number(2),
    	hopeCon number(2)
 );
+
+
 
 -- 회원 속성
 drop table memDetail purge;
