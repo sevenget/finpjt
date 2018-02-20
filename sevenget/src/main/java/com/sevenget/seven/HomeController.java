@@ -107,9 +107,9 @@ public class HomeController {
 	public String MPlot(Locale locale, Model model) {
 		MakingPlot mplot = new MakingPlot();
 		try {
-			System.out.println("RRRRRRRRRRRRRRRRRRRRRRR");
+			System.out.println("R시작");
 			mplot.mPlot();
-			System.out.println("NNNNNNNNNNNNNNNNNNNNN");
+			System.out.println("R종료");
 		} catch (REXPMismatchException | REngineException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

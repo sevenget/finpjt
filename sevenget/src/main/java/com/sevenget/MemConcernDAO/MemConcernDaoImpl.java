@@ -15,12 +15,6 @@ public class MemConcernDaoImpl implements MemConcernDao{
 		
 		static {
 			try {
-				/*String resource = "mappings/MemConcernMapper.xml";
-				System.out.println(1);
-				InputStream inputStream = Resources.getResourceAsStream(resource);
-				System.out.println(2);
-				SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-				System.out.println(3);*/
 				session = SqlSessionFatoryBean.getSqlSessionInstance();//방법2. 오토커밋이 안되는 걸 이렇게 해결!
 				System.out.println(4);
 				

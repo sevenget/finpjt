@@ -1,11 +1,23 @@
 -- 회원정보 --
-drop table memBasicInfo purge;
+drop table memBasicInfo CASCADE CONSTRAINTS;
 create table memBasicInfo( 
 	id   varchar2(40) constraint membasicinfo_id_pk primary key,
    	password varchar2(20) not null,
    	name varchar2(20) not null,
-   	birth date
+   	birth date,
+   	gender varchar2(2) constraint membasicinfo_gender_ck check(gender in ('M', 'F')),
+   	address varchar2(100) not null,
+   	email varchar2(30),
+   	dateCon number(2),
+  	marryCon number(2),
+   	babyCon number(2),
+   	houseCon number(2),
+   	relationCon number(2),
+   	dreamCon number(2),
+   	hopeCon number(2)
 );
+
+
 
 -- 회원 속성
 drop table memDetail purge;
@@ -15,27 +27,18 @@ create table memDetail(
    	score number(3) constraint memdetail_score_nn  not null
 );
 
--- 회원별 중요도
-drop table memConcern purge;
-create table memConcern(
-   id varchar2(20) constraint memconcern_id_fk references memBasicInfo(id),
-   dateCon number(2),
-   marryCon number(2),
-   babyCon number(2),
-   houseCon number(2),
-   relationCon number(2),
-   dreamCon number(2),
-   hopeCon number(2)
-);
 
 -- 기업 관련 --
 drop table companybasicinfo purge;
+alter table companyBasicInfo drop constraint companybasicinfo_cid_pk cascade;
 create table companyBasicInfo(
    cid number(10) constraint companybasicinfo_cid_pk primary key,
-   cname varchar(50) constraint companybasicinfo_cname_nn not null, 
-   cmission varchar(200),
+   clogo varchar2(100),
+   cname varchar2(50) constraint companybasicinfo_cname_nn not null, 
+   cmission varchar2(1000),
    sales number(20),
-   cdiscription varchar(2000),
+   salessource varchar2(30),
+   cdiscription varchar2(2000),
    interestedTimes number(10)
 );
 
@@ -91,3 +94,14 @@ create table searched(
    keyword varchar2(500) constraint searched_keyword_fk references keywords(keyword), 
    searchMem varchar(40) constraint searched_searchMem_fk references memBasicInfo(id)
 )
+
+-- 분석 결과 plot 저장
+drop table plots purge;
+create table plots(
+   memid varchar2(40) references memBasicInfo(id),
+   plotpng varchar2(20),
+   savedTime date default sysdate
+);
+
+select * from plots;
+insert into plots values(memmid="111", plotpng="111.png")
