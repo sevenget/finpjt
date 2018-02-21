@@ -29,7 +29,7 @@
 			</div>
 		
 			<div class="membership">
-				<p>${id.id}</p><br>
+				<p>${id}</p><br>
 				<p class="font">1990/02/10</p>
 				<p class="font">쾌도대학교 졸업</p>
 			
