@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="model.PlotsDao">
+<mapper namespace="PlotsDAO">
  	<resultMap type="plts" id="PlotsMap">
 		<result column="memid" property="memid" />
 		<result column="plotpng" property="plotpng" />
@@ -13,7 +13,7 @@
 		SELECT * FROM plots
 	</select>
 
-	<select id="getById" parameterType="String" resultType="plts">
+	<select id="getById" parameterType="String"  resultMap="PlotsMap">
 		SELECT *
 		FROM plots
 		WHERE memid = #{memid}
@@ -22,7 +22,7 @@
 
 	<insert id="insertPlts">
 		INSERT INTO plots
-		VALUES(#{memid},#{plotpng})
+		VALUES(#{memid},#{plotpng},sysdate)
 	</insert>
 	
 	<update id="updatePlts">
