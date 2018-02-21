@@ -28,8 +28,8 @@
 								</td>
 								<td style="width: 220px; height:150px; border:1px solid red ; clear:both;">
 									
-									<c:forEach var="item" items="${list}">
-									<c:out value="${list.img}"></c:out>
+									<c:forEach var="item" items="${MemBasicInfoDAO}">
+									${MemBasicInfoDAO.getMemBasicInfo}
 									
 									</c:forEach>
 								</td>

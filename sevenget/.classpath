@@ -30,7 +30,5 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Program Files/R/R-3.4.3/library/Rserve/java/REngine.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/R/R-3.4.3/library/Rserve/java/Rserve.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

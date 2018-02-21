@@ -2,16 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="InterCompDAO">
+<mapper namespace="MemBasicInfoDAO">
 
-	<select id="getOneTest" parameterType="int" resultType="interComp">
+	<select id="getOneTest" parameterType="int" resultType="memBasicInfo">
 		SELECT *
 		FROM test
 		WHERE id = #{id}
 	</select>
 
-	<select id="select_list" resultType="interComp">
-		SELECT * FROM interComp
+	<select id="getMemBasicInfo" resultType="memBasicInfo">
+		<![CDATA[
+		SELECT * FROM memBasicInfo 
+		]]>
 	</select>
 
 	<insert id="insertKeyword">

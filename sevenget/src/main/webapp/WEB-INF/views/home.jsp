@@ -10,9 +10,9 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
-안녕하세요
+��
 	kkk
-호랑이
+
 	
 
 </body>
