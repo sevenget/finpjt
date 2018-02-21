@@ -72,7 +72,7 @@ $(document).ready(function($)
 
 	<div id="all">
 		<div id=contect">
-
+			${ id }
 			<!-- 여기 안에다 작업하시면 돼요 -->
 			<div class="container2">
 			

@@ -2,6 +2,8 @@ package com.sevenget.seven;
 
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
 import org.rosuda.REngine.REXPMismatchException;
 import org.rosuda.REngine.REngineException;
 import org.slf4j.Logger;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.sevenget.makeplot.MakingPlot;
 
@@ -40,10 +43,13 @@ public class HomeController {
 	
 	// 연습용 메인페이지
 	@RequestMapping(value = "/main/joeh", method = RequestMethod.GET)
-	public String mainPractice(Locale locale, Model model) {
+	public ModelAndView mainPractice(HttpSession session, Locale locale, ModelAndView mav) {
+		session.setAttribute("id", "mem");
+		String id = (String)session.getAttribute("id");
 		
-		
-		return "main/joeh";
+		mav.setViewName("main/joeh");
+		mav.addObject("id", id);
+		return mav;
 	}
 	
 	
@@ -58,8 +64,9 @@ public class HomeController {
 	
 	//로그인
 	@RequestMapping(value = "/main/login", method = RequestMethod.GET)
-	public String Login(Locale locale, Model model) {
-		
+	public String Login(HttpSession session, Locale locale, Model model) {
+		session.setAttribute("id", "mem");
+		String id = (String)session.getAttribute("id");
 		
 		return "main/login";
 	}
