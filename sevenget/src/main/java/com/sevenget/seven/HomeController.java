@@ -76,7 +76,7 @@ public class HomeController {
 	@RequestMapping(value = "/main/mypage", method = RequestMethod.GET)
 	public String Mypage(Locale locale, Model model) {
 		
-		
+		System.out.println("mypage");
 		return "main/mypage";
 	}
 	

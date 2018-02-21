@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%-- <% 
+	String k = request.getParameter("cake");
+	System.out.println(k);
+%> --%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +22,28 @@
 
 <script>
 
+	/* 디비먼저 하고나서 수정 */
+	/*  $(function(){
+		// 앞 버튼에 click 이벤트 등록
+		var page = 1;
+		$('#btnHolder1').click(function(){
+			if(page=1){
+				return;
+			}else{
+				page = page - 1
+				//ajax로 interComp 영역 업로드
+				$('#interComp').load(
+						'http://localhost:8090/vs/include/interComp?page='+page)
+			}
+			
+		})
+	}) */
+	
+	$(function(){
+		$('#btnHolder1').click(function(){
+			
+		})
+	})
 		
 </script>
 
@@ -76,14 +105,16 @@
 								style="margin-left: 30px">
 						</div>
 						<!-- 관심 기업 리스트 표 -->
-
+						
+						
+						
 						<div id=btnHolder1 style="clear: both; margin-top: 150px; margin-left: 50px;">
-							<button id='btnPrev'>&lt;</button>
+							<button id='btnPrev'  >&lt;</button>
 						</div>
 						<div id="interComp" style="float: left;">
 							<jsp:include page="../include/interComp.jsp" />
 						</div>
-						<div id=btnHolder2 style="margin-left:10px;">
+						<div id=btnHolder2 style="margin-left:10px; margin-top: 150px;">
 							<button id='btnNext'>&gt;</button>
 						</div>
 
