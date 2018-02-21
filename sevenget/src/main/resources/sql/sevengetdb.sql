@@ -39,7 +39,7 @@ create table companyBasicInfo(
    location varchar2(200),
    sales varchar2(50),
    employee number(10),
-   cmission varchar2(1000),
+   mission varchar2(1000),
    discription varchar2(2000),
    interestedTimes number(10),
    dateGet varchar2(2) constraint combasicinfo_dateget_ck check(dateGet in('T', 'F', 'N')),

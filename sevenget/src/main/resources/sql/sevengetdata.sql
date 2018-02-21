@@ -41,7 +41,8 @@ insert into companyBasicInfo values(
 	'T','F','F','T','N','N','N'
 );
 
-select * from companyBasicInfo;
+select * from companyBasicInfo where ;
+SELECT * FROM companybasicinfo WHERE cname LIKE '%카%'
 
 -- keyword
 insert into keywords values('카카오', 0);
