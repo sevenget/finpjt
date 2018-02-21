@@ -34,13 +34,16 @@ public class KeywordAndSearchDAO {
 	}
 	
 	public List selectAllKewords(KeywordDTO dto){
-		return mybatis.selectList("KeywordAndSearchDAO.sellectAllKeywords");
+		return mybatis.selectList("KeywordAndSearchDAO.selectAllKeywords");
 	}
 	
 	public List searchByKeyword(String keyword){
 		return mybatis.selectList("KeywordAndSearchDAO.searchByCname", keyword);
 	}
 	
+	public List searchAdvs(){
+		return mybatis.selectList("KeywordAndSearchDAO.selectAdvs");
+	}
 
 
 }

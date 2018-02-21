@@ -139,7 +139,6 @@ table { color:#666; }
 	
 	.companylogo img{
 		border:1px dotted grey;
-		width:100px;
 	}
 	
 	#resultHolder tr:first-child, #resultHolder tr:last-child {

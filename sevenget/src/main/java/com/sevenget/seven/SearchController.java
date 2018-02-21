@@ -19,14 +19,17 @@ import model.search.SearchDTO;
 public class SearchController {
 		// 진짜 메인페이지(로그인 후 첫화면)
 		@RequestMapping(value = "/main/main", method = RequestMethod.GET)
-		public String main(HttpSession session) {
+		public ModelAndView main(KeywordAndSearchDAO dao, HttpSession session, ModelAndView mav) {
 			session.setAttribute("id", "mem");
 			String id = (String)session.getAttribute("id");
-	
+			
+			mav.addObject("companylist", dao.searchAdvs());
+			mav.setViewName("main/main");
+			
 			if(id.equals("Guest")){
-				return "main/guestmain";
+				mav.setViewName("main/main_guest");
 			} 
-			return "main/main";
+			return mav;
 		}
 		
 		// 로그인 전 검색페이지
@@ -36,7 +39,7 @@ public class SearchController {
 				kdao.insertSearch(sdto);
 				List<CompanyBasicDTO> companylist = kdao.searchByKeyword(kdto.getKeyword());
 				mav.addObject("companylist", companylist);
-				mav.setViewName("main/main");
+				mav.setViewName("main/search");
 				return mav;
 			}
 			
