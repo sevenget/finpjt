@@ -85,11 +85,11 @@ create table companyreview(
 drop table keywords purge;
 create table keywords(
    keyword varchar2(500) constraint keywords_keyword_pk primary key,
-   searchedNum number(20)
+   searchNum number(20)
 );
 
-drop table searched purge;
-create table searched(
+drop table search purge;
+create table search(
    searchDate date default sysdate,
    keyword varchar2(500) constraint searched_keyword_fk references keywords(keyword), 
    searchMem varchar(40) constraint searched_searchMem_fk references memBasicInfo(id)
