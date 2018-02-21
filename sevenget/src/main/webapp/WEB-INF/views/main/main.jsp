@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,8 +34,8 @@
 			
 			<!-- 검색 -->
 			<div>
-				<form method="post">
-						<input type="hidden" name="id" value="gold">
+				<form action="search">
+						<input type="hidden" name="searchMem" value="${ id }">
 						<table>
 							<tr>
 								<td> 
@@ -55,7 +57,7 @@
 		</div>
 				
 			<div class="container2">
-				
+			
 				<!-- 광고 -->
 				<div class="search_ad">
 					<div class="cycle-slideshow" data-cycle-fx=scrollHorz data-cycle-timeout=5000 data-cycle-pager-fx=scrollVert>
@@ -75,23 +77,23 @@
 					</div>
 					
 					<hr width="915px" color="#aaa" size="1" class="dt_hr">
-					
+					<c:forEach var="company" items="${ companylist }">
 					<form>
 						<table>
 							<tr>
-								<td class="companylogo" rowspan=4><img src="../resources/img/logos/kakao.png"  onClick="location.href='mypage2';"></td>
-								<td class="companytitle" rowspan=4>카카오(주)</td>
+								<td class="companylogo" rowspan=4><img src="../resources/img/logos/${company.logo }"  onClick="location.href='mypage2';"></td>
+								<td class="companytitle" rowspan=4>${company.cname }</td>
 								<td colspan=4></td>
 								<td rowspan=4><img src="../resources/img/colorheart.jpg"></td>
 							</tr>
 							<tr>
-								<td>IT/웹/통신</td>
-								<td>사원수 2500명</td>
-								<td rowspan=2>매출액 9248억(2015)</td>
+								<td>${company.industry}</td>
+								<td>사원수 ${company.employee}명</td>
+								<td rowspan=2>${company.sales}</td>
 								<td class="c_get"> 내 집 마련, 꿈, 희망 득
 							</tr>
 							<tr>
-								<td colspan=2 class="c_address">제주특별자치도 제주시 첨단로 242</td>
+								<td colspan=2 class="c_address">${company.location}</td>
 								<td class="c_lose">연애, 결혼, 출산, 인관관계 포기</td>
 							</tr>
 							<tr>
@@ -99,60 +101,10 @@
 							</tr>
 						</table>
 					</form>
-					
 					<hr width="888px" color="#aaa" size="1" class="dt_hr">
+					</c:forEach>
 					
-					<form>
-						<table>
-							<tr>
-								<td class="companylogo" rowspan=4><img src="../resources/img/logos/kakao.png"  onClick="location.href='mypage2';"></td>
-								<td class="companytitle" rowspan=4>카카오(주)</td>
-								<td colspan=4></td>
-								<td rowspan=4><img src="../resources/img/colorheart.jpg"></td>
-							</tr>
-							<tr>
-								<td>IT/웹/통신</td>
-								<td>사원수 2500명</td>
-								<td rowspan=2>매출액 9248억(2015)</td>
-								<td class="c_get"> 내 집 마련, 꿈, 희망 득
-							</tr>
-							<tr>
-								<td colspan=2 class="c_address">제주특별자치도 제주시 첨단로 242</td>
-								<td class="c_lose">연애, 결혼, 출산, 인관관계 포기</td>
-							</tr>
-							<tr>
-								<td colspan=4></td>
-							</tr>
-						</table>
-					</form>
 					
-					<hr width="888px" color="#aaa" size="1" class="dt_hr">
-					
-					<form>
-						<table>
-							<tr>
-								<td class="companylogo" rowspan=4><img src="../resources/img/logos/kakao.png"  onClick="location.href='mypage2';"></td>
-								<td class="companytitle" rowspan=4>카카오(주)</td>
-								<td colspan=4></td>
-								<td rowspan=4><img src="../resources/img/colorheart.jpg"></td>
-							</tr>
-							<tr>
-								<td>IT/웹/통신</td>
-								<td>사원수 2500명</td>
-								<td rowspan=2>매출액 9248억(2015)</td>
-								<td class="c_get"> 내 집 마련, 꿈, 희망 득
-							</tr>
-							<tr>
-								<td colspan=2 class="c_address">제주특별자치도 제주시 첨단로 242</td>
-								<td class="c_lose">연애, 결혼, 출산, 인관관계 포기</td>
-							</tr>
-							<tr>
-								<td colspan=4></td>
-							</tr>
-						</table>
-					</form>
-					
-					<hr width="888px" color="#aaa" size="1" class="dt_hr">
 					
 				</div>
 				

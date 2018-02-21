@@ -10,7 +10,7 @@
 		WHERE id = #{id}
 	</select>
 
-	<select id="getAllCompany" resultType="companybasic">
+	<select id="selectAllCompany" resultType="companybasic">
 		SELECT * FROM companybasicinfo
 	</select>
 

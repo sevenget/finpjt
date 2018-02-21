@@ -2,7 +2,7 @@ package model.search;
 
 public class KeywordDTO {
 	private String keyword;
-	private int searchedNum;
+	private int searchNum;
 
 	public String getKeyword() {
 		return keyword;
@@ -12,12 +12,12 @@ public class KeywordDTO {
 		this.keyword = keyword;
 	}
 
-	public int getSearchedNum() {
-		return searchedNum;
+	public int getSearchNum() {
+		return searchNum;
 	}
 
-	public void setSearchedNum(int searchedNum) {
-		this.searchedNum = searchedNum;
+	public void setSearchNum(int searchedNum) {
+		this.searchNum = searchedNum;
 	}
 
 

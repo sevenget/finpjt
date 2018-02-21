@@ -13,7 +13,7 @@ public class CompanyBasicDAO {
 		mybatis = SqlSessionFactoryBean.getSqlSessionInstance();
 	}
 	
-	public List<CompanyBasicDTO> getAllCompanyBasic(){
-		return mybatis.selectList("CompanyBasicDAO.getAllCompany");
+	public List<CompanyBasicDTO> selectAllCompanyBasic(){
+		return mybatis.selectList("CompanyBasicDAO.selectAllCompany");
 	}
 }
