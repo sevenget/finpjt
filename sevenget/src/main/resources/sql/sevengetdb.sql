@@ -39,19 +39,26 @@ create table companyBasicInfo(
    sales number(20),
    salessource varchar2(30),
    cdiscription varchar2(2000),
-   interestedTimes number(10)
+   interestedTimes number(10),
+   dateGet varchar2(2) constraint combasicinfo_dateget_ck check(dateGet in('T', 'F', 'N')),
+   marryGet varchar2(2) constraint combasicinfo_marryget_ck check(marryGet in('T', 'F', 'N')), 
+   babyGet varchar2(2) constraint combasicinfo_babyget_ck check(babyGet in('T', 'F', 'N')),
+   houseGet varchar2(2) constraint combasicinfo_houseget_ck check(houseGet in('T', 'F', 'N')),
+   relationGet varchar2(2) constraint combasicinfo_relationget_ck check(relationGet in('T', 'F', 'N')),
+   dreamGet varchar2(2) constraint combasicinfo_dreamget_ck check(dreamGet in('T', 'F', 'N')),
+   hopeGet varchar2(2) constraint combasicinfo_hopeget_ck check(hopeGet in('T', 'F', 'N'))
 );
 
-drop table companyconcern purge;
-create table companyConcern(
+drop table companyscore purge;
+create table companyScore(
    cid number(10) constraint companyConcern_id_fk references companyBasicInfo(cid),
-   dateCon number(2),
-   marryCon number(2),
-   babyCon number(2),
-   houseCon number(2),
-   relationCon number(2),
-   dreamCon number(2),
-   hopeCon number(2)
+   dateSco number(2),
+   marrySco number(2),
+   babySco number(2),
+   houseSco number(2),
+   relationSco number(2),
+   dreamSco number(2),
+   hopeSco number(2)
 );
 
 -- 기업세부정보
@@ -88,11 +95,11 @@ create table keywords(
    searchNum number(20)
 );
 
-drop table search purge;
+drop table searched purge;
 create table search(
    searchDate date default sysdate,
-   keyword varchar2(500) constraint searched_keyword_fk references keywords(keyword), 
-   searchMem varchar(40) constraint searched_searchMem_fk references memBasicInfo(id)
+   keyword varchar2(500) constraint search_keyword_fk references keywords(keyword), 
+   searchMem varchar(40) constraint search_searchMem_fk references memBasicInfo(id)
 )
 
 -- 분석 결과 plot 저장
