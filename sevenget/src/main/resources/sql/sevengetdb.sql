@@ -33,12 +33,14 @@ drop table companybasicinfo purge;
 alter table companyBasicInfo drop constraint companybasicinfo_cid_pk cascade;
 create table companyBasicInfo(
    cid number(10) constraint companybasicinfo_cid_pk primary key,
-   clogo varchar2(100),
+   logo varchar2(100),
    cname varchar2(50) constraint companybasicinfo_cname_nn not null, 
+   industry varchar2(100),
+   location varchar2(200),
+   sales varchar2(50),
+   employee number(10),
    cmission varchar2(1000),
-   sales number(20),
-   salessource varchar2(30),
-   cdiscription varchar2(2000),
+   discription varchar2(2000),
    interestedTimes number(10),
    dateGet varchar2(2) constraint combasicinfo_dateget_ck check(dateGet in('T', 'F', 'N')),
    marryGet varchar2(2) constraint combasicinfo_marryget_ck check(marryGet in('T', 'F', 'N')), 
