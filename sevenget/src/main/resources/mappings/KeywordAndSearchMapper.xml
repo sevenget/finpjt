@@ -27,11 +27,20 @@
 	<select id="searchByCname" parameterType="String" resultType="companybasic">
 		SELECT *
 		FROM companybasicinfo
-		WHERE cname like #{%keyword%}
+		WHERE cname like '%'||#{keyword}||'%' 
 	</select>
 
 	<select id="selectAllSearch" resultType="keyword">
 		SELECT * FROM search
+	</select>
+	
+	<select id="selectAdvs" resultType="companybasic">
+		select 
+		c.cid, logo, cname, industry, location, sales, employee, mission, discription, interestedtimes, 
+		dateget, marryget, babyget, houseget, relationget, dreamget, hopeget 
+		from advCompany a, companybasicinfo c 
+		where a.cid = c.cid
+		order by a.cost desc
 	</select>
 
 	<insert id="insertSearch">

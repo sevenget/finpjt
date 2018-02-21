@@ -16,6 +16,14 @@
 	$(function(){
 		$('#searchBtn').click(function(){
 			$('#searchHolder form').submit();
+			
+			$('#companylogo').click(function(){
+		 		if('${id}'=='Guest'){
+					alert('상세정보를 보려면 회원가입을 가즈아')
+				} else{
+					location.href="mypage2";
+				}
+			})
 		})
 	})
 </script>
@@ -81,7 +89,7 @@
 					<form>
 						<table>
 							<tr>
-								<td class="companylogo" rowspan=4><img src="../resources/img/logos/${company.logo }"  onClick="location.href='mypage2';"></td>
+								<td class="companylogo" rowspan=4><img class="companylogo" src="../resources/img/logos/${company.logo }"></td>
 								<td class="companytitle" rowspan=4>${company.cname }</td>
 								<td colspan=4></td>
 								<td rowspan=4><img src="../resources/img/colorheart.jpg"></td>
