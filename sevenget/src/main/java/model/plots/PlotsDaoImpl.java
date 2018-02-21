@@ -20,6 +20,7 @@ public class PlotsDaoImpl implements PlotsDao{
 	
 	public void insertOrUpdatePlots(){
 		PlotsDto dto = new PlotsDto();
+		System.out.println(1111111);
 		if(dto.getPlotpng() == null){
 			System.out.println(3);
 			dto.setMemid("mem");
@@ -41,8 +42,8 @@ public class PlotsDaoImpl implements PlotsDao{
 	
 	public static void main(String args[]){
 		PlotsDaoImpl pp = new PlotsDaoImpl();
-		//PlotsDto dto = new PlotsDto();
+		PlotsDto dto = new PlotsDto();
 		//pp.selectPlots();
-		//pp.insertOrUpdatePlots();
+		pp.insertOrUpdatePlots();
 	}
 }
