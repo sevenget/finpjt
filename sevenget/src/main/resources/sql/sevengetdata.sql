@@ -23,6 +23,8 @@ insert into companyBasicInfo values(
 	'T','T','T','N','F','F','F'
 );
 
+insert into advCompany values(2, '100000000', sysdate, sysdate+1);
+
 insert into companyBasicInfo values(
 	2, 
 	'naver.png', 

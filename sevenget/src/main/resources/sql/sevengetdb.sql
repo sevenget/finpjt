@@ -90,6 +90,14 @@ create table companyreview(
    content varchar2(2000) constraint companyreview_content_nn not null
 );
 
+--광고기업
+create table advCompany(
+	cid number(10) constraint advcom_cid_fk references companybasicinfo(cid), 
+	cost number(10),
+	startDate date,
+	endDate date
+)
+
  -- 검색 키워드 관련
 drop table keywords purge;
 create table keywords(
