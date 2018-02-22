@@ -66,7 +66,7 @@ public class HomeController {
 	
 	//로그인
 	@RequestMapping(value = "/main/login", method = RequestMethod.GET)
-	public String Login(HttpSession session, Locale locale, Model model) {
+	public String Login() {
 		session.setAttribute("id", "mem");
 		String id = (String)session.getAttribute("id");
 		
