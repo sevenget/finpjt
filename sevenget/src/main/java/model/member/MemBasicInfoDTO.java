@@ -6,7 +6,7 @@ public class MemBasicInfoDTO {
 	String id;
 	String password;
 	String name;
-	Date date;
+	Date birth;
 	String gender;
 	String address;
 	String email;
@@ -29,11 +29,11 @@ public class MemBasicInfoDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Date getDate() {
-		return date;
+	public Date getBirth() {
+		return birth;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setBirth(Date birth) {
+		this.birth = birth;
 	}
 	public String getGender() {
 		return gender;
@@ -54,6 +54,4 @@ public class MemBasicInfoDTO {
 		this.email = email;
 	}
 	
-
-
 }

@@ -12,11 +12,8 @@
 
 	<select id="getMemBasicInfo" resultType="memBasicInfo">
 		<![CDATA[
-		SELECT * FROM memBasicInfo 
+		SELECT * FROM memBasicInfo where id = 'Guest'
 		]]>
 	</select>
 
-	<insert id="insertKeyword">
-		INSERT INTO keywords VALUES(#{keyword},#{searchedNum})
-	</insert>
 </mapper>

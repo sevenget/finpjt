@@ -28,15 +28,19 @@
 								</td>
 								<td style="width: 220px; height:150px; border:1px solid red ; clear:both;">
 									
-									<c:forEach var="item" items="${MemBasicInfoDAO}">
+									<%-- <c:forEach var="item" items="${MemBasicInfoDAO}">
 									${MemBasicInfoDAO.getMemBasicInfo}
 									
-									</c:forEach>
+									</c:forEach> --%>
 								</td>
-								<td style="width: 220px; height:150px; border:1px solid red ; clear:both;"></td>
+								<td style="width: 220px; height:150px; border:1px solid red ; clear:both;">
+									<c:forEach items="${id}" var="iid" >
+										<p class="font">${iid.id}</p><br>
+									</c:forEach>  
+								</td>
 							</tr>																																		
 							<tr>																																
-								<td style="width: 220px; height:150px; border:1px solid red ; clear:both;"></td>
+								<td style="width: 220px; height:150px; border:1px solid red ; clear:both;">1ss</td>
 								<td style="width: 220px; height:150px; border:1px solid red ; clear:both;"></td>
 								<td style="width: 220px; height:150px; border:1px solid red ; clear:both;"></td>
 							</tr>
