@@ -44,8 +44,7 @@
 								</tr>
 								<tr>
 									<td colspan="2"><button id="guest" onclick="alert('손님'); return false;">
-											비로그인으로 둘러보기
-										</button></td>
+											비로그인으로 둘러보기</button></td>
 								</tr>
 								<tr>
 									<td colspan="2"><button id="submit">회원가입</button></td>
