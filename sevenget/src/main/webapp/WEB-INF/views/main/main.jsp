@@ -64,62 +64,14 @@
 					</div>
 				</div>
 				
-				<script>
-					$(function(){
-						$('img.interested').click(function(){
-							if($(this).attr('src')=='../resources/img/blackheart.jpg'){
-								$(this).attr('src', '../resources/img/colorheart.jpg')
-								alert($(this).attr('data-cid'))
-								$('span.nothing').load('regInter')
-							} else{
-								$(this).attr('src', '../resources/img/blackheart.jpg')
-								$('span.nothing').load('canInter')
-								alert($(this).attr('data-cid'))
-							}
-						})
-					})
-					
-				</script>
 				<!-- 기업 정보 -->
 				<div id="resultHolder">
-					<div class="rh_head">
-						<span class="resulttitle">&emsp;기업</span>
-					</div>
-			
-					<hr width="915px" color="#aaa" size="1" class="dt_hr">
-					<c:forEach var="company" items="${ companylist }">
-					<form>
-						<table>
-							<tr>
-								<td class="companylogo" rowspan=4><img class="companylogo" src="../resources/img/logos/${company.logo}"></td>
-								<td class="companytitle" rowspan=4>${company.cname }</td>
-								<td colspan=4></td>
-								<td rowspan=4><img class="interested" src="../resources/img/colorheart.jpg" data-cid="${company.cid}"></td>
-							</tr>
-							<tr>
-								<td>${company.industry}</td>
-								<td>사원수 ${company.employee}명</td>
-								<td rowspan=2>${company.sales}</td>
-								<td class="c_get"> 내 집 마련, 꿈, 희망 득
-							</tr>
-							<tr>
-								<td colspan=2 class="c_address">${company.location}</td>
-								<td class="c_lose">연애, 결혼, 출산, 인관관계 포기</td>
-							</tr>
-							<tr>
-								<td colspan=4></td>
-							</tr>
-						</table>
-					</form>
-					<hr width="888px" color="#aaa" size="1" class="dt_hr">
-					</c:forEach>
-			</div>
-				
-				
+					<jsp:include page="/WEB-INF/views/include/searchBody.jsp"></jsp:include>
+				</div>
 				<div id="infoHolder">
 					 <!-- 배너 광고 -->
 					 <div class="info_ad">
-						<a href="void(0);" onclick="alert('준비중 입니다.');return false;"><img src="../resources/img/ad1.png"><span class="nothing"></span></a>
+						<a href="void(0);" onclick="alert('준비중 입니다.');return false;"><img src="../resources/img/ad1.png"></span></a>
 					</div>
 					
 					<!-- 회원정보 -->

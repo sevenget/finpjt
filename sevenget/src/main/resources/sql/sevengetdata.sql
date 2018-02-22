@@ -62,3 +62,11 @@ select * from keywords
 
 select * from search
 
+--관심기업 관련
+delete from InterestedRC
+insert into InterestedRC values('mem', 1, sysdate, null); commit
+update InterestedRC set canTime = sysdate where memid='mem' and cid= 1 and canTime is null;
+select * from InterestedRC
+select * from InterestedRC where memid='mem' and cid=1 and canTime is null
+select * from InterestedRC where memid='mem' and cid=1 and canTime is null
+commit

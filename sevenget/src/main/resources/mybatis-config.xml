@@ -12,6 +12,7 @@
 		<typeAlias type="model.member.MemConcernDto" alias="keyword2"></typeAlias>
 		<typeAlias type="model.plots.PlotsDto" alias="plts"></typeAlias>
 		<typeAlias type="model.member.MemIdCheckDto" alias="checkid"/>
+		<typeAlias type="model.company.InterestedRCDTO" alias="interested"/>
 	</typeAliases>
 	
 	<environments default="development">
@@ -32,5 +33,6 @@
 		<mapper resource="mappings/CompanyBasicMapper.xml"/>
 		<mapper resource="mappings/PlotsMapper.xml"/>
 		<mapper resource="mappings/MemIdCheckMapper.xml" />
+		<mapper resource="mappings/InterestedRCMapper.xml"/>
 	</mappers>
 </configuration>

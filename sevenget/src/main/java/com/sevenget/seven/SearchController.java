@@ -11,6 +11,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import model.company.CompanyBasicDAO;
 import model.company.CompanyBasicDTO;
+import model.company.InterestedRCDAO;
+import model.company.InterestedRCDTO;
 import model.search.KeywordAndSearchDAO;
 import model.search.KeywordDTO;
 import model.search.SearchDTO;
@@ -19,14 +21,14 @@ import model.search.SearchDTO;
 public class SearchController {
 		// 진짜 메인페이지(로그인 후 첫화면)
 		@RequestMapping(value = "/main/main", method = RequestMethod.GET)
-		public ModelAndView main(KeywordAndSearchDAO dao, HttpSession session, ModelAndView mav) {
+		public ModelAndView main(KeywordAndSearchDAO kdao, InterestedRCDAO idao, HttpSession session, ModelAndView mav) {
 			session.setAttribute("id", "mem");
 			String id = (String)session.getAttribute("id");
-			List list = dao.searchAdvs();
-			System.out.println(list.size());
-			mav.addObject("companylist", list);
-			mav.setViewName("main/main");
 			
+			mav.addObject("companylist", kdao.searchAdvs());
+			session.setAttribute("interestedComList", idao.selectRelatedAll(id));
+			
+			mav.setViewName("main/main");
 			if(id.equals("Guest")){
 				mav.setViewName("main/main_guest");
 			} 
@@ -35,31 +37,37 @@ public class SearchController {
 		
 		// 로그인 전 검색페이지
 			@RequestMapping(value = "/main/search")
-			public ModelAndView search(SearchDTO sdto, KeywordDTO kdto, KeywordAndSearchDAO kdao, CompanyBasicDAO cdao, ModelAndView mav, HttpSession session) {
+			public ModelAndView search(SearchDTO sdto, KeywordDTO kdto, KeywordAndSearchDAO kdao, InterestedRCDAO idao, CompanyBasicDAO cdao, ModelAndView mav, HttpSession session) {
+				//키워드가 ""이 들어왔을 때 예외 처리
 				if(!kdto.getKeyword().equals("")){
 					kdao.insertKeyword(kdto.getKeyword());
 				} else{
 					kdao.insertKeyword(".X");
 				};
-
-				sdto.setSearchMem((String)session.getAttribute("id"));
+				
+				String id = (String)session.getAttribute("id");
+				
+				sdto.setSearchMem(id);
 				kdao.insertSearch(sdto);
 				
-				List<CompanyBasicDTO> companylist = kdao.searchByKeyword(kdto.getKeyword());
-				mav.addObject("companylist", companylist);
+				mav.addObject("companylist", kdao.searchByKeyword(kdto.getKeyword()));
+				session.setAttribute("interestedComList", idao.selectRelatedAll(id));
+
 				mav.setViewName("main/search");
 				return mav;
 			}
 			
 			@RequestMapping(value = "/main/regInter")
-			public String regInter() {
-				System.out.println("main/regInter 컨트롤러");
+			public String regInter(InterestedRCDAO dao, InterestedRCDTO dto, HttpSession session) {
+				dto.setMemid((String)session.getAttribute("id"));
+				dao.insertReg(dto);
 				return "main/nothing";
 			}
 			
 			@RequestMapping(value = "/main/canInter")
-			public String canInter() {
-				System.out.println("main/canInter 컨트롤러");
+			public String canInter(InterestedRCDAO dao, InterestedRCDTO dto, HttpSession session) {
+				dto.setMemid((String)session.getAttribute("id"));
+				dao.updateCan(dto);
 				return "main/nothing";
 			}
 }
