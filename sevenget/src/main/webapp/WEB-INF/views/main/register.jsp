@@ -115,7 +115,7 @@
 	function checkId() {
 		var forms = document.getElementById("form_1");
 		var id = forms.userId.value;
-		var url = "./member_id_check.jsp?id=" + forms.userId.value;
+		var url = "./check_id?id=" + forms.userId.value;
 
 		if (id.length == 0) {
 			alert("아이디를 입력하세요.");
@@ -123,7 +123,7 @@
 			return false;
 		}
 		open(url, "confirmRepetition",
-				"toolbar=no,location=no,status=no,menubar=no,"
+				"toolbar=no,location=yes,status=no,menubar=no,top=150,left=150"
 						+ "scrollbars=no,resizable=no,width=400,height=200");
 	}
 	
