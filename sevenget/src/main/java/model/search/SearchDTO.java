@@ -2,12 +2,12 @@ package model.search;
 
 import java.sql.Date;
 
-public class SearchedDTO {
+public class SearchDTO {
 	private Date searchDate;
 	private String keyword;
 	private String searchMem;
 	
-	public SearchedDTO(){}
+	public SearchDTO(){}
 
 	public Date getSearchDate() {
 		return searchDate;

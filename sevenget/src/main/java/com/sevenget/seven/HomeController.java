@@ -2,14 +2,18 @@ package com.sevenget.seven;
 
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
 import org.rosuda.REngine.REXPMismatchException;
 import org.rosuda.REngine.REngineException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.sevenget.makeplot.MakingPlot;
 
@@ -39,9 +43,19 @@ public class HomeController {
 
 	// 연습용 메인페이지
 	@RequestMapping(value = "/main/joeh", method = RequestMethod.GET)
+<<<<<<< HEAD
 	public String mainPractice(Locale locale, Model model) {
 
 		return "main/joeh";
+=======
+	public ModelAndView mainPractice(HttpSession session, Locale locale, ModelAndView mav) {
+		session.setAttribute("id", "mem");
+		String id = (String)session.getAttribute("id");
+		
+		mav.setViewName("main/joeh");
+		mav.addObject("id", id);
+		return mav;
+>>>>>>> branch 'master' of https://github.com/sevenget/finpjt.git
 	}
 
 	// 기업 상세페이지
@@ -60,8 +74,15 @@ public class HomeController {
 
 	// 로그인
 	@RequestMapping(value = "/main/login", method = RequestMethod.GET)
+<<<<<<< HEAD
 	public String Login(Locale locale, Model model) {
 
+=======
+	public String Login(HttpSession session, Locale locale, Model model) {
+		session.setAttribute("id", "mem");
+		String id = (String)session.getAttribute("id");
+		
+>>>>>>> branch 'master' of https://github.com/sevenget/finpjt.git
 		return "main/login";
 	}
 
@@ -71,8 +92,20 @@ public class HomeController {
 
 		return "main/register";
 	}
+<<<<<<< HEAD
 
 	// 마이페이지1
+=======
+	
+	//@아이디 중복확인
+	@RequestMapping(value="/main/check_id", method = RequestMethod.GET)
+	public String CheckId(Locale locale, Model model){
+		
+		return "main/check_id";
+	}
+	
+	//마이페이지1
+>>>>>>> branch 'master' of https://github.com/sevenget/finpjt.git
 	@RequestMapping(value = "/main/mypage", method = RequestMethod.GET)
 	public String Mypage(Locale locale, Model model) {
 

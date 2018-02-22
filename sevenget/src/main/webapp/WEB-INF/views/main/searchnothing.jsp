@@ -1,32 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>7get-Search</title>
 <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script>
-	$(function(){		
-		$('#searchBtn').click(function(){
-			$('#searchHolder form').submit();
-		})
-		
-		$('.companylogo').click(function(){
-		 	if('${id}'=='Guest'){
-				alert('상세정보를 보려면 회원가입을 가즈아')
-			} else{
-				location.href="mypage2";		
-			}
-		});
-	});
-</script>
+<script src = "http://malsup.github.com/jquery.cycle2.js"></script>
 <link rel="stylesheet" type="text/css" href="../resources/css/session.css " media="all" flush="false">
 <link rel="stylesheet" href="../resources/css/searchMain.css" >
 
-
+<script>
+	$(function(){
+		$('#searchBtn').click(function(){
+			$('#searchHolder form').submit();
+		})
+	})
+</script>
 </head>
 <body>
 	<div id="head">
@@ -42,7 +32,8 @@
 			
 			<!-- 검색 -->
 			<div>
-				<form action="search">
+				<form method="post">
+						<input type="hidden" name="id" value="gold">
 						<table>
 							<tr>
 								<td> 
@@ -62,8 +53,19 @@
 					</form>
 				</div>
 		</div>
-
-			<div class="container2">	
+				
+			<div class="container2">
+				
+				<!-- 광고 -->
+				<div class="search_ad">
+					<div class="cycle-slideshow" data-cycle-fx=scrollHorz data-cycle-timeout=5000 data-cycle-pager-fx=scrollVert>
+						<img class="advSlides" src="../resources/img/joinus.png">
+						<img class="advSlides" src="../resources/img/granpaback.jpg">
+						<img class="advSlides" src="../resources/img/words.jpg">
+						<img class="advSlides" src="../resources/img/mountain.jpg">
+						<div class="cycle-pager"></div>
+					</div>
+				</div>
 				
 				
 				<!-- 기업 정보 -->
@@ -71,25 +73,25 @@
 					<div class="rh_head">
 						<span class="resulttitle">&emsp;기업</span>
 					</div>
-			
+					
 					<hr width="915px" color="#aaa" size="1" class="dt_hr">
-					<c:forEach var="company" items="${ companylist }">
+					
 					<form>
 						<table>
 							<tr>
-								<td class="companylogo" rowspan=4><img class="companylogo" src="../resources/img/logos/${company.logo }"></td>
-								<td class="companytitle" rowspan=4>${company.cname }</td>
+								<td class="companylogo" rowspan=4><img src="../resources/img/logos/kakao.png"  onClick="location.href='mypage2';"></td>
+								<td class="companytitle" rowspan=4>카카오(주)</td>
 								<td colspan=4></td>
 								<td rowspan=4><img src="../resources/img/colorheart.jpg"></td>
 							</tr>
 							<tr>
-								<td>${company.industry}</td>
-								<td>사원수 ${company.employee}명</td>
-								<td rowspan=2>${company.sales}</td>
+								<td>IT/웹/통신</td>
+								<td>사원수 2500명</td>
+								<td rowspan=2>매출액 9248억(2015)</td>
 								<td class="c_get"> 내 집 마련, 꿈, 희망 득
 							</tr>
 							<tr>
-								<td colspan=2 class="c_address">${company.location}</td>
+								<td colspan=2 class="c_address">제주특별자치도 제주시 첨단로 242</td>
 								<td class="c_lose">연애, 결혼, 출산, 인관관계 포기</td>
 							</tr>
 							<tr>
@@ -97,10 +99,62 @@
 							</tr>
 						</table>
 					</form>
+					
 					<hr width="888px" color="#aaa" size="1" class="dt_hr">
-					</c:forEach>
-			</div>
-				
+					
+					<form>
+						<table>
+							<tr>
+								<td class="companylogo" rowspan=4><img src="../resources/img/logos/kakao.png"  onClick="location.href='mypage2';"></td>
+								<td class="companytitle" rowspan=4>카카오(주)</td>
+								<td colspan=4></td>
+								<td rowspan=4><img src="../resources/img/colorheart.jpg"></td>
+							</tr>
+							<tr>
+								<td>IT/웹/통신</td>
+								<td>사원수 2500명</td>
+								<td rowspan=2>매출액 9248억(2015)</td>
+								<td class="c_get"> 내 집 마련, 꿈, 희망 득
+							</tr>
+							<tr>
+								<td colspan=2 class="c_address">제주특별자치도 제주시 첨단로 242</td>
+								<td class="c_lose">연애, 결혼, 출산, 인관관계 포기</td>
+							</tr>
+							<tr>
+								<td colspan=4></td>
+							</tr>
+						</table>
+					</form>
+					
+					<hr width="888px" color="#aaa" size="1" class="dt_hr">
+					
+					<form>
+						<table>
+							<tr>
+								<td class="companylogo" rowspan=4><img src="../resources/img/logos/kakao.png"  onClick="location.href='mypage2';"></td>
+								<td class="companytitle" rowspan=4>카카오(주)</td>
+								<td colspan=4></td>
+								<td rowspan=4><img src="../resources/img/colorheart.jpg"></td>
+							</tr>
+							<tr>
+								<td>IT/웹/통신</td>
+								<td>사원수 2500명</td>
+								<td rowspan=2>매출액 9248억(2015)</td>
+								<td class="c_get"> 내 집 마련, 꿈, 희망 득
+							</tr>
+							<tr>
+								<td colspan=2 class="c_address">제주특별자치도 제주시 첨단로 242</td>
+								<td class="c_lose">연애, 결혼, 출산, 인관관계 포기</td>
+							</tr>
+							<tr>
+								<td colspan=4></td>
+							</tr>
+						</table>
+					</form>
+					
+					<hr width="888px" color="#aaa" size="1" class="dt_hr">
+					
+				</div>
 				
 				<div id="infoHolder">
 					 <!-- 배너 광고 -->
@@ -128,6 +182,8 @@
 								<input type="button" value="MyPage" class="MyPage_btn" onclick="location.href='mypage';">
 						</div>
 					</div>
+					
+					
 						<!-- 
 						<table>
 							<tr>
@@ -146,6 +202,7 @@
 						</table>
 						 -->
 						<!-- <img src="dd"> --><!-- 개인 중요도 plot 넣을 자리 -->
+			
 				</div>
 			</div>
 		</div>

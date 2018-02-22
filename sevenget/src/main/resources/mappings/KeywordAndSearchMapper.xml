@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="KeywordAndSearchDAO">
+	
+	<!-- keyword -->
+	<select id="selectOneKeyword" parameterType="String" resultType="keyword">
+		SELECT *
+		FROM keywords
+		WHERE keyword =#{keyword}
+	</select>
+
+	<select id="selectAllKeywords" resultType="keyword">
+		SELECT * FROM keywords
+	</select>
+
+	<insert id="insertKeyword" parameterType = "String">
+		INSERT INTO keywords VALUES(#{keyword}, 0)
+	</insert>
+	
+	<update id="updateKeyword" parameterType="String">
+		update keywords set searchnum = searchnum+1 where keyword = #{keyword}
+	</update>
+	
+	<!-- search -->
+	<select id="searchByCname" parameterType="String" resultType="companybasic">
+		SELECT *
+		FROM companybasicinfo
+		WHERE cname like '%'||#{keyword}||'%' 
+	</select>
+
+	<select id="selectAllSearch" resultType="keyword">
+		SELECT * FROM search
+	</select>
+	
+	<select id="selectAdvs" resultType="companybasic">
+		select 
+		c.cid, logo, cname, industry, location, sales, employee, mission, discription, interestedtimes, 
+		dateget, marryget, babyget, houseget, relationget, dreamget, hopeget 
+		from advCompany a, companybasicinfo c 
+		where a.cid = c.cid
+		order by a.cost desc
+	</select>
+
+	<insert id="insertSearch">
+		INSERT INTO search VALUES(sysdate, #{keyword},#{searchMem})
+	</insert>
+	
+
+</mapper>
