@@ -15,11 +15,20 @@ public class MemLoginDao {
 		mybatis = SqlSessionFactoryBean.getSqlSessionInstance();
 	}
 	
-	public List<MemBasicInfoDTO> Check(String id){
+	public MemBasicInfoDTO loginCheck(String id){
+		MemBasicInfoDTO dto = new MemBasicInfoDTO();
 		
-		list = mybatis.selectList("MemIdCheckDao.getLoginCheck");
+		list = mybatis.selectList("MemIdCheckDao.loginCheck");
 		
-		return list;
+		dto.setId(list.get(0).id);
+		dto.setPassword(list.get(0).password);
+		dto.setName(list.get(0).name);
+		dto.setBirth(list.get(0).birth);
+		dto.setEmail(list.get(0).email);
+		dto.setGender(list.get(0).gender);
+		dto.setAddress(list.get(0).address);
+		
+		return dto;
 		
 	}
 	
