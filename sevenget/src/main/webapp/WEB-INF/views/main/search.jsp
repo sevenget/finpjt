@@ -17,7 +17,7 @@
 		<%@ include file="/WEB-INF/views/include/header.jsp" %>
 	</div>		
 	<div id="all">
-		<div id="contect">
+		<div id=contect">
 	
 		
 		
