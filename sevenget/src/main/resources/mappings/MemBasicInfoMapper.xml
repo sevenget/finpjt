@@ -10,6 +10,12 @@
 		WHERE id = #{id}
 	</select>
 
+	<select id="loginCheck" parameterType="String" resultType="memBasicInfo">
+		
+		SELECT * FROM memBasicInfo where id = #{userId}
+		
+	</select>
+
 	<select id="getMemBasicInfo" resultType="memBasicInfo">
 		<![CDATA[
 		SELECT * FROM memBasicInfo where id = 'Guest'
