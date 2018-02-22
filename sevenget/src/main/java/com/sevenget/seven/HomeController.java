@@ -8,6 +8,7 @@ import org.rosuda.REngine.REXPMismatchException;
 import org.rosuda.REngine.REngineException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,8 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sevenget.makeplot.MakingPlot;
-
-import model.member.MemIdCheckDaoImpl;
 
 
 /**
@@ -82,15 +81,10 @@ public class HomeController {
 	}
 	
 	//@아이디 중복확인
-	@RequestMapping(value="/main/checkID", method = RequestMethod.GET)
-	public ModelAndView CheckId(String userId, MemIdCheckDaoImpl dao, ModelAndView mav){
+	@RequestMapping(value="/main/check_id", method = RequestMethod.GET)
+	public String CheckId(Locale locale, Model model){
 		
-		mav.addObject("check", dao.Check(userId));
-		mav.addObject("userId", userId);
-		
-		mav.setViewName("main/member_id_check");
-		
-		return mav;
+		return "main/check_id";
 	}
 	
 	//마이페이지1
