@@ -86,9 +86,12 @@ create table companyreview(
    writer varchar2(20) constraint companyreview_writer_fk references memBasicInfo(id),
    cid number(10) constraint companyreview_cid_fk references companyBasicInfo(cid),
    reviewdate date default sysdate,
-   title varchar2(200) constraint companyreview_title_nn not null,
    content varchar2(2000) constraint companyreview_content_nn not null
 );
+--title varchar2(200) constraint companyreview_title_nn not null,
+select * from companyreview;
+
+
 
 --광고기업
 create table advCompany(

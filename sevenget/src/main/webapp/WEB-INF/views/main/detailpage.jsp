@@ -26,7 +26,7 @@
 		$('.mw_layer').addClass('open');
 
 		$.ajax({
-			type : 'post',
+			type : 'get',
 			url : 'review',
 			data : "",
 			success : function(resultText) {
@@ -141,29 +141,33 @@
 						<p class="head_rv"><a href="#layer" onclick="openContent('${article.idx}')">리뷰</a></p>
 						<hr width="915px" color="#aaa" size="1" class="dt_hr">	 
 						
-						<div class="c_review" onclick="review_list()" >
-							
-							<div class="review1">
-								<p class="cr_view">"기술직이 자신의 능력만큼 대우 받을 수 있는 회사. 대한민국에서 만족스러운 수준의 워라벨."</p>
-								<p class="cr_date">2018/02/07</p>
-							</div>
-							
-							<div class="review2">
-								<p class="cr_view">"개발자가 그나마 다른 회사에 비해 HOW에 집중 할 수 있다."</p>
-								<p class="cr_date">2018/01/14</p>
-							</div>
-						
-						    <div class="review3">
-								<p class="cr_view">"국내에서 IT관련 모든 직군을 경험해 볼 수 있는 몇 안되는 좋은 회사 입니다."</p>
-								<p class="cr_date">2018/01/11</p>
-							</div>
-							
-						</div>
+						<form action="" method="post" enctype="" name="">
+								<div class="c_review">
+
+									<div class="review1">
+										<p class="cr_view">"기술직이 자신의 능력만큼 대우 받을 수 있는 회사. 대한민국에서
+											만족스러운 수준의 워라벨."</p>
+										<p class="cr_date">2018/02/07</p>
+									</div>
+
+									<div class="review2">
+										<p class="cr_view">"개발자가 그나마 다른 회사에 비해 HOW에 집중 할 수 있다."</p>
+										<p class="cr_date">2018/01/14</p>
+									</div>
+
+									<div class="review3">
+										<p class="cr_view">"국내에서 IT관련 모든 직군을 경험해 볼 수 있는 몇 안되는 좋은
+											회사 입니다."</p>
+										<p class="cr_date">2018/01/11</p>
+									</div>
+									
+								</div>
 						
 						<div class="c_write">
 							<input type="text" placeholder=" 리뷰 작성하기(50자 이내)" class="cr_write" maxlength="50"></label>
-							<input type="button" value="리뷰입력" class="cr_btn"></label>
+							<input type="submit" value="리뷰입력" class="cr_btn"></label>
 						</div>
+						</form>
 
 						<!-- light box -->
 
