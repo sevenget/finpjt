@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -28,18 +29,12 @@
 			</div>
 		
 			<div class="membership">
-<<<<<<< HEAD
 				<c:forEach items="${id}" var="iid" >
 					<p class="font">${iid.id}</p><br>
 				<p class="font">${iid.name }</p>
 				<p class="font">${iid.birth }</p>
 				<p class="font">${iid.email }</p>
 				</c:forEach>  
-=======
-				<p>홍길동</p><br>
-				<p class="font">1990/02/10</p>
-				<p class="font">쾌도대학교 졸업</p>			
->>>>>>> branch 'master' of https://github.com/sevenget/finpjt.git
 			</div>
 		</div>
 	</div> 	

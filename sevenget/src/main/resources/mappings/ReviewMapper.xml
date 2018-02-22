@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ReviewDAO">	<!-- 임의로 지정하는 이름 -->
+ 	
+ 	<resultMap type="review" id="ReviewMap">
+		<result column="writer" property="writer" />
+		<result column="cid" property="cid" />
+		<result column="reviewdate" property="reviewdate" />
+<!-- 		<result column="title" property="title" /> -->
+		<result column="content" property="content" />
+	</resultMap>
+
+	<insert id="insertReview">
+		INSERT INTO companyreview
+		VALUES(#{writer},#{cid},sysdate,#{content})
+	</insert>
+
+
+
+
+
+
+
+	<!-- <select id="getAll" resultMap="ReviewMap">resultMap="ReviewMap"
+		SELECT * FROM Review
+	</select>
+
+	<select id="getById" parameterType="String"  resultMap="ReviewMap">
+		SELECT *
+		FROM Review
+		WHERE memid = #{memid}
+	</select>
+
+
+	<insert id="insertPlts">
+		INSERT INTO Review
+		VALUES(#{memid},#{plotpng},sysdate)
+	</insert>
+	
+	<update id="updatePlts">
+		UPDATE Review
+		SET plotpng = #{plotpng} WHERE memid = #{memid}
+	</update> -->
+</mapper>
