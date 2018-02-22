@@ -7,16 +7,9 @@
 <title>7get-Search</title>
 <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src = "http://malsup.github.com/jquery.cycle2.js"></script>
+<script src = "../resources/script/search.js"></script>
 <link rel="stylesheet" type="text/css" href="../resources/css/session.css " media="all" flush="false">
 <link rel="stylesheet" href="../resources/css/searchMain.css" >
-
-<script>
-	$(function(){
-		$('#searchBtn').click(function(){
-			$('#searchHolder form').submit();
-		})
-	})
-</script>
 </head>
 <body>
 	<div id="head">

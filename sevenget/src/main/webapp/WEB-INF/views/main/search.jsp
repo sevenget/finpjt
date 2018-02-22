@@ -8,14 +8,9 @@
 <meta charset="UTF-8">
 <title>7get-Search</title>
 <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script src = "http://malsup.github.com/jquery.cycle2.js"></script>
 <script src = "../resources/js/search.js"></script>
-	
-
 <link rel="stylesheet" type="text/css" href="../resources/css/session.css " media="all" flush="false">
 <link rel="stylesheet" href="../resources/css/searchMain.css" >
-
-
 </head>
 <body>
 	<div id="head">
@@ -53,16 +48,6 @@
 		</div>
 
 			<div class="container2">	
-				<!-- 광고 -->
-				<div class="search_ad">
-					<div class="cycle-slideshow" data-cycle-fx=scrollHorz data-cycle-timeout=5000 data-cycle-pager-fx=scrollVert>
-						<img class="advSlides" src="../resources/img/joinus.png">
-						<img class="advSlides" src="../resources/img/granpaback.jpg">
-						<img class="advSlides" src="../resources/img/words.jpg">
-						<img class="advSlides" src="../resources/img/mountain.jpg">
-						<div class="cycle-pager"></div>
-					</div>
-				</div>
 				
 				
 				<!-- 기업 정보 -->

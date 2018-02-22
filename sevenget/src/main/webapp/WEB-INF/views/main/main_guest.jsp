@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,22 +9,8 @@
 <link rel="stylesheet" type="text/css" href="../resources/css/session.css?ver=0 " media="all" flush="false">
 <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src = "http://malsup.github.com/jquery.cycle2.js"></script>
+<script src = "../resources/js/search.js"></script>
 <link rel="stylesheet" href="../resources/css/searchMain.css" >
-<script>
-	$(function(){
-		$('.companylogo').click(function(){
-			if('${id}'=='Guest'){
-				alert('상세정보를 보려면 회원가입을 가즈아');
-			} else{
-				location.href="mypage2";
-			}
-			
-		})			
-	})
-	
-
-
-</script>
 </head>
 <body>
 	<div id="head">
@@ -76,12 +63,11 @@
 					</div>
 					
 					<hr width="915px" color="#aaa" size="1" class="dt_hr">
-					
 				<c:forEach var="company" items="${ companylist }">
 					<form>
 						<table>
 							<tr>
-								<td class="companylogo" rowspan=4><img src="../resources/img/logos/${company.logo }"></td>
+								<td class="companylogo" rowspan=4><img src="../resources/img/logos/${company.logo}"></td>
 								<td class="companytitle" rowspan=4>${company.cname }</td>
 								<td colspan=4></td>
 								<td rowspan=4><img src="../resources/img/colorheart.jpg"></td>

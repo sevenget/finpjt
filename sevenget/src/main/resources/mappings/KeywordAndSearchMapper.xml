@@ -36,7 +36,7 @@
 	
 	<select id="selectAdvs" resultType="companybasic">
 		select 
-		c.cid, logo, cname, industry, location, sales, employee, mission, discription, interestedtimes, 
+		c.cid "cid", logo, cname, industry, location, sales, employee, mission, discription, interestedtimes, 
 		dateget, marryget, babyget, houseget, relationget, dreamget, hopeget 
 		from advCompany a, companybasicinfo c 
 		where a.cid = c.cid

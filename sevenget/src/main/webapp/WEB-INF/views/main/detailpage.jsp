@@ -4,12 +4,77 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>상세 분석 페이지</title>
+
 <link rel="stylesheet" type="text/css" href="../resources/css/session.css " media="all" flush="false">
 <link rel="stylesheet" type="text/css" href="../resources/css/loading.css " media="all" flush="false">
-<link rel="stylesheet" type="text/css" href="../resources/css/detail.css" media="all"> <!-- 이거 css명 작업하시는 css 파일명으로 바꾸세요 안 그럼 저랑 꼬여요..!  -->
-<link rel="stylesheet" type="text/css" href="../resources/css/portside.css" media="all"> <!-- 이거 css명 작업하시는 css 파일명으로 바꾸세요 안 그럼 저랑 꼬여요..!  -->
+<link rel="stylesheet" type="text/css" href="../resources/css/detail.css" media="all"> 
+<link rel="stylesheet" type="text/css" href="../resources/css/portside.css" media="all"> 
+<link rel="stylesheet" type="text/css" href="../resources/css/lightbox.css" media="all"> 
+<link rel="stylesheet" type="text/css" href="../resources/css/review.css" media="all">
+
+<script src="${pageContext.request.contextPath}/resources/js/index/jquery-1.11.1.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
 <script src='https://code.jquery.com/jquery-3.0.0.min.js'></script>
+
+<script type="text/javascript">
+
+
+
+	function openContent() {
+
+		$('.mw_layer').addClass('open');
+
+		$.ajax({
+			type : 'post',
+			url : 'review',
+			data : "",
+			success : function(resultText) {
+				$('#layer').html(resultText);
+			}
+		})
+
+	}
+
+	jQuery(function($) {
+
+		var layerWindow = $('.mw_layer');
+
+		// ESC Event
+		$(document).keydown(function(event) {
+			if (event.keyCode != 27)
+				return true;
+			if (layerWindow.hasClass('open')) {
+				layerWindow.removeClass('open');
+			}
+			return false;
+		});
+
+		// Hide Window
+		layerWindow.find('>.bg').mousedown(function(event) {
+			layerWindow.removeClass('open');
+			return false;
+		});
+	});
+
+/* 	function review_list() {
+		window.open("review", "_blank",
+				"width=950,height=500,resizable=1,scrollbars=1");
+	} */
+	
+</script>
+
+<style type="text/css">
+.mw_layer{display:none;position:fixed;_position:absolute;top:0;left:0;z-index:10000;width:100%;height:100%}
+
+.mw_layer.open{display:block}
+
+.mw_layer .bg{position:absolute;top:0;left:0;width:100%;height:100%;background:#000;opacity:.5;filter:alpha(opacity=50)}
+
+#layer{position:absolute;top:40%;left:35%;width:950px;height:500px;margin:-150px 0 0 -194px;padding:28px 28px 0 28px;border:2px solid #555;background:#fff;font-size:12px;font-family:Tahoma, Geneva, sans-serif;color:#767676;line-height:normal;white-space:normal}
+
+</style>
+
 </head>
 <body>
 
@@ -73,10 +138,10 @@
 	 				
 	 				
 	 				<div class="review">
-						<p class="head_rv">리뷰</p>
+						<p class="head_rv"><a href="#layer" onclick="openContent('${article.idx}')">리뷰</a></p>
 						<hr width="915px" color="#aaa" size="1" class="dt_hr">	 
 						
-						<div class="c_review">
+						<div class="c_review" onclick="review_list()" >
 							
 							<div class="review1">
 								<p class="cr_view">"기술직이 자신의 능력만큼 대우 받을 수 있는 회사. 대한민국에서 만족스러운 수준의 워라벨."</p>
@@ -99,8 +164,22 @@
 							<input type="text" placeholder=" 리뷰 작성하기(50자 이내)" class="cr_write" maxlength="50"></label>
 							<input type="button" value="리뷰입력" class="cr_btn"></label>
 						</div>
-										
-	 				</div>
+
+						<!-- light box -->
+
+						<div class="mw_layer">
+
+							<div class="bg"></div>
+
+							<div id="layer">
+								<%@ include file="/WEB-INF/views/main/review.jsp" %>
+							</div>
+
+						</div>
+
+
+
+					</div>
 	 			
 	 			
 	 			</div>
