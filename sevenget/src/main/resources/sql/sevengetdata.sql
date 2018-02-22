@@ -62,3 +62,6 @@ select * from keywords
 
 select * from search
 
+insert into companyreview values('mem', 1, sysdate, 'sooc')
+delete from companyreview
+commit
