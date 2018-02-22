@@ -17,7 +17,7 @@ create table memBasicInfo(
    	hopeCon number(2)
 );
 
-
+select id from memBasicInfo where id='mem';
 
 -- 회원 속성
 drop table memDetail purge;
