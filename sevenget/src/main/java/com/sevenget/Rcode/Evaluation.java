@@ -2,9 +2,7 @@ package com.sevenget.Rcode;
 
 import org.rosuda.REngine.REXP;
 import org.rosuda.REngine.REXPMismatchException;
-import org.rosuda.REngine.REngine;
 import org.rosuda.REngine.REngineException;
-import org.rosuda.REngine.RList;
 import org.rosuda.REngine.Rserve.RConnection;
 
 // 실행 전 Rserve.R 반드시 실행시키기
@@ -120,15 +118,5 @@ public class Evaluation {
 
 	}
 
-	/*public static void main(String[] args) {
 
-		Evaluation ee = new Evaluation();
-		try {
-			ee.mPlot();
-		} catch (REXPMismatchException | REngineException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}*/
 }
