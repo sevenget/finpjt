@@ -1,4 +1,4 @@
-package com.sevenget.makeplot;
+package com.sevenget.Rcode;
 
 import org.rosuda.REngine.REXPMismatchException;
 import org.rosuda.REngine.REngineException;
