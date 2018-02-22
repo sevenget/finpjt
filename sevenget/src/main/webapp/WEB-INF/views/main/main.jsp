@@ -64,7 +64,22 @@
 					</div>
 				</div>
 				
-				
+				<script>
+					$(function(){
+						$('img.interested').click(function(){
+							if($(this).attr('src')=='../resources/img/blackheart.jpg'){
+								$(this).attr('src', '../resources/img/colorheart.jpg')
+								alert($(this).attr('data-cid'))
+								$('span.nothing').load('regInter')
+							} else{
+								$(this).attr('src', '../resources/img/blackheart.jpg')
+								$('span.nothing').load('canInter')
+								alert($(this).attr('data-cid'))
+							}
+						})
+					})
+					
+				</script>
 				<!-- 기업 정보 -->
 				<div id="resultHolder">
 					<div class="rh_head">
@@ -76,10 +91,10 @@
 					<form>
 						<table>
 							<tr>
-								<td class="companylogo" rowspan=4><img class="companylogo" src="../resources/img/logos/${company.logo }"></td>
+								<td class="companylogo" rowspan=4><img class="companylogo" src="../resources/img/logos/${company.logo}"></td>
 								<td class="companytitle" rowspan=4>${company.cname }</td>
 								<td colspan=4></td>
-								<td rowspan=4><img src="../resources/img/colorheart.jpg"></td>
+								<td rowspan=4><img class="interested" src="../resources/img/colorheart.jpg" data-cid="${company.cid}"></td>
 							</tr>
 							<tr>
 								<td>${company.industry}</td>
@@ -104,7 +119,7 @@
 				<div id="infoHolder">
 					 <!-- 배너 광고 -->
 					 <div class="info_ad">
-						<a href="void(0);" onclick="alert('준비중 입니다.');return false;"><img src="../resources/img/ad1.png"></a>
+						<a href="void(0);" onclick="alert('준비중 입니다.');return false;"><img src="../resources/img/ad1.png"><span class="nothing"></span></a>
 					</div>
 					
 					<!-- 회원정보 -->
