@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.sevenget.makeplot.MakingPlot;
 
+
+import model.member.MemBasicInfoDTO;
 import model.member.MemIdCheckDaoImpl;
+import model.member.MemLoginDao;
 
 
 /**
@@ -44,13 +46,13 @@ public class HomeController {
 	
 	
 	// 연습용 메인페이지
-	@RequestMapping(value = "/main/joeh", method = RequestMethod.GET)
-	public ModelAndView mainPractice(HttpSession session, Locale locale, ModelAndView mav) {
-		session.setAttribute("id", "mem");
-		String id = (String)session.getAttribute("id");
+	@RequestMapping(value = "/main/main", method = RequestMethod.POST)
+	public ModelAndView mainPractice(String userId, MemLoginDao dao,MemBasicInfoDTO dto, ModelAndView mav) {
 		
-		mav.setViewName("main/joeh");
-		mav.addObject("id", id);
+		dto = dao.loginCheck(userId);
+		
+		mav.addObject("userId",dto.getId());
+		mav.setViewName("main/main");
 		return mav;
 	}
 	
@@ -66,7 +68,7 @@ public class HomeController {
 	
 	//로그인
 	@RequestMapping(value = "/main/login", method = RequestMethod.GET)
-	public String Login() {
+	public String Login(HttpSession session, Locale locale, Model model) {
 		session.setAttribute("id", "mem");
 		String id = (String)session.getAttribute("id");
 		
@@ -119,20 +121,7 @@ public class HomeController {
 		return mav;
 	}*/
 	
-	//loading
-	@RequestMapping(value = "/main/loading", method = RequestMethod.GET)
-	public String MPlot(Locale locale, Model model) {
-		MakingPlot mplot = new MakingPlot();
-		try {
-			System.out.println("R시작");
-			mplot.mPlot();
-			System.out.println("R종료");
-		} catch (REXPMismatchException | REngineException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return "main/loading";
-	}
+
 	
 	//loadContent
 	@RequestMapping(value = "/main/loadContent", method = RequestMethod.GET)
