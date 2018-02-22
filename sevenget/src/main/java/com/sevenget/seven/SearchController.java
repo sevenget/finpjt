@@ -51,4 +51,15 @@ public class SearchController {
 				return mav;
 			}
 			
+			@RequestMapping(value = "/main/regInter")
+			public String regInter() {
+				System.out.println("main/regInter 컨트롤러");
+				return "main/nothing";
+			}
+			
+			@RequestMapping(value = "/main/canInter")
+			public String canInter() {
+				System.out.println("main/canInter 컨트롤러");
+				return "main/nothing";
+			}
 }

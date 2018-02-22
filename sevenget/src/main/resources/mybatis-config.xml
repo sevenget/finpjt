@@ -11,6 +11,9 @@
 		<typeAlias type="model.company.CompanyBasicDTO" alias="companybasic"></typeAlias>
 		<typeAlias type="model.member.MemConcernDto" alias="keyword2"></typeAlias>
 		<typeAlias type="model.plots.PlotsDto" alias="plts"></typeAlias>
+		<typeAlias type="model.member.MemIdCheckDto" alias="checkid"/>
+		<typeAlias type="model.intercompany.InterCompBean" alias="interComp"></typeAlias>
+		<typeAlias type="model.member.MemBasicInfoDTO" alias="memBasicInfo"></typeAlias>
 	</typeAliases>
 	
 	<environments default="development">
@@ -30,5 +33,8 @@
  		<mapper resource="mappings/MemConcernMapper.xml"/>
 		<mapper resource="mappings/CompanyBasicMapper.xml"/>
 		<mapper resource="mappings/PlotsMapper.xml"/>
+		<mapper resource="mappings/MemIdCheckMapper.xml" />
+		<mapper resource="mappings/InterCompMapper.xml"/>
+		<mapper resource="mappings/MemBasicInfoMapper.xml"/>
 	</mappers>
 </configuration>

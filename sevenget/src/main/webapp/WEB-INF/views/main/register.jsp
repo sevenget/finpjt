@@ -110,20 +110,20 @@
 		}
 		
 		return true;
+		
 	}
 	
 	function checkId() {
 		var forms = document.getElementById("form_1");
 		var id = forms.userId.value;
-		var url = "./check_id?id=" + forms.userId.value;
+		var url = "./checkID?userId=" + forms.userId.value;
 
-		if (id.length == 0) {
-			alert("아이디를 입력하세요.");
-			joinform.userId.focus();
+		if (id.length <= 2) {
+			alert('아이디는 4글자 이상 입력해주세요.');
+			forms.userId.focus();
 			return false;
 		}
-		open(url, "confirmRepetition",
-				"toolbar=no,location=yes,status=no,menubar=no,top=150,left=150"
+		window.open(url, "ID_Check"," location=no,toolbar=no,status=no,menubar=no,top=150,left=150"
 						+ "scrollbars=no,resizable=no,width=400,height=200");
 	}
 	
