@@ -123,8 +123,7 @@
 			forms.userId.focus();
 			return false;
 		}
-		open(url, "confirmRepetition",
-				"toolbar=no,location=yes,status=no,menubar=no,top=150,left=150"
+		window.open(url, "ID_Check"," location=no,toolbar=no,status=no,menubar=no,top=150,left=150"
 						+ "scrollbars=no,resizable=no,width=400,height=200");
 	}
 	

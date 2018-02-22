@@ -9,12 +9,12 @@
 <title>중복확인</title>
 <script>
 function windowclose(){
-	opener.document.registerForm.id.value='<%=userId%>';
+	opener.document.form_1.userId.value='<%=userId%>';
 		self.close();
 	}
 </script>
 </head>
-<body bgcolor="#f5f5f5">
+<body bgcolor="#ebecee">
 	<%
 		if (check == 1) {
 	%>
@@ -24,12 +24,12 @@ function windowclose(){
 		</tr>
 	</table>
 
-	<form action="./memberIDCheck.uo" method="post" name="checkForm">
+	<form action="./checkID" method="get" name="checkForm">
 		<table width="360" border="0" cellspacing="0" cellpadding="5">
 			<tr>
 				<td align="center"><font size="2">다른 아이디를 선택하세요.</font>
 					<p>
-						<input type="text" size="10" maxlength="12" name="id" /> <input
+						<input type="text" size="10" maxlength="12" name="userId" /> <input
 							type="submit" value="중복확인" /></td>
 			</tr>
 		</table>
