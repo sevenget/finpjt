@@ -2,22 +2,20 @@ package com.sevenget.seven;
 
 import java.util.Locale;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.rosuda.REngine.REXPMismatchException;
 import org.rosuda.REngine.REngineException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.sevenget.makeplot.MakingPlot;
-
-import model.member.MemBasicInfoDAO;
+import com.sevenget.Rcode.MakingPlot;
 
 /**
  * Handles requests for the application home page.
@@ -99,14 +97,12 @@ public class HomeController {
 	
 	//마이페이지1
 	@RequestMapping(value = "/main/mypage", method = RequestMethod.GET)
-	public String Mypage(MemBasicInfoDAO DAO, HttpServletRequest request) {
-		
-		request.setAttribute("id", DAO.getMemBasicInfo());
-		System.out.println("mypage");
+	public String Mypage(Locale locale, Model model) {
+
 		return "main/mypage";
 	}
-	
-	//마이페이지2s
+
+	// 마이페이지2
 	@RequestMapping(value = "/main/mypage2", method = RequestMethod.GET)
 	public String Mypage2(Locale locale, Model model) {
 
