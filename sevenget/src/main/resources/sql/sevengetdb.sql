@@ -16,7 +16,7 @@ create table memBasicInfo(
    	dreamCon number(2),
    	hopeCon number(2)
 );
-
+SELECT * FROM memBasicInfo where id = 'Guest'
 select id from memBasicInfo where id='mem';
 
 -- 회원 속성
