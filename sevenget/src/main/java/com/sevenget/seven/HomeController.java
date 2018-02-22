@@ -43,11 +43,11 @@ public class HomeController {
 
 	// 연습용 메인페이지
 	@RequestMapping(value = "/main/joeh", method = RequestMethod.GET)
-<<<<<<< HEAD
 	public String mainPractice(Locale locale, Model model) {
 
 		return "main/joeh";
-=======
+	}
+	
 	public ModelAndView mainPractice(HttpSession session, Locale locale, ModelAndView mav) {
 		session.setAttribute("id", "mem");
 		String id = (String)session.getAttribute("id");
@@ -55,7 +55,6 @@ public class HomeController {
 		mav.setViewName("main/joeh");
 		mav.addObject("id", id);
 		return mav;
->>>>>>> branch 'master' of https://github.com/sevenget/finpjt.git
 	}
 
 	// 기업 상세페이지
@@ -74,15 +73,11 @@ public class HomeController {
 
 	// 로그인
 	@RequestMapping(value = "/main/login", method = RequestMethod.GET)
-<<<<<<< HEAD
-	public String Login(Locale locale, Model model) {
 
-=======
 	public String Login(HttpSession session, Locale locale, Model model) {
 		session.setAttribute("id", "mem");
 		String id = (String)session.getAttribute("id");
 		
->>>>>>> branch 'master' of https://github.com/sevenget/finpjt.git
 		return "main/login";
 	}
 
@@ -92,10 +87,6 @@ public class HomeController {
 
 		return "main/register";
 	}
-<<<<<<< HEAD
-
-	// 마이페이지1
-=======
 	
 	//@아이디 중복확인
 	@RequestMapping(value="/main/check_id", method = RequestMethod.GET)
@@ -105,7 +96,6 @@ public class HomeController {
 	}
 	
 	//마이페이지1
->>>>>>> branch 'master' of https://github.com/sevenget/finpjt.git
 	@RequestMapping(value = "/main/mypage", method = RequestMethod.GET)
 	public String Mypage(Locale locale, Model model) {
 
