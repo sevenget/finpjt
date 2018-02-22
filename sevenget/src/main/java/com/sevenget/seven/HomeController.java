@@ -8,6 +8,7 @@ import org.rosuda.REngine.REXPMismatchException;
 import org.rosuda.REngine.REngineException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -77,6 +78,13 @@ public class HomeController {
 		
 		
 		return "main/register";
+	}
+	
+	//@아이디 중복확인
+	@RequestMapping(value="/main/check_id", method = RequestMethod.GET)
+	public String CheckId(Locale locale, Model model){
+		
+		return "main/check_id";
 	}
 	
 	//마이페이지1
