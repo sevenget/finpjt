@@ -16,8 +16,8 @@ create table memBasicInfo(
    	dreamCon number(2),
    	hopeCon number(2)
 );
-
-
+SELECT * FROM memBasicInfo where id = 'Guest'
+select id from memBasicInfo where id='mem';
 
 -- 회원 속성
 drop table memDetail purge;
@@ -30,7 +30,6 @@ create table memDetail(
 
 -- 기업 관련 --
 drop table companybasicinfo purge;
-alter table companyBasicInfo drop constraint companybasicinfo_cid_pk cascade;
 create table companyBasicInfo(
    cid number(10) constraint companybasicinfo_cid_pk primary key,
    logo varchar2(100),
@@ -50,6 +49,9 @@ create table companyBasicInfo(
    dreamGet varchar2(2) constraint combasicinfo_dreamget_ck check(dreamGet in('T', 'F', 'N')),
    hopeGet varchar2(2) constraint combasicinfo_hopeget_ck check(hopeGet in('T', 'F', 'N'))
 );
+alter table companyBasicInfo drop constraint companybasicinfo_cid_pk cascade;
+
+select * from companyBasicInfo;
 
 drop table companyscore purge;
 create table companyScore(

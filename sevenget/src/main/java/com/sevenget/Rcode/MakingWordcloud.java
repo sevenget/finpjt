@@ -1,4 +1,4 @@
-package com.sevenget.makeplot;
+package com.sevenget.Rcode;
 
 import java.io.BufferedReader;
 import java.io.IOException;

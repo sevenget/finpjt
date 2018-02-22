@@ -64,11 +64,26 @@ plot7 <- qplot(hopeD)+coord_flip()+geom_bar(fill="#654ea3")+ labs(x='꿈') + geo
 # plot6
 # plot7
 
+dateT <- table(dateD)
+marriageT <- table(marriageD)
+babyT <- table(babyD)
+houseT <- table(houseD)
+relationshipT <- table(relationshipD)
+dreamT <- table(dreamD)
+hopeT <- table(hopeD)
 
+write.csv(dateT,"tabledDate.csv")
+write.csv(marriageT,"tabledMarriage.csv")
+write.csv(babyT,"tabledBaby.csv")
+write.csv(houseT,"tabledHouse.csv")
+write.csv(relationshipT,"tabledRelationship.csv")
+write.csv(dreamT,"tabledDream.csv")
+write.csv(hopeT,"tabledHope.csv")
 
 
 
 library(gridExtra)
 grid.arrange(plot1,plot2,plot3,plot4,plot5,plot6,plot7,nrow=3)
+
 
 

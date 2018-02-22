@@ -10,7 +10,10 @@
 		<typeAlias type="model.search.SearchDTO" alias="search"></typeAlias>
 		<typeAlias type="model.company.CompanyBasicDTO" alias="companybasic"></typeAlias>
 		<typeAlias type="model.member.MemConcernDto" alias="keyword2"></typeAlias>
-		<typeAlias type="model.plots.PlotsDto" alias="plts"></typeAlias>
+		<typeAlias type="model.plots.PlotsDto" alias="plts"></typeAlias>		
+		<typeAlias type="model.member.MemIdCheckDto" alias="checkid"/>
+		<typeAlias type="model.intercompany.InterCompBean" alias="interComp"></typeAlias>
+		<typeAlias type="model.member.MemBasicInfoDTO" alias="memBasicInfo"></typeAlias>
 		<typeAlias type="model.review.ReviewDto" alias="review"></typeAlias>
 	</typeAliases>
 	
