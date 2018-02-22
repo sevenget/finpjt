@@ -37,9 +37,14 @@
 									<td><input id="pw" type="text" placeholder="비밀번호"></td>
 								</tr>
 								<tr>
-									<td colspan="2"><button id="facebook">
+									<td colspan="2"><button id="facebook" onclick="alert('준비중'); return false;">
 											<img src="../resources/img/f.png" class="face_logo">페이스북
 											아이디로 로그인
+										</button></td>
+								</tr>
+								<tr>
+									<td colspan="2"><button id="guest" onclick="alert('손님'); return false;">
+											비로그인으로 둘러보기
 										</button></td>
 								</tr>
 								<tr>

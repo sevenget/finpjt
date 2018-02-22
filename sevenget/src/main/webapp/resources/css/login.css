@@ -7,6 +7,7 @@
 #pw { width:200px; height:40px; margin-top:3px;}
 #login {width:100px; height:100px; border:0; background-color:#ebebeb; color:#929292; font-size:15px; }
 #facebook { background-color:#3b5998; color:white; width:310px; height:50px; border:0; margin-top:7px; }
+#guest { background-color:orange; color: white; width:310px; height:50px; border:0; margin-top:5px; }
 #submit { background-color:#8772bf; color: white; width:310px; height:50px; border:0; margin-top:5px; }
 tr td{width:200px; height:30px;border:0;}
 
