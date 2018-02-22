@@ -115,11 +115,11 @@
 	function checkId() {
 		var forms = document.getElementById("form_1");
 		var id = forms.userId.value;
-		var url = "./check_id?id=" + forms.userId.value;
+		var url = "./member_id_check?userId=" + forms.userId.value;
 
-		if (id.length == 0) {
-			alert("아이디를 입력하세요.");
-			joinform.userId.focus();
+		if (id.length <= 2) {
+			alert('아이디는 4글자 이상 입력해주세요.');
+			forms.userId.focus();
 			return false;
 		}
 		open(url, "confirmRepetition",
