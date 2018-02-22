@@ -83,6 +83,7 @@ $(document).ready(function($)
 				<a href="mypage">마이페이지 이동</a> <br /> 
 				<a href="mypage2">7포,리뷰페이지 이동</a> <br /> 
 				<a href="main">메인페이지 이동</a>
+				<a href="review">상세페이지 이동</a> <br />
 
 				
 				<!-- <img src="../resources/img/plots/radarchart.png" /> -->
