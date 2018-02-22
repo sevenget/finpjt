@@ -8,25 +8,9 @@
 <meta charset="UTF-8">
 <title>7get-Search</title>
 <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script>
-	$(function(){		
-		$('#searchBtn').click(function(){
-			$('#searchHolder form').submit();
-		})
-		
-		$('.companylogo').click(function(){
-		 	if('${id}'=='Guest'){
-				alert('상세정보를 보려면 회원가입을 가즈아')
-			} else{
-				location.href="mypage2";		
-			}
-		});
-	});
-</script>
+<script src = "../resources/js/search.js"></script>
 <link rel="stylesheet" type="text/css" href="../resources/css/session.css " media="all" flush="false">
 <link rel="stylesheet" href="../resources/css/searchMain.css" >
-
-
 </head>
 <body>
 	<div id="head">

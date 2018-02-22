@@ -22,8 +22,9 @@ public class SearchController {
 		public ModelAndView main(KeywordAndSearchDAO dao, HttpSession session, ModelAndView mav) {
 			session.setAttribute("id", "mem");
 			String id = (String)session.getAttribute("id");
-			
-			mav.addObject("companylist", dao.searchAdvs());
+			List list = dao.searchAdvs();
+			System.out.println(list.size());
+			mav.addObject("companylist", list);
 			mav.setViewName("main/main");
 			
 			if(id.equals("Guest")){
@@ -46,7 +47,7 @@ public class SearchController {
 				
 				List<CompanyBasicDTO> companylist = kdao.searchByKeyword(kdto.getKeyword());
 				mav.addObject("companylist", companylist);
-				mav.setViewName("main/searchmain");
+				mav.setViewName("main/search");
 				return mav;
 			}
 			

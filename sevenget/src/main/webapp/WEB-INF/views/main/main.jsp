@@ -9,30 +9,9 @@
 <title>7get-Search</title>
 <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src = "http://malsup.github.com/jquery.cycle2.js"></script>
-<script>
-	$(function(){
-		$('#searchHolder form').submit(function(){
-			$('div.search_ad').hide('slow');
-			setTimeosut(function(){ 
-				alert(1)
-				$(this).sumbit()
-			},5000);
-			return false;
-		});
-		
-		$('#searchBtn').click(function(){
-			$('#searchHolder form').submit();
-		})
-		
-		$('.companylogo').click(function(){
-		 	if('${id}'=='Guest'){
-				alert('상세정보를 보려면 회원가입을 가즈아')
-			} else{
-				location.href="mypage2";		
-			}
-		});
-	});
-</script>
+<script src = "../resources/js/search.js"></script>
+	
+
 <link rel="stylesheet" type="text/css" href="../resources/css/session.css " media="all" flush="false">
 <link rel="stylesheet" href="../resources/css/searchMain.css" >
 
