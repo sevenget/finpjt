@@ -2,13 +2,22 @@ package model.company;
 
 public class CompanyBasicDTO {
 	int cid;
-	String clogo;
+	String logo;
 	String cname;
-	String cmission;
-	int sales;
-	String salsesource;
-	String cdiscription;
+	String industry;
+	String location;
+	String sales;
+	int employee;
+	String mission;
+	String discription;
 	int interestedTimes;
+	String dateGet;
+	String marryGet;
+	String babyGet;
+	String houstGet;
+	String relationGet;
+	String dreamGet;
+	String hopeGet;
 	
 	public CompanyBasicDTO(){	}
 
@@ -20,12 +29,12 @@ public class CompanyBasicDTO {
 		this.cid = cid;
 	}
 
-	public String getClogo() {
-		return clogo;
+	public String getLogo() {
+		return logo;
 	}
 
-	public void setClogo(String clogo) {
-		this.clogo = clogo;
+	public void setLogo(String logo) {
+		this.logo = logo;
 	}
 
 	public String getCname() {
@@ -36,36 +45,52 @@ public class CompanyBasicDTO {
 		this.cname = cname;
 	}
 
-	public String getCmission() {
-		return cmission;
+	public String getIndustry() {
+		return industry;
 	}
 
-	public void setCmission(String cmission) {
-		this.cmission = cmission;
+	public void setIndustry(String industry) {
+		this.industry = industry;
 	}
 
-	public int getSales() {
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getSales() {
 		return sales;
 	}
 
-	public void setSales(int sales) {
+	public void setSales(String sales) {
 		this.sales = sales;
 	}
 
-	public String getSalsesource() {
-		return salsesource;
+	public int getEmployee() {
+		return employee;
 	}
 
-	public void setSalsesource(String salsesource) {
-		this.salsesource = salsesource;
+	public void setEmployee(int employee) {
+		this.employee = employee;
 	}
 
-	public String getCdiscription() {
-		return cdiscription;
+	public String getMission() {
+		return mission;
 	}
 
-	public void setCdiscription(String cdiscription) {
-		this.cdiscription = cdiscription;
+	public void setMission(String mission) {
+		this.mission = mission;
+	}
+
+	public String getDiscription() {
+		return discription;
+	}
+
+	public void setDiscription(String discription) {
+		this.discription = discription;
 	}
 
 	public int getInterestedTimes() {
@@ -75,6 +100,63 @@ public class CompanyBasicDTO {
 	public void setInterestedTimes(int interestedTimes) {
 		this.interestedTimes = interestedTimes;
 	}
+
+	public String getDateGet() {
+		return dateGet;
+	}
+
+	public void setDateGet(String dateGet) {
+		this.dateGet = dateGet;
+	}
+
+	public String getMarryGet() {
+		return marryGet;
+	}
+
+	public void setMarryGet(String marryGet) {
+		this.marryGet = marryGet;
+	}
+
+	public String getBabyGet() {
+		return babyGet;
+	}
+
+	public void setBabyGet(String babyGet) {
+		this.babyGet = babyGet;
+	}
+
+	public String getHoustGet() {
+		return houstGet;
+	}
+
+	public void setHoustGet(String houstGet) {
+		this.houstGet = houstGet;
+	}
+
+	public String getRelationGet() {
+		return relationGet;
+	}
+
+	public void setRelationGet(String relationGet) {
+		this.relationGet = relationGet;
+	}
+
+	public String getDreamGet() {
+		return dreamGet;
+	}
+
+	public void setDreamGet(String dreamGet) {
+		this.dreamGet = dreamGet;
+	}
+
+	public String getHopeGet() {
+		return hopeGet;
+	}
+
+	public void setHopeGet(String hopeGet) {
+		this.hopeGet = hopeGet;
+	}
+
 	
 	
 }

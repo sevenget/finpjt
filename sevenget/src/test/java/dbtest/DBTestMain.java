@@ -5,6 +5,8 @@ import java.util.List;
 import model.member.MemBasicInfoDAO;
 import model.member.MemBasicInfoDTO;
 
+import model.search.KeywordAndSearchDAO;
+
 public class DBTestMain {
 	public static void main(String[] args) {
 		MemBasicInfoDAO dao = new MemBasicInfoDAO();

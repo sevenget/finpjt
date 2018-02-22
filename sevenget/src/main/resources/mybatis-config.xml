@@ -7,6 +7,7 @@
 	
 	<typeAliases>
 		<typeAlias type="model.search.KeywordDTO" alias="keyword"></typeAlias>
+		<typeAlias type="model.search.SearchDTO" alias="search"></typeAlias>
 		<typeAlias type="model.company.CompanyBasicDTO" alias="companybasic"></typeAlias>
 		<typeAlias type="model.member.MemConcernDto" alias="keyword2"></typeAlias>
 		<typeAlias type="model.plots.PlotsDto" alias="plts"></typeAlias>
@@ -27,7 +28,7 @@
 	</environments>
 	
 	<mappers>
-		<mapper resource="mappings/KeywordMapper.xml"/>
+		<mapper resource="mappings/KeywordAndSearchMapper.xml"/>
  		<mapper resource="mappings/MemConcernMapper.xml"/>
 		<mapper resource="mappings/CompanyBasicMapper.xml"/>
 		<mapper resource="mappings/PlotsMapper.xml"/>

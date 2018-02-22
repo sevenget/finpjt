@@ -72,7 +72,7 @@ $(document).ready(function($)
 
 	<div id="all">
 		<div id=contect">
-
+			${ id }
 			<!-- 여기 안에다 작업하시면 돼요 -->
 			<div class="container2">
 			
@@ -83,6 +83,7 @@ $(document).ready(function($)
 				<a href="mypage">마이페이지 이동</a> <br /> 
 				<a href="mypage2">7포,리뷰페이지 이동</a> <br /> 
 				<a href="main">메인페이지 이동</a>
+				<a href="review">상세페이지 이동</a> <br />
 
 				
 				<!-- <img src="../resources/img/plots/radarchart.png" /> -->
