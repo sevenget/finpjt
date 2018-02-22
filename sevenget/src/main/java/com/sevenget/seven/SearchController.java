@@ -33,13 +33,20 @@ public class SearchController {
 		}
 		
 		// 로그인 전 검색페이지
-			@RequestMapping(value = "/main/search", method = RequestMethod.GET)
-			public ModelAndView search(SearchDTO sdto, KeywordDTO kdto, KeywordAndSearchDAO kdao, CompanyBasicDAO cdao, ModelAndView mav) {
-				kdao.insertKeyword(kdto.getKeyword());
+			@RequestMapping(value = "/main/search")
+			public ModelAndView search(SearchDTO sdto, KeywordDTO kdto, KeywordAndSearchDAO kdao, CompanyBasicDAO cdao, ModelAndView mav, HttpSession session) {
+				if(!kdto.getKeyword().equals("")){
+					kdao.insertKeyword(kdto.getKeyword());
+				} else{
+					kdao.insertKeyword(".X");
+				};
+
+				sdto.setSearchMem((String)session.getAttribute("id"));
 				kdao.insertSearch(sdto);
+				
 				List<CompanyBasicDTO> companylist = kdao.searchByKeyword(kdto.getKeyword());
 				mav.addObject("companylist", companylist);
-				mav.setViewName("main/search");
+				mav.setViewName("main/searchmain");
 				return mav;
 			}
 			
