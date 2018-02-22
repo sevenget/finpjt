@@ -120,7 +120,7 @@ public class Evaluation {
 
 	}
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 
 		Evaluation ee = new Evaluation();
 		try {
@@ -130,5 +130,5 @@ public class Evaluation {
 			e.printStackTrace();
 		}
 
-	}
+	}*/
 }
