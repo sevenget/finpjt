@@ -1,0 +1,4 @@
+@CHARSET "UTF-8";
+
+#lightbox { position:absolute; top:0; left:50%; width:800px; height:500px; margin-left: -200px; background-color:#fff; z-index:1111; display:none; }
+#lightbox_shadow { position:absolute; top:0; left:0; width:100%; hegiht:100%; background-color:#000; opacity:0.75%; filter:alpha(opacity=75); -moz-opacity:0.75; -khtml-opacity:0.75; z-index:1110; display:none; }

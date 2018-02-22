@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+body, div, header, h1, a { margin:0; padding:0; color:#666; }
+.container_rv{ width:950px; height:500px; margin:0 auto; overflow:hidden; display:table; position:relative; /* border:1px solid black; */ }
+
+/* 리뷰 */
+#rv__ { /* border:1px solid blue; */ position:fixed; z-index:555; background-color:#fff; float:left;}
+
+
+.head_rv { margin-left:10px; font-weight:bold; color:#654ea3; font-size:17px; }
+
+.r_review { width:900px; height:460px; margin-left:20px; margin-top:25px; /* border:1px solid red; */ }
+.r_review h4 { margin-left:10px; margin-top:-3px; }
+
+.r_dt_hr { margin-top:-10px; color:#595959; }
+
+
+.cc_review { width:900px; height:330px; margin-top:58px; background-color:#fff; position:fixed; float:left;/* background-color:#cedf45; */ overflow-y:auto; overflow-x:hidden; }
+.cc_write { width:845px; height:62px; margin-left:34px; background-color:#fff; position:fixed; float:left; margin-top:397px; }
+
+.review1 { width:100%; height:40px; margin-top:5px; margin-left:34px; }
+.rr_view { margin-left:8px; /* margin-top:-5px;  */font-size:16px; color:#929292; float:left; font-weight:bold; }
+.rr_date { margin-left:25px; margin-top:20px; font-size:12px; color:#c9c9c9; float:left; }
+
+.review_rr { width:100%; height:40px; margin-top:5px; margin-left:34px; }
+.review3 { width:100%; height:40px; margin-top:5px; margin-left:34px; }
+
+
+.rr_write { width:700px; height:50px; margin-top:5px; border:1px solid #ccc; font-size:16px; color:#666; float:left; }
+.rr_btn { width:130px; height:54px; margin-top:4.3px; background-color:#8772b8; margin-left:6px; float:left; border:0; color:#fff; font-size:15px; }
+
