@@ -28,7 +28,7 @@ public class MypageController {
 	@RequestMapping(value="/include/interComp", method= RequestMethod.GET)
 	public String interComp(MemBasicInfoDAO DAO, HttpServletRequest request){
 		
-		/*request.setAttribute("id", DAO.getMemBasicInfo(""));*/
+		/*request.setAttribute("id", DAO.getMemBasicInfo(""));*/ 
 		return "include/interComp";
 	}
 	

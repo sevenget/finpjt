@@ -36,7 +36,7 @@
 				<p class="font"> ${iid.name}</p>
 				<p class="font"> ${iid.birth}</p>
 				<p class="font"> ${iid.address}</p>
-				
+				 
 				</c:forEach>  
 			</div>
 		</div>

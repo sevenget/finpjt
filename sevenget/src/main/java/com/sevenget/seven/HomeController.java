@@ -151,7 +151,7 @@ public class HomeController {
 		String id = (String)session.getAttribute("id");
 		request.setAttribute("id", DAO.getMemBasicInfo(id));
 		System.out.println("mypage");
-		return "main/mypage";
+		return "main/mypage"; 
 	}
 	
 	//마이페이지2s
