@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+#portside { width:325px; height:808px; margin-top:40px; float:left; }
+
+#portside1 { background-color:#fff; width:325px; height:328px; float:left; }
+
+.info { width:285px; height:295px; margin-top:30px; margin-left:20px; }
+.info h4 { margin-left:10px; }
+
+.head_member { margin-left:10px; font-weight:bold; color:#595959; font-size:16px; margin-top:-3px; }
+
+
+.hr { margin-top:-10px; color:#595959; }
+
+.ficture { width:135px; height:180px; border:1px solid #c9c9c9; margin-left:7px; margin-top:20px; float:left; }
+
+.membership { margin-top:50px; width:140px; height:150px; float:left; }
+.membership p { width:135px; margin-left:5px; float:left; font-size:15px; }
+
+.font { margin-top:-7px; }
+
+#portside2 { width:325px; height:100px; margin-top:20px; float:left; background-color:#fff; }
+ 

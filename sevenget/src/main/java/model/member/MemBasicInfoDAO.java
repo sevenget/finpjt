@@ -15,6 +15,6 @@ public class MemBasicInfoDAO {
 	
 	public List<MemBasicInfoDTO> getMemBasicInfo(String id){
 		return mybatis.selectList("MemBasicInfoDAO.getMemBasicInfo",id);
-	}
+	} 
 }
 
