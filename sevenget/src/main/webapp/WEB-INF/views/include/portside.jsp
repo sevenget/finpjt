@@ -38,6 +38,20 @@
 				</c:forEach>  
 			</div>
 		</div>
+		<div>
+		<!-- 연애 결혼 육아 내집마련 인간관계 꿈 희망 -->
+		<!-- dateCon number(2),
+  	marryCon number(2),
+   	babyCon number(2),
+   	houseCon number(2),
+   	relationCon number(2),
+   	dreamCon number(2),
+   	hopeCon number(2) -->
+			<c:forEach items="${member}" var="score" >
+			<h4 class="score1"style="float: left">연애</h4><h4 class="score2" style="float: left"> ${score.dateCon}</h4>
+			<h4 class="score1"style="clear: both;">결혼</h4><h4 class="score2" style="float: left;"> ${score.marryCon}</h4>
+			</c:forEach>  
+		</div>
 	</div> 	
 	
 	<div id="portside2"> 
