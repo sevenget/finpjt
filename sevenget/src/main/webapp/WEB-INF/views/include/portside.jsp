@@ -11,6 +11,7 @@
 	function find_id() {
 		window.open("http://www.jobkorea.co.kr/", "_blank");
 	}
+
 </script>
 
 </head>
