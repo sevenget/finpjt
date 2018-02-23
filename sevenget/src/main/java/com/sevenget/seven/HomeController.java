@@ -18,6 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.sevenget.Rcode.MakingPlot;
 
 import model.member.MemBasicInfoDAO;
+import model.member.MemBasicInfoDTO;
+import model.member.MemLoginDao;
 
 /**
  * Handles requests for the application home page.
@@ -77,10 +79,22 @@ public class HomeController {
 	@RequestMapping(value = "/main/login", method = RequestMethod.GET)
 
 	public String Login(HttpSession session, Locale locale, Model model) {
-		session.setAttribute("id", "mem");
+		
 		String id = (String)session.getAttribute("id");
 		
 		return "main/login";
+	}
+	
+	// 로그인 체크
+	@RequestMapping(value = "/main/loginCheck", method = RequestMethod.GET)
+	public ModelAndView loginCheck(String id, MemLoginDao dao,MemBasicInfoDTO dto, ModelAndView mav, HttpSession session) {
+
+		dto = dao.loginCheck(id);
+		System.out.println("로그인 ID = "+id);
+		
+		session.setAttribute("id", id);
+		mav.setViewName("main/loginCheck");
+		return mav;
 	}
 
 	// 회원가입
