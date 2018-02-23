@@ -14,6 +14,8 @@ public class ReviewDaoImpl implements ReviewDao {
 		mybatis = SqlSessionFactoryBean.getSqlSessionInstance();
 	}
 	
+	
+	
 
 	public ReviewDto selectReview() {
 		/*List<ReviewDto> list;

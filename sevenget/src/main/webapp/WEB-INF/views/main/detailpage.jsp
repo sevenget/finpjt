@@ -116,7 +116,6 @@ $(document).ready(function($)
     }
 </script>
 
-
 <style type="text/css">
 .mw_layer {
    display: none;
@@ -266,8 +265,8 @@ $(document).ready(function($)
 
                      <div class="c_write">
                         <input type="text" placeholder=" 리뷰 작성하기(50자 이내)"
-                           class="cr_write" maxlength="50"></label> <input type="submit"
-                           value="리뷰입력" class="cr_btn"></label>
+                           class="cr_write" maxlength="50"></label> 
+                           <input type="submit" value="리뷰입력" class="cr_btn"></label>
                      </div>
                   </form>
 

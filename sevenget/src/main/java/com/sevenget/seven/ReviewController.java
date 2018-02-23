@@ -26,16 +26,18 @@ import model.review.ReviewDaoImpl;
 public class ReviewController {
 
 	// 기업 상세페이지
-	 @RequestMapping(value = "/main/detailpage", method = RequestMethod.GET)
-	   public String DetailP(MemBasicInfoDAO DAO, HttpServletRequest request) {
-	      
-	      request.setAttribute("id", DAO.getMemBasicInfo(""));
-	      return "main/detailpage";
-	  }
+	@RequestMapping(value = "/main/detailpage", method = RequestMethod.GET)
+		public String DetailP(MemBasicInfoDAO DAO, HttpServletRequest request) {
+			
+			request.setAttribute("id", DAO.getMemBasicInfo(""));
+			return "main/detailpage";
+		}
+	 
 	
 
 	// 기업 상세페이지-리뷰
 	@RequestMapping(value = "/main/review", method = RequestMethod.GET)
+	/*public String ReviewP(Locale locale, Model model) {*/
 	public String ReviewP(ReviewDaoImpl DAO, HttpServletRequest request) {
 		//DAO.selectReview();
 		
