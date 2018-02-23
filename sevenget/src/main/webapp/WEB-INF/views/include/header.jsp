@@ -39,7 +39,7 @@
 				</div>	
 			 	<%}else{ %>
 				<div class="top_right">
-					<a href="#" onclick="">로그아웃</a> <div></div> 
+					<a href="logOut">로그아웃</a> <div></div> 
 					<a href="mypage" onclick="">MyPage</a> <div></div>
 				</div>
 				<%} %>

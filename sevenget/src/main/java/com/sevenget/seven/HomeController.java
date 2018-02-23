@@ -1,10 +1,14 @@
 package com.sevenget.seven;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.jasper.tagplugins.jstl.core.Out;
 import org.rosuda.REngine.REXPMismatchException;
 import org.rosuda.REngine.REngineException;
 import org.slf4j.Logger;
@@ -93,15 +97,43 @@ public class HomeController {
 		return "main/login";
 	}
 	
+	
 	// 로그인 체크
 	@RequestMapping(value = "/main/loginCheck", method = RequestMethod.GET)
-	public ModelAndView loginCheck(String id, MemLoginDao dao,MemBasicInfoDTO dto, ModelAndView mav, HttpSession session) {
-
-		dto = dao.loginCheck(id);
-		System.out.println("로그인 ID = "+id);
+	public ModelAndView loginCheck(String id,String pw, MemLoginDao dao,MemBasicInfoDTO dto,
+			ModelAndView mav, HttpSession session, HttpServletResponse response) {
 		
-		session.setAttribute("id", id);
-		mav.setViewName("main/loginCheck");
+		System.out.println("로그인 ID = "+id+" 입력한 PW = "+pw);
+		dto = dao.loginCheck(id,pw);
+		
+		if(dto == null){
+			System.out.println("컨트롤러 - 로그인 실패");
+			response.setContentType("text/html; charset=UTF-8");
+            PrintWriter out;
+			try {
+				out = response.getWriter();
+				out.println("<script>alert('로그인 정보를 확인해주세요.'); history.go(-1);</script>");
+				return null;
+			} catch (IOException e) {
+				System.out.println("HomeController -> loginCheck -> PrintWriter 변수 생성 오류");
+			}
+            return null;
+		}else{
+			System.out.println("컨트롤러 - 로그인 성공");
+			session.setAttribute("id", id);
+			mav.setViewName("main/loginCheck");
+			return mav;
+		}
+		
+		
+	}
+	
+	@RequestMapping(value = "/main/logOut", method = RequestMethod.GET)
+	public ModelAndView loginCheck(MemLoginDao dao, ModelAndView mav, HttpSession session) {
+		
+		session.invalidate();
+		
+		mav.setViewName("main/logOut");
 		return mav;
 	}
 
@@ -121,11 +153,11 @@ public class HomeController {
 	
 	//마이페이지1
 	@RequestMapping(value = "/main/mypage", method = RequestMethod.GET)
-	public String Mypage(MemBasicInfoDAO DAO, HttpServletRequest request) {
-		
-		request.setAttribute("id", DAO.getMemBasicInfo());
+	public String Mypage(MemBasicInfoDAO DAO, HttpServletRequest request, HttpSession session) {
+		String id = (String)session.getAttribute("id");
+		request.setAttribute("id", DAO.getMemBasicInfo(id));
 		System.out.println("mypage");
-		return "main/mypage";
+		return "main/mypage"; 
 	}
 	
 	//마이페이지2s

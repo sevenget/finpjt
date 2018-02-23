@@ -191,56 +191,62 @@
 						</tr>
 					</table>
 					
-					
+					<script>
+						function checking(id){
+							alert(id);
+							alert(id.attr("style"));
+							id.attr("style","backgound-color:red;");
+						}
+					</script>
 					
 				</div>
 				
 				<div id="regiMain2">
-					<h3 align="center">7가지 중요도 선정(마우스로 끌어서 이동)</h3><hr id="line1" width="500px" color="#aaa" size="1" class="hr">
-					<div id="rankTable" style="position: absolute; top:31%;">
-						
-							<div id="rank1" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">1순위</span><input id="ranking1" name="rank1" type="hidden" value=""></div>
-							<div id="rank2" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">2순위</span><input id="ranking2" name="rank2" type="hidden" value=""></div>
-							<div id="rank3" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">3순위</span><input id="ranking3" name="rank3" type="hidden" value=""></div>
-
-							<div id="rank4" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">4순위</span><input id="ranking4" name="rank4" type="hidden" value=""></div>
-							<div id="rank5" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">5순위</span><input id="ranking5" name="rank5" type="hidden" value=""></div>
-							<div id="rank6" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">6순위</span><input id="ranking6" name="rank6" type="hidden" value=""></div>
-							<div id="rank7" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">7순위</span><input id="ranking7" name="rank7" type="hidden" value=""></div>
-						
+					<h3 align="center">7가지 중요도 점수 매칭</h3><hr id="line1" width="500px" color="#aaa" size="1" class="hr">
+					<div>
+						<div>
+							<img src="../resources/img/dream.jpg">
+							<table>
+								<tr  class="dream">
+									<td class="dream">
+										<input id="dream1" name="dream" type="radio" value="1" checked="checked"
+										onchange="checking(this.id);">1
+									</td>
+									<td class="dream"><input id="dream2" name="dream" type="radio" value="2">2
+									<td class="dream"><input id="dream3" name="dream" type="radio" value="3">3
+									<td class="dream"><input id="dream4" name="dream" type="radio" value="4">4
+									<td class="dream"><input id="dream5" name="dream" type="radio" value="5">5
+									<td class="dream"><input id="dream6" name="dream" type="radio" value="6">6
+									<td class="dream"><input id="dream7" name="dream" type="radio" value="7">7
+									<td class="dream"><input id="dream8" name="dream" type="radio" value="8">8
+									<td class="dream"><input id="dream9" name="dream" type="radio" value="9">9
+									<td class="dream"><input id="dream10" name="dream" type="radio" value="10">10
+								</td>
+							</table>
+						</div>
+						<div>
+							<input type="hidden" name="rank2"><img src="../resources/img/marry.jpg">
+						</div>
+						<div>
+							<input type="hidden" name="rank3"><img src="../resources/img/love.jpg">
+						</div>
+						<div>
+							<input type="hidden" name="rank4"><img src="../resources/img/human.jpg">
+						</div>
+						<div>
+							<input type="hidden" name="rank5"><img src="../resources/img/home.jpg">
+						</div>
+						<div>
+							<input type="hidden" name="rank6"><img src="../resources/img/job.jpg">
+						</div>
+						<div>
+							<input type="hidden" name="rank7"><img src="../resources/img/child.jpg">
+						</div>
 					</div>
-					
 					<!-- 7가지 선택사항 -->
 					
-					<div id="choose" style="position: absolute; top:65%;">
-						<div class="box" id="box1" ondrop="drop(event,this)" ondragover="allowDrop(event)">
-							<img id="job" class="logo" src="../resources/img/job.jpg" draggable="true" ondragstart="drag(event)">
-						</div>
-
-						<div class="box" id="box2" ondrop="drop(event,this)" ondragover="allowDrop(event)">
-							<img id="love" class="logo" src="../resources/img/love.jpg" draggable="true" ondragstart="drag(event)">
-						</div>
-
-						<div class="box" id="box3" ondrop="drop(event,this)" ondragover="allowDrop(event)">
-							<img id="home" class="logo" src="../resources/img/home.jpg" draggable="true" ondragstart="drag(event)">
-						</div>
-
-						<div class="box" id="box4" ondrop="drop(event,this)" ondragover="allowDrop(event)">
-							<img id="dream" class="logo" src="../resources/img/dream.jpg" draggable="true" ondragstart="drag(event)">
-						</div>
-
-						<div class="box" id="box5" ondrop="drop(event,this)" ondragover="allowDrop(event)">
-							<img id="human" class="logo" src="../resources/img/human.jpg" draggable="true" ondragstart="drag(event)">
-						</div>
-
-						<div class="box" id="box6" ondrop="drop(event,this)" ondragover="allowDrop(event)">
-							<img id="child" class="logo" src="../resources/img/child.jpg" draggable="true" ondragstart="drag(event)">
-						</div>
-
-						<div class="box" id="box7" ondrop="drop(event,this)" ondragover="allowDrop(event)">
-							<img id="marry" class="logo" src="../resources/img/marry.jpg" draggable="true" ondragstart="drag(event)">
-						</div>
-					</div>
+					
+					
 				</div>
 				
 			

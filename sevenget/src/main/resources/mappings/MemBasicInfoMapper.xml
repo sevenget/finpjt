@@ -16,7 +16,7 @@
 
 	<select id="getMemBasicInfo" resultType="memBasicInfo">
 		<![CDATA[
-		SELECT * FROM memBasicInfo where id = 'Guest'
+		SELECT * FROM memBasicInfo where id = #{id}
 		]]>
 	</select>
 

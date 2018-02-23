@@ -22,7 +22,7 @@ public class ReviewController {
 		request.setAttribute("id", DAO.getMemBasicInfo());
 		return "main/detailpage";
 	}
-
+ 
 	// 기업 상세페이지-리뷰
 	@RequestMapping(value = "/main/review", method = RequestMethod.GET)
 	public String ReviewP(Locale locale, Model model) {

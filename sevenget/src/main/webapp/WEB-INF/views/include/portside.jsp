@@ -5,12 +5,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="../resources/css/portside.css" media="all"> <!-- 이거 css명 작업하시는 css 파일명으로 바꾸세요 안 그럼 저랑 꼬여요..!  -->
+<link rel="stylesheet" type="text/css" href="../resources/css/mypage_portside.css" media="all"> <!-- 이거 css명 작업하시는 css 파일명으로 바꾸세요 안 그럼 저랑 꼬여요..!  -->
 <title>Insert title here</title>
 <script type="text/javascript">
 	function find_id() {
 		window.open("http://www.jobkorea.co.kr/", "_blank");
 	}
+
 </script>
 
 </head>
@@ -30,10 +31,12 @@
 		
 			<div class="membership">
 				<c:forEach items="${id}" var="iid" >
-					<p class="font">${iid.id}</p><br>
-				<p class="font">${iid.name }</p>
-				<p class="font">${iid.birth }</p>
-				<p class="font">${iid.email }</p>
+				
+				<p class="font"> ${iid.id}</p>
+				<p class="font"> ${iid.name}</p>
+				<p class="font"> ${iid.birth}</p>
+				<p class="font"> ${iid.address}</p>
+				 
 				</c:forEach>  
 			</div>
 		</div>

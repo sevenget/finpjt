@@ -1,6 +1,8 @@
 package model.company;
 
-public class CompanyBasicDTO {
+import java.io.Serializable;
+
+public class CompanyBasicDTO implements Serializable{
 	int cid;
 	String logo;
 	String cname;
