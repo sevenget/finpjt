@@ -61,6 +61,7 @@ public class HomeController {
 		return mav;
 	}
 
+	/*
 	// 기업 상세페이지
 	@RequestMapping(value = "/main/detailpage", method = RequestMethod.GET)
 	public String DetailP(Locale locale, Model model) {
@@ -74,7 +75,8 @@ public class HomeController {
 
 		return "main/review";
 	}
-
+	*/
+	
 	// 로그인
 	@RequestMapping(value = "/main/login", method = RequestMethod.GET)
 
