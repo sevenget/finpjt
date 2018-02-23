@@ -191,15 +191,57 @@
 						</tr>
 					</table>
 					
-					
+					<script>
+						function checking(id){
+							var id = document.getElementById(id);
+							id.attr("style","backgound-color:red;");
+						}
+					</script>
 					
 				</div>
 				
 				<div id="regiMain2">
-					<h3 align="center">7가지 중요도 선정(마우스로 끌어서 이동)</h3><hr id="line1" width="500px" color="#aaa" size="1" class="hr">
-					
-					
-					
+					<h3 align="center">7가지 중요도 점수 매칭</h3><hr id="line1" width="500px" color="#aaa" size="1" class="hr">
+					<div>
+						<div>
+							<img src="../resources/img/dream.jpg">
+							<table>
+								<tr>
+									<td>
+										<input id="dream1" name="dream" type="radio" value="1" checked="checked"
+										onchange="checking(this);">1
+									</td>
+									<td><input id="dream2" name="dream" type="radio" value="2">2
+									<td><input id="dream3" name="dream" type="radio" value="3">3
+									<td><input id="dream4" name="dream" type="radio" value="4">4
+									<td><input id="dream5" name="dream" type="radio" value="5">5
+									<td><input id="dream6" name="dream" type="radio" value="6">6
+									<td><input id="dream7" name="dream" type="radio" value="7">7
+									<td><input id="dream8" name="dream" type="radio" value="8">8
+									<td><input id="dream9" name="dream" type="radio" value="9">9
+									<td><input id="dream10" name="dream" type="radio" value="10">10
+								</td>
+							</table>
+						</div>
+						<div>
+							<input type="hidden" name="rank2"><img src="../resources/img/marry.jpg">
+						</div>
+						<div>
+							<input type="hidden" name="rank3"><img src="../resources/img/love.jpg">
+						</div>
+						<div>
+							<input type="hidden" name="rank4"><img src="../resources/img/human.jpg">
+						</div>
+						<div>
+							<input type="hidden" name="rank5"><img src="../resources/img/home.jpg">
+						</div>
+						<div>
+							<input type="hidden" name="rank6"><img src="../resources/img/job.jpg">
+						</div>
+						<div>
+							<input type="hidden" name="rank7"><img src="../resources/img/child.jpg">
+						</div>
+					</div>
 					<!-- 7가지 선택사항 -->
 					
 					
