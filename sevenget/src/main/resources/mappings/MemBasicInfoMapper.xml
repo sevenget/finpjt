@@ -10,7 +10,7 @@
 		WHERE id = #{id}
 	</select>
 	
-	<select id="loginCheck" parameterType="String">
+	<select id="loginCheck" parameterType="String" resultType="memBasicInfo">
 		SELECT * FROM memBasicInfo where id = #{id}
 	</select>
 
