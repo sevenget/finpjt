@@ -14,6 +14,12 @@ public class MakingPlot {
 	public void mPlot() throws REXPMismatchException, REngineException {
 		PlotsDaoImpl plotsDao = new PlotsDaoImpl();
 		
+		plotsDao.selectPlots();
+		
+		
+		
+		
+		
 		
 		RConnection connection = null;
 		connection = new RConnection();

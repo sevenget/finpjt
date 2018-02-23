@@ -20,37 +20,8 @@
 		});
 	}
 
-	//$(document).ready(function($) {
-		/* $('#viewLoading').hide();
-
-		$('#viewLoading').ajaxStart(function() {
-			$('#viewLoading').css('position', 'absolute');
-			$('#viewLoading').css('left', $('#loadData').offset().left);
-			$('#viewLoading').css('top', $('#loadData').offset().top);
-			$('#viewLoading').css('width', $('#loadData').css('width'));
-			$('#viewLoading').css('height', $('#loadData').css('height'));
-
-			$(this).show();
-			//$(this).fadeIn(500);
-		}) 
-		 	.ajaxStop(function()
-		 {
-		 $(this).hide();
-		 $(this).fadeOut(500);
-		 }); */
-	//});
 </script>
 
-<style>
-/* 로딩 이미지의 위치와 투명도 조절 */
-/* div#viewLoading {
-	text-align: center;
-	padding-top: 70px;
-	background: #FFFFF0;
-	filter: alpha(opacity = 60);
-	opacity: alpha*0.6;
-} */
-</style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css"
