@@ -132,3 +132,34 @@ create table plots(
 
 select * from plots;
 insert into plots values('mem', 'mem.png', sysdate)
+
+
+-- 점수입력
+drop table comprawscore purge;
+create table comprawscore(
+   cid number(10) constraint companyRawscore_id_fk references companyBasicInfo(cid),
+   noOTEPr number(6),
+   flexWorkEPr number(6),
+   weekendWorkEPr number(6),
+   newcomerSalEPr number(6),
+   paidVacaEPr number(6),
+   compKindergartenEPr number(6),
+   eduSupportEPr number(6),
+   loanSupportEPr number(6),
+   dormiHousingSupportEPr number(6),
+   opClubEPr number(6),
+   supportClubEPr number(6),
+   clubMemRateEPr number(6),
+   selfDevSupportEPr number(6),
+   seminarInvEPr number(6),
+   horizStrucEPr number(6),
+   varWorkExpEPr number(6),
+   telAvailEPr number(6),
+   salIncreRateEPr number(6),
+   retireRateEPr number(6),
+   busiGrowthEPr number(6),
+   induGrowthEPr number(6),
+   govSupportEPr number(6)
+);
+
+delete comprawscore
