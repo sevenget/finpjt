@@ -41,5 +41,6 @@
 		<mapper resource="mappings/CompanyRawScoMapper.xml"/>
 		<mapper resource="mappings/ReviewMapper.xml"/>
 		<mapper resource="mappings/InterestedRCMapper.xml"/>
+		<mapper resource="mappings/MemBasicInfoMapper.xml"/>
 	</mappers>
 </configuration>
