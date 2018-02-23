@@ -18,6 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.sevenget.Rcode.MakingPlot;
 
 import model.member.MemBasicInfoDAO;
+import model.member.MemBasicInfoDTO;
+import model.member.MemLoginDao;
 
 /**
  * Handles requests for the application home page.
