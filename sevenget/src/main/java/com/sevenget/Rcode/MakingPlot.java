@@ -5,12 +5,16 @@ import org.rosuda.REngine.REngineException;
 import org.rosuda.REngine.RList;
 import org.rosuda.REngine.Rserve.RConnection;
 
+import model.plots.PlotsDaoImpl;
+
 // 실행 전 Rserve.R 반드시 실행시키기
 
 public class MakingPlot {
 	
 	public void mPlot() throws REXPMismatchException, REngineException {
-
+		PlotsDaoImpl plotsDao = new PlotsDaoImpl();
+		
+		
 		RConnection connection = null;
 		connection = new RConnection();
 		
