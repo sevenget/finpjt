@@ -64,6 +64,13 @@
 	
 </script>
 
+<script type="text/javascript">
+	function addrep() {
+		repform.submit();
+    }
+</script>
+
+
 <style type="text/css">
 .mw_layer{display:none;position:fixed;_position:absolute;top:0;left:0;z-index:10000;width:100%;height:100%}
 
@@ -141,7 +148,7 @@
 						<p class="head_rv"><a href="#layer" onclick="openContent('${article.idx}')">리뷰</a></p>
 						<hr width="915px" color="#aaa" size="1" class="dt_hr">	 
 						
-						<form action="" method="post" enctype="" name="">
+						<form action="" method="get" enctype="" name="">
 								<div class="c_review">
 
 									<div class="review1">
@@ -164,8 +171,9 @@
 								</div>
 						
 						<div class="c_write">
-							<input type="text" placeholder=" 리뷰 작성하기(50자 이내)" class="cr_write" maxlength="50"></label>
-							<input type="submit" value="리뷰입력" class="cr_btn"></label>
+							<input type="text" placeholder=" 리뷰 작성하기(50자 이내)" class="cr_write" maxlength="50">
+							<!-- <input type="submit" value="리뷰입력" class="cr_btn"> -->
+							<div class="cr_btn"><a href="javascript:addrv()">리뷰입력</a></div>
 						</div>
 						</form>
 

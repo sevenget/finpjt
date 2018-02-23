@@ -6,6 +6,13 @@
 <meta charset="UTF-8">
 <title>7get</title>
 <!-- <link rel="stylesheet" type="text/css" href="../resources/css/review.css" media="all"> -->
+
+<script type="text/javascript">
+	function addrep() {
+		repform.submit();
+    }
+</script>
+
 </head>
 <body>
 
@@ -20,7 +27,7 @@
 							<hr width="900px" color="#aaa" size="1" class="r_dt_hr">	 
 						</div>
 						
-						<form action="">
+						<form action="review.jsp" method="get" name="rvform">
 						<div class="cc_review">
 							<div class="review_rr">
 								<p class="rr_view">"기술직이 자신의 능력만큼 대우 받을 수 있는 회사. 대한민국에서 만족스러운 수준의 워라벨."</p>
@@ -71,7 +78,8 @@
 						
 						<div class="cc_write">
 							<input type="text" placeholder=" 리뷰 작성하기(50자 이내)" class="rr_write" maxlength="50"></label>
-							<input type="button" value="리뷰입력" class="rr_btn"></label>
+							<!-- <input type="button" value="리뷰입력" class="rr_btn"> -->
+							<div class="rr_btn"><a href="javascript:addrv()">리뷰입력</a></div>
 						</div>
 						</form>
 										
