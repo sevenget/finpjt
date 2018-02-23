@@ -181,7 +181,7 @@ public class HomeController {
 
 	// loading
 	@RequestMapping(value = "/main/loading", method = RequestMethod.GET)
-	public String MPlot(Locale locale, Model model) throws REXPMismatchException, REngineException{
+	public String MPlot(PlotsDaoImpl DAO, HttpServletRequest request) throws REXPMismatchException, REngineException{
 		//전문 패널 점수
 		//점수 환산 과정 1 : raw data
 		int cid = 1; // 기업아이디는 파라미터로 받아와야 함!!
@@ -222,7 +222,7 @@ public class HomeController {
 		
 		
 		
-		
+		String id = "mem";
 		
 		MakingPlot mplot = new MakingPlot();
 		String plotName=null;
@@ -231,14 +231,17 @@ public class HomeController {
 		System.out.println("R시작");
 		plotName = mplot.mPlot(CScoDto);
 		System.out.println("R종료");
-	
+		
+		// plot 이름 지정 완료
 		System.out.println("저장된 plot이름 : "+plotName);
 		
+		// plot
 		PlotsDaoImpl plotDao = new PlotsDaoImpl();
-		PlotsDto plotDto = plotDao.insertOrUpdatePlots("mem",plotName);
+		PlotsDto plotDto = plotDao.insertOrUpdatePlots(id,plotName);
 		System.out.printf("%s\t%s\t%s\t%s\t",plotDto.getMemid(),plotDto.getCid(),plotDto.getPlotpng(),plotDto.getSavedTime());
 
-		
+		request.setAttribute("id", DAO.inquiryId(id));
+
 		
 		
 		
@@ -250,8 +253,10 @@ public class HomeController {
 
 	// loadContent
 	@RequestMapping(value = "/main/loadContent", method = RequestMethod.GET)
-	public String LContent(Locale locale, Model model) {
-
+	public String LContent(PlotsDaoImpl DAO, HttpServletRequest request) {
+		
+		request.setAttribute("plotpng", DAO.inquiryId("mem").getPlotpng());// mem을 어떻게 받아와야....
+		
 		return "main/loadContent";
 	}
 

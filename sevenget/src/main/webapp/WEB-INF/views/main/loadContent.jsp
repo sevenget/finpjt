@@ -4,7 +4,7 @@
 <html>
 <head>
 
-<img src="../resources/img/plots/radarchart.png" />
+<img src="../resources/img/plots/${plotpng}"/>
 </head>
 <body>
 </body>
