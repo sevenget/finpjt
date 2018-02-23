@@ -155,7 +155,7 @@ public class HomeController {
 	@RequestMapping(value = "/main/mypage", method = RequestMethod.GET)
 	public String Mypage(MemBasicInfoDAO DAO, HttpServletRequest request, HttpSession session) {
 		String id = (String)session.getAttribute("id");
-		request.setAttribute("id", DAO.getMemBasicInfo(id));
+		request.setAttribute("member", DAO.getMemBasicInfo(id));
 		System.out.println("mypage");
 		return "main/mypage"; 
 	}

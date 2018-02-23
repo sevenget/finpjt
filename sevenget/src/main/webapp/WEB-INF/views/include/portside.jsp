@@ -11,7 +11,6 @@
 	function find_id() {
 		window.open("http://www.jobkorea.co.kr/", "_blank");
 	}
-
 </script>
 
 </head>
@@ -30,13 +29,13 @@
 			</div>
 		
 			<div class="membership">
-				<c:forEach items="${id}" var="iid" >
+				<c:forEach items="${member}" var="iid" >
 				
 				<p class="font"> ${iid.id}</p>
 				<p class="font"> ${iid.name}</p>
 				<p class="font"> ${iid.birth}</p>
 				<p class="font"> ${iid.address}</p>
-				 
+				
 				</c:forEach>  
 			</div>
 		</div>

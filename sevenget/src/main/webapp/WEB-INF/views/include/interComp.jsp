@@ -34,7 +34,7 @@
 									</c:forEach> --%>
 								</td>
 								<td style="width: 220px; height:150px; border:1px solid red ; clear:both;">
-									<c:forEach items="${id}" var="iid" >
+									<c:forEach items="${member}" var="iid" >
 										<p class="font">${iid.id}</p><br>
 									</c:forEach>   
 								</td>

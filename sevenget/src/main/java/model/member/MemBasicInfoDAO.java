@@ -13,8 +13,8 @@ public class MemBasicInfoDAO {
 		mybatis = SqlSessionFactoryBean.getSqlSessionInstance();
 	}
 	
-	public List<MemBasicInfoDTO> getMemBasicInfo(String id){
-		return mybatis.selectList("MemBasicInfoDAO.getMemBasicInfo",id);
+	public List<MemBasicInfoDTO> getMemBasicInfo(String member){
+		return mybatis.selectList("MemBasicInfoDAO.getMemBasicInfo",member);
 	} 
 }
 
