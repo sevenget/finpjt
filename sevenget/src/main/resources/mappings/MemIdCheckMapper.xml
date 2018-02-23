@@ -5,7 +5,7 @@
 <mapper namespace="MemIdCheckDao">
 	
 	<select id="getCheck" parameterType="String" resultType="checkid">
-		SELECT id FROM memBasicInfo where id = #{userId}
+		SELECT id FROM memBasicInfo where id = #{id}
 	</select>
 
 

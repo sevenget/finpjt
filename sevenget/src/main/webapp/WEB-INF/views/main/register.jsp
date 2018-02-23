@@ -112,7 +112,7 @@
 		return true;
 		
 	}
-	
+	/* 아이디 중복확인 */
 	function checkId() {
 		var forms = document.getElementById("form_1");
 		var id = forms.userId.value;
@@ -126,6 +126,34 @@
 		window.open(url, "ID_Check"," location=no,toolbar=no,status=no,menubar=no,top=150,left=150"
 						+ "scrollbars=no,resizable=no,width=400,height=200");
 	}
+	/* ---------------------------------------------------------------------------------------  */
+	
+	
+		/* $(val).parent().css('background-color', '#8772bf'); */
+		/* $(this).parent().css('background-color', '#8772bf');
+		$("input[type=radio]:not(:checked)").css('background-color', '#a4a4a4'); */
+		$(document).ready(function() {
+			  $("input[type=radio]").click(function() {
+			    // Get the storedValue
+			    var previousValue = $(this).data('storedValue');
+			    // if previousValue = true then
+			    //     Step 1: toggle radio button check mark.
+			    //     Step 2: save data-StoredValue as false to indicate radio button is unchecked.
+			    if (previousValue) {
+			      $(this).prop('checked', !previousValue);
+			      $(this).data('storedValue', !previousValue);
+			    }
+			    // If previousValue is other than true
+			    //    Step 1: save data-StoredValue as true to for currently checked radio button.
+			    //    Step 2: save data-StoredValue as false for all non-checked radio buttons.
+			    else{
+			      $(this).data('storedValue', true);
+			      $(this).parent().css('background-color', '#8772bf');
+			      $("input[type=radio]:not(:checked)").data("storedValue", false);
+			      $("input[type=radio]:not(:checked)").parent().css('background-color', '#a4a4a4'); 
+			    }
+			  });
+			});
 	
 </script>
 
@@ -192,55 +220,133 @@
 					</table>
 					
 					
-					
 				</div>
 				
 				<div id="regiMain2">
-					<h3 align="center">7가지 중요도 선정(마우스로 끌어서 이동)</h3><hr id="line1" width="500px" color="#aaa" size="1" class="hr">
-					<div id="rankTable" style="position: absolute; top:31%;">
-						
-							<div id="rank1" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">1순위</span><input id="ranking1" name="rank1" type="hidden" value=""></div>
-							<div id="rank2" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">2순위</span><input id="ranking2" name="rank2" type="hidden" value=""></div>
-							<div id="rank3" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">3순위</span><input id="ranking3" name="rank3" type="hidden" value=""></div>
+					<h3 align="center">7가지 중요도 점수 매칭</h3><hr id="line1" width="500px" color="#aaa" size="1" class="hr">
+						<div class="mw_layer">
+		<div class="bg"></div>
 
-							<div id="rank4" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">4순위</span><input id="ranking4" name="rank4" type="hidden" value=""></div>
-							<div id="rank5" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">5순위</span><input id="ranking5" name="rank5" type="hidden" value=""></div>
-							<div id="rank6" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">6순위</span><input id="ranking6" name="rank6" type="hidden" value=""></div>
-							<div id="rank7" class="rank" ondrop="drop(event,this)" ondragover="allowDrop(event)"><span class="rank_by">7순위</span><input id="ranking7" name="rank7" type="hidden" value=""></div>
-						
-					</div>
-					
+		<div id="layer">
+			<table class="table table_dream">
+				<tr>
+					<th><img src="../resources/img/dream.jpg"></th>
+					<td><input name="dream" type="radio" value="1" checked="checked" ontoggle="changing(this);">1점</td>
+					<td><input name="dream" type="radio" value="2">2점</td>
+					<td><input name="dream" type="radio" value="3">3점</td>
+					<td><input name="dream" type="radio" value="4">4점</td>
+					<td><input name="dream" type="radio" value="5">5점</td>
+					<td><input name="dream" type="radio" value="6">6점</td>
+					<td><input name="dream" type="radio" value="7">7점</td>
+					<td><input name="dream" type="radio" value="8">8점</td>
+					<td><input name="dream" type="radio" value="9">9점</td>
+					<td><input name="dream" type="radio" value="10">10점</td>
+				</tr>
+			</table>
+			
+			<table class="table table_love">
+				<tr>
+					<th><img src="../resources/img/love.jpg"></th>
+					<td><input name="love" type="radio" value="1" checked="checked" ontoggle="changing(this);">1점</td>
+					<td><input name="love" type="radio" value="2">2점</td>
+					<td><input name="love" type="radio" value="3">3점</td>
+					<td><input name="love" type="radio" value="4">4점</td>
+					<td><input name="love" type="radio" value="5">5점</td>
+					<td><input name="love" type="radio" value="6">6점</td>
+					<td><input name="love" type="radio" value="7">7점</td>
+					<td><input name="love" type="radio" value="8">8점</td>
+					<td><input name="love" type="radio" value="9">9점</td>
+					<td><input name="love" type="radio" value="10">10점</td>
+				</tr>
+			</table>
+			
+			<table class="table table_marry">
+				<tr>
+					<th><img src="../resources/img/marry.jpg"></th>
+					<td><input name="marry" type="radio" value="1" checked="checked" ontoggle="changing(this);">1점</td>
+					<td><input name="marry" type="radio" value="2">2점</td>
+					<td><input name="marry" type="radio" value="3">3점</td>
+					<td><input name="marry" type="radio" value="4">4점</td>
+					<td><input name="marry" type="radio" value="5">5점</td>
+					<td><input name="marry" type="radio" value="6">6점</td>
+					<td><input name="marry" type="radio" value="7">7점</td>
+					<td><input name="marry" type="radio" value="8">8점</td>
+					<td><input name="marry" type="radio" value="9">9점</td>
+					<td><input name="marry" type="radio" value="10">10점</td>
+				</tr>
+			</table>
+			
+			<table class="table table_human">
+				<tr>
+					<th><img src="../resources/img/human.jpg"></th>
+					<td><input name="human" type="radio" value="1" checked="checked" ontoggle="changing(this);">1점</td>
+					<td><input name="human" type="radio" value="2">2점</td>
+					<td><input name="human" type="radio" value="3">3점</td>
+					<td><input name="human" type="radio" value="4">4점</td>
+					<td><input name="human" type="radio" value="5">5점</td>
+					<td><input name="human" type="radio" value="6">6점</td>
+					<td><input name="human" type="radio" value="7">7점</td>
+					<td><input name="human" type="radio" value="8">8점</td>
+					<td><input name="human" type="radio" value="9">9점</td>
+					<td><input name="human" type="radio" value="10">10점</td>
+				</tr>
+			</table>
+			
+			<table class="table table_child">
+				<tr>
+					<th><img src="../resources/img/child.jpg"></th>
+					<td><input name="child" type="radio" value="1" checked="checked" ontoggle="changing(this);">1점</td>
+					<td><input name="child" type="radio" value="2">2점</td>
+					<td><input name="child" type="radio" value="3">3점</td>
+					<td><input name="child" type="radio" value="4">4점</td>
+					<td><input name="child" type="radio" value="5">5점</td>
+					<td><input name="child" type="radio" value="6">6점</td>
+					<td><input name="child" type="radio" value="7">7점</td>
+					<td><input name="child" type="radio" value="8">8점</td>
+					<td><input name="child" type="radio" value="9">9점</td>
+					<td><input name="child" type="radio" value="10">10점</td>
+				</tr>
+			</table>
+			
+			<table class="table table_home">
+				<tr>
+					<th><img src="../resources/img/home.jpg"></th>
+					<td><input name="home" type="radio" value="1" checked="checked" ontoggle="changing(this);">1점</td>
+					<td><input name="home" type="radio" value="2">2점</td>
+					<td><input name="home" type="radio" value="3">3점</td>
+					<td><input name="home" type="radio" value="4">4점</td>
+					<td><input name="home" type="radio" value="5">5점</td>
+					<td><input name="home" type="radio" value="6">6점</td>
+					<td><input name="home" type="radio" value="7">7점</td>
+					<td><input name="home" type="radio" value="8">8점</td>
+					<td><input name="home" type="radio" value="9">9점</td>
+					<td><input name="home" type="radio" value="10">10점</td>
+				</tr>
+			</table>
+			
+			<table class="table table_job">
+				<tr>
+					<th><img src="../resources/img/job.jpg"></th>
+					<td><input name="job" type="radio" value="1" checked="checked" ontoggle="changing(this);">1점</td>
+					<td><input name="job" type="radio" value="2">2점</td>
+					<td><input name="job" type="radio" value="3">3점</td>
+					<td><input name="job" type="radio" value="4">4점</td>
+					<td><input name="job" type="radio" value="5">5점</td>
+					<td><input name="job" type="radio" value="6">6점</td>
+					<td><input name="job" type="radio" value="7">7점</td>
+					<td><input name="job" type="radio" value="8">8점</td>
+					<td><input name="job" type="radio" value="9">9점</td>
+					<td><input name="job" type="radio" value="10">10점</td>
+				</tr>
+			</table>
+		</div>
+
+
+	</div>
 					<!-- 7가지 선택사항 -->
 					
-					<div id="choose" style="position: absolute; top:65%;">
-						<div class="box" id="box1" ondrop="drop(event,this)" ondragover="allowDrop(event)">
-							<img id="job" class="logo" src="../resources/img/job.jpg" draggable="true" ondragstart="drag(event)">
-						</div>
-
-						<div class="box" id="box2" ondrop="drop(event,this)" ondragover="allowDrop(event)">
-							<img id="love" class="logo" src="../resources/img/love.jpg" draggable="true" ondragstart="drag(event)">
-						</div>
-
-						<div class="box" id="box3" ondrop="drop(event,this)" ondragover="allowDrop(event)">
-							<img id="home" class="logo" src="../resources/img/home.jpg" draggable="true" ondragstart="drag(event)">
-						</div>
-
-						<div class="box" id="box4" ondrop="drop(event,this)" ondragover="allowDrop(event)">
-							<img id="dream" class="logo" src="../resources/img/dream.jpg" draggable="true" ondragstart="drag(event)">
-						</div>
-
-						<div class="box" id="box5" ondrop="drop(event,this)" ondragover="allowDrop(event)">
-							<img id="human" class="logo" src="../resources/img/human.jpg" draggable="true" ondragstart="drag(event)">
-						</div>
-
-						<div class="box" id="box6" ondrop="drop(event,this)" ondragover="allowDrop(event)">
-							<img id="child" class="logo" src="../resources/img/child.jpg" draggable="true" ondragstart="drag(event)">
-						</div>
-
-						<div class="box" id="box7" ondrop="drop(event,this)" ondragover="allowDrop(event)">
-							<img id="marry" class="logo" src="../resources/img/marry.jpg" draggable="true" ondragstart="drag(event)">
-						</div>
-					</div>
+					
+					
 				</div>
 				
 			

@@ -1,20 +1,18 @@
 package model.member;
 
-import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
 
 import model.common.SqlSessionFactoryBean;
 
-public class MemBasicInfoDAO {
+public class MemConcernDAO {
 	private SqlSession mybatis;
 	
-	public MemBasicInfoDAO(){
+	public MemConcernDAO(){
 		mybatis = SqlSessionFactoryBean.getSqlSessionInstance();
 	}
 	
-	public List<MemBasicInfoDTO> getMemBasicInfo(String member){
-		return mybatis.selectList("MemBasicInfoDAO.getMemBasicInfo",member);
+	public MemConcernDto getMemConcern(String id){
+		return (MemConcernDto) mybatis.selectList("MemConcernDAO.getById",id).get(0);
 	} 
 }
 

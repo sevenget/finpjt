@@ -19,8 +19,8 @@
 	</select>
 
 	<select id="getById" parameterType="String" resultType="keyword2">
-		SELECT *
-		FROM memConcern
+		SELECT id, dateCon, marryCon, babyCon, houseCon, relationCon, dreamCon, hopeCon
+		FROM memBasicInfo
 		WHERE id = #{id}
 	</select>
 

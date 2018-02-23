@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class PlotsDto {
 	String memid;
+	int cid;
 	String plotpng;
 	Date SavedTime;
 	
@@ -12,6 +13,12 @@ public class PlotsDto {
 	}
 	public void setMemid(String memid) {
 		this.memid = memid;
+	}
+	public int getCid() {
+		return cid;
+	}
+	public void setCid(int cid) {
+		this.cid = cid;
 	}
 	public String getPlotpng() {
 		return plotpng;

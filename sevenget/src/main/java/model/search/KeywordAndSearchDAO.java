@@ -1,6 +1,7 @@
 package model.search;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -39,6 +40,16 @@ public class KeywordAndSearchDAO {
 	
 	public List searchByKeyword(String keyword){
 		return mybatis.selectList("KeywordAndSearchDAO.searchByCname", keyword);
+	}
+	
+	public List searchByKeywordAndFilter(String keyword, FilterDTO dto){
+		Map map = dto.getFilterMap();
+		map.put("keyword", keyword);
+		return mybatis.selectList("KeywordAndSearchDAO.searchByCnameAndFilter", map);
+	}
+	
+	public List searchByFilter(FilterDTO dto){
+		return mybatis.selectList("KeywordAndSearchDAO.searchByCnameAndFilter", dto.getFilterMap());
 	}
 	
 	public List searchAdvs(){

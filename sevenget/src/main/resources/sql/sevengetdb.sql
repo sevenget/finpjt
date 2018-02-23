@@ -8,6 +8,7 @@ create table memBasicInfo(
    	gender varchar2(2) constraint membasicinfo_gender_ck check(gender in ('M', 'F')),
    	address varchar2(100) not null,
    	email varchar2(30),
+   	picture varchar2(30),
    	dateCon number(2),
   	marryCon number(2),
    	babyCon number(2),
@@ -126,12 +127,13 @@ create table search(
 drop table plots purge;
 create table plots(
    memid varchar2(40) references memBasicInfo(id),
+   cid number(6),
    plotpng varchar2(20),
    savedTime date default sysdate
 );
 
 select * from plots;
-insert into plots values('mem', 'mem.png', sysdate)
+insert into plots values('mem',1, 'mem.png', sysdate)
 
 
 -- 점수입력(전문가?패널)

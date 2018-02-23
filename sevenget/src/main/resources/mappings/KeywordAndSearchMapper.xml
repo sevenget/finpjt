@@ -27,9 +27,106 @@
 	<select id="searchByCname" parameterType="String" resultType="companybasic">
 		SELECT *
 		FROM companybasicinfo
-		WHERE cname like '%'||#{keyword}||'%' 
+		WHERE cname like '%'||#{keyword}||'%' and
 	</select>
-
+	
+	<select id="searchByCnameAndFilter" resultType="companybasic">
+		SELECT *
+		FROM companybasicinfo
+		WHERE cname like '%'||#{keyword}||'%'
+		<if test='dateget=="T"'>
+			AND DATEGET = 'T'
+		</if>
+		<if test='marryget=="T"'>
+			AND MARRYGET = 'T'
+		</if>
+		<if test='babyget=="T"'>
+			AND BABYGET = 'T'
+		</if>
+		<if test='houseget=="T"'>
+			AND HOUSEGET = 'T'
+		</if>
+		<if test='relationget=="T"'>
+			AND RELATIONGET = 'T'
+		</if>
+		<if test='dreamget=="T"'>
+			AND DREAMGET = 'T'
+		</if>
+		<if test='hopeget=="T"'>
+			AND HOPEGET = 'T'
+		</if>
+		
+		<if test='dateloss=="T"'>
+			AND DATEGET != 'F'
+		</if>
+		<if test='marryloss=="T"'>
+			AND MARRYGET != 'F'
+		</if>
+		<if test='babyloss=="T"'>
+			AND BABYGET != 'F'
+		</if>
+		<if test='houseloss=="T"'>
+			AND HOUSEGET != 'F'
+		</if>
+		<if test='relationloss=="T"'>
+			AND RELATIONGET != 'F'
+		</if>
+		<if test='dreamloss=="T"'>
+			AND DREAMGET != 'F'
+		</if>
+		<if test='hopeloss=="T"'>
+			AND HOPEGET != 'F'
+		</if>
+	</select>
+	
+	<select id="searchByFilter" resultType="companybasic">
+		SELECT *
+		FROM companybasicinfo
+		WHERE cname is not null
+		<if test='dateget=="T"'>
+			AND DATEGET = 'T'
+		</if>
+		<if test='marryget=="T"'>
+			AND MARRYGET = 'T'
+		</if>
+		<if test='babyget=="T"'>
+			AND BABYGET = 'T'
+		</if>
+		<if test='houseget=="T"'>
+			AND HOUSEGET = 'T'
+		</if>
+		<if test='relationget=="T"'>
+			AND RELATIONGET = 'T'
+		</if>
+		<if test='dreamget=="T"'>
+			AND DREAMGET = 'T'
+		</if>
+		<if test='hopeget=="T"'>
+			AND HOPEGET = 'T'
+		</if>
+		
+		<if test='dateloss=="T"'>
+			AND DATEGET = 'F'
+		</if>
+		<if test='marryloss=="T"'>
+			AND MARRYGET = 'F'
+		</if>
+		<if test='babyloss=="T"'>
+			AND BABYGET = 'F'
+		</if>
+		<if test='houseloss=="T"'>
+			AND HOUSEGET = 'F'
+		</if>
+		<if test='relationloss=="T"'>
+			AND RELATIONGET = 'F'
+		</if>
+		<if test='dreamloss=="T"'>
+			AND DREAMGET = 'F'
+		</if>
+		<if test='hopeloss=="T"'>
+			AND HOPEGET = 'F'
+		</if>
+	</select>
 	<select id="selectAllSearch" resultType="keyword">
 		SELECT * FROM search
 	</select>

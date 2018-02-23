@@ -19,56 +19,42 @@
 
 .choice { width:50px; border:1px solid black; background:#c9c9c9; }
 
-.table_exam { margin-top:40px; margin-left:450px;}
-.box { 
-	position : relative;
-	width:100px;
-	height:100px;
-	margin:10px;
-	border: 1px solid black;
-	float:left;
-}
-
-.logo {
-	width:100px;
-	height:100px;
-}
-
-.rank_by{
-	padding-left:25px;
-	color:black;
-	font:bold;
-	position:absolute;
-	top:-25px;
-}
-
-
-.rank {
-	margin-top:30px;
-	position:relative;
-	width:100px;
-	height:100px;
-	display:inline-block;
-	background-color:#c9c9c9;
-	border:1px solid black;
-	float:left;
-}
-
-#rank1,#box1{
-	margin-left:125px;
-}
-#rank4,#box4{
-	margin-left:65px;
-	clear:both;
-}
-#rank2,#rank3,#box2,#box3{
-	margin-left:35px;
-}
-#rank5,#rank6,#rank7,#box5,#box6,#box7{
-	margin-left:35px;
-}
-
 #choose{
 	border:1px solid black;
 	margin-left:10px;
+}
+
+#layer{
+	padding: 0 10px 0 10px;
+	border: 2px solid #555;
+	background: #ebecee;
+	font-size: 12px;
+	font-family: Tahoma, Geneva, sans-serif;
+	color: #767676;
+	line-height: normal;
+	white-space: normal
+}
+#layer img{
+	width:50px;
+	height:50px;
+}
+
+.table {
+	background-color:orange;
+	width: 600px;
+	height: 60px !important;
+	border: 3px solid #595959;
+	border-radius: 3px;
+	text-align: center;
+	margin-top: 10px;
+	color: white;
+}
+.table th{
+	padding-right:30px;
+}
+
+.table td {
+	border-radius: 2px;
+	width: 80px;
+	background-color: #a4a4a4;
 }

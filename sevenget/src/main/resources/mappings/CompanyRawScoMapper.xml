@@ -50,8 +50,31 @@
 		#{busiGrowthEPr},#{induGrowthEPr},#{govSupportEPr})
 	</insert>
 	
-	<!-- <update id="updatePlts">
-		UPDATE plots
-		SET plotpng = #{plotpng} WHERE memid = #{memid}
-	</update> -->
+	<update id="updateRawScore">
+		UPDATE comprawscore
+		SET cid = #{cid},
+		noOTEPr = #{noOTEPr},
+		flexWorkEPr = #{flexWorkEPr}, 
+		weekendWorkEPr = #{weekendWorkEPr},
+		 newcomerSalEPr = #{newcomerSalEPr}, 
+		 paidVacaEPr = #{paidVacaEPr}, 
+		 compKindergartenEPr = #{compKindergartenEPr}, 
+		 eduSupportEPr = #{eduSupportEPr},
+		 loanSupportEPr = #{loanSupportEPr}, 
+		 dormiHousingSupportEPr = #{dormiHousingSupportEPr}, 
+		 opClubEPr= #{opClubEPr}, 
+		 supportClubEPr = #{supportClubEPr},
+		 clubMemRateEPr = #{clubMemRateEPr}, 
+		 selfDevSupportEPr = #{selfDevSupportEPr}, 
+		 seminarInvEPr = #{seminarInvEPr}, 
+		 horizStrucEPr = #{horizStrucEPr},
+		 varWorkExpEPr = #{varWorkExpEPr}, 
+		 telAvailEPr = #{telAvailEPr}, 
+		 salIncreRateEPr = #{salIncreRateEPr}, 
+		 retireRateEPr = #{retireRateEPr},
+		 busiGrowthEPr = #{busiGrowthEPr}, 
+		 induGrowthEPr = #{induGrowthEPr}, 
+		 govSupportEPr = #{govSupportEPr}
+		WHERE cid=#{cid}
+	</update>
 </mapper>

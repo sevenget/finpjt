@@ -1,8 +1,9 @@
 package model.company;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class InterestedRCDTO {
+public class InterestedRCDTO implements Serializable{
 	private String memid;
 	private int cid;
 	private Date regTime;

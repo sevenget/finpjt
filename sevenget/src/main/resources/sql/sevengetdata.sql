@@ -1,6 +1,8 @@
 -- 회원 정보
-insert into memBasicInfo values('mem','mem', '멤버', '180220', 'F', 'seoul', 'email@email.com',1,2,3,4,5,6,7);
-insert into memBasicInfo values('Guest','Guest', '게스트', '180220', 'F', 'seoul', 'email2@email.com',1,2,3,4,5,6,7);
+delete from memBasicInfo
+insert into memBasicInfo values('mem','mem', '멤버', '180220', 'F', 'seoul', 'email@email.com','mem.gif',1,2,3,4,5,6,7);
+insert into memBasicInfo values('Guest','Guest', '게스트', '180220', 'F', 'seoul', 'email2@email.com','Guest.jpg',1,2,3,4,5,6,7);
+insert into memBasicInfo values('mem1','mem1', '멤버1', '180220', 'F', 'seoul', 'email2@email.com','mem1.jpg',1,2,3,4,5,6,7);
 select * from memBasicInfo
 
 --기업 정보
@@ -20,7 +22,7 @@ insert into companyBasicInfo values(
 	동사는 세계 최초로 모바일 메신저 기반 전자고지결제(Electronic Bill Presentment and Payment; 이하 EBPP) 서비스인 `카카오페이 청구서`를 출시하였음
 	매출구성은 콘텐츠 플랫폼 50.4%, 광고 플랫폼 30.55%, 기타 19.04% 등으로 구성', 
 	0,
-	'T','T','T','N','F','F','F'
+	'T','T','T','N','F','F','F' 
 );
 
 select * from companyBasicInfo
@@ -64,7 +66,7 @@ select * from keywords
 
 select * from search
 
-
+INSERT INTO search VALUES(sysdate, '.X','mem')
 
 --관심기업 관련
 delete from InterestedRC

@@ -1,10 +1,14 @@
 package com.sevenget.seven;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.jasper.tagplugins.jstl.core.Out;
 import org.rosuda.REngine.REXPMismatchException;
 import org.rosuda.REngine.REngineException;
 import org.slf4j.Logger;
@@ -15,11 +19,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.sevenget.Rcode.Evaluation;
 import com.sevenget.Rcode.MakingPlot;
 
+import model.companySco.CompanyRawScoDaoImpl;
+import model.companySco.CompanyRawScoDto;
+import model.companySco.CompanyScoDto;
 import model.member.MemBasicInfoDAO;
 import model.member.MemBasicInfoDTO;
 import model.member.MemLoginDao;
+import model.plots.PlotsDaoImpl;
+import model.plots.PlotsDto;
 
 /**
  * Handles requests for the application home page.
@@ -87,15 +97,43 @@ public class HomeController {
 		return "main/login";
 	}
 	
+	
 	// 로그인 체크
 	@RequestMapping(value = "/main/loginCheck", method = RequestMethod.GET)
-	public ModelAndView loginCheck(String id, MemLoginDao dao,MemBasicInfoDTO dto, ModelAndView mav, HttpSession session) {
-
-		dto = dao.loginCheck(id);
-		System.out.println("로그인 ID = "+id);
+	public ModelAndView loginCheck(String id,String pw, MemLoginDao dao,MemBasicInfoDTO dto,
+			ModelAndView mav, HttpSession session, HttpServletResponse response) {
 		
-		session.setAttribute("id", id);
-		mav.setViewName("main/loginCheck");
+		System.out.println("로그인 ID = "+id+" 입력한 PW = "+pw);
+		dto = dao.loginCheck(id,pw);
+		
+		if(dto == null){
+			System.out.println("컨트롤러 - 로그인 실패");
+			response.setContentType("text/html; charset=UTF-8");
+            PrintWriter out;
+			try {
+				out = response.getWriter();
+				out.println("<script>alert('로그인 정보를 확인해주세요.'); history.go(-1);</script>");
+				return null;
+			} catch (IOException e) {
+				System.out.println("HomeController -> loginCheck -> PrintWriter 변수 생성 오류");
+			}
+            return null;
+		}else{
+			System.out.println("컨트롤러 - 로그인 성공");
+			session.setAttribute("id", id);
+			mav.setViewName("main/loginCheck");
+			return mav;
+		}
+		
+		
+	}
+	
+	@RequestMapping(value = "/main/logOut", method = RequestMethod.GET)
+	public ModelAndView loginCheck(MemLoginDao dao, ModelAndView mav, HttpSession session) {
+		
+		session.invalidate();
+		
+		mav.setViewName("main/logOut");
 		return mav;
 	}
 
@@ -115,11 +153,11 @@ public class HomeController {
 	
 	//마이페이지1
 	@RequestMapping(value = "/main/mypage", method = RequestMethod.GET)
-	public String Mypage(MemBasicInfoDAO DAO, HttpServletRequest request) {
-		
-		request.setAttribute("id", DAO.getMemBasicInfo());
+	public String Mypage(MemBasicInfoDAO DAO, HttpServletRequest request, HttpSession session) {
+		String id = (String)session.getAttribute("id");
+		request.setAttribute("member", DAO.getMemBasicInfo(id));
 		System.out.println("mypage");
-		return "main/mypage";
+		return "main/mypage"; 
 	}
 	
 	//마이페이지2s
@@ -143,23 +181,82 @@ public class HomeController {
 
 	// loading
 	@RequestMapping(value = "/main/loading", method = RequestMethod.GET)
-	public String MPlot(Locale locale, Model model) {
+	public String MPlot(PlotsDaoImpl DAO, HttpServletRequest request) throws REXPMismatchException, REngineException{
+		//전문 패널 점수
+		//점수 환산 과정 1 : raw data
+		int cid = 1; // 기업아이디는 파라미터로 받아와야 함!!
+		
+		CompanyRawScoDaoImpl CRScoDaoImpl = new CompanyRawScoDaoImpl();
+		CompanyRawScoDto CRScoDto= CRScoDaoImpl.selectbyCid(cid);
+		
+		System.out.println("==================================");
+		
+		System.out.printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n",
+				CRScoDto.getCid(), CRScoDto.getNoOTEPr(),	CRScoDto.getFlexWorkEPr(), CRScoDto.getWeekendWorkEPr(),
+				CRScoDto.getNewcomerSalEPr(),CRScoDto.getPaidVacaEPr(),CRScoDto.getCompKindergartenEPr(),CRScoDto.getEduSupportEPr(),
+				CRScoDto.getLoanSupportEPr(),CRScoDto.getDormiHousingSupportEPr(),CRScoDto.getOpClubEPr(),CRScoDto.getSupportClubEPr(),
+				CRScoDto.getClubMemRateEPr(),CRScoDto.getSelfDevSupportEPr(),CRScoDto.getSeminarInvEPr(),CRScoDto.getHorizStrucEPr(),
+				CRScoDto.getVarWorkExpEPr(),CRScoDto.getTelAvailEPr(),CRScoDto.getSalIncreRateEPr(),CRScoDto.getRetireRateEPr(),
+				CRScoDto.getBusiGrowthEPr(),CRScoDto.getInduGrowthEPr(),CRScoDto.getGovSupportEPr());
+		
+		System.out.println(cid+"의 회사 평가를 위해 입력한 Raw Data를 DB에서 받아왔습니다.");
+		System.out.println("==================================");
+
+		// 점수 환산 과정 2 : raw data -> 7가지로
+		Evaluation evaluation = new Evaluation();
+		CompanyScoDto CScoDto = new CompanyScoDto();
+
+		CScoDto = evaluation.EvalCompanyEPR(CRScoDto);
+		System.out.printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n", CScoDto.getCid(), CScoDto.getDateSco(), CScoDto.getMarrySco(), CScoDto.getBabySco(), CScoDto.getHouseSco(), CScoDto.getRelationSco(), CScoDto.getDreamSco(), CScoDto.getHopeSco());
+		
+
+		//*********************************************
+		//PublicRawsco가 없으면 CScoDto의 각 요소에 *10/6 해줘야함!
+		//*********************************************
+		
+		
+		
+		
+
+		//DB에서 R로 넘길 정보 받아오기(점수)
+		
+		
+		
+		String id = "mem";
+		
 		MakingPlot mplot = new MakingPlot();
-		try {
-			System.out.println("R시작");
-			mplot.mPlot();
-			System.out.println("R종료");
-		} catch (REXPMismatchException | REngineException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		String plotName=null;
+		
+		// plot 뽑는 중..
+		System.out.println("R시작");
+		plotName = mplot.mPlot(CScoDto);
+		System.out.println("R종료");
+		
+		// plot 이름 지정 완료
+		System.out.println("저장된 plot이름 : "+plotName);
+		
+		// plot
+		PlotsDaoImpl plotDao = new PlotsDaoImpl();
+		PlotsDto plotDto = plotDao.insertOrUpdatePlots(id,plotName);
+		System.out.printf("%s\t%s\t%s\t%s\t",plotDto.getMemid(),plotDto.getCid(),plotDto.getPlotpng(),plotDto.getSavedTime());
+
+		request.setAttribute("id", DAO.inquiryId(id));
+
+		
+		
+		
+		
+		
+		
 		return "main/loading";
 	}
 
 	// loadContent
 	@RequestMapping(value = "/main/loadContent", method = RequestMethod.GET)
-	public String LContent(Locale locale, Model model) {
-
+	public String LContent(PlotsDaoImpl DAO, HttpServletRequest request) {
+		
+		request.setAttribute("plotpng", DAO.inquiryId("mem").getPlotpng());// mem을 어떻게 받아와야....
+		
 		return "main/loadContent";
 	}
 
