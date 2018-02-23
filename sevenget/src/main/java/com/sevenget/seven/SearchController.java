@@ -22,7 +22,7 @@ public class SearchController {
 		// 진짜 메인페이지(로그인 후 첫화면)
 		@RequestMapping(value = "/main/main", method = RequestMethod.GET)
 		public ModelAndView main(KeywordAndSearchDAO kdao, InterestedRCDAO idao, HttpSession session, ModelAndView mav) {
-			session.setAttribute("id", "mem");
+			/*session.setAttribute("id", "mem");*/
 			String id = (String)session.getAttribute("id");
 			
 			mav.addObject("companylist", kdao.searchAdvs());

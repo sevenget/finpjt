@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="PublicRawScoDAO">
+ 	<resultMap type="publicRawSco" id="PublicRawScoMap">
+		<result column="id" property="id" />
+		<result column="cid" property="cid" />
+		<result column="noOTPuP" property="noOTPuP" />
+		<result column="flexWorkPuP" property="flexWorkPuP" />
+		<result column="weekendWorkPuP" property="weekendWorkPuP" />
+		<result column="eggshellsPuP" property="eggshellsPuP" />
+		<result column="finanSupportPuP" property="finanSupportPuP" />
+		<result column="dormiHousingSupportPuP" property="dormiHousingSupportPuP" />
+		<result column="loanSupportPuP" property="loanSupportPuP" />
+		<result column="selfDevSupportPuP" property="selfDevSupportPuP" />
+		<result column="apprAmountWorkPuP" property="apprAmountWorkPuP" />
+		<result column="suffSalaryPuP" property="suffSalaryPuP" />
+		<result column="relSysAfterMarriagePuP" property="relSysAfterMarriagePuP" />
+		<result column="childcareLeavePuP" property="childcareLeavePuP" />
+		<result column="guarantReinstatementPuP" property="guarantReinstatementPuP" />
+		<result column="vacationPuP" property="vacationPuP" />
+		<result column="moodEnvImprovPuP" property="moodEnvImprovPuP" />
+		<result column="diningTogetherPuP" property="diningTogetherPuP" />
+		<result column="moneyManageCoachPuP" property="moneyManageCoachPuP" />
+	</resultMap>
+
+	<select id="getAll" resultMap="PublicRawScoMap">
+		SELECT * FROM publicrawscore
+	</select>
+
+	<select id="getById" parameterType="int"  resultMap="PublicRawScoMap">
+		SELECT *
+		FROM publicrawscore
+		WHERE cid = #{cid}
+	</select>
+
+
+	<insert id="insertRawScore">
+		INSERT INTO publicrawscore
+		VALUES(#{id},#{cid},#{noOTPuP},#{flexWorkPuP},
+		#{weekendWorkPuP},#{eggshellsPuP},#{finanSupportPuP},#{dormiHousingSupportPuP},
+		#{loanSupportPuP},#{selfDevSupportPuP},#{apprAmountWorkPuP},#{suffSalaryPuP},
+		#{relSysAfterMarriagePuP},#{childcareLeavePuP},#{guarantReinstatementPuP},#{vacationPuP},
+		#{moodEnvImprovPuP},#{diningTogetherPuP},#{moneyManageCoachPuP})
+	</insert>
+	
+	<!-- <update id="updatePlts">
+		UPDATE plots
+		SET plotpng = #{plotpng} WHERE memid = #{memid}
+	</update> -->
+</mapper>

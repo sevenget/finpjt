@@ -90,8 +90,8 @@ drop table companyreview purge;
 create table companyreview(
    writer varchar2(20) constraint companyreview_writer_fk references memBasicInfo(id),
    cid number(10) constraint companyreview_cid_fk references companyBasicInfo(cid),
-   reviewdate date default sysdate,
-   content varchar2(2000) constraint companyreview_content_nn not null
+   content varchar2(2000) constraint companyreview_content_nn not null,
+   reviewdate date default sysdate
 );
 --title varchar2(200) constraint companyreview_title_nn not null,
 select * from companyreview;
@@ -132,3 +132,61 @@ create table plots(
 
 select * from plots;
 insert into plots values('mem', 'mem.png', sysdate)
+
+
+-- 점수입력(전문가?패널)
+drop table comprawscore purge;
+create table comprawscore(
+   cid number(10) constraint companyRawscore_id_fk references companyBasicInfo(cid),
+   noOTEPr number(6),
+   flexWorkEPr number(6),
+   weekendWorkEPr number(6),
+   newcomerSalEPr number(6),
+   paidVacaEPr number(6),
+   compKindergartenEPr number(6),
+   eduSupportEPr number(6),
+   loanSupportEPr number(6),
+   dormiHousingSupportEPr number(6),
+   opClubEPr number(6),
+   supportClubEPr number(6),
+   clubMemRateEPr number(6),
+   selfDevSupportEPr number(6),
+   seminarInvEPr number(6),
+   horizStrucEPr number(6),
+   varWorkExpEPr number(6),
+   telAvailEPr number(6),
+   salIncreRateEPr number(6),
+   retireRateEPr number(6),
+   busiGrowthEPr number(6),
+   induGrowthEPr number(6),
+   govSupportEPr number(6)
+);
+
+delete comprawscore
+
+
+-- 점수입력(설문조사 결과 반영한 기준으로..)
+drop table publicrawscore purge;
+create table publicrawscore(
+   id varchar2(20) constraint publicmemdetail_id_fk references memBasicInfo(id),
+   cid number(10) constraint publicCompanyRawscore_id_fk references companyBasicInfo(cid),
+   noOTPuP number(6),
+   flexWorkPuP number(6),
+   weekendWorkPuP number(6),
+   eggshellsPuP number(6),
+   finanSupportPuP number(6),
+   dormiHousingSupportPuP number(6),
+   loanSupportPuP number(6),
+   selfDevSupportPuP number(6),
+   apprAmountWorkPuP number(6),
+   suffSalaryPuP number(6),
+   relSysAfterMarriagePuP number(6),
+   childcareLeavePuP number(6),
+   guarantReinstatementPuP number(6),
+   vacationPuP number(6),
+   moodEnvImprovPuP number(6),
+   diningTogetherPuP number(6),
+   moneyManageCoachPuP number(6)
+);
+
+delete publicrawscore
