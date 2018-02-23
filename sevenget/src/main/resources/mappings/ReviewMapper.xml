@@ -7,40 +7,21 @@
  	<resultMap type="review" id="ReviewMap">
 		<result column="writer" property="writer" />
 		<result column="cid" property="cid" />
-		<result column="reviewdate" property="reviewdate" />
-<!-- 		<result column="title" property="title" /> -->
 		<result column="content" property="content" />
+		<result column="reviewdate" property="reviewdate" />
 	</resultMap>
-
+	
+	<select id="getReview" parameterType="int" resultMap="ReviewMap">
+		SELECT * FROM companyreview WHERE cid = #{cid}
+	</select>
+	
+	<select id="selectReview" >
+		SELECT * FROM companyreview
+	</select>
+	
 	<insert id="insertReview">
 		INSERT INTO companyreview
-		VALUES(#{writer},#{cid},sysdate,#{content})
+		VALUES(#{writer},#{cid},#{content},sysdate)
 	</insert>
 
-
-
-
-
-
-
-	<!-- <select id="getAll" resultMap="ReviewMap">resultMap="ReviewMap"
-		SELECT * FROM Review
-	</select>
-
-	<select id="getById" parameterType="String"  resultMap="ReviewMap">
-		SELECT *
-		FROM Review
-		WHERE memid = #{memid}
-	</select>
-
-
-	<insert id="insertPlts">
-		INSERT INTO Review
-		VALUES(#{memid},#{plotpng},sysdate)
-	</insert>
-	
-	<update id="updatePlts">
-		UPDATE Review
-		SET plotpng = #{plotpng} WHERE memid = #{memid}
-	</update> -->
 </mapper>
