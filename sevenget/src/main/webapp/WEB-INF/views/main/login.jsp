@@ -25,16 +25,15 @@
 					
 				</div>
 				<div id="regiMain">
-					<form class="login" action="register">
+					<form id="login_form" class="login" action="loginCheck">
 							<table class="login">
 								<tr>
-									<td><input id="id" type="text" placeholder="아이디"></td>
-									<td rowspan=2><input id="login" type="button" value="로그인"
-										onClick="location.href='main';"></td>
+									<td><input id="id" name="id" type="text" placeholder="아이디"></td>
+									<td rowspan=2><input id="login" type="submit" value="로그인"></td>
 									<!-- 일단 로그인 버튼 누르면 무조건 메인페이지로 이동하게 만들어뒀어요!! -->
 								</tr>
 								<tr>
-									<td><input id="pw" type="text" placeholder="비밀번호"></td>
+									<td><input id="pw" name="pw" type="password" placeholder="비밀번호"></td>
 								</tr>
 								<tr>
 									<td colspan="2"><button id="facebook" onclick="alert('준비중'); return false;">
@@ -43,11 +42,11 @@
 										</button></td>
 								</tr>
 								<tr>
-									<td colspan="2"><button id="guest" onclick="location.href='loginCheck?id=Guest'; return false;">
+									<td colspan="2"><button id="guest" onclick="location.href='loginCheck?id=Guest&pw=Guest'; return false;">
 											비로그인으로 둘러보기</button></td>
 								</tr>
 								<tr>
-									<td colspan="2"><button id="submit">회원가입</button></td>
+									<td colspan="2"><button id="submit" onclick="location.href='register'; return false;">회원가입</button></td>
 									<!-- 회원가입 버튼 누르면 회원가입페이지로 넘어가게 수정 완료. -->
 								</tr>
 							</table>
