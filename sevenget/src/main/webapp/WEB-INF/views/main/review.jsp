@@ -38,10 +38,10 @@
 						<form id="rvfm" name="rvfm" method="get">
 						<div class="cc_review">
 							<div class="review_rr">
-							<%@ for(int i){%> 
+							<%-- <%@ for(int i){%> --%> 
 								<p class="rr_view">"안녕"</p>
 								<p class="rr_date">2018/02/23</p>
-							 <%@} %>
+							 <%-- <%@} %> --%>
 							</div>
 							
 						</div>

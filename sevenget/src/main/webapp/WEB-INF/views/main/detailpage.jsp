@@ -272,7 +272,7 @@ $(document).ready(function($)
 							<div class="bg"></div>
 
 							<div id="layer">
-								<%-- <%@ include file="/WEB-INF/views/main/review.jsp"%> --%>
+								<%@ include file="/WEB-INF/views/main/review.jsp"%>
 							</div>
 
 						</div>
