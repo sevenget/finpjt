@@ -23,6 +23,8 @@ insert into companyBasicInfo values(
 	'T','T','T','N','F','F','F'
 );
 
+select * from companyBasicInfo
+
 insert into advCompany values(2, '100000000', sysdate, sysdate+1);
 select * from advCompany;
 select c.cid, logo, cname, industry, location, sales, employee, mission, discription, interestedtimes, dateget, marryget, babyget, houseget, relationget, dreamget, hopeget from advCompany a, companybasicinfo c where a.cid = c.cid
