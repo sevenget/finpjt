@@ -43,7 +43,7 @@
 										</button></td>
 								</tr>
 								<tr>
-									<td colspan="2"><button id="guest" onclick="location.href='main?userId=Guest'; return false;">
+									<td colspan="2"><button id="guest" onclick="location.href='loginCheck?id=Guest'; return false;">
 											비로그인으로 둘러보기</button></td>
 								</tr>
 								<tr>
