@@ -1,6 +1,7 @@
 $(function(){
 		$('#searchHolder form').submit(function(){
 			$('div.search_ad').hide('slow');
+			$('')
 		});
 		
 		$('#searchBtn').click(function(){
@@ -14,4 +15,5 @@ $(function(){
 				location.href="mypage2";		
 			}
 		});
+		
 });
