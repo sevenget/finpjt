@@ -193,7 +193,8 @@
 					
 					<script>
 						function checking(id){
-							var id = document.getElementById(id);
+							alert(id);
+							alert(id.attr("style"));
 							id.attr("style","backgound-color:red;");
 						}
 					</script>
@@ -206,20 +207,20 @@
 						<div>
 							<img src="../resources/img/dream.jpg">
 							<table>
-								<tr>
-									<td>
+								<tr  class="dream">
+									<td class="dream">
 										<input id="dream1" name="dream" type="radio" value="1" checked="checked"
-										onchange="checking(this);">1
+										onchange="checking(this.id);">1
 									</td>
-									<td><input id="dream2" name="dream" type="radio" value="2">2
-									<td><input id="dream3" name="dream" type="radio" value="3">3
-									<td><input id="dream4" name="dream" type="radio" value="4">4
-									<td><input id="dream5" name="dream" type="radio" value="5">5
-									<td><input id="dream6" name="dream" type="radio" value="6">6
-									<td><input id="dream7" name="dream" type="radio" value="7">7
-									<td><input id="dream8" name="dream" type="radio" value="8">8
-									<td><input id="dream9" name="dream" type="radio" value="9">9
-									<td><input id="dream10" name="dream" type="radio" value="10">10
+									<td class="dream"><input id="dream2" name="dream" type="radio" value="2">2
+									<td class="dream"><input id="dream3" name="dream" type="radio" value="3">3
+									<td class="dream"><input id="dream4" name="dream" type="radio" value="4">4
+									<td class="dream"><input id="dream5" name="dream" type="radio" value="5">5
+									<td class="dream"><input id="dream6" name="dream" type="radio" value="6">6
+									<td class="dream"><input id="dream7" name="dream" type="radio" value="7">7
+									<td class="dream"><input id="dream8" name="dream" type="radio" value="8">8
+									<td class="dream"><input id="dream9" name="dream" type="radio" value="9">9
+									<td class="dream"><input id="dream10" name="dream" type="radio" value="10">10
 								</td>
 							</table>
 						</div>
