@@ -134,7 +134,7 @@ select * from plots;
 insert into plots values('mem', 'mem.png', sysdate)
 
 
--- 점수입력
+-- 점수입력(전문가?패널)
 drop table comprawscore purge;
 create table comprawscore(
    cid number(10) constraint companyRawscore_id_fk references companyBasicInfo(cid),
@@ -163,3 +163,30 @@ create table comprawscore(
 );
 
 delete comprawscore
+
+
+-- 점수입력(설문조사 결과 반영한 기준으로..)
+drop table publicrawscore purge;
+create table publicrawscore(
+   id varchar2(20) constraint publicmemdetail_id_fk references memBasicInfo(id),
+   cid number(10) constraint publicCompanyRawscore_id_fk references companyBasicInfo(cid),
+   noOTPuP number(6),
+   flexWorkPuP number(6),
+   weekendWorkPuP number(6),
+   eggshellsPuP number(6),
+   finanSupportPuP number(6),
+   dormiHousingSupportPuP number(6),
+   loanSupportPuP number(6),
+   selfDevSupportPuP number(6),
+   apprAmountWorkPuP number(6),
+   suffSalaryPuP number(6),
+   relSysAfterMarriagePuP number(6),
+   childcareLeavePuP number(6),
+   guarantReinstatementPuP number(6),
+   vacationPuP number(6),
+   moodEnvImprovPuP number(6),
+   diningTogetherPuP number(6),
+   moneyManageCoachPuP number(6)
+);
+
+delete publicrawscore
