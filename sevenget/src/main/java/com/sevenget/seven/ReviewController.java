@@ -20,25 +20,31 @@ import com.sevenget.Rcode.MakingPlot;
 import model.member.MemBasicInfoDAO;
 import model.member.MemBasicInfoDTO;
 import model.member.MemLoginDao;
+import model.review.ReviewDaoImpl;
 
 @Controller
 public class ReviewController {
 
 	// 기업 상세페이지
-	@RequestMapping(value = "/main/detailpage", method = RequestMethod.GET)
-	public String DetailP(Locale locale, Model model) {
-		
-		
-		return "main/detailpage";
-	}
+	 @RequestMapping(value = "/main/detailpage", method = RequestMethod.GET)
+	   public String DetailP(MemBasicInfoDAO DAO, HttpServletRequest request) {
+	      
+	      request.setAttribute("id", DAO.getMemBasicInfo());
+	      return "main/detailpage";
+	   }
 
 	// 기업 상세페이지-리뷰
 	@RequestMapping(value = "/main/review", method = RequestMethod.GET)
-	public String ReviewP(Locale locale, Model model) {
+	public String ReviewP(ReviewDaoImpl DAO, HttpServletRequest request) {
+		//DAO.selectReview();
+		
+	    request.setAttribute("cid", DAO.selectReview().getCid());
+	    request.setAttribute("writer", DAO.selectReview().getWriter());
+	    request.setAttribute("reviewdate", DAO.selectReview().getReviewdate());
+	    request.setAttribute("content", DAO.selectReview().getContent());
 
 		
 		return "main/review";
 	}
-
 
 }

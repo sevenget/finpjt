@@ -6,7 +6,6 @@ public class ReviewDto {
 	String writer;
 	int cid;
 	Date reviewdate;
-	String title;
 	String content;
 	
 	public String getWriter() {
@@ -26,12 +25,6 @@ public class ReviewDto {
 	}
 	public void setReviewdate(Date reviewdate) {
 		this.reviewdate = reviewdate;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
 	}
 	public String getContent() {
 		return content;
