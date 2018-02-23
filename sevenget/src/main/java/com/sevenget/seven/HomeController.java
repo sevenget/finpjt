@@ -91,6 +91,7 @@ public class HomeController {
 		return "main/login";
 	}
 	
+	
 	// 로그인 체크
 	@RequestMapping(value = "/main/loginCheck", method = RequestMethod.GET)
 	public ModelAndView loginCheck(String id,String pw, MemLoginDao dao,MemBasicInfoDTO dto,
@@ -146,9 +147,9 @@ public class HomeController {
 	
 	//마이페이지1
 	@RequestMapping(value = "/main/mypage", method = RequestMethod.GET)
-	public String Mypage(MemBasicInfoDAO DAO, HttpServletRequest request) {
-		
-		request.setAttribute("id", DAO.getMemBasicInfo());
+	public String Mypage(MemBasicInfoDAO DAO, HttpServletRequest request, HttpSession session) {
+		String id = (String)session.getAttribute("id");
+		request.setAttribute("id", DAO.getMemBasicInfo(id));
 		System.out.println("mypage");
 		return "main/mypage";
 	}
