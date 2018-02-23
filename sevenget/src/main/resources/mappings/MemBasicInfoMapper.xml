@@ -9,6 +9,10 @@
 		FROM test
 		WHERE id = #{id}
 	</select>
+	
+	<select id="loginCheck" parameterType="String">
+		SELECT * FROM memBasicInfo where id = #{id}
+	</select>
 
 	<select id="getMemBasicInfo" resultType="memBasicInfo">
 		<![CDATA[

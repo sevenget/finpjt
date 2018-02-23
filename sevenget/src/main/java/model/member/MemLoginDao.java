@@ -9,7 +9,6 @@ import model.common.SqlSessionFactoryBean;
 public class MemLoginDao {
 	private SqlSession mybatis;
 	List<MemBasicInfoDTO> list;
-	int check;
 	
 	public MemLoginDao(){
 		mybatis = SqlSessionFactoryBean.getSqlSessionInstance();
