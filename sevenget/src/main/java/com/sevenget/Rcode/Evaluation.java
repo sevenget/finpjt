@@ -5,59 +5,49 @@ import org.rosuda.REngine.REXPMismatchException;
 import org.rosuda.REngine.REngineException;
 import org.rosuda.REngine.Rserve.RConnection;
 
+import model.companySco.CompanyRawScoDto;
+import model.companySco.CompanyScoDto;
+
 // 실행 전 Rserve.R 반드시 실행시키기
 
 public class Evaluation {
 
-	public void mPlot() throws REXPMismatchException, REngineException {
-
-		RConnection connection = null;
-		connection = new RConnection();
-
+	public CompanyScoDto EvalCompanyEPR(CompanyRawScoDto CRScoDto)/* throws REXPMismatchException, REngineException */{
+		CompanyScoDto CScoDto = new CompanyScoDto();
+		
 		// DB에서 받아온 데이터 집어넣기
-		connection.eval("noOTEPr <- 5"); // 정시퇴근 가능일 수
-		connection.eval("flexible_Work_SchemeEPr <- 1");// 금요일 조기퇴근(외 탄력근무제 등) 시행 여부
-		connection.eval("weekendWorkEPr <- 1");// 주말근무 여부
-		connection.eval("newcomerSalaryEPr <- 3000");// 신입연봉
-		connection.eval("paid_vacationEPr <- 15");// 유급휴가 사용 일 수(연 기준)
-		connection.eval("company_kindergartenEPr <- 1");// 사내 어린이집 등 시설 또는 돌보미 서비스 등의 유무
-		connection.eval("educational_supportEPr <- 1");// 교육비 지원 여부
-		connection.eval("loan_supportEPr <- 1");// 대출지원제도 유무
-		connection.eval("dormitory_Companyhousing_SupportEPr <- 1");// 기숙사/사택 제공 여부
-		connection.eval("operate_clubsEPr <- 1");// 사내 동호회 운영 여부
-		connection.eval("support_clubsEPr <- 1");// 사내 동호회 지원 여부
-		connection.eval("club_membership_rateEPr <- 100");// 실 동호회 가입 인원 비율
-		connection.eval("self_development_supportEPr <- 1");// 자기계발 지원비 여부
-		connection.eval("seminar_by_inviting_external_lecturersEPr <- 5");// 외부강사 초청 세미나 횟수(한달 기준)
-		connection.eval("horizontal_structureEPr <- 1");// 수평적 구조
-		connection.eval("possibility_of_various_work_experienceEPr <- 1");// 다양한 업무 경험이 가능한지 여부
-		connection.eval("telecommuting_availabilityEPr <- 1");// 재택근무 가능 여부
-		connection.eval("salary_increase_rateEPr <- 20");// 연봉인상률
-		connection.eval("retirement_rateEPr <- 0");// 퇴사율
-		connection.eval("business_growth_rateEPr <- 100");// 기업성장률
-		connection.eval("industry_growth_rateEPr <- 50");// 산업성장률
-		connection.eval("government_supportEPr <- 1");// 정부지원 산업 여부
+		CRScoDto.getNoOTEPr(); // 정시퇴근 가능일 수
+		CRScoDto.getFlexWorkEPr();// 금요일 조기퇴근(외 탄력근무제 등) 시행 여부
+		CRScoDto.getWeekendWorkEPr();// 주말근무 여부
+		CRScoDto.getNewcomerSalEPr();// 신입연봉
+		CRScoDto.getPaidVacaEPr();// 유급휴가 사용 일 수(연 기준)
+		CRScoDto.getCompKindergartenEPr();// 사내 어린이집 등 시설 또는 돌보미 서비스 등의 유무
+		CRScoDto.getEduSupportEPr();// 교육비 지원 여부
+		CRScoDto.getLoanSupportEPr();// 대출지원제도 유무
+		CRScoDto.getDormiHousingSupportEPr();// 기숙사/사택 제공 여부
+		CRScoDto.getOpClubEPr();// 사내 동호회 운영 여부
+		CRScoDto.getSupportClubEPr();// 사내 동호회 지원 여부
+		CRScoDto.getClubMemRateEPr();// 실 동호회 가입 인원 비율
+		CRScoDto.getSelfDevSupportEPr();// 자기계발 지원비 여부
+		CRScoDto.getSeminarInvEPr();// 외부강사 초청 세미나 횟수(한달 기준)
+		CRScoDto.getHorizStrucEPr();// 수평적 구조
+		CRScoDto.getVarWorkExpEPr();// 다양한 업무 경험이 가능한지 여부
+		CRScoDto.getTelAvailEPr();// 재택근무 가능 여부
+		CRScoDto.getSalIncreRateEPr();// 연봉인상률
+		CRScoDto.getRetireRateEPr();// 퇴사율
+		CRScoDto.getBusiGrowthEPr();// 기업성장률
+		CRScoDto.getInduGrowthEPr();// 산업성장률
+		CRScoDto.getGovSupportEPr();// 정부지원 산업 여부
+			
+		int dateEPr = (int) (CRScoDto.getNoOTEPr()*1 + CRScoDto.getFlexWorkEPr()*2.5 + CRScoDto.getWeekendWorkEPr()*2.5);
+		int marriageEPr =  CRScoDto.getNewcomerSalEPr()/3000 + CRScoDto.getPaidVacaEPr()/5 + CRScoDto.getNoOTEPr()*1 + CRScoDto.getWeekendWorkEPr()*1;
+		int babyEPr = (int) (CRScoDto.getFlexWorkEPr()*2.5 + CRScoDto.getPaidVacaEPr()*2.5/15 + CRScoDto.getCompKindergartenEPr()*2.5 + CRScoDto.getEduSupportEPr()*2.5);
+		int houseEPr = CRScoDto.getLoanSupportEPr()*4 + CRScoDto.getDormiHousingSupportEPr()*6;
+		int relationshipEPr =(int) (CRScoDto.getOpClubEPr()*1.5 +  CRScoDto.getSupportClubEPr()*1.5 + CRScoDto.getClubMemRateEPr()/50 + CRScoDto.getNoOTEPr());
+		int dreamEPr = CRScoDto.getSelfDevSupportEPr()*1 + CRScoDto.getSeminarInvEPr()/5 + CRScoDto.getHorizStrucEPr()*1 + CRScoDto.getVarWorkExpEPr()*1 + CRScoDto.getTelAvailEPr()*1;
+		int hopeEPr = CRScoDto.getSalIncreRateEPr()/20 + (1-CRScoDto.getRetireRateEPr()/50) + CRScoDto.getBusiGrowthEPr()/100 + CRScoDto.getInduGrowthEPr()/50 + CRScoDto.getGovSupportEPr()*1;
 		
-		
-		REXP a = connection.eval("dateEPr <- noOTEPr*1 + Flexible_Work_SchemeEPr*2.5 + weekendWorkEPr*2.5");
-		REXP b = connection.eval("marriageEPr <- newcomerSalaryEPr/3000 + Paid_vacationEPr/5 + noOTEPr*1 + weekendWorkEPr*1");
-		REXP c = connection.eval("babyEPr <- Flexible_Work_SchemeEPr*2.5 + Paid_vacationEPr*2.5/15 + Company_kindergartenEPr*2.5 + Educational_supportEPr*2.5 ");
-		REXP d = connection.eval("houseEPr <- Loan_supportEPr*4 + Dormitory_Companyhousing_SupportEPr*6");
-		REXP e = connection.eval("relationshipEPr <- Operate_clubsEPr*1.5 +  Support_clubsEPr*1.5 + club_membership_rateEPr/50 + noOTEPr");
-		REXP f = connection.eval("dreamEPr <- Self_development_supportEPr*1 + Seminar_by_inviting_external_lecturersEPr/5 + Horizontal_structureEPr*1 + Possibility_of_various_work_experienceEPr*1 + Telecommuting_availabilityEPr*1");
-		REXP g = connection.eval("hopeEPr <- Salary_increase_rateEPr/20 + (1-Retirement_rateEPr/50) + Business_growth_rateEPr/100 + Industry_growth_rateEPr/50 + Government_supportEPr*1");
-
-		REXP h = connection.eval("EvaluationPrP <- dateEPr + marriageEPr + babyEPr + houseEPr + relationshipEPr + dreamEPr + hopeEPr");
-
-		
-		int dateEPr = a.asInteger();
-		int marriageEPr = b.asInteger();
-		int babyEPr = c.asInteger();
-		int houseEPr = d.asInteger();
-		int relationshipEPr = e.asInteger();
-		int dreamEPr = f.asInteger();
-		int hopeEPr = g.asInteger();
-		int EvaluationPrP = h.asInteger();
+		int EvaluationPrP = dateEPr + marriageEPr + babyEPr + houseEPr + relationshipEPr + dreamEPr + hopeEPr;
 
 		System.out.println("연애=" + dateEPr);
 		System.out.println("결혼=" + marriageEPr);
@@ -68,7 +58,26 @@ public class Evaluation {
 		System.out.println("희망=" + hopeEPr);
 		System.out.println("기업평가60%=" + EvaluationPrP);
 		
+		CScoDto.setCid(CRScoDto.getCid());
+		CScoDto.setDateSco(dateEPr);
+		CScoDto.setMarrySco(marriageEPr);
+		CScoDto.setBabySco(babyEPr);
+		CScoDto.setHouseSco(houseEPr);
+		CScoDto.setRelationSco(relationshipEPr);
+		CScoDto.setDreamSco(dreamEPr);
+		CScoDto.setHopeSco(dreamEPr);
+		
+		return CScoDto;
+	}
+	
+	
+	
+	public void EvalCompanyPUP() throws REXPMismatchException, REngineException {
 
+		RConnection connection = null;
+		connection = new RConnection();
+
+		// DB에서 받아온 데이터 집어넣기
 		connection.eval("noOTPuP <- 10");
 		connection.eval("flexible_Work_SchemePuP <- 10");
 		connection.eval("weekendWorkPuP <- 10");
@@ -117,6 +126,7 @@ public class Evaluation {
 		
 
 	}
+
 
 
 }
