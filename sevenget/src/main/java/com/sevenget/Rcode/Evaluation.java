@@ -16,27 +16,27 @@ public class Evaluation {
 
 		// DB에서 받아온 데이터 집어넣기
 		connection.eval("noOTEPr <- 5"); // 정시퇴근 가능일 수
-		connection.eval("Flexible_Work_SchemeEPr <- 1");// 금요일 조기퇴근(외 탄력근무제 등) 시행 여부
+		connection.eval("flexible_Work_SchemeEPr <- 1");// 금요일 조기퇴근(외 탄력근무제 등) 시행 여부
 		connection.eval("weekendWorkEPr <- 1");// 주말근무 여부
 		connection.eval("newcomerSalaryEPr <- 3000");// 신입연봉
-		connection.eval("Paid_vacationEPr <- 15");// 유급휴가 사용 일 수(연 기준)
-		connection.eval("Company_kindergartenEPr <- 1");// 사내 어린이집 등 시설 또는 돌보미 서비스 등의 유무
-		connection.eval("Educational_supportEPr <- 1");// 교육비 지원 여부
-		connection.eval("Loan_supportEPr <- 1");// 대출지원제도 유무
-		connection.eval("Dormitory_Companyhousing_SupportEPr <- 1");// 기숙사/사택 제공 여부
-		connection.eval("Operate_clubsEPr <- 1");// 사내 동호회 운영 여부
-		connection.eval("Support_clubsEPr <- 1");// 사내 동호회 지원 여부
+		connection.eval("paid_vacationEPr <- 15");// 유급휴가 사용 일 수(연 기준)
+		connection.eval("company_kindergartenEPr <- 1");// 사내 어린이집 등 시설 또는 돌보미 서비스 등의 유무
+		connection.eval("educational_supportEPr <- 1");// 교육비 지원 여부
+		connection.eval("loan_supportEPr <- 1");// 대출지원제도 유무
+		connection.eval("dormitory_Companyhousing_SupportEPr <- 1");// 기숙사/사택 제공 여부
+		connection.eval("operate_clubsEPr <- 1");// 사내 동호회 운영 여부
+		connection.eval("support_clubsEPr <- 1");// 사내 동호회 지원 여부
 		connection.eval("club_membership_rateEPr <- 100");// 실 동호회 가입 인원 비율
-		connection.eval("Self_development_supportEPr <- 1");// 자기계발 지원비 여부
-		connection.eval("Seminar_by_inviting_external_lecturersEPr <- 5");// 외부강사 초청 세미나 횟수(한달 기준)
-		connection.eval("Horizontal_structureEPr <- 1");// 수평적 구조
-		connection.eval("Possibility_of_various_work_experienceEPr <- 1");// 다양한 업무 경험이 가능한지 여부
-		connection.eval("Telecommuting_availabilityEPr <- 1");// 재택근무 가능 여부
-		connection.eval("Salary_increase_rateEPr <- 20");// 연봉인상률
-		connection.eval("Retirement_rateEPr <- 0");// 퇴사율
-		connection.eval("Business_growth_rateEPr <- 100");// 기업성장률
-		connection.eval("Industry_growth_rateEPr <- 50");// 산업성장률
-		connection.eval("Government_supportEPr <- 1");// 정부지원 산업 여부
+		connection.eval("self_development_supportEPr <- 1");// 자기계발 지원비 여부
+		connection.eval("seminar_by_inviting_external_lecturersEPr <- 5");// 외부강사 초청 세미나 횟수(한달 기준)
+		connection.eval("horizontal_structureEPr <- 1");// 수평적 구조
+		connection.eval("possibility_of_various_work_experienceEPr <- 1");// 다양한 업무 경험이 가능한지 여부
+		connection.eval("telecommuting_availabilityEPr <- 1");// 재택근무 가능 여부
+		connection.eval("salary_increase_rateEPr <- 20");// 연봉인상률
+		connection.eval("retirement_rateEPr <- 0");// 퇴사율
+		connection.eval("business_growth_rateEPr <- 100");// 기업성장률
+		connection.eval("industry_growth_rateEPr <- 50");// 산업성장률
+		connection.eval("government_supportEPr <- 1");// 정부지원 산업 여부
 		
 		
 		REXP a = connection.eval("dateEPr <- noOTEPr*1 + Flexible_Work_SchemeEPr*2.5 + weekendWorkEPr*2.5");
@@ -70,22 +70,22 @@ public class Evaluation {
 		
 
 		connection.eval("noOTPuP <- 10");
-		connection.eval("Flexible_Work_SchemePuP <- 10");
+		connection.eval("flexible_Work_SchemePuP <- 10");
 		connection.eval("weekendWorkPuP <- 10");
 		connection.eval("walking_on_eggshellsPuP <- 10");
-		connection.eval("Financial_supportPuP <- 10");
-		connection.eval("Dormitory_Companyhousing_SupportPuP <- 10");
-		connection.eval("Loan_supportPuP <- 10");
-		connection.eval("Self_development_supportPuP <- 10");
+		connection.eval("financial_supportPuP <- 10");
+		connection.eval("dormitory_Companyhousing_SupportPuP <- 10");
+		connection.eval("loan_supportPuP <- 10");
+		connection.eval("self_development_supportPuP <- 10");
 		connection.eval("appropriate_amount_of_work <- 10");
 		connection.eval("sufficient_salary <- 10");
-		connection.eval("Related_system_after_marriage <- 10");
+		connection.eval("related_system_after_marriage <- 10");
 		connection.eval("childcare_leave <- 10");
-		connection.eval("Guaranteed_reinstatement <- 10");
+		connection.eval("guaranteed_reinstatement <- 10");
 		connection.eval("vacation <- 10");
 		connection.eval("mood_environment_improvement <- 10");
-		connection.eval("Dining_together <- 10");
-		connection.eval("Money_management_coaching <- 10");
+		connection.eval("dining_together <- 10");
+		connection.eval("money_management_coaching <- 10");
 		
 		REXP i =  connection.eval("datePuP <- (noOTPuP*(46/79) + weekendWorkPuP*15/79 + walking_on_eggshellsPuP*6/79 + Financial_supportPuP*6/79 + appropriate_amount_of_work*6/79)*6.8/10 ");
 		REXP j = connection.eval("marriagePuP <- (Related_system_after_marriage*18/62 + sufficient_salary*13/62 + walking_on_eggshellsPuP*11/62 + noOTPuP*11/62 + Financial_supportPuP*9/62)*6.8/10 ");

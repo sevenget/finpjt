@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CompanyRawScoDAO">
+ 	<resultMap type="companyRawSco" id="CompanyRawScoMap">
+		<result column="cid" property="cid" />
+		<result column="noOTEPr" property="noOTEPr" />
+		<result column="flexWorkEPr" property="flexWorkEPr" />
+		<result column="weekendWorkEPr" property="weekendWorkEPr" />
+		<result column="newcomerSalEPr" property="newcomerSalEPr" />
+		<result column="paidVacaEPr" property="paidVacaEPr" />
+		<result column="compKindergartenEPr" property="compKindergartenEPr" />
+		<result column="eduSupportEPr" property="eduSupportEPr" />
+		<result column="loanSupportEPr" property="loanSupportEPr" />
+		<result column="dormiHousingSupportEPr" property="dormiHousingSupportEPr" />
+		<result column="opClubEPr" property="opClubEPr" />
+		<result column="supportClubEPr" property="supportClubEPr" />
+		<result column="clubMemRateEPr" property="clubMemRateEPr" />
+		<result column="selfDevSupportEPr" property="selfDevSupportEPr" />
+		<result column="seminarInvEPr" property="seminarInvEPr" />
+		<result column="horizStrucEPr" property="horizStrucEPr" />
+		<result column="varWorkExpEPr" property="varWorkExpEPr" />
+		<result column="telAvailEPr" property="telAvailEPr" />
+		<result column="salIncreRateEPr" property="salIncreRateEPr" />
+		<result column="retireRateEPr" property="retireRateEPr" />
+		<result column="busiGrowthEPr" property="busiGrowthEPr" />
+		<result column="induGrowthEPr" property="induGrowthEPr" />
+		<result column="govSupportEPr" property="govSupportEPr" />
+	</resultMap>
+
+	<select id="getAll" resultMap="CompanyRawScoMap">
+		SELECT * FROM comprawscore
+	</select>
+
+	<select id="getById" parameterType="int"  resultMap="CompanyRawScoMap">
+		SELECT *
+		FROM comprawscore
+		WHERE cid = #{cid}
+	</select>
+
+
+	<insert id="insertRawScore">
+		INSERT INTO comprawscore
+		VALUES(#{cid},#{noOTEPr},#{flexWorkEPr},#{weekendWorkEPr},
+		#{newcomerSalEPr},#{paidVacaEPr},#{compKindergartenEPr},#{eduSupportEPr},
+		#{loanSupportEPr},#{dormiHousingSupportEPr},#{opClubEPr},#{supportClubEPr},
+		#{clubMemRateEPr},#{selfDevSupportEPr},#{seminarInvEPr},#{horizStrucEPr},
+		#{varWorkExpEPr},#{telAvailEPr},#{salIncreRateEPr},#{retireRateEPr},
+		#{busiGrowthEPr},#{induGrowthEPr},#{govSupportEPr})
+	</insert>
+	
+	<!-- <update id="updatePlts">
+		UPDATE plots
+		SET plotpng = #{plotpng} WHERE memid = #{memid}
+	</update> -->
+</mapper>

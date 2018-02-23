@@ -17,7 +17,7 @@ public class MemLoginDao {
 	public MemBasicInfoDTO loginCheck(String id){
 		MemBasicInfoDTO dto = new MemBasicInfoDTO();
 		
-		list = mybatis.selectList("MemIdCheckDao.loginCheck");
+		list = mybatis.selectList("MemBasicInfoDAO.loginCheck",id);
 		
 		dto.setId(list.get(0).id);
 		dto.setPassword(list.get(0).password);

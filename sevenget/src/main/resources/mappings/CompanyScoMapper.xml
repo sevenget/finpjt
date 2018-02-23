@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CompanyScoDAO">
+ 	<resultMap type="companySco" id="CompanyScoMap">
+		<result column="cid" property="cid" />
+		<result column="dateSco" property="dateSco" />
+		<result column="marrySco" property="marrySco" />
+		<result column="babySco" property="babySco" />
+		<result column="houseSco" property="houseSco" />
+		<result column="relationSco" property="relationSco" />
+		<result column="dreamSco" property="dreamSco" />
+		<result column="hopeSco" property="hopeSco" />
+	</resultMap>
+
+	<select id="getAll" resultMap="CompanyScoMap">
+		SELECT * FROM companyscore
+	</select>
+
+	<select id="getById" parameterType="String"  resultMap="CompanyScoMap">
+		SELECT *
+		FROM companyscore
+		WHERE cid = #{cid}
+	</select>
+
+
+	<insert id="insertPlts">
+		INSERT INTO companyscore
+		VALUES(#{cid},#{dateSco},#{marrySco},#{babySco},#{houseSco},#{relationSco},#{dreamSco},#{hopeSco})
+	</insert>
+	
+	<!-- <update id="updatePlts">
+		UPDATE plots
+		SET plotpng = #{plotpng} WHERE memid = #{memid}
+	</update> -->
+</mapper>
