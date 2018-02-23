@@ -31,7 +31,7 @@ public class SearchController {
 				id="Guest";
 			}
 			
-			MemConcernDto memCon = mdao.getMemConcern(id);
+			//MemConcernDto memCon = mdao.getMemConcern(id);
 			
 //			mav.addObject("companylist", kdao.searchByFilter(getFilterByMemberCon(memCon)));
 			mav.addObject("companylist", kdao.searchAdvs());
