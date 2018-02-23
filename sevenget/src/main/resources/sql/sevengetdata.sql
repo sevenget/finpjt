@@ -23,6 +23,8 @@ insert into companyBasicInfo values(
 	'T','T','T','N','F','F','F'
 );
 
+select * from companyBasicInfo
+
 insert into advCompany values(2, '100000000', sysdate, sysdate+1);
 select * from advCompany;
 select c.cid, logo, cname, industry, location, sales, employee, mission, discription, interestedtimes, dateget, marryget, babyget, houseget, relationget, dreamget, hopeget from advCompany a, companybasicinfo c where a.cid = c.cid
@@ -62,6 +64,16 @@ select * from keywords
 
 select * from search
 
+
+
+--관심기업 관련
+delete from InterestedRC
+insert into InterestedRC values('mem', 1, sysdate, null); commit
+update InterestedRC set canTime = sysdate where memid='mem' and cid= 1 and canTime is null;
+select * from InterestedRC
+select * from InterestedRC where memid='mem' and cid=1 and canTime is null
+select * from InterestedRC where memid='mem' and cid=1 and canTime is null
+commit
 insert into companyreview values('mem', 1, sysdate, 'sooc')
 delete from companyreview
 commit

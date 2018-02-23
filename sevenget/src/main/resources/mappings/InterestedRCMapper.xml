@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="InterestedRCDAO">
+	<insert id="register">
+		insert into InterestedRC values(
+			#{memid}, #{cid}, sysdate, null
+		)
+	</insert>
+	
+	<update id="cancel">
+		update InterestedRC set canTime = sysdate where memid=#{memid} and cid= #{cid} and canTime is null
+	</update>
+	
+	<select id="selectRelatedOne" resultType="interested">
+		select * from InterestedRC where memid=#{memid} and cid=#{cid} and canTime is null
+	</select>
+	
+	<select id="selectRelatedAll" resultType="interested">
+		select * from InterestedRC where memid=#{memid} and canTime is null
+	</select>
+	
+	<select id="selectAll" resultType="interested">
+		select * from InterestedRC
+	</select>
+</mapper>

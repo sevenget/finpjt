@@ -53,6 +53,7 @@ alter table companyBasicInfo drop constraint companybasicinfo_cid_pk cascade;
 
 select * from companyBasicInfo;
 
+-- 기업 점수
 drop table companyscore purge;
 create table companyScore(
    cid number(10) constraint companyConcern_id_fk references companyBasicInfo(cid),
@@ -64,6 +65,7 @@ create table companyScore(
    dreamSco number(2),
    hopeSco number(2)
 );
+select * from companyscore
 
 -- 기업세부정보
 drop table companydetail purge;
@@ -72,6 +74,7 @@ create table companyDetail(
    detail varchar(100) constraint companydetail_detail_nn not null,
    score number(3) constraint companydetail_score_nn not null
 );
+select * from companydetail
 
 -- 관심기업 등록 해지
 drop table interestedRC purge;
