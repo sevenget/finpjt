@@ -25,6 +25,10 @@ public class SearchController {
 			/*session.setAttribute("id", "mem");*/
 			String id = (String)session.getAttribute("id");
 			
+			if(id==null) {
+				id="Guest";
+			}
+			
 			mav.addObject("companylist", kdao.searchAdvs());
 			session.setAttribute("interestedComList", idao.selectRelatedAll(id));
 			

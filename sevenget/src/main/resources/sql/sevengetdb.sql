@@ -8,6 +8,7 @@ create table memBasicInfo(
    	gender varchar2(2) constraint membasicinfo_gender_ck check(gender in ('M', 'F')),
    	address varchar2(100) not null,
    	email varchar2(30),
+   	picture varchar2(30),
    	dateCon number(2),
   	marryCon number(2),
    	babyCon number(2),
