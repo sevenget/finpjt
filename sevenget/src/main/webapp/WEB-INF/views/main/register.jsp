@@ -112,7 +112,7 @@
 		return true;
 		
 	}
-	
+	/* 아이디 중복확인 */
 	function checkId() {
 		var forms = document.getElementById("form_1");
 		var id = forms.userId.value;
@@ -126,6 +126,34 @@
 		window.open(url, "ID_Check"," location=no,toolbar=no,status=no,menubar=no,top=150,left=150"
 						+ "scrollbars=no,resizable=no,width=400,height=200");
 	}
+	/* ---------------------------------------------------------------------------------------  */
+	
+	
+		/* $(val).parent().css('background-color', '#8772bf'); */
+		/* $(this).parent().css('background-color', '#8772bf');
+		$("input[type=radio]:not(:checked)").css('background-color', '#a4a4a4'); */
+		$(document).ready(function() {
+			  $("input[type=radio]").click(function() {
+			    // Get the storedValue
+			    var previousValue = $(this).data('storedValue');
+			    // if previousValue = true then
+			    //     Step 1: toggle radio button check mark.
+			    //     Step 2: save data-StoredValue as false to indicate radio button is unchecked.
+			    if (previousValue) {
+			      $(this).prop('checked', !previousValue);
+			      $(this).data('storedValue', !previousValue);
+			    }
+			    // If previousValue is other than true
+			    //    Step 1: save data-StoredValue as true to for currently checked radio button.
+			    //    Step 2: save data-StoredValue as false for all non-checked radio buttons.
+			    else{
+			      $(this).data('storedValue', true);
+			      $(this).parent().css('background-color', '#8772bf');
+			      $("input[type=radio]:not(:checked)").data("storedValue", false);
+			      $("input[type=radio]:not(:checked)").parent().css('background-color', '#a4a4a4'); 
+			    }
+			  });
+			});
 	
 </script>
 
@@ -191,58 +219,130 @@
 						</tr>
 					</table>
 					
-					<script>
-						function checking(id){
-							alert(id);
-							alert(id.attr("style"));
-							id.attr("style","backgound-color:red;");
-						}
-					</script>
 					
 				</div>
 				
 				<div id="regiMain2">
 					<h3 align="center">7가지 중요도 점수 매칭</h3><hr id="line1" width="500px" color="#aaa" size="1" class="hr">
-					<div>
-						<div>
-							<img src="../resources/img/dream.jpg">
-							<table>
-								<tr  class="dream">
-									<td class="dream">
-										<input id="dream1" name="dream" type="radio" value="1" checked="checked"
-										onchange="checking(this.id);">1
-									</td>
-									<td class="dream"><input id="dream2" name="dream" type="radio" value="2">2
-									<td class="dream"><input id="dream3" name="dream" type="radio" value="3">3
-									<td class="dream"><input id="dream4" name="dream" type="radio" value="4">4
-									<td class="dream"><input id="dream5" name="dream" type="radio" value="5">5
-									<td class="dream"><input id="dream6" name="dream" type="radio" value="6">6
-									<td class="dream"><input id="dream7" name="dream" type="radio" value="7">7
-									<td class="dream"><input id="dream8" name="dream" type="radio" value="8">8
-									<td class="dream"><input id="dream9" name="dream" type="radio" value="9">9
-									<td class="dream"><input id="dream10" name="dream" type="radio" value="10">10
-								</td>
-							</table>
-						</div>
-						<div>
-							<input type="hidden" name="rank2"><img src="../resources/img/marry.jpg">
-						</div>
-						<div>
-							<input type="hidden" name="rank3"><img src="../resources/img/love.jpg">
-						</div>
-						<div>
-							<input type="hidden" name="rank4"><img src="../resources/img/human.jpg">
-						</div>
-						<div>
-							<input type="hidden" name="rank5"><img src="../resources/img/home.jpg">
-						</div>
-						<div>
-							<input type="hidden" name="rank6"><img src="../resources/img/job.jpg">
-						</div>
-						<div>
-							<input type="hidden" name="rank7"><img src="../resources/img/child.jpg">
-						</div>
-					</div>
+						<div class="mw_layer">
+		<div class="bg"></div>
+
+		<div id="layer">
+			<table class="table table_dream">
+				<tr>
+					<th><img src="../resources/img/dream.jpg"></th>
+					<td><input name="dream" type="radio" value="1" checked="checked" ontoggle="changing(this);">1점</td>
+					<td><input name="dream" type="radio" value="2">2점</td>
+					<td><input name="dream" type="radio" value="3">3점</td>
+					<td><input name="dream" type="radio" value="4">4점</td>
+					<td><input name="dream" type="radio" value="5">5점</td>
+					<td><input name="dream" type="radio" value="6">6점</td>
+					<td><input name="dream" type="radio" value="7">7점</td>
+					<td><input name="dream" type="radio" value="8">8점</td>
+					<td><input name="dream" type="radio" value="9">9점</td>
+					<td><input name="dream" type="radio" value="10">10점</td>
+				</tr>
+			</table>
+			
+			<table class="table table_love">
+				<tr>
+					<th><img src="../resources/img/love.jpg"></th>
+					<td><input name="love" type="radio" value="1" checked="checked" ontoggle="changing(this);">1점</td>
+					<td><input name="love" type="radio" value="2">2점</td>
+					<td><input name="love" type="radio" value="3">3점</td>
+					<td><input name="love" type="radio" value="4">4점</td>
+					<td><input name="love" type="radio" value="5">5점</td>
+					<td><input name="love" type="radio" value="6">6점</td>
+					<td><input name="love" type="radio" value="7">7점</td>
+					<td><input name="love" type="radio" value="8">8점</td>
+					<td><input name="love" type="radio" value="9">9점</td>
+					<td><input name="love" type="radio" value="10">10점</td>
+				</tr>
+			</table>
+			
+			<table class="table table_marry">
+				<tr>
+					<th><img src="../resources/img/marry.jpg"></th>
+					<td><input name="marry" type="radio" value="1" checked="checked" ontoggle="changing(this);">1점</td>
+					<td><input name="marry" type="radio" value="2">2점</td>
+					<td><input name="marry" type="radio" value="3">3점</td>
+					<td><input name="marry" type="radio" value="4">4점</td>
+					<td><input name="marry" type="radio" value="5">5점</td>
+					<td><input name="marry" type="radio" value="6">6점</td>
+					<td><input name="marry" type="radio" value="7">7점</td>
+					<td><input name="marry" type="radio" value="8">8점</td>
+					<td><input name="marry" type="radio" value="9">9점</td>
+					<td><input name="marry" type="radio" value="10">10점</td>
+				</tr>
+			</table>
+			
+			<table class="table table_human">
+				<tr>
+					<th><img src="../resources/img/human.jpg"></th>
+					<td><input name="human" type="radio" value="1" checked="checked" ontoggle="changing(this);">1점</td>
+					<td><input name="human" type="radio" value="2">2점</td>
+					<td><input name="human" type="radio" value="3">3점</td>
+					<td><input name="human" type="radio" value="4">4점</td>
+					<td><input name="human" type="radio" value="5">5점</td>
+					<td><input name="human" type="radio" value="6">6점</td>
+					<td><input name="human" type="radio" value="7">7점</td>
+					<td><input name="human" type="radio" value="8">8점</td>
+					<td><input name="human" type="radio" value="9">9점</td>
+					<td><input name="human" type="radio" value="10">10점</td>
+				</tr>
+			</table>
+			
+			<table class="table table_child">
+				<tr>
+					<th><img src="../resources/img/child.jpg"></th>
+					<td><input name="child" type="radio" value="1" checked="checked" ontoggle="changing(this);">1점</td>
+					<td><input name="child" type="radio" value="2">2점</td>
+					<td><input name="child" type="radio" value="3">3점</td>
+					<td><input name="child" type="radio" value="4">4점</td>
+					<td><input name="child" type="radio" value="5">5점</td>
+					<td><input name="child" type="radio" value="6">6점</td>
+					<td><input name="child" type="radio" value="7">7점</td>
+					<td><input name="child" type="radio" value="8">8점</td>
+					<td><input name="child" type="radio" value="9">9점</td>
+					<td><input name="child" type="radio" value="10">10점</td>
+				</tr>
+			</table>
+			
+			<table class="table table_home">
+				<tr>
+					<th><img src="../resources/img/home.jpg"></th>
+					<td><input name="home" type="radio" value="1" checked="checked" ontoggle="changing(this);">1점</td>
+					<td><input name="home" type="radio" value="2">2점</td>
+					<td><input name="home" type="radio" value="3">3점</td>
+					<td><input name="home" type="radio" value="4">4점</td>
+					<td><input name="home" type="radio" value="5">5점</td>
+					<td><input name="home" type="radio" value="6">6점</td>
+					<td><input name="home" type="radio" value="7">7점</td>
+					<td><input name="home" type="radio" value="8">8점</td>
+					<td><input name="home" type="radio" value="9">9점</td>
+					<td><input name="home" type="radio" value="10">10점</td>
+				</tr>
+			</table>
+			
+			<table class="table table_job">
+				<tr>
+					<th><img src="../resources/img/job.jpg"></th>
+					<td><input name="job" type="radio" value="1" checked="checked" ontoggle="changing(this);">1점</td>
+					<td><input name="job" type="radio" value="2">2점</td>
+					<td><input name="job" type="radio" value="3">3점</td>
+					<td><input name="job" type="radio" value="4">4점</td>
+					<td><input name="job" type="radio" value="5">5점</td>
+					<td><input name="job" type="radio" value="6">6점</td>
+					<td><input name="job" type="radio" value="7">7점</td>
+					<td><input name="job" type="radio" value="8">8점</td>
+					<td><input name="job" type="radio" value="9">9점</td>
+					<td><input name="job" type="radio" value="10">10점</td>
+				</tr>
+			</table>
+		</div>
+
+
+	</div>
 					<!-- 7가지 선택사항 -->
 					
 					
