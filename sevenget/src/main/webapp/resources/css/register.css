@@ -24,4 +24,37 @@
 	margin-left:10px;
 }
 
-.dream { border:1px solid black; }
+#layer{
+	padding: 0 10px 0 10px;
+	border: 2px solid #555;
+	background: #ebecee;
+	font-size: 12px;
+	font-family: Tahoma, Geneva, sans-serif;
+	color: #767676;
+	line-height: normal;
+	white-space: normal
+}
+#layer img{
+	width:50px;
+	height:50px;
+}
+
+.table {
+	background-color:orange;
+	width: 600px;
+	height: 60px !important;
+	border: 3px solid #595959;
+	border-radius: 3px;
+	text-align: center;
+	margin-top: 10px;
+	color: white;
+}
+.table th{
+	padding-right:30px;
+}
+
+.table td {
+	border-radius: 2px;
+	width: 80px;
+	background-color: #a4a4a4;
+}

@@ -14,18 +14,20 @@ public class PlotsDaoImpl implements PlotsDao {
 		mybatis = SqlSessionFactoryBean.getSqlSessionInstance();
 	}
 
-	public void selectPlots() {
+	public PlotsDto selectPlots() {
 		List<PlotsDto> list;
+		PlotsDto dto = new PlotsDto();
 
 		System.out.println("목록을 가져옵니다. 로딩중");
 		list = mybatis.selectList("PlotsDAO.getAll");
 		System.out.println("목록가져오기 완료. 출력.");
 
-		for (PlotsDto dto : list) {
-			System.out.printf("%s \t  %s \t    %s\n", dto.getMemid(), dto.getPlotpng(), dto.getSavedTime());
+		for (PlotsDto dto1 : list) {
+			System.out.printf("%s \t  %s \t    %s\n", dto1.getMemid(),dto1.getCid(), dto1.getPlotpng(), dto1.getSavedTime());
 		}
 
 		mybatis.commit();
+		return dto;
 	}
 	
 	public PlotsDto inquiryId(String id){
@@ -35,12 +37,14 @@ public class PlotsDaoImpl implements PlotsDao {
 		
 		dto = (PlotsDto) mybatis.selectOne("PlotsDAO.getById", id);
 		
-		System.out.printf("%s\t %s\t %s\n",dto.getMemid(),dto.getPlotpng(),dto.getSavedTime());
+		System.out.printf("%s\t%s\t%s\t%s\n",dto.getMemid(),dto.getCid(),dto.getPlotpng(),dto.getSavedTime());
 		
+		mybatis.commit();
+
 		return dto;
 	}
 
-	public void insertOrUpdatePlots(String id) {
+	public PlotsDto insertOrUpdatePlots(String id, String plotpngname) {
 		// 세션에서 아이디 받아와서 DB에서 해당 아이디 조회
 		// 해당 아이디 조회 후 아이디를 찾아서
 		// 1. png 파일이 있으면 수정
@@ -54,12 +58,14 @@ public class PlotsDaoImpl implements PlotsDao {
 			System.out.println("해당 아이디가 존재하지 않습니다.");
 		}else{
 			System.out.println("ID: "+id+" 확인되었습니다.");
+			System.out.println(dto.getPlotpng());
 			
-			dto.setPlotpng("default1.png");
+			dto.setPlotpng(plotpngname);
 			
 			mybatis.update("PlotsDAO.updatePlts", dto);
-
+			mybatis.commit();
 		}
+		return dto;
 		
 		
 		
@@ -93,7 +99,7 @@ public class PlotsDaoImpl implements PlotsDao {
 		PlotsDaoImpl pp = new PlotsDaoImpl();
 		PlotsDto dto = new PlotsDto();
 		pp.selectPlots();
-		pp.insertOrUpdatePlots("mem1");// mem은 세션에서 받아온 게 없어서 그냥 해 둠.
-		pp.selectPlots();
+		pp.insertOrUpdatePlots("mem","default.png");// mem은 세션에서 받아온 게 없어서 그냥 해 둠.
+	//	pp.selectPlots();
 	}
 }

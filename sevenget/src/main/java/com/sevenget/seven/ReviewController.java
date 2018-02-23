@@ -19,7 +19,7 @@ public class ReviewController {
 	@RequestMapping(value = "/main/detailpage", method = RequestMethod.GET)
 	public String DetailP(MemBasicInfoDAO DAO, HttpServletRequest request) {
 		
-		request.setAttribute("id", DAO.getMemBasicInfo());
+		request.setAttribute("id", DAO.getMemBasicInfo(""));
 		return "main/detailpage";
 	}
  

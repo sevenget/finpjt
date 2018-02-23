@@ -5,6 +5,7 @@
 <mapper namespace="PlotsDAO">
  	<resultMap type="plts" id="PlotsMap">
 		<result column="memid" property="memid" />
+		<result column="cid" property="cid" />
 		<result column="plotpng" property="plotpng" />
 		<result column="SavedTime" property="savedTime" />
 	</resultMap>
@@ -22,7 +23,7 @@
 
 	<insert id="insertPlts">
 		INSERT INTO plots
-		VALUES(#{memid},#{plotpng},sysdate)
+		VALUES(#{memid},#{cid},#{plotpng},sysdate)
 	</insert>
 	
 	<update id="updatePlts">

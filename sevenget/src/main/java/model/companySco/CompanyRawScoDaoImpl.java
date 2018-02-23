@@ -15,13 +15,14 @@ public class CompanyRawScoDaoImpl implements CompanyScoDao {
 	}
 
 	public void selectCompanyRawScores() {
+		CompanyRawScoDto companyRawScoDto = new CompanyRawScoDto();
 		List<CompanyRawScoDto> list;
 
-		System.out.println("목록을 가져옵니다. 로딩중");
+		System.out.println("CompanyRawScoDto목록을 가져옵니다. 로딩중");
 		list = mybatis.selectList("CompanyRawScoDAO.getAll");
-		System.out.println("목록가져오기 완료. 출력.");
-
-		for (CompanyRawScoDto dto : list) {
+		System.out.println("CompanyRawScoDto목록가져오기 완료. 출력.");
+		
+		/*for (CompanyRawScoDto dto : list) {
 			System.out.printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n",
 					dto.getCid(), dto.getNoOTEPr(),	dto.getFlexWorkEPr(), dto.getWeekendWorkEPr(),
 					dto.getNewcomerSalEPr(),dto.getPaidVacaEPr(),dto.getCompKindergartenEPr(),dto.getEduSupportEPr(),
@@ -29,22 +30,18 @@ public class CompanyRawScoDaoImpl implements CompanyScoDao {
 					dto.getClubMemRateEPr(),dto.getSelfDevSupportEPr(),dto.getSeminarInvEPr(),dto.getHorizStrucEPr(),
 					dto.getVarWorkExpEPr(),dto.getTelAvailEPr(),dto.getSalIncreRateEPr(),dto.getRetireRateEPr(),
 					dto.getBusiGrowthEPr(),dto.getInduGrowthEPr(),dto.getGovSupportEPr());
-		}
+		}*/
 
 		mybatis.commit();
 	}
 	
-	/*public CompanyScoDto inquiryId(String id){
-		CompanyScoDto dto = new CompanyScoDto();
-		
-		System.out.println("기존에 있는 아이디인지 확인 중");
-		
-		dto = (CompanyScoDto) mybatis.selectOne("PlotsDAO.getById", id);
-		
-		System.out.printf("%s\t %s\t %s\n",dto.getMemid(),dto.getPlotpng(),dto.getSavedTime());
-		
+	public CompanyRawScoDto selectbyCid(int cid){
+		CompanyRawScoDto dto = new CompanyRawScoDto();
+		System.out.println(cid+"의 CompanyRawScoDto목록을 가져옵니다. 로딩중");
+
+		dto = (CompanyRawScoDto) mybatis.selectOne("CompanyRawScoDAO.getById", cid);
 		return dto;
-	}*/
+	}
 
 	public void insertCompanyRawScore(/*int id*/) {
 		CompanyRawScoDto dto = new CompanyRawScoDto();
@@ -84,9 +81,8 @@ public class CompanyRawScoDaoImpl implements CompanyScoDao {
 	public static void main(String args[]) {
 		CompanyRawScoDaoImpl pp = new CompanyRawScoDaoImpl();
 		CompanyScoDto dto = new CompanyScoDto();
-		pp.insertCompanyRawScore();
+		//pp.insertCompanyRawScore();
 		pp.selectCompanyRawScores();
-		/*pp.insertOrUpdatePlots("mem1");// mem은 세션에서 받아온 게 없어서 그냥 해 둠.
-		pp.selectPlots();*/
+		pp.selectbyCid(1);
 	}
 }

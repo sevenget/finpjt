@@ -11,7 +11,6 @@
 	function find_id() {
 		window.open("http://www.jobkorea.co.kr/", "_blank");
 	}
-
 </script>
 
 </head>
@@ -30,13 +29,12 @@
 			</div>
 		
 			<div class="membership">
-				<c:forEach items="${id}" var="iid" >
+				<c:forEach items="${member}" var="iid" >
 				
 				<p class="font"> ${iid.id}</p>
 				<p class="font"> ${iid.name}</p>
 				<p class="font"> ${iid.birth}</p>
-				<p class="font"> ${iid.address}</p>
-				 
+				<p class="font"> ${iid.address}</p>			 
 				</c:forEach>  
 			</div>
 		</div>
@@ -59,13 +57,6 @@
 			<a onclick="find_id();"><img src="../resources/img/ad33.png"></a>
 		</div>
 	</div>
-	
-	<div id="portside2"> 
-		<div class="ad4">
-			<a href="#"><img src="../resources/img/ad4.png"></a>
-		</div>
-	</div>
-	
 	
 	</div>
 
