@@ -44,11 +44,11 @@ public class CompanyScoDaoImpl implements CompanyScoDao {
 
 		}
 
-	public static void main(String args[]) {
+	/*public static void main(String args[]) {
 		CompanyScoDaoImpl pp = new CompanyScoDaoImpl();
 		CompanyScoDto dto = new CompanyScoDto();
 		pp.insertCompanyScore();
 		pp.selectCompanyScores();
 		
-	}
+	}*/
 }

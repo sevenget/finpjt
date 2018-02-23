@@ -127,12 +127,13 @@ create table search(
 drop table plots purge;
 create table plots(
    memid varchar2(40) references memBasicInfo(id),
+   cid number(6),
    plotpng varchar2(20),
    savedTime date default sysdate
 );
 
 select * from plots;
-insert into plots values('mem', 'mem.png', sysdate)
+insert into plots values('mem',1, 'mem.png', sysdate)
 
 
 -- 점수입력(전문가?패널)
