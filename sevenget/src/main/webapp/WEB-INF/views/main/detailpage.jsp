@@ -179,7 +179,6 @@ $(document).ready(function($)
 
 				<div class="left">
 					<%@ include file="/WEB-INF/views/include/portside.jsp"%>
-<<<<<<< HEAD
 	 			</div>
 	 			
 	 			
@@ -193,9 +192,13 @@ $(document).ready(function($)
 	 					<div class="company">
 	 						<div class="graph">
 	 							<div class="graph_img">
-	 								<img src="../resources/img/ggradar.png" />
-	 								
-	 								<!-- <img src="../resources/img/graph.png"> -->  
+	 								<!-- 버튼 클릭시 로딩 화면 5초/R작동, 결과출력 -->
+
+									<div id="loadData" style="width: 500px; height: 400px; margin-top: 20px; border: 1px solid #CCCCCC; background: #EFEFEF; display:inlne;">
+									</div>
+									<div style="margin-top: 20px; display:inline;">
+										<input type="button" value="호출" onClick="fLoadData()" />
+									</div>
 	 							</div>
 	 						</div>
 	 					
@@ -225,73 +228,6 @@ $(document).ready(function($)
 	 				</div>	
 	 				
 	 				
-	 				<div class="review">
-						<p class="head_rv"><a href="#layer" onclick="openContent('${article.idx}')">리뷰</a></p>
-						<hr width="915px" color="#aaa" size="1" class="dt_hr">	 
-						
-						<form action="" method="get" enctype="" name="">
-								<div class="c_review">
-=======
-				</div>
->>>>>>> branch 'master' of https://github.com/sevenget/finpjt.git
-
-
-				<div class="right">
-
-					<div class="sevenpo">
-						<p class="head_rv">7포</p>
-						<hr width="915px" color="#aaa" size="1" class="dt_hr">
-
-
-						<div class="company">
-							<div class="graph">
-								<div class="graph_img">
-									
-									
-									<!-- 버튼 클릭시 로딩 화면 5초/R작동, 결과출력 -->
-
-									<div id="loadData" style="width: 500px; height: 400px; margin-top: 20px; border: 1px solid #CCCCCC; background: #EFEFEF; display:inlne;">
-									</div>
-									<div style="margin-top: 20px; display:inline;">
-										<input type="button" value="호출" onClick="fLoadData()" />
-									</div>
-
-
-								</div>
-<<<<<<< HEAD
-						
-						<div class="c_write">
-							<input type="text" placeholder=" 리뷰 작성하기(50자 이내)" class="cr_write" maxlength="50">
-							<!-- <input type="submit" value="리뷰입력" class="cr_btn"> -->
-							<div class="cr_btn"><a href="javascript:addrv()">리뷰입력</a></div>
-=======
-							</div>
-
-							<div class="c_info">
-
-								<div class="c_heart">♥</div>
-								<div class="c_name">(주)카카오</div>
-								<div class="c_information">
-									<!-- 상세 정보  들어가는 곳 -->
-								</div>
-
-							</div>
-
-							<div class="c_result">
-								<!-- <p class="marks">"</p> -->
-								<img src="../resources/img/marks1.png" class="marks" width:>
-								<p class="get">내 집 마련, 꿈, 희망</p>
-								<p class="ex">을 득하고,</p>
-								<p class="lose">연애, 결혼, 출산, 인간관계</p>
-								<p class="ex">를 포기하였습니다.</p>
-								<!-- <p class="marks">"</p> -->
-								<img src="../resources/img/marks2.png" class="marks">
-							</div>
-
->>>>>>> branch 'master' of https://github.com/sevenget/finpjt.git
-						</div>
-
-					</div>
 
 
 					<div class="review">
@@ -336,7 +272,7 @@ $(document).ready(function($)
 							<div class="bg"></div>
 
 							<div id="layer">
-								<%@ include file="/WEB-INF/views/main/review.jsp"%>
+								<%-- <%@ include file="/WEB-INF/views/main/review.jsp"%> --%>
 							</div>
 
 						</div>
