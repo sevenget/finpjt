@@ -15,45 +15,30 @@ public class ReviewController {
 
 	// 기업 상세페이지
 	@RequestMapping(value = "/main/detailpage", method = RequestMethod.GET)
-		public String DetailP(ReviewDaoImpl reviewDao, HttpServletRequest request) {
-			
-			request.setAttribute("id", reviewDao.selectReview());
-			return "main/detailpage";
-		}
-	 
-	
-	public String DetailP(ReviewDaoImpl reviewDao, HttpServletRequest request, HttpSession session) {
-		
-		// 댓글 전체 불러오기
-		//ReviewDto reviewDto = new ReviewDto();
-		//reviewDto = reviewDao.selectReview();
-		int cid=1;
-		System.out.println(reviewDao.selectReview()+"wawawa");
+	public String DetailP(ReviewDaoImpl reviewDao, HttpServletRequest request) {
+		int count = reviewDao.getListCount();
+
 		request.setAttribute("review", reviewDao.selectReview());
-		request.setAttribute("cnt", reviewDao.getListCount()); // 전체 댓글 수
 
-		System.out.println("detailpage");
-
-		request.setAttribute("id", reviewDao.selectReview());//??
 		return "main/detailpage";
 	}
 
 	// 기업 상세페이지-리뷰
 	@RequestMapping(value = "/main/review", method = RequestMethod.GET)
-	/*public String ReviewP(Locale locale, Model model) {*/
+	/* public String ReviewP(Locale locale, Model model) { */
 	public String ReviewP(ReviewDaoImpl reviewDao, HttpServletRequest request) {
-		//DAO.selectReview();
-		
-		int cid=1;
-			request.setAttribute("review", reviewDao.selectReview());
-			
-			request.setAttribute("cnt", reviewDao.getListCount()); // 전체 댓글 수
-			
-			System.out.println("review");
-	
-			//request.setAttribute("id", reviewDao.selectReview(id));
-	
-			return "main/review";
-		}
+		// DAO.selectReview();
+
+		int cid = 1;
+		request.setAttribute("review", reviewDao.selectReview());
+
+		request.setAttribute("cnt", reviewDao.getListCount()); // 전체 댓글 수
+
+		System.out.println("review");
+
+		// request.setAttribute("id", reviewDao.selectReview(id));
+
+		return "main/review";
+	}
 
 }
