@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +13,7 @@
 <script type="text/javascript">
 	/* 이미지 드래그 앤 드랍 */
 
-	function allowDrop(ev){
+	/* function allowDrop(ev){
 		ev.preventDefault();
 	}
 	
@@ -30,24 +29,25 @@
 		}else{
 			alert("겹쳐지기X");
 		}
-	}
+	} */
+	
 	/* --------------------------------------------------------------------------- */
 	
 	/* 회원가입 유효성 검사 */
-	function check() {
+	 function check() {
 		var forms = document.getElementById("form_1");
 		
-		if (forms.userId.value == "" || forms.userId.value.length <= 3) {
+		if (forms.id.value == "" || forms.id.value.length <= 3) {
 			alert('아이디는 4글자 이상 입력해주세요.');
-			forms.userId.focus();
+			forms.id.focus();
 			return false;
 		}
 
-		if (forms.pw.value == "" || forms.pw.value.length <= 7) {
+		if (forms.password.value == "" || forms.password.value.length <= 7) {
 			alert('비밀번호는 8글자 이상 입력해주세요.');
-			forms.pw.focus();
+			forms.password.focus();
 			return false;
-		} else if (forms.pw.value != forms.pwc.value) {
+		} else if (forms.password.value != forms.pwc.value) {
 			alert('비밀번호를 다시 확인하세요.');
 			forms.pwc.focus();
 			return false;
@@ -77,61 +77,52 @@
 			return false;
 		}
 		
-		if (forms.mail.value == "" || forms.mail.value.length <= 1) {
+		if (forms.email.value == "" || forms.email.value.length <= 1) {
 			alert('이메일 주소를 확인해주세요.');
-			forms.mail.focus();
+			forms.email.focus();
 			return false;
 		}
 		
+		var url = "./insertUser?id="+forms.id.value
+		+"&password="+forms.password.value
+		+"&name="+forms.name.value
+		+"&birth="+forms.birth.value
+		+"&gender="+forms.gender.value
+		+"&address="+forms.address.value
+		+"&email="+forms.email.value
+		+"&dream="+forms.dream.value
+		+"&love="+forms.love.value
+		+"&marry="+forms.marry.value
+		+"&human="+forms.human.value
+		+"&child="+forms.child.value
+		+"&home="+forms.home.value
+		+"&job="+forms.job.value;
 		
-
-		var rank1 = $("#rank1").find("img").attr("id");
-		var rank2 = $("#rank2").find("img").attr("id");
-		var rank3 = $("#rank3").find("img").attr("id");
-		var rank4 = $("#rank4").find("img").attr("id");
-		var rank5 = $("#rank5").find("img").attr("id");
-		var rank6 = $("#rank6").find("img").attr("id");
-		var rank7 = $("#rank7").find("img").attr("id");
-		
-		$("#ranking1").val(rank1);
-		$("#ranking2").val(rank2);
-		$("#ranking3").val(rank3);
-		$("#ranking4").val(rank4);
-		$("#ranking5").val(rank5);
-		$("#ranking6").val(rank6);
-		$("#ranking7").val(rank7);
-		
-		/* alert("rank1 = "+rank1+"\nrank2 = "+rank2+"\nrank3 = "+rank3+"\nrank4 = "+rank4+"\nrank5 = "+rank5+"\nrank6 = "+rank6+"\nrank7 = "+rank7); */
-
-		alert("rank1 = "+$("#ranking1").val()+"\nrank2 = "+$("#ranking2").val()+"\nrank3 = "+$("#ranking3").val()+"\nrank4 = "+$("#ranking4").val()+"\nrank5 = "+$("#ranking5").val()+"\nrank6 = "+$("#ranking6").val()+"\nrank7 = "+$("#ranking7").val());
-		if(rank1 == null || rank2 == null || rank3 == null || rank4 == null || rank5 == null || rank6 == null || rank7 == null){
-			alert("7가지 중요도 선정을 해주세요.");
-			return false;
-		}
-		
+		location.href=url;
 		return true;
 		
-	}
+	} 
 	/* 아이디 중복확인 */
-	function checkId() {
+ 	function checkId() {
 		var forms = document.getElementById("form_1");
-		var id = forms.userId.value;
-		var url = "./checkID?userId=" + forms.userId.value;
+		var id = forms.id.value;
+		var url = "./checkID?id=" + forms.id.value;
 
 		if (id.length <= 2) {
 			alert('아이디는 4글자 이상 입력해주세요.');
-			forms.userId.focus();
+			forms.id.focus();
 			return false;
 		}
 		window.open(url, "ID_Check"," location=no,toolbar=no,status=no,menubar=no,top=150,left=150"
 						+ "scrollbars=no,resizable=no,width=400,height=200");
-	}
+	} 
 	/* ---------------------------------------------------------------------------------------  */
 	
 	
 		/* $(val).parent().css('background-color', '#8772bf'); */
 		/* $(this).parent().css('background-color', '#8772bf');
 		$("input[type=radio]:not(:checked)").css('background-color', '#a4a4a4'); */
+		 
 		$(document).ready(function() {
 			  $("input[type=radio]").click(function() {
 			    // Get the storedValue
@@ -154,7 +145,7 @@
 			    }
 			  });
 			});
-	
+		
 </script>
 
 
@@ -164,27 +155,28 @@
 
 	<div id="all">
 		<div id="contect">
-	<form id="form_1" name="form_1" action="" method="get" onsubmit="return check()">
+	<form id="form_1" name="form_1" action="insertUser" method="post" onsubmit="return check()">
 		<!-- 여기 안에다 작업하시면 돼요 -->	
 			<div class="container2">
 				<div id="regiHead">
 					<h3 id="header">칠득에 오신것을 환영합니다.</h3>
 				</div>
+				
 				<div id="regiMain1">
-					<h3 align="center">필수 기입란</h3><hr id="line1" width="500px" color="#aaa" size="1" class="hr">
+					<h3 align="center">회원정보 기입란</h3><hr id="line1" width="500px" color="#aaa" size="1" class="hr">
 					
 				
-					
+					<!--  테이블 1-->
 					<table class="table_abs" >
 						<tr>
 							<td>아이디</td>
-							<td class="input_td"><input id="userId" name="userId" class="table_input" type="text" placeholder="아이디(4자 이상)"></td>
+							<td class="input_td"><input id="id" name="id" class="table_input" type="text" placeholder="아이디(4자 이상)"></td>
 							<td class="" ><input type="button" value="중복확인"
 													onclick="checkId(this.form)"></td>
 						</tr>
 						<tr>
 							<td>비밀번호</td>
-							<td class="input_td"><input id="pw" name="pw" class="table_input" type="password" placeholder="비밀번호(8자 이상)"></td>
+							<td class="input_td"><input id="password" name="password" class="table_input" type="password" placeholder="비밀번호(8자 이상)"></td>
 						</tr>
 						<tr>
 							<td>비밀번호 확인</td>
@@ -198,14 +190,23 @@
 						<tr>
 							<td>생년월일</td>
 							<td class="input_td"><input id="birth" name="birth" class="table_input" type="text" placeholder="생년월일(예시. 920101)" maxlength="6"></td>
+						</tr>	
+						<tr>
+							<td>성 별</td>
+							<td class="input_td">
+								<select name="gender" style="width:100px;height:30px;">
+									<option value="M">남자
+									<option value="F">여자
+								</select>
+							</td>
 						</tr>
 						<tr>
 							<td>주 소</td>
-							<td class="input_td"><input id="addr" name="addr" class="table_input" type="text" placeholder="주소 입력"></td>
+							<td class="input_td"><input id="address" name="address" class="table_input" type="text" placeholder="주소 입력"></td>
 						</tr>
 						<tr>
 							<td>이메일</td>
-							<td class="input_td"><input id="mail" name="mail" class="table_input" type="email" placeholder="이메일"></td>
+							<td class="input_td"><input id="email" name="email" class="table_input" type="text" placeholder="이메일(예시. abc@naver.com)"></td>
 						</tr>
 						
 						<tr>
@@ -218,16 +219,20 @@
 							<td colspan="2"><button id="facebook" class="table_input" onclick="alert('준비중');">페이스북으로 1초만에 가입</button></td>
 						</tr>
 					</table>
-					
+					<!--  테이블 1-->
 					
 				</div>
 				
-				<div id="regiMain2">
+				
+		
+		<div id="regiMain2">
 					<h3 align="center">7가지 중요도 점수 매칭</h3><hr id="line1" width="500px" color="#aaa" size="1" class="hr">
 						<div class="mw_layer">
 		<div class="bg"></div>
 
 		<div id="layer">
+		
+		<!--  테이블 2-8-->
 			<table class="table table_dream">
 				<tr>
 					<th><img src="../resources/img/dream.jpg"></th>
@@ -339,21 +344,24 @@
 					<td><input name="job" type="radio" value="10">10점</td>
 				</tr>
 			</table>
+			
+			
 		</div>
 
 
 	</div>
 					<!-- 7가지 선택사항 -->
-					
+				
 					
 					
 				</div>
 				
 			
 		</div>
+		
 </form>
 	</div>
-
+</div>
 
 </body>
 </html>
