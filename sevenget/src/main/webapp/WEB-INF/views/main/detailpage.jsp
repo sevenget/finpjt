@@ -1,24 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
+<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> --%>	
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>상세 분석 페이지</title>
 
-<link rel="stylesheet" type="text/css"
-   href="../resources/css/session.css " media="all" flush="false">
-<link rel="stylesheet" type="text/css"
-   href="../resources/css/loading.css " media="all" flush="false">
-<link rel="stylesheet" type="text/css"
-   href="../resources/css/detail.css" media="all">
-<link rel="stylesheet" type="text/css"
-   href="../resources/css/portside.css" media="all">
-<link rel="stylesheet" type="text/css"
-   href="../resources/css/lightbox.css" media="all">
-<link rel="stylesheet" type="text/css"
-   href="../resources/css/review.css" media="all">
+<link rel="stylesheet" type="text/css" href="../resources/css/session.css " media="all" flush="false">
+<link rel="stylesheet" type="text/css" href="../resources/css/loading.css " media="all" flush="false">
+<link rel="stylesheet" type="text/css" href="../resources/css/detail.css" media="all">
+<link rel="stylesheet" type="text/css" href="../resources/css/portside.css" media="all">
+<link rel="stylesheet" type="text/css" href="../resources/css/lightbox.css" media="all">
+<link rel="stylesheet" type="text/css" href="../resources/css/review.css" media="all">
 
 <script
    src="${pageContext.request.contextPath}/resources/js/index/jquery-1.11.1.js"></script>
@@ -117,7 +111,7 @@ $(document).ready(function($)
     }
 </script>
 
-
+<%-- 
 <script>
 		$(function(){
 			$('img.interested').click(function(){
@@ -139,7 +133,7 @@ $(document).ready(function($)
 			})
 		</script>
 </c:forEach>
-
+ --%>
 
 <style type="text/css">
 .mw_layer { display: none; position: fixed; _position: absolute; top: 0; left: 0; z-index: 10000; width: 100%; height: 100% }
@@ -197,19 +191,19 @@ $(document).ready(function($)
                       <div class="c_info">
                          <div class="c_head_name">
                          	<!-- <div class="c_heart">♥</div> -->
-                         	<div class="c_heart"><img class="interested" src="../resources/img/whiteheart2.png" data-cid="${company.cid}"></div>
-                         	<div class="c_name">(주)카카오${company.cname }</div>
+                         	<div class="c_heart"><img class="interested" src="../resources/img/whiteheart2.png" <%-- data-cid="${company.cid} --%>"></div>
+                         	<div class="c_name">(주)카카오<%-- ${company.cname } --%></div>
                          </div>
                          
                          <!-- 상세 정보  들어가는 곳 -->
                          <div class="c_information">
                          	<div class="c_logo"><img src="../resources/img/logos/kakao.png"></div>
-                         	<div class="c_content"><p class="c_group">산업군</p><p class="c_gc">IT/웹/통신${company.industry}</p></div>
-                         	<div class="c_content"><p class="c_group">사원수</p><p class="c_gc">2500명${company.employee}명</p></div>
-                         	<div class="c_content"><p class="c_group">매출액</p><p class="c_gc">9248억 (2015) ${company.sales}</p></div>
+                         	<div class="c_content"><p class="c_group">산업군</p><p class="c_gc">IT/웹/통신<%-- ${company.industry} --%></p></div>
+                         	<div class="c_content"><p class="c_group">사원수</p><p class="c_gc">2500명<%-- ${company.employee}명 --%></p></div>
+                         	<div class="c_content"><p class="c_group">매출액</p><p class="c_gc">9248억 (2015)<%--  ${company.sales} --%></p></div>
                          	<div class="c_content1">
                          		<div class="c_group_div"><p class="c_group">본사</p></div>
-                         		<p class="c_gc1">제주특별자치도 제주시 첨단로 242 ${company.location} </p></div>
+                         		<p class="c_gc1">제주특별자치도 제주시 첨단로 242 <%-- ${company.location}  --%></p></div>
                          </div>
                       </div>
                    
@@ -244,6 +238,7 @@ $(document).ready(function($)
                   <form action="" method="post" enctype="" name="">
                      <div class="c_review">
 					
+					<%-- 
 					<!-- 댓글 3개 불러오기!!! -->
 					<c:forEach var = "i" begin = "1" end = "3">
 						<div class="review${i} }">
@@ -251,7 +246,7 @@ $(document).ready(function($)
                            <p class="cr_date">2018/02/07</p>
                         </div>
 					</c:forEach>
-
+ --%>
 
                         <!-- <div class="review1">
                            <p class="cr_view">"기술직이 자신의 능력만큼 대우 받을 수 있는 회사. 대한민국에서
