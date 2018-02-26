@@ -42,7 +42,7 @@ public class ReviewController {
 		
 		int cid=1;
 		System.out.println(reviewDao.selectReview()+"wawawa");
-		request.setAttribute("review", reviewDao.selectReview().);
+		request.setAttribute("review", reviewDao.selectReview());
 		
 		System.out.println("review");
 
