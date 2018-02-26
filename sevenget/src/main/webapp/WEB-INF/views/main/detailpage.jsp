@@ -205,10 +205,20 @@ $(document).ready(function($)
                    
                       <div class="c_info">
                          
-                         <div class="c_heart">♥</div>
-                         <div class="c_name">(주)카카오</div>
+                         <div class="c_head_name">
+                         	<div class="c_heart">♥</div>
+                         	<div class="c_name">(주)카카오</div>
+                         </div>
+                         
+                         <!-- 상세 정보  들어가는 곳 -->
                          <div class="c_information">
-                            <!-- 상세 정보  들어가는 곳 -->
+                         	<div class="c_logo"><img src="../resources/img/logos/kakao.png"></div>
+                         	<div class="c_content"><p class="c_group">산업군</p><p class="c_gc">IT/웹/통신</p></div>
+                         	<div class="c_content"><p class="c_group">사원수</p><p class="c_gc">2500명</p></div>
+                         	<div class="c_content"><p class="c_group">매출액</p><p class="c_gc">9248억 (2015)</p></div>
+                         	<div class="c_content1">
+                         		<div class="c_group_div"><p class="c_group">본사</p></div>
+                         		<p class="c_gc1">제주특별자치도 제주시 첨단로 242 </p></div>
                          </div>
                          
                       </div>

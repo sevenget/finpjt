@@ -14,9 +14,25 @@ a { text-decoration:none; }
 
 .pp { margin-top:40px; color:#ccc; vertical-align:middle; display:table-cell; }
 
-.c_info { width:400px; height:400px; float:left; margin-left:3px; /* border:1px solid blue; */ }
+.c_info { width:400px; height:420px; float:left; margin-left:3px; /* border:1px solid blue; */ }
 .c_name { float:right; font-size:22px; font-weight:bold; color:#654ea3; margin-right:10px; margin-top:5px; }
 .c_heart { float:right; font-size:25px; font-weight:bold; color:#654ea3; margin-right:10px; margin-top:5px; }
+
+.c_head_name { width:400px; height:50px; }
+.c_information { width:400px; height:350px; }
+
+.c_logo { width:400px; height:125px; margin-top:5px; /* background-color:#ffd3d3;  */ }
+.c_logo img {  height:115px; margin-top:5px; margin-left:140px; }
+
+.c_content { width:400px;height:40px; margin-top:5px; float:left; }
+.c_content1 { width:400px; height:100px; margin-top:5px; float:left; }
+
+.c_group { float:left; font-weight:bold; color:#666; }
+.c_group_div { width:400px;height:20px; float:left; color:#666; }
+
+.c_gc { float:left; margin-left:10px; color:#666; }
+.c_gc1 { float:left; margin-top:25px; color:#666; }
+
 
 .c_result { width:663px; height:55px; float:left; text-align:center; margin-left:125px; }
 .c_result p { float:left;  font-weight:bold; }
