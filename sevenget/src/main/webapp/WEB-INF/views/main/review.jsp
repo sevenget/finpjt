@@ -45,7 +45,6 @@
 <body>
 
 	<div id="wrap">
-<<<<<<< HEAD
  			<div class="container_rv">
  				<div class="r_review">
  				<%--  	
@@ -84,7 +83,6 @@
  	 			</div>
  
  			</div>
-=======
 			<div class="container_rv">
 				<div class="r_review">
 					
@@ -139,7 +137,6 @@
 			</div>
 
 	</div>
->>>>>>> branch 'master' of https://github.com/sevenget/finpjt.git
 
 </body>
 </html>

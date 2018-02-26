@@ -207,11 +207,7 @@ $(document).ready(function($)
                    
                       <div class="c_result">
                          <!-- <p class="marks">"</p> -->
-<<<<<<< HEAD
                          <img src="../resources/img/marks1.png" class="marks">
-=======
-                         <img src="../resources/img/marks1.png" class="marks" >
->>>>>>> branch 'master' of https://github.com/sevenget/finpjt.git
                          <p class="get">내 집 마련, 꿈, 희망</p>
                          <p class="ex">을 득하고, </p>
                          <p class="lose">연애, 결혼, 출산, 인간관계</p>
@@ -240,11 +236,8 @@ $(document).ready(function($)
 
                   <form action="" method="post" enctype="" name="">
                      <div class="c_review">
-<<<<<<< HEAD
 					
 					<%-- 
-=======
->>>>>>> branch 'master' of https://github.com/sevenget/finpjt.git
 					<!-- 댓글 3개 불러오기!!! -->
 					<c:forEach var = "i" begin = "1" end = "3">
 						<div class="review${i}">

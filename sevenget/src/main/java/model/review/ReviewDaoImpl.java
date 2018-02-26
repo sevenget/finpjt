@@ -20,40 +20,12 @@ public class ReviewDaoImpl implements ReviewDao {
 	public ReviewDaoImpl() {
 		mybatis = SqlSessionFactoryBean.getSqlSessionInstance();
 	}
-	
-<<<<<<< HEAD
-	
-	
-
-	public ReviewDto selectReview() {
-		/*List<ReviewDto> list;
 		
-		list = mybatis.selectOne("");
-		
-		for(ReviewDto dto : list) {
-			System.out.printf("%s \t  %s \t  %s \t  %s \n",dto.getWriter(), dto.getCid(), dto.getContent(), dto.getReviewdate() );
-		} */
-		
-        /*System.out.print(" 입력 : ");*/
-        int id = 1;
-        
-        ReviewDto dto = new ReviewDto();
-        dto = (ReviewDto) mybatis.selectOne("ReviewDAO.getReview", id);
-        
-        if(dto == null){
-           System.out.println("리뷰가 등록되어 있지 않습니다.");
-        }else{
-           System.out.printf("%s\t%s\n",dto.getContent(), dto.getReviewdate());
-        }
-		return dto;
-		
-=======
 	//댓글의 개수 구하기
 	public int getListCount() {
 		int cnt = (int) mybatis.selectOne("ReviewDAO.selectCount",1);
 		System.out.println(cnt);
 		return cnt;
->>>>>>> branch 'master' of https://github.com/sevenget/finpjt.git
 	}
 	
 	// 해당 기업에 대한 댓글 전체 불러오기

@@ -15,9 +15,9 @@ public class ReviewController {
 
 	// 기업 상세페이지
 	@RequestMapping(value = "/main/detailpage", method = RequestMethod.GET)
-		public String DetailP(MemBasicInfoDAO DAO, HttpServletRequest request) {
+		public String DetailP(ReviewDaoImpl reviewDao, HttpServletRequest request) {
 			
-			request.setAttribute("id", DAO.getMemBasicInfo(""));
+			request.setAttribute("id", reviewDao.selectReview());
 			return "main/detailpage";
 		}
 	 
@@ -40,11 +40,11 @@ public class ReviewController {
 	// 기업 상세페이지-리뷰
 	@RequestMapping(value = "/main/review", method = RequestMethod.GET)
 	/*public String ReviewP(Locale locale, Model model) {*/
-	public String ReviewP(ReviewDaoImpl DAO, HttpServletRequest request) {
+	public String ReviewP(ReviewDaoImpl reviewDao, HttpServletRequest request) {
 		//DAO.selectReview();
 		
 		int cid=1;
-			request.setAttribute("review", reviewDao.selectReview().);
+			request.setAttribute("review", reviewDao.selectReview());
 			
 			request.setAttribute("cnt", reviewDao.getListCount()); // 전체 댓글 수
 			
