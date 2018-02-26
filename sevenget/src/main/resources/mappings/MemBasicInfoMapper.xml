@@ -31,7 +31,7 @@
 			#{gender},
 			#{address},
 			#{email},
-			'Guest.gif',
+			'Guest.jpg',
 			#{dream},
 			#{marry},
 			#{child},
