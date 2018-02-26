@@ -44,6 +44,7 @@
  </head>
 <body>
 
+<<<<<<< HEAD
    <div id="wrap">
          <div class="container_rv">
             <div class="r_review">
@@ -53,6 +54,17 @@
                      <hr width="900px" color="#aaa" size="1" class="r_dt_hr">    
                   </div>
                   
+=======
+	<div id="wrap">
+			<div class="container_rv">
+				<div class="r_review">
+					
+						<div id="rv__">
+							<p class="head_rv">리뷰</p>
+							<hr width="900px" color="#aaa" size="1" class="r_dt_hr">	 
+						</div>
+						
+>>>>>>> branch 'master' of https://github.com/sevenget/finpjt.git
 
                   <form id="rvfm" name="rvfm" method="get">
                      
@@ -84,6 +96,7 @@
                      </c:forEach> --%>
                      </div>
 
+<<<<<<< HEAD
                      <div class="cc_write">
                         <input type="text" name="rvtxt" placeholder=" 리뷰 작성하기(50자 이내)"
                            class="rr_write" maxlength="50"></label>
@@ -91,6 +104,15 @@
                            <a href="javascript:addrv()">리뷰입력</a>
                         </div>
                      </div>
+=======
+							<div class="cc_write">
+								<input type="text" name="rvtxt" placeholder=" 리뷰 작성하기(50자 이내)"
+									class="rr_write" maxlength="50"></label>
+								<div class="rr_btn">
+									<a href="javascript:addrv()">리뷰입력</a>
+								</div>
+							</div>
+>>>>>>> branch 'master' of https://github.com/sevenget/finpjt.git
 
                   </form>
 
