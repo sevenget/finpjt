@@ -3,10 +3,10 @@ package model.review;
 import java.sql.Date;
 
 public class ReviewDto {
-	String writer;
-	int cid;
-	Date reviewdate;
-	String content;
+	private String writer;
+	private int cid;
+	private Date reviewdate;
+	private String content;
 	
 	public String getWriter() {
 		return writer;
@@ -32,6 +32,13 @@ public class ReviewDto {
 	public void setContent(String content) {
 		this.content = content;
 	}
+	
+	@Override
+	public String toString() {
+		return "ReviewDto [writer=" + writer + ", cid=" + cid + ", reviewdate=" + reviewdate + ", content=" + content
+				+ "]";
+	}
 
+	
 }
 	

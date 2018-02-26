@@ -79,13 +79,7 @@ select * from InterestedRC where memid='mem' and cid=1 and canTime is null
 commit
 
 insert into companyreview values('mem', 1, sysdate, '아왜안돼');
-insert into companyreview values('mem', 1, sysdate, 'aa');
-insert into companyreview values('mem', 1, sysdate, 'bb');
-insert into companyreview values('mem', 1, sysdate, 'cc');
-insert into companyreview values('mem', 1, sysdate, 'dd');
-insert into companyreview values('mem', 1, sysdate, 'ee');
-insert into companyreview values('mem', 1, sysdate, 'ff');
-insert into companyreview values('mem', 1, sysdate, 'gg');
+
 
 select * from companyreview
 delete from companyreview

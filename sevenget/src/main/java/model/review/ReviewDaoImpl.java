@@ -20,7 +20,7 @@ public class ReviewDaoImpl implements ReviewDao {
 	public ReviewDaoImpl() {
 		mybatis = SqlSessionFactoryBean.getSqlSessionInstance();
 	}
-	
+		
 	//댓글의 개수 구하기
 	public int getListCount() {
 		int cnt = (int) mybatis.selectOne("ReviewDAO.selectCount",1);

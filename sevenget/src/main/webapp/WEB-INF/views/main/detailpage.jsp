@@ -1,23 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
+<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> --%>	
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>상세 분석 페이지</title>
 
-<link rel="stylesheet" type="text/css"
-   href="../resources/css/session.css " media="all" flush="false">
-<link rel="stylesheet" type="text/css"
-   href="../resources/css/loading.css " media="all" flush="false">
-<link rel="stylesheet" type="text/css"
-   href="../resources/css/detail.css" media="all">
-<link rel="stylesheet" type="text/css"
-   href="../resources/css/portside.css" media="all">
-<link rel="stylesheet" type="text/css"
-   href="../resources/css/lightbox.css" media="all">
-<link rel="stylesheet" type="text/css"
-   href="../resources/css/review.css" media="all">
+<link rel="stylesheet" type="text/css" href="../resources/css/session.css " media="all" flush="false">
+<link rel="stylesheet" type="text/css" href="../resources/css/loading.css " media="all" flush="false">
+<link rel="stylesheet" type="text/css" href="../resources/css/detail.css" media="all">
+<link rel="stylesheet" type="text/css" href="../resources/css/portside.css" media="all">
+<link rel="stylesheet" type="text/css" href="../resources/css/lightbox.css" media="all">
+<link rel="stylesheet" type="text/css" href="../resources/css/review.css" media="all">
 
 <script
    src="${pageContext.request.contextPath}/resources/js/index/jquery-1.11.1.js"></script>
@@ -116,50 +111,39 @@ $(document).ready(function($)
     }
 </script>
 
+<%-- 
+<script>
+		$(function(){
+			$('img.interested').click(function(){
+				if($(this).attr('src')=='../resources/img/whiteheart2.png'){
+					$(this).attr('src', '../resources/img/colorheart2.png')
+					$('span.nothing').load('regInter?cid='+$(this).attr('data-cid'))
+				} else{
+					$(this).attr('src', '../resources/img/whiteheart2.png')
+					$('span.nothing').load('canInter?cid='+$(this).attr('data-cid'))
+				}
+			})
+		})	
+</script>
+
+<c:forEach var= "loveComp" items="${ interestedComList }">
+		<script>
+			$(function(){
+				$('img[data-cid='+${loveComp.cid}+']').attr('src', '../resources/img/colorheart2.png')	
+			})
+		</script>
+</c:forEach>
+ --%>
 
 <style type="text/css">
-.mw_layer {
-   display: none;
-   position: fixed;
-   _position: absolute;
-   top: 0;
-   left: 0;
-   z-index: 10000;
-   width: 100%;
-   height: 100%
-}
+.mw_layer { display: none; position: fixed; _position: absolute; top: 0; left: 0; z-index: 10000; width: 100%; height: 100% }
 
-.mw_layer.open {
-   display: block
-}
+.mw_layer.open { display: block }
 
-.mw_layer .bg {
-   position: absolute;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   background: #000;
-   opacity: .5;
-   filter: alpha(opacity = 50)
-}
+.mw_layer .bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000; opacity: .5; filter: alpha(opacity = 50) }
 
-#layer {
-   position: absolute;
-   top: 40%;
-   left: 35%;
-   width: 950px;
-   height: 500px;
-   margin: -150px 0 0 -194px;
-   padding: 28px 28px 0 28px;
-   border: 2px solid #555;
-   background: #fff;
-   font-size: 12px;
-   font-family: Tahoma, Geneva, sans-serif;
-   color: #767676;
-   line-height: normal;
-   white-space: normal
-}
+#layer { position: absolute; top: 40%; left: 35%; width: 950px; height: 500px; margin: -150px 0 0 -194px; padding: 28px 28px 0 28px; border: 2px solid #555; background: #fff;
+   font-size: 12px; font-family: Tahoma, Geneva, sans-serif; color: #767676; line-height: normal; white-space: normal }
 </style>
 
 </head>
@@ -203,18 +187,27 @@ $(document).ready(function($)
                       </div>
                    
                       <div class="c_info">
-                         
-                         <div class="c_heart">♥</div>
-                         <div class="c_name">(주)카카오</div>
-                         <div class="c_information">
-                            <!-- 상세 정보  들어가는 곳 -->
+                         <div class="c_head_name">
+                         	<!-- <div class="c_heart">♥</div> -->
+                         	<div class="c_heart"><img class="interested" src="../resources/img/whiteheart2.png" <%-- data-cid="${company.cid} --%>"></div>
+                         	<div class="c_name">(주)카카오<%-- ${company.cname } --%></div>
                          </div>
                          
+                         <!-- 상세 정보  들어가는 곳 -->
+                         <div class="c_information">
+                         	<div class="c_logo"><img src="../resources/img/logos/kakao.png"></div>
+                         	<div class="c_content"><p class="c_group">산업군</p><p class="c_gc">IT/웹/통신<%-- ${company.industry} --%></p></div>
+                         	<div class="c_content"><p class="c_group">사원수</p><p class="c_gc">2500명<%-- ${company.employee}명 --%></p></div>
+                         	<div class="c_content"><p class="c_group">매출액</p><p class="c_gc">9248억 (2015)<%--  ${company.sales} --%></p></div>
+                         	<div class="c_content1">
+                         		<div class="c_group_div"><p class="c_group">본사</p></div>
+                         		<p class="c_gc1">제주특별자치도 제주시 첨단로 242 <%-- ${company.location}  --%></p></div>
+                         </div>
                       </div>
                    
                       <div class="c_result">
                          <!-- <p class="marks">"</p> -->
-                         <img src="../resources/img/marks1.png" class="marks" >
+                         <img src="../resources/img/marks1.png" class="marks">
                          <p class="get">내 집 마련, 꿈, 희망</p>
                          <p class="ex">을 득하고, </p>
                          <p class="lose">연애, 결혼, 출산, 인간관계</p>
@@ -243,6 +236,8 @@ $(document).ready(function($)
 
                   <form action="" method="post" enctype="" name="">
                      <div class="c_review">
+					
+					<%-- 
 					<!-- 댓글 3개 불러오기!!! -->
 					<c:forEach var = "i" begin = "1" end = "3">
 						<div class="review${i}">
@@ -250,7 +245,7 @@ $(document).ready(function($)
                            <p class="cr_date">2018/02/07</p>
                         </div>
 					</c:forEach>
-
+ --%>
 
                         <!-- <div class="review1">
                            <p class="cr_view">"기술직이 자신의 능력만큼 대우 받을 수 있는 회사. 대한민국에서
@@ -273,8 +268,8 @@ $(document).ready(function($)
 
                      <div class="c_write">
                         <input type="text" placeholder=" 리뷰 작성하기(50자 이내)"
-                           class="cr_write" maxlength="50"></label> <input type="submit"
-                           value="리뷰입력" class="cr_btn"></label>
+                           class="cr_write" maxlength="50"></label> 
+                           <input type="submit" value="리뷰입력" class="cr_btn"></label>
                      </div>
                   </form>
 
