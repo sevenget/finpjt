@@ -35,4 +35,8 @@ public class InterestedRCDAO {
 		return mybatis.selectList("InterestedRCDAO.selectAll", dto);
 	}
 	
+	/*public List selectRelatedAllAndMemBasicInFo(String id){
+		return mybatis.selectList("InterestedRCDAO.selectRelatedAllAndMemBasicInFo", id);
+	}*/
+	
 }

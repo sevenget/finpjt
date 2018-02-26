@@ -24,6 +24,9 @@
 	<select id="selectRelatedAllAndMemBasicInFo" resultType="interested">
 		select MEMBASICINFO.ID, INTERESTEDRC.REGTIME, INTERESTEDRC.CID, INTERESTEDRC.CANTIME, INTERESTEDRC.MEMID,  from MEMBASICINFO left outer join INTERESTEDRC on MEMBASICINFO.ID = INTERESTEDRC.MEMID where MEMBASICINFO.ID =  #{id};
 	</select>
+	<!-- <select id="selectRelatedAllAndMemBasicInFo" resultType="comPicture">
+		select MEMBASICINFO.ID, INTERESTEDRC.CID "cid", INTERESTEDRC.LOGO,  from MEMBASICINFO left outer join INTERESTEDRC on MEMBASICINFO.ID = INTERESTEDRC.MEMID where MEMBASICINFO.ID =  #{memid} and canTime is null;
+	</select>  -->
 	
 	<select id="selectAll" resultType="interested">
 		select * from InterestedRC

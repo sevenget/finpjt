@@ -19,6 +19,7 @@
 		<typeAlias type="model.member.MemBasicInfoDTO" alias="memBasicInfo"></typeAlias>
 		<typeAlias type="model.review.ReviewDto" alias="review"></typeAlias>
 		<typeAlias type="model.company.InterestedRCDTO" alias="interested"/>
+		<typeAlias type="model.company.InterestedRCPictureDTO" alias="comPicture"/>
 	</typeAliases>
 	
 	<environments default="development">
