@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -116,49 +117,39 @@ $(document).ready(function($)
     }
 </script>
 
+
+<script>
+		$(function(){
+			$('img.interested').click(function(){
+				if($(this).attr('src')=='../resources/img/whiteheart2.png'){
+					$(this).attr('src', '../resources/img/colorheart2.png')
+					$('span.nothing').load('regInter?cid='+$(this).attr('data-cid'))
+				} else{
+					$(this).attr('src', '../resources/img/whiteheart2.png')
+					$('span.nothing').load('canInter?cid='+$(this).attr('data-cid'))
+				}
+			})
+		})	
+</script>
+
+<c:forEach var= "loveComp" items="${ interestedComList }">
+		<script>
+			$(function(){
+				$('img[data-cid='+${loveComp.cid}+']').attr('src', '../resources/img/colorheart2.png')	
+			})
+		</script>
+</c:forEach>
+
+
 <style type="text/css">
-.mw_layer {
-   display: none;
-   position: fixed;
-   _position: absolute;
-   top: 0;
-   left: 0;
-   z-index: 10000;
-   width: 100%;
-   height: 100%
-}
+.mw_layer { display: none; position: fixed; _position: absolute; top: 0; left: 0; z-index: 10000; width: 100%; height: 100% }
 
-.mw_layer.open {
-   display: block
-}
+.mw_layer.open { display: block }
 
-.mw_layer .bg {
-   position: absolute;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   background: #000;
-   opacity: .5;
-   filter: alpha(opacity = 50)
-}
+.mw_layer .bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000; opacity: .5; filter: alpha(opacity = 50) }
 
-#layer {
-   position: absolute;
-   top: 40%;
-   left: 35%;
-   width: 950px;
-   height: 500px;
-   margin: -150px 0 0 -194px;
-   padding: 28px 28px 0 28px;
-   border: 2px solid #555;
-   background: #fff;
-   font-size: 12px;
-   font-family: Tahoma, Geneva, sans-serif;
-   color: #767676;
-   line-height: normal;
-   white-space: normal
-}
+#layer { position: absolute; top: 40%; left: 35%; width: 950px; height: 500px; margin: -150px 0 0 -194px; padding: 28px 28px 0 28px; border: 2px solid #555; background: #fff;
+   font-size: 12px; font-family: Tahoma, Geneva, sans-serif; color: #767676; line-height: normal; white-space: normal }
 </style>
 
 </head>
@@ -204,28 +195,27 @@ $(document).ready(function($)
                       </div>
                    
                       <div class="c_info">
-                         
                          <div class="c_head_name">
-                         	<div class="c_heart">♥</div>
-                         	<div class="c_name">(주)카카오</div>
+                         	<!-- <div class="c_heart">♥</div> -->
+                         	<div class="c_heart"><img class="interested" src="../resources/img/whiteheart2.png" data-cid="${company.cid}"></div>
+                         	<div class="c_name">(주)카카오${company.cname }</div>
                          </div>
                          
                          <!-- 상세 정보  들어가는 곳 -->
                          <div class="c_information">
                          	<div class="c_logo"><img src="../resources/img/logos/kakao.png"></div>
-                         	<div class="c_content"><p class="c_group">산업군</p><p class="c_gc">IT/웹/통신</p></div>
-                         	<div class="c_content"><p class="c_group">사원수</p><p class="c_gc">2500명</p></div>
-                         	<div class="c_content"><p class="c_group">매출액</p><p class="c_gc">9248억 (2015)</p></div>
+                         	<div class="c_content"><p class="c_group">산업군</p><p class="c_gc">IT/웹/통신${company.industry}</p></div>
+                         	<div class="c_content"><p class="c_group">사원수</p><p class="c_gc">2500명${company.employee}명</p></div>
+                         	<div class="c_content"><p class="c_group">매출액</p><p class="c_gc">9248억 (2015) ${company.sales}</p></div>
                          	<div class="c_content1">
                          		<div class="c_group_div"><p class="c_group">본사</p></div>
-                         		<p class="c_gc1">제주특별자치도 제주시 첨단로 242 </p></div>
+                         		<p class="c_gc1">제주특별자치도 제주시 첨단로 242 ${company.location} </p></div>
                          </div>
-                         
                       </div>
                    
                       <div class="c_result">
                          <!-- <p class="marks">"</p> -->
-                         <img src="../resources/img/marks1.png" class="marks" width:>
+                         <img src="../resources/img/marks1.png" class="marks">
                          <p class="get">내 집 마련, 꿈, 희망</p>
                          <p class="ex">을 득하고, </p>
                          <p class="lose">연애, 결혼, 출산, 인간관계</p>
