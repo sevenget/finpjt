@@ -99,18 +99,28 @@
 							
 							
 							<div class="cc_review">
-							<c:forEach var = "i" begin = "1" end = "3">
+							<%-- <c:forEach var = "i" begin = "1" end = "3">
 		                           ${review.get(i).writer }
 		                           ${review.get(i).cid }
 		                           ${review.get(i).content }
 		                           ${review.get(i).reviewdate }
-							</c:forEach>
+							</c:forEach> --%>
+							1: ${review.get(0).content}</br>
+							1: ${review.get(1).content}</br>
+							1: ${review.get(2).content}</br>
+							1: ${review.get(3).content}</br>
+							1: ${review.get(4).content}</br>
+							1: ${review.get(5).content}</br>
+							1: ${review.get(6).content}</br>
+							1: ${review.get(7).content}</br>
+							1: ${review.get(8).content}</br>
+							<c:forEach var = "i" begin = "0" end = "8">
 								<div class="review_rr">
-							<c:forEach var = "i" begin = "1" end = "3">
+								${cnt} i
 									<p class="rr_view">"${review.get(i).content }"</p>
 									<p class="rr_date">${review.get(i).reviewdate }</p>
-							</c:forEach>
 								</div>
+							</c:forEach>
 							</div>
 
 							<div class="cc_write">

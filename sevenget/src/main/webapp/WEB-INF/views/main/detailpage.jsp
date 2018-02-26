@@ -148,8 +148,6 @@ $(document).ready(function($)
 
 </head>
 <body>
-
-
    <div id="head">
       <%@ include file="/WEB-INF/views/include/header.jsp"%>
    </div>
@@ -209,7 +207,11 @@ $(document).ready(function($)
                    
                       <div class="c_result">
                          <!-- <p class="marks">"</p> -->
+<<<<<<< HEAD
                          <img src="../resources/img/marks1.png" class="marks">
+=======
+                         <img src="../resources/img/marks1.png" class="marks" >
+>>>>>>> branch 'master' of https://github.com/sevenget/finpjt.git
                          <p class="get">내 집 마련, 꿈, 희망</p>
                          <p class="ex">을 득하고, </p>
                          <p class="lose">연애, 결혼, 출산, 인간관계</p>
@@ -234,14 +236,18 @@ $(document).ready(function($)
                 
                   <hr width="915px" color="#aaa" size="1" class="dt_hr">
 				</div>
-				
+				<br/>
+
                   <form action="" method="post" enctype="" name="">
                      <div class="c_review">
+<<<<<<< HEAD
 					
 					<%-- 
+=======
+>>>>>>> branch 'master' of https://github.com/sevenget/finpjt.git
 					<!-- 댓글 3개 불러오기!!! -->
 					<c:forEach var = "i" begin = "1" end = "3">
-						<div class="review${i} }">
+						<div class="review${i}">
                            <p class="cr_view">"${review.get(i).content }"</p>
                            <p class="cr_date">2018/02/07</p>
                         </div>
@@ -263,8 +269,8 @@ $(document).ready(function($)
                            <p class="cr_view">"국내에서 IT관련 모든 직군을 경험해 볼 수 있는 몇 안되는 좋은 회사
                               입니다."</p>
                            <p class="cr_date">2018/01/11</p>
-                        </div>
- -->
+                        </div> -->
+
                      </div>
 
                      <div class="c_write">
@@ -297,7 +303,7 @@ $(document).ready(function($)
 
       </div>
    </div>
-
+</div>
 
 
 </body>

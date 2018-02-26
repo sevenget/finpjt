@@ -44,25 +44,25 @@
 					<td rowspan=2>매출액 ${company.sales}</td>
 					<td class="c_get">
 						<c:if test="${company.dateGet=='T'}">
-							데이트
+							<nobr>데이트</nobr>
 						</c:if>
 						<c:if test="${company.marryGet=='T'}">
-							결혼
+							<nobr>결혼</nobr>
 						</c:if>
 						<c:if test="${company.babyGet=='T'}">
-							육아
+							<nobr>육아</nobr>
 						</c:if>
 						<c:if test="${company.houseGet=='T'}">
-							내집마련
+							<nobr>내집마련</nobr>
 						</c:if>
 						<c:if test="${company.relationGet=='T'}">
-							인간관계
+							<nobr>인간관계</nobr>
 						</c:if>
 						<c:if test="${company.dreamGet=='T'}">
-							꿈
+							<nobr>꿈</nobr>
 						</c:if>
 						<c:if test="${company.hopeGet=='T'}">
-							희망
+							<nobr>희망</nobr>
 						</c:if>
 					</td>
 					<td>득</td>
@@ -71,25 +71,25 @@
 					<td colspan=2 class="c_address">${company.location}</td>
 					<td class="c_lose">
 						<c:if test="${company.dateGet=='F'}">	
-							데이트
+							<nobr>데이트</nobr>
 						</c:if>
 						<c:if test="${company.marryGet=='F'}">	
-							결혼
+							<nobr>결혼</nobr>
 						</c:if>
 						<c:if test="${company.babyGet=='F'}">	
-							육아
+							<nobr>육아</nobr>
 						</c:if>
 						<c:if test="${company.houseGet=='F'}">	
-							내집마련
+							<nobr>내집마련</nobr>
 						</c:if>
 						<c:if test="${company.relationGet=='F'}">	
-							인간관계
+							<nobr>인간관계</nobr>
 						</c:if>
 						<c:if test="${company.dreamGet=='F'}">	
-							꿈
+							<nobr>꿈</nobr>
 						</c:if>
 						<c:if test="${company.dateGet=='F'}">	
-							희망
+							<nobr>희망</nobr>
 						</c:if>					
 					</td>
 					<td>포</td>

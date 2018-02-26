@@ -43,22 +43,10 @@ public class ReviewController {
 	public String ReviewP(ReviewDaoImpl DAO, HttpServletRequest request) {
 		//DAO.selectReview();
 		
-	    request.setAttribute("cid", DAO.selectReview().getCid());
-	    request.setAttribute("writer", DAO.selectReview().getWriter());
-	    request.setAttribute("reviewdate", DAO.selectReview().getReviewdate());
-	    request.setAttribute("content", DAO.selectReview().getContent());
-	    
-		public String ReviewP(ReviewDaoImpl reviewDao, HttpServletRequest request) {
-			// DAO.selectReview();
-	
-			/*request.setAttribute("cid", DAO.selectReview().getCid());
-			request.setAttribute("writer", DAO.selectReview().getWriter());
-			request.setAttribute("reviewdate", DAO.selectReview().getReviewdate());
-			request.setAttribute("content", DAO.selectReview().getContent());*/
-			
-			int cid=1;
-			System.out.println(reviewDao.selectReview()+"wawawa");
+		int cid=1;
 			request.setAttribute("review", reviewDao.selectReview().);
+			
+			request.setAttribute("cnt", reviewDao.getListCount()); // 전체 댓글 수
 			
 			System.out.println("review");
 	
