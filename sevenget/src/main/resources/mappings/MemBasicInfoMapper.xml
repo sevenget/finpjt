@@ -19,5 +19,27 @@
 		SELECT id,password,name, to_char(birth,'yyyy"년"mm"월"dd"일"') "birth", gender, address, email, dateCon, marryCon, babyCon, houseCon, relationCon, dreamCon, hopeCon from MEMBASICINFO where id = #{id}
 		]]>
 	</select>
+	
+	<insert id="insertMember" parameterType="memBasicInfo" >
+		
+		insert into memBasicInfo values(
+			#{id},
+			#{password},
+			#{name},
+			'920901',
+			#{gender},
+			#{address},
+			#{email},
+			'Guest.gif',
+			#{dream},
+			#{marry},
+			#{child},
+			#{home},
+			#{job},
+			#{love},
+			#{human}
+		)
+		
+	</insert>
 
 </mapper>
