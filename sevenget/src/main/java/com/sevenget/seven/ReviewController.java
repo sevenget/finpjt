@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import model.review.ReviewDaoImpl;
@@ -24,6 +25,21 @@ public class ReviewController {
 
 		return mav;
 	}
+	
+	
+	// 리뷰 db등록
+		/*@RequestMapping(value = "/main/insert", method = RequestMethod.GET)
+		public ModelAndView ReveiwInsert(ReviewDaoImpl reviewDao, @RequestParam String writer, @RequestParam String content, HttpSession session) {
+			int cid = 1;
+			
+			
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("content", reviewDao.insertReview(writer,cid,content));
+			mav.setViewName("main/detailpage");
+			//request.setAttribute("review", reviewDao.selectReview());
+
+			return mav;
+		}*/
 
 	// 기업 상세페이지-리뷰
 	@RequestMapping(value = "/main/review", method = RequestMethod.GET)

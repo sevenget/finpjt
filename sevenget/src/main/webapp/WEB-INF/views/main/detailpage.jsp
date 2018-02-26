@@ -307,19 +307,11 @@
 
 
 										<!-- 댓글 3개 불러오기!!! -->
-										<%-- ${review.get(0).content }<br /> ${review.get(1).content }<br />
-										${review.get(2).content }<br /> ${review.get(3).content }<br />
-										${review.get(4).content }<br /> ${review.get(5).content }<br />
-										${review.get(6).content }<br /> ${review.get(7).content }<br />
-										${review.get(8).content }<br /> --%>
-
-
-
-
 										<c:forEach var="i" begin="0" end="2">
 											<div class="review${i+1}">
 
-												<p class="cr_view">"${review.get(i).content }" ${review.get(i).reviewdate }</p>
+												<p class="cr_view">"${review.get(i).content }"</p>
+													<p class="cr_view">${review.get(i).reviewdate }</p>
 												<%-- <p class="cr_view">"${review.get(i).reviewDate }"</p> --%>
 											</div>
 										</c:forEach>

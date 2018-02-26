@@ -43,12 +43,12 @@ public class ReviewDaoImpl implements ReviewDao {
 		}
 	
 	// 댓글 등록
-	public void insertReview() {
+	public void insertReview(String writer,int cid, String content) {
 		ReviewDto dto = new ReviewDto();
 
-		dto.setWriter("mem");
-		dto.setCid(1);
-		dto.setContent("sooc");
+		dto.setWriter(writer);//세션으로 받아오기
+		dto.setCid(cid);//세션이든 파리메터든...
+		dto.setContent(content);
 
 		mybatis.insert("ReviewDAO.insertReview", dto);
 		mybatis.commit();
