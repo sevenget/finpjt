@@ -23,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.sevenget.Rcode.Evaluation;
 import com.sevenget.Rcode.MakingPlot;
 
+import model.company.InterestedRCDAO;
 import model.companySco.CompanyRawScoDaoImpl;
 import model.companySco.CompanyRawScoDto;
 import model.companySco.CompanyScoDto;
@@ -194,9 +195,10 @@ public class HomeController {
 	
 	//마이페이지1
 	@RequestMapping(value = "/main/mypage", method = RequestMethod.GET)
-	public String Mypage(MemBasicInfoDAO DAO, HttpServletRequest request, HttpSession session) {
+	public String Mypage(MemBasicInfoDAO DAO, InterestedRCDAO CDAO ,HttpServletRequest request, HttpSession session) {
 		String id = (String)session.getAttribute("id");
 		request.setAttribute("member", DAO.getMemBasicInfo(id));
+		request.setAttribute("company", CDAO.selectRelatedAll(id));
 		System.out.println("mypage");
 		return "main/mypage"; 
 	}
