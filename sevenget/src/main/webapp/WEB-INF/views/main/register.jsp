@@ -141,7 +141,7 @@
 			      $(this).data('storedValue', true);
 			      $(this).parent().css('background-color', '#8772bf');
 			      $("input[type=radio]:not(:checked)").data("storedValue", false);
-			      $("input[type=radio]:not(:checked)").parent().css('background-color', '#a4a4a4'); 
+			      $("input[type=radio]:not(:checked)").parent().css('background-color', 'white'); 
 			    }
 			  });
 			});
@@ -236,7 +236,7 @@
 			<table class="table table_dream">
 				<tr>
 					<th><img src="../resources/img/dream.jpg"></th>
-					<td><input name="dream" type="radio" value="1" checked="checked" ontoggle="changing(this);">1점</td>
+					<td style="background-color:#8772bf"><input name="dream" type="radio" value="1" checked="checked">1점</td>
 					<td><input name="dream" type="radio" value="2">2점</td>
 					<td><input name="dream" type="radio" value="3">3점</td>
 					<td><input name="dream" type="radio" value="4">4점</td>
@@ -252,7 +252,7 @@
 			<table class="table table_love">
 				<tr>
 					<th><img src="../resources/img/love.jpg"></th>
-					<td><input name="love" type="radio" value="1" checked="checked" ontoggle="changing(this);">1점</td>
+					<td style="background-color:#8772bf"><input name="love" type="radio" value="1" checked="checked">1점</td>
 					<td><input name="love" type="radio" value="2">2점</td>
 					<td><input name="love" type="radio" value="3">3점</td>
 					<td><input name="love" type="radio" value="4">4점</td>
@@ -268,7 +268,7 @@
 			<table class="table table_marry">
 				<tr>
 					<th><img src="../resources/img/marry.jpg"></th>
-					<td><input name="marry" type="radio" value="1" checked="checked" ontoggle="changing(this);">1점</td>
+					<td style="background-color:#8772bf"><input name="marry" type="radio" value="1" checked="checked">1점</td>
 					<td><input name="marry" type="radio" value="2">2점</td>
 					<td><input name="marry" type="radio" value="3">3점</td>
 					<td><input name="marry" type="radio" value="4">4점</td>
@@ -284,7 +284,7 @@
 			<table class="table table_human">
 				<tr>
 					<th><img src="../resources/img/human.jpg"></th>
-					<td><input name="human" type="radio" value="1" checked="checked" ontoggle="changing(this);">1점</td>
+					<td style="background-color:#8772bf"><input name="human" type="radio" value="1" checked="checked">1점</td>
 					<td><input name="human" type="radio" value="2">2점</td>
 					<td><input name="human" type="radio" value="3">3점</td>
 					<td><input name="human" type="radio" value="4">4점</td>
@@ -300,7 +300,7 @@
 			<table class="table table_child">
 				<tr>
 					<th><img src="../resources/img/child.jpg"></th>
-					<td><input name="child" type="radio" value="1" checked="checked" ontoggle="changing(this);">1점</td>
+					<td style="background-color:#8772bf"><input name="child" type="radio" value="1" checked="checked">1점</td>
 					<td><input name="child" type="radio" value="2">2점</td>
 					<td><input name="child" type="radio" value="3">3점</td>
 					<td><input name="child" type="radio" value="4">4점</td>
@@ -316,7 +316,7 @@
 			<table class="table table_home">
 				<tr>
 					<th><img src="../resources/img/home.jpg"></th>
-					<td><input name="home" type="radio" value="1" checked="checked" ontoggle="changing(this);">1점</td>
+					<td style="background-color:#8772bf"><input name="home" type="radio" value="1" checked="checked">1점</td>
 					<td><input name="home" type="radio" value="2">2점</td>
 					<td><input name="home" type="radio" value="3">3점</td>
 					<td><input name="home" type="radio" value="4">4점</td>
@@ -332,7 +332,7 @@
 			<table class="table table_job">
 				<tr>
 					<th><img src="../resources/img/job.jpg"></th>
-					<td><input name="job" type="radio" value="1" checked="checked" ontoggle="changing(this);">1점</td>
+					<td style="background-color:#8772bf"><input name="job" type="radio" value="1" checked="checked">1점</td>
 					<td><input name="job" type="radio" value="2">2점</td>
 					<td><input name="job" type="radio" value="3">3점</td>
 					<td><input name="job" type="radio" value="4">4점</td>
