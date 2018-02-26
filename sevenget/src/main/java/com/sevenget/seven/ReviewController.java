@@ -21,12 +21,10 @@ public class ReviewController {
 		//ReviewDto reviewDto = new ReviewDto();
 		//reviewDto = reviewDao.selectReview();
 		int cid=1;
-		System.out.println(reviewDao.selectReview()+"wawawa");
 		request.setAttribute("review", reviewDao.selectReview());
 		
 		System.out.println("detailpage");
 
-		request.setAttribute("id", reviewDao.selectReview());//??
 		return "main/detailpage";
 	}
 
@@ -41,8 +39,9 @@ public class ReviewController {
 		request.setAttribute("content", DAO.selectReview().getContent());*/
 		
 		int cid=1;
-		System.out.println(reviewDao.selectReview()+"wawawa");
-		request.setAttribute("review", reviewDao.selectReview().);
+		request.setAttribute("review", reviewDao.selectReview());
+		
+		request.setAttribute("cnt", reviewDao.getListCount()); // 전체 댓글 수
 		
 		System.out.println("review");
 

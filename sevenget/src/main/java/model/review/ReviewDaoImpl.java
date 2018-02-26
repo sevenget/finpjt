@@ -38,6 +38,7 @@ public class ReviewDaoImpl implements ReviewDao {
 				/*for(ReviewDto dto1 : list){
 				System.out.printf("%s\t%s\t%s\n",dto1.getWriter(),dto1.getCid(),dto1.getContent());
 				}*/
+				System.out.println("조회성공");
 			}
 		 return list;
 		}
