@@ -19,6 +19,7 @@ create table memBasicInfo(
 );
 SELECT * FROM memBasicInfo where id = 'Guest'
 select id from memBasicInfo where id='mem';
+select * from MEMBASICINFO,interestedRC;
 
 -- 회원 속성
 drop table memDetail purge;
@@ -85,6 +86,8 @@ create table interestedRC(
    regTime date default sysdate,
    canTime date
 );
+select * from interestedRC, membasicinfo;
+select MEMBASICINFO.ID, INTERESTEDRC.REGTIME, INTERESTEDRC.CID, INTERESTEDRC.CANTIME, INTERESTEDRC.MEMID from MEMBASICINFO left outer join INTERESTEDRC on MEMBASICINFO.ID = INTERESTEDRC.MEMID;
 
 -- 기업 리뷰
 drop table companyreview purge;
