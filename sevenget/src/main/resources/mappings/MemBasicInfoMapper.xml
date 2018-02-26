@@ -26,7 +26,7 @@
 			#{id},
 			#{password},
 			#{name},
-			'920901',
+			#{birth},
 			#{gender},
 			#{address},
 			#{email},
