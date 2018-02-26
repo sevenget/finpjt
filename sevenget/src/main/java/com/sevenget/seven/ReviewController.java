@@ -22,7 +22,8 @@ public class ReviewController {
 		//reviewDto = reviewDao.selectReview();
 		int cid=1;
 		request.setAttribute("review", reviewDao.selectReview());
-		
+		request.setAttribute("cnt", reviewDao.getListCount()); // 전체 댓글 수
+
 		System.out.println("detailpage");
 
 		return "main/detailpage";

@@ -65,22 +65,32 @@
 		                           ${review.get(i).reviewdate }
 							</c:forEach> --%>
 							1: ${review.get(0).content}</br>
-							1: ${review.get(1).content}</br>
-							1: ${review.get(2).content}</br>
-							1: ${review.get(3).content}</br>
-							1: ${review.get(4).content}</br>
-							1: ${review.get(5).content}</br>
-							1: ${review.get(6).content}</br>
-							1: ${review.get(7).content}</br>
-							1: ${review.get(8).content}</br>
+							2: ${review.get(1).content}</br>
+							3: ${review.get(2).content}</br>
+							4: ${review.get(3).content}</br>
+							5: ${review.get(4).content}</br>
+							6: ${review.get(5).content}</br>
+							7: ${review.get(6).content}</br>
+							8: ${review.get(7).content}</br>
+							9: ${review.get(8).content}</br>
 							<c:forEach var = "i" begin = "0" end = "8">
 								<div class="review_rr">
-								${cnt} i
+								${cnt}
 									<p class="rr_view">"${review.get(i).content }"</p>
 									<p class="rr_date">${review.get(i).reviewdate }</p>
 								</div>
 							</c:forEach>
 							</div>
+							
+							
+							
+							<c:forEach var="item" items="${list}" begin=0 end=5 step=1 varStatus="status">
+							    번호 : ${status.count}
+							    이름 : ${item.name}
+							    나이 : ${item.age}
+							    주소 : ${item.addr}
+							</c:forEach>
+
 
 							<div class="cc_write">
 								<input type="text" name="rvtxt" placeholder=" 리뷰 작성하기(50자 이내)"
