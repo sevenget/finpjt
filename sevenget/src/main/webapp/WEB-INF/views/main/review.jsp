@@ -46,11 +46,6 @@
 	<div id="wrap">
 			<div class="container_rv">
 				<div class="r_review">
-				<%-- 	
-					${cid}<br/>
-					${writer }<br/>
-					${reviewdate }<br/>
-					${content }<br/> --%>
 					
 						<div id="rv__">
 							<p class="head_rv">리뷰</p>
@@ -59,11 +54,21 @@
 						
 
 						<form id="rvfm" name="rvfm" method="get">
-
+							
+							
+							
 							<div class="cc_review">
+							<c:forEach var = "i" begin = "1" end = "3">
+		                           ${review.get(i).writer }
+		                           ${review.get(i).cid }
+		                           ${review.get(i).content }
+		                           ${review.get(i).reviewdate }
+							</c:forEach>
 								<div class="review_rr">
-									<p class="rr_view">"${content}"</p>
-									<p class="rr_date">${reviewdate}</p>
+							<c:forEach var = "i" begin = "1" end = "3">
+									<p class="rr_view">"${review.get(i).content }"</p>
+									<p class="rr_date">${review.get(i).reviewdate }</p>
+							</c:forEach>
 								</div>
 							</div>
 

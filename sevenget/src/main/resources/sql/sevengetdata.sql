@@ -86,5 +86,6 @@ insert into companyreview values('mem', 1, sysdate, 'ee');
 insert into companyreview values('mem', 1, sysdate, 'ff');
 insert into companyreview values('mem', 1, sysdate, 'gg');
 
+select * from companyreview
 delete from companyreview
 commit
