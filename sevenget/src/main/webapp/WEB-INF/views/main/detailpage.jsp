@@ -288,63 +288,43 @@
 
 
 
-<<<<<<< HEAD
-=======
-                  <form action="" method="post" enctype="" name="">
-                     <div class="c_review">
->>>>>>> branch 'master' of https://github.com/sevenget/finpjt.git
+					<form action="" method="post" enctype="" name="">
+						<div class="c_review">
 
-<<<<<<< HEAD
-					<div class="review">
+							<div class="review">
 
-						<div class="rv__">
-							<p class="head_rv">
-								<a href="#layer" onclick="openContent('${article.idx}')">리뷰</a>
-							</p>
+								<div class="rv__">
+									<p class="head_rv">
+										<a href="#layer" onclick="openContent('${article.idx}')">리뷰</a>
+									</p>
 
-							<hr width="915px" color="#aaa" size="1" class="dt_hr">
-						</div>
-						<br />
-
-						<form action="" method="post" enctype="" name="">
-							<div class="c_review">
-
-
-								<!-- 댓글 3개 불러오기!!! -->
-								<c:forEach var="i" begin="3" end="0">
-								
-								<div class="review${i+1}">
-								
-									<p class="cr_view">"${review.get(i).content}"</p>
-									<p class="cr_date">${review.reviewDate}</p>
-
-									
+									<hr width="915px" color="#aaa" size="1" class="dt_hr">
 								</div>
-								
-								</c:forEach>
+								<br />
 
-						<!-- <div class="review1">
-=======
-
-								<!-- 댓글 3개 불러오기!!! -->
-								<%	for (int i = 3; i > 0; i--) { %>
-								<%-- <c:forEach var = "i" begin = "2" end = "0" step=(-1) > --%>
-								<div class="review1<%-- <%i+1%> --%>">
-								<%-- 	<%
-										String req = request.getAttribute("review");
-									%> --%>
-
-									<p class="cr_view">"${review.get(i).getContent()}"</p>
-									<p class="cr_date">${review.get(i).getReviewdate()}</p>
-								</div>
-								<%-- </c:forEach> --%>
-								<%
-									}
-								%>
+								<form action="" method="post" enctype="" name="">
+									<div class="c_review">
 
 
-					<!-- 	<div class="review1">
->>>>>>> branch 'master' of https://github.com/sevenget/finpjt.git
+										<!-- 댓글 3개 불러오기!!! -->
+										<%-- ${review.get(0).content }<br /> ${review.get(1).content }<br />
+										${review.get(2).content }<br /> ${review.get(3).content }<br />
+										${review.get(4).content }<br /> ${review.get(5).content }<br />
+										${review.get(6).content }<br /> ${review.get(7).content }<br />
+										${review.get(8).content }<br /> --%>
+
+
+
+
+										<c:forEach var="i" begin="0" end="2">
+											<div class="review${i+1}">
+
+												<p class="cr_view">"${review.get(i).content }" ${review.get(i).reviewdate }</p>
+												<%-- <p class="cr_view">"${review.get(i).reviewDate }"</p> --%>
+											</div>
+										</c:forEach>
+
+										<!-- 	<div class="review1">
                            <p class="cr_view">"기술직이 자신의 능력만큼 대우 받을 수 있는 회사. 대한민국에서
                               만족스러운 수준의 워라벨."</p>
                            <p class="cr_date">2018/02/07</p>
@@ -360,48 +340,39 @@
                               입니다."</p>
                            <p class="cr_date">2018/01/11</p>
                         </div>  -->
+									</div>
+								</form>
 
-							</div>
+								<div class="c_write">
+									<input type="text" placeholder=" 리뷰 작성하기(50자 이내) "
+										class="cr_write" maxlength="50"></label> <input type="submit"
+										value="리뷰입력" class="cr_btn"></label>
+								</div>
+					</form>
 
-<<<<<<< HEAD
-							<div class="c_write">
-								<input type="text" placeholder=" 리뷰 작성하기(50자 이내)"
-									class="cr_write" maxlength="50"></label> <input type="submit"
-									value="리뷰입력" class="cr_btn"></label>
-							</div>
-						</form>
-=======
-                     <div class="c_write">
-                        <input type="text" placeholder=" 리뷰 작성하기(50자 이내) "
-                           class="cr_write" maxlength="50"></label> 
-                           <input type="submit" value="리뷰입력" class="cr_btn"></label>
-                     </div>
-                  </form>
->>>>>>> branch 'master' of https://github.com/sevenget/finpjt.git
+					<!-- light box -->
 
-						<!-- light box -->
+					<div class="mw_layer">
 
-						<div class="mw_layer">
+						<div class="bg"></div>
 
-							<div class="bg"></div>
-
-							<div id="layer">
-								<%@ include file="/WEB-INF/views/main/review.jsp"%>
-							</div>
-
+						<div id="layer">
+							<%@ include file="/WEB-INF/views/main/review.jsp"%>
 						</div>
 
-
-
-
-
-
 					</div>
+
+
+
+
+
 
 				</div>
 
 			</div>
+
 		</div>
+	</div>
 	</div>
 
 

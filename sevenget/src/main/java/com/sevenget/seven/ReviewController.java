@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import model.review.ReviewDaoImpl;
 import model.review.ReviewDto;
@@ -15,12 +16,13 @@ public class ReviewController {
 
 	// 기업 상세페이지
 	@RequestMapping(value = "/main/detailpage", method = RequestMethod.GET)
-	public String DetailP(ReviewDaoImpl reviewDao, HttpServletRequest request) {
-		int count = reviewDao.getListCount();
+	public ModelAndView DetailP(ReviewDaoImpl reviewDao, HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("review", reviewDao.selectReview());
+		mav.setViewName("main/detailpage");
+		//request.setAttribute("review", reviewDao.selectReview());
 
-		request.setAttribute("review", reviewDao.selectReview());
-
-		return "main/detailpage";
+		return mav;
 	}
 
 	// 기업 상세페이지-리뷰
