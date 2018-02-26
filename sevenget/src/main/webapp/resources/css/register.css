@@ -40,21 +40,22 @@
 }
 
 .table {
-	background-color:orange;
+	background-color:white;
 	width: 600px;
 	height: 60px !important;
 	border: 3px solid #595959;
 	border-radius: 3px;
 	text-align: center;
 	margin-top: 10px;
-	color: white;
+	color: black;
 }
 .table th{
-	padding-right:30px;
+	padding-right:10px;
+	padding-left:10px;
 }
 
 .table td {
 	border-radius: 2px;
 	width: 80px;
-	background-color: #a4a4a4;
+	background-color: white;
 }
