@@ -15,7 +15,7 @@ public class ReviewDaoImpl implements ReviewDao {
 	}
 	
 
-	public void selectReview() {
+	public ReviewDto selectReview() {
 		/*List<ReviewDto> list;
 		
 		list = mybatis.selectOne("");
@@ -35,9 +35,11 @@ public class ReviewDaoImpl implements ReviewDao {
         }else{
            System.out.printf("%s\t%s\n",dto.getContent(), dto.getReviewdate());
         }
+		return dto;
 		
 	}
 	
+	// 댓글 등록
 	public void insertReview() {
 		ReviewDto dto = new ReviewDto();
 		

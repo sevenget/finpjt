@@ -1,6 +1,6 @@
 package com.sevenget.seven;
 
-import java.util.Map;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpSession;
 
@@ -12,6 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 import model.company.CompanyBasicDAO;
 import model.company.InterestedRCDAO;
 import model.company.InterestedRCDTO;
+import model.member.MemConcernDAO;
+import model.member.MemConcernDto;
 import model.search.FilterDTO;
 import model.search.KeywordAndSearchDAO;
 import model.search.KeywordDTO;
@@ -21,7 +23,7 @@ import model.search.SearchDTO;
 public class SearchController {
 		// 진짜 메인페이지(로그인 후 첫화면)
 		@RequestMapping(value = "/main/main", method = RequestMethod.GET)
-		public ModelAndView main(KeywordAndSearchDAO kdao, InterestedRCDAO idao, HttpSession session, ModelAndView mav) {
+		public ModelAndView main(MemConcernDAO mdao, KeywordAndSearchDAO kdao, InterestedRCDAO idao, HttpSession session, ModelAndView mav) {
 			/*session.setAttribute("id", "mem");*/
 			String id = (String)session.getAttribute("id");
 			
@@ -29,6 +31,9 @@ public class SearchController {
 				id="Guest";
 			}
 			
+			//MemConcernDto memCon = mdao.getMemConcern(id);
+			
+//			mav.addObject("companylist", kdao.searchByFilter(getFilterByMemberCon(memCon)));
 			mav.addObject("companylist", kdao.searchAdvs());
 			session.setAttribute("interestedComList", idao.selectRelatedAll(id));
 			
@@ -54,10 +59,8 @@ public class SearchController {
 				System.out.println(id+sdto.getKeyword());
 				sdto.setSearchMem(id);
 				kdao.insertSearch(sdto);
-				
-				
 					
-	  			System.out.println("======== get=====");				
+	  /*			System.out.println("======== get=====");				
 				System.out.println(fdto.getDateget());
 				System.out.println(fdto.getMarryget());
 				System.out.println(fdto.getBabyget());
@@ -78,11 +81,10 @@ public class SearchController {
 				for(Object key : map.keySet()){
 					System.out.println("key:"+key+", value="+map.get(key));
 				}
-				
+				*/
 				session.setAttribute("filterMap", fdto.getFilterMap());
 				session.setAttribute("interestedComList", idao.selectRelatedAll(id));				
-				mav.addObject("companylist", kdao.searchByKeyword(kdto.getKeyword()));
-
+				mav.addObject("companylist", kdao.searchByKeywordAndFilter(kdto.getKeyword(), fdto));
 
 				mav.setViewName("main/search");
 				return mav;
@@ -101,4 +103,11 @@ public class SearchController {
 				dao.updateCan(dto);
 				return "main/nothing";
 			}
+			
+			
+			public FilterDTO getFilterByMemberCon(MemConcernDto memCon){
+				return null;
+			}
+			
+
 }

@@ -195,8 +195,8 @@ $(document).ready(function($)
                             <!-- 버튼 클릭시 로딩 화면 5초/R작동, 결과출력 -->
 
                            <a onClick="fLoadData()">
-                           <div id="loadData" style="width: 502px; height: 400px; margin-top: 20px; /* border: 1px solid #CCCCCC; */ background: #EFEFEF; display:inlne;">
-                          <p> 호출 </p>
+                           <div id="loadData" style="width: 502px; height: 400px; margin-top: 20px; /* border: 1px solid #CCCCCC; */ background: #EFEFEF; display:table;">
+                          	<p class="pp"> 정보를 호출하시려면 클릭하세요 </p>
                            </div></a>
                           <!--  <div style="margin-top: 20px; display:inline;">
                               <input type="button" value="호출" onClick="fLoadData()" />
@@ -233,11 +233,15 @@ $(document).ready(function($)
 
 
                <div class="review">
+               
+               	<div class="rv__">
                   <p class="head_rv">
                      <a href="#layer" onclick="openContent('${article.idx}')">리뷰</a>
                   </p>
+                
                   <hr width="915px" color="#aaa" size="1" class="dt_hr">
-
+				</div>
+				
                   <form action="" method="post" enctype="" name="">
                      <div class="c_review">
 
