@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
 	request.setCharacterEncoding("UTF-8");
-	String userId = (String) request.getAttribute("userId");
+	String id = (String) request.getAttribute("id");
 	int check = ((Integer) (request.getAttribute("check"))).intValue();
 %>
 <html>
@@ -9,7 +9,7 @@
 <title>중복확인</title>
 <script>
 function windowclose(){
-	opener.document.form_1.userId.value='<%=userId%>';
+	opener.document.form_1.id.value='<%=id%>';
 		self.close();
 	}
 </script>
@@ -20,7 +20,7 @@ function windowclose(){
 	%>
 	<table width="360" border="0" cellspacing="0" cellpadding="5">
 		<tr align="center">
-			<td height="30"><font size="2"><%=userId%> 는 이미 사용 중인 아이디입니다.</font></td>
+			<td height="30"><font size="2"><%=id%> 는 이미 사용 중인 아이디입니다.</font></td>
 		</tr>
 	</table>
 
@@ -29,7 +29,7 @@ function windowclose(){
 			<tr>
 				<td align="center"><font size="2">다른 아이디를 선택하세요.</font>
 					<p>
-						<input type="text" size="10" maxlength="12" name="userId" /> <input
+						<input type="text" size="10" maxlength="12" name="id" /> <input
 							type="submit" value="중복확인" /></td>
 			</tr>
 		</table>
@@ -39,7 +39,7 @@ function windowclose(){
 	%>
 	<table width="360" border="0" cellspacing="0" cellpadding="5">
 		<tr>
-			<td align="center"><font size="2">입력하신 <%=userId%> 는 사용할 수 있는
+			<td align="center"><font size="2">입력하신 <%=id%> 는 사용할 수 있는
 					아이디입니다.
 			</font> <br /> <br /> <input type="button" value="사용하기"
 				onclick="windowclose()" /></td>

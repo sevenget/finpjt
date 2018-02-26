@@ -16,5 +16,13 @@ public class MemBasicInfoDAO {
 	public List<MemBasicInfoDTO> getMemBasicInfo(String member){
 		return mybatis.selectList("MemBasicInfoDAO.getMemBasicInfo",member);
 	} 
+	
+	public void insertMember(MemBasicInfoDTO dto){
+		
+		
+		
+		mybatis.insert("insertMember",dto);
+		mybatis.commit();
+	}
 }
 

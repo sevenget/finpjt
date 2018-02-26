@@ -24,8 +24,11 @@
 			<p class="head_member">회원 정보</p>
 			<hr width="285px" color="#aaa" size="1" class="hr">
 		
-			<div class="ficture">
-				사진  
+			<div class="ficture"> 
+				<c:forEach items="${member}" var="mem" >
+					<%-- <img src="http://http://localhost:8090/seven/main/${pageContext.request.contextPath}../resources/img/memPicture/${mem.picture}"> --%>
+					<img style="width:135px; height:180px;" src="../resources/img/memPicture/${mem.picture}">
+				</c:forEach>   
 			</div>
 		
 			<div class="membership">
@@ -34,6 +37,15 @@
 				<p class="font"> ${iid.id}</p>
 				<p class="font"> ${iid.name}</p>
 				<p class="font"> ${iid.birth}</p>
+				<c:set var="gender" value="${iid.gender}"></c:set>
+				<c:choose>
+					<c:when test="${gender eq 'M'}">
+						<p class="font">남자</p>
+					</c:when>
+					<c:otherwise>
+						<p class="font">여자</p>
+					</c:otherwise>
+				</c:choose>
 				<p class="font"> ${iid.address}</p>			 
 				</c:forEach>  
 			</div>
