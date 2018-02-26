@@ -37,7 +37,16 @@
 				<p class="font"> ${iid.id}</p>
 				<p class="font"> ${iid.name}</p>
 				<p class="font"> ${iid.birth}</p>
-				<p class="font"> ${iid.picture}</p>			 
+				<c:set var="gender" value="${iid.gender}"></c:set>
+				<c:choose>
+					<c:when test="${gender eq 'M'}">
+						<p class="font">남자</p>
+					</c:when>
+					<c:otherwise>
+						<p class="font">여자</p>
+					</c:otherwise>
+				</c:choose>
+				<p class="font"> ${iid.address}</p>			 
 				</c:forEach>  
 			</div>
 		</div>
