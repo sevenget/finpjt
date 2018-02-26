@@ -104,51 +104,7 @@ table { color:#666; }
 	.cycle-pager span.cycle-pager-active { color: #303233;}
 	.cycle-pager > * { cursor: pointer;}
 	
-	/* result 관련  */
-	#resultHolder{
-		margin-top:100px;
-		background-color:white;
-		width:955px; height:468px;
-		/* padding:20px; */
-		float:left;
-		display:inline-block;
-	}
 	
-	#resultHolder hr{
-	
-		margin-top: 7px;
-	  /*   margin-bottom: 1.5px; */
-	}
-	
-	#resultHolder table{
-		width: 888px;
-		margin: 0 auto;
-		/* border-bottom: 1px solid #654ea3; */
-		font-size:13px;
-		text-align:center;
-	}
-	.resulttitle{
-		/* font-size:1.4em; */
-		font-size:18px;
-		font-weight:bold;
-	}
-	.companytitle{
-		font-size:18px;
-		font-weight:bold;
-	}
-	
-	.companylogo img{
-		border:1px dotted grey;
-		width:100px;
-	}
-	
-	#resultHolder tr:first-child, #resultHolder tr:last-child {
-		height:20px;
-	}
-	
-	#resultHolder tr:nth-child(2),#resultHolder tr:nth-child(3) {
-		height:20px;
-	}
 	
 	/* info */
 	#infoHolder{

@@ -16,7 +16,7 @@ public class CompanyBasicDTO implements Serializable{
 	String dateGet;
 	String marryGet;
 	String babyGet;
-	String houstGet;
+	String houseGet;
 	String relationGet;
 	String dreamGet;
 	String hopeGet;
@@ -127,12 +127,12 @@ public class CompanyBasicDTO implements Serializable{
 		this.babyGet = babyGet;
 	}
 
-	public String getHoustGet() {
-		return houstGet;
+	public String getHouseGet() {
+		return houseGet;
 	}
 
-	public void setHoustGet(String houstGet) {
-		this.houstGet = houstGet;
+	public void setHouseGet(String houseGet) {
+		this.houseGet = houseGet;
 	}
 
 	public String getRelationGet() {

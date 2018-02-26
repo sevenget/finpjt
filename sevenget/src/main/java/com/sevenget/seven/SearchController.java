@@ -1,6 +1,6 @@
 package com.sevenget.seven;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -37,11 +37,7 @@ public class SearchController {
 //			mav.addObject("companylist", kdao.searchByFilter(getFilterByMemberCon(memCon)));
 			mav.addObject("companylist", kdao.searchAdvs());
 			session.setAttribute("interestedComList", idao.selectRelatedAll(id));
-			
 			mav.setViewName("main/main");
-			if(id.equals("Guest")){
-				mav.setViewName("main/main_guest");
-			} 
 			return mav;
 		}
 		
@@ -84,10 +80,15 @@ public class SearchController {
 				}
 				*/
 				session.setAttribute("filterMap", fdto.getFilterMap());
-				session.setAttribute("interestedComList", idao.selectRelatedAll(id));				
-				mav.addObject("companylist", kdao.searchByKeywordAndFilter(kdto.getKeyword(), fdto));
-
+				session.setAttribute("interestedComList", idao.selectRelatedAll(id));
+				List list = kdao.searchByKeywordAndFilter(kdto.getKeyword(), fdto);
+				mav.addObject("companylist", list);
 				mav.setViewName("main/search");
+				
+				if(list.size()==0){
+					mav.setViewName("main/searchnothing");
+				}
+
 				return mav;
 			}
 			
