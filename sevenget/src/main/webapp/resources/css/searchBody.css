@@ -1,0 +1,77 @@
+/* result 관련  */
+ 	#resultHolder{
+ 		margin-top:100px;
+ 		background-color:white;
+ 		width:955px; height:468px;
+ 		/* padding:20px; */
+ 		float:left;
+ 		display:inline-block;
+ 	}
+ 	
+ 	#resultHolder hr{
+ 	
+ 		margin-top: 7px;
+ 	  /*   margin-bottom: 1.5px; */
+ 	}
+ 	
+ 	#resultHolder table{
+ 		width: 888px;
+ 		margin: 0 auto;
+ 		/* border-bottom: 1px solid #654ea3; */
+ 		font-size:13px;
+ 		text-align:center;
+ 	}
+ 	.resulttitle{
+ 		/* font-size:1.4em; */
+ 		font-size:18px;
+ 	font-weight:bold;
+ 	}
+ 	.companytitle{
+ 		font-size:18px;
+ 		font-weight:bold;
+ 	}
+	
+	
+ 	
+ 	#resultHolder tr:first-child, #resultHolder tr:last-child {
+ 		height:20px;
+ 	}
+ 	
+ 	#resultHolder tr:nth-child(2),#resultHolder tr:nth-child(3) {
+ 		height:20px;
+ 	}
+ 	
+ 	td.companylogo{
+ 		width:110px;
+ 		height:110px;
+ 		border:1px dotted #595959;
+ 	}
+ 	
+ 	img.companylogo{
+ 		width:110px;
+ 	}
+ 	
+ 	td.companytitle{
+ 		width:100px;
+ 	}
+ 	
+ 	td.interested{
+ 		width:50px;
+ 	}
+ 	
+ 	td.companyindustry{
+ 		width:150px;
+ 	}
+ 	
+ 	td.c_employee{
+ 		width:120px;
+ 	}
+ 	
+ 	td.c_address{
+ 		width:270px;
+ 	}
+ 	
+ 	td.c_get, td.c_lose{
+ 		width:100px;
+ 	}
+ 	

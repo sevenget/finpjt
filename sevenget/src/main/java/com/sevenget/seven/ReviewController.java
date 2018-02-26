@@ -42,7 +42,7 @@ public class ReviewController {
 		request.setAttribute("review", reviewDao.selectReview());
 		
 		request.setAttribute("cnt", reviewDao.getListCount()); // 전체 댓글 수
-		
+
 		System.out.println("review");
 
 		//request.setAttribute("id", reviewDao.selectReview(id));
