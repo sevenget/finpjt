@@ -44,5 +44,6 @@
 		<mapper resource="mappings/ReviewMapper.xml"/>
 		<mapper resource="mappings/InterestedRCMapper.xml"/>
 		<mapper resource="mappings/MemBasicInfoMapper.xml"/>
+		<mapper resource="mappings/MemIdCheckMapper.xml"/>
 	</mappers>
 </configuration>

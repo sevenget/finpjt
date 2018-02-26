@@ -9,13 +9,13 @@ create table memBasicInfo(
    	address varchar2(100) not null,
    	email varchar2(30),
    	picture varchar2(30),
-   	dateCon number(2),
-  	marryCon number(2),
-   	babyCon number(2),
-   	houseCon number(2),
-   	relationCon number(2),
-   	dreamCon number(2),
-   	hopeCon number(2)
+   	dream number(2),
+  	marry number(2),
+   	child number(2),
+   	home number(2),
+   	job number(2),
+   	love number(2),
+   	human number(2)
 );
 SELECT * FROM memBasicInfo where id = 'Guest'
 select id from memBasicInfo where id='mem';

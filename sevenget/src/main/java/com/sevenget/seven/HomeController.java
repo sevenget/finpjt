@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sevenget.Rcode.Evaluation;
@@ -160,7 +161,7 @@ public class HomeController {
 	// 회원가입 하기
 	@RequestMapping(value="/main/insertUser", method = RequestMethod.POST)
 	public ModelAndView insertMember(ModelAndView mav,@RequestParam("id")String id,
-			@RequestParam("password")String password,@RequestParam("name")String name,
+			@RequestParam("password")String password,@RequestParam("name")String name,@RequestParam("birth") String birth,
 			@RequestParam("gender")String gender,@RequestParam("address")String address,
 			@RequestParam("email")String email,@RequestParam("dream")int dream,
 			@RequestParam("marry")int marry,@RequestParam("child")int child,
@@ -172,7 +173,7 @@ public class HomeController {
 		dto.setId(id);
 		dto.setPassword(password);
 		dto.setName(name);
-		
+		dto.setBirth(birth);
 		dto.setGender(gender);
 		dto.setAddress(address);
 		dto.setEmail(email);
