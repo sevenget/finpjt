@@ -28,6 +28,7 @@ public class SearchController {
 			String id = (String)session.getAttribute("id");
 			
 			if(id==null) {
+				session.setAttribute("id", "Guest");
 				id="Guest";
 			}
 			
