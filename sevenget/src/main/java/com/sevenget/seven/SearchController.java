@@ -1,5 +1,6 @@
 package com.sevenget.seven;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -32,11 +33,18 @@ public class SearchController {
 				id="Guest";
 			}
 			
-			//MemConcernDto memCon = mdao.getMemConcern(id);
+			MemConcernDto memCon = mdao.getMemConcern(id);
+			List list = kdao.searchByFilter(getFilterByMemberCon(memCon));
 			
-//			mav.addObject("companylist", kdao.searchByFilter(getFilterByMemberCon(memCon)));
-			mav.addObject("companylist", kdao.searchAdvs());
-			session.setAttribute("interestedComList", idao.selectRelatedAll(id));
+			if(list.size()>0&&!id.equals("Guest")){
+				mav.addObject("companylist", list);
+				session.setAttribute("interestedComList", idao.selectRelatedAll(id));
+			}
+			
+			if(id.equals("Guest")||list.size()==0){
+				mav.addObject("companylist", kdao.searchAdvs());		
+			}
+		
 			mav.setViewName("main/main");
 			return mav;
 		}
@@ -108,7 +116,72 @@ public class SearchController {
 			
 			
 			public FilterDTO getFilterByMemberCon(MemConcernDto memCon){
-				return null;
+				
+				List<Integer> list = new ArrayList<Integer>();
+				
+				list.add(memCon.getDateCon());
+				list.add(memCon.getMarryCon());
+				list.add(memCon.getBabyCon());
+				list.add(memCon.getHouseCon());
+				list.add(memCon.getRelationCon());
+				list.add(memCon.getDreamCon());
+				list.add(memCon.getHopeCon());
+				
+				int max1 = 0;
+				int max2 = 0;
+				
+				for(int e : list){
+					if(e>max1){
+						max2=max1;
+						max1 = e;
+					} else if(e>max2){
+						max2=e;
+					}
+				}
+				FilterDTO fdto = new FilterDTO();
+				if(memCon.getDateCon()>=max2){
+					fdto.setDateget("T");
+				} else{
+					fdto.setDateget("N");
+				}
+				
+				if(memCon.getMarryCon()>=max2){
+					fdto.setMarryget("T");
+				}else{
+					fdto.setMarryget("N");
+				}
+				
+				if(memCon.getBabyCon()>=max2){
+					fdto.setBabyget("T");
+				}else{
+					fdto.setBabyget("N");
+				}
+				
+				if(memCon.getHouseCon()>=max2){
+					fdto.setHouseget("T");
+				}else{
+					fdto.setHouseget("N");
+				}
+				
+				if(memCon.getRelationCon()>=max2){
+					fdto.setRelationget("T");
+				}else{
+					fdto.setRelationget("N");
+				}
+				
+				if(memCon.getDreamCon()>=max2){
+					fdto.setDreamget("T");
+				}else{
+					fdto.setDreamget("N");
+				}
+				
+				if(memCon.getHopeCon()>=max2){
+					fdto.setHopeget("T");
+				}else{
+					fdto.setHopeget("N");
+				}
+	
+				return fdto;
 			}
 			
 

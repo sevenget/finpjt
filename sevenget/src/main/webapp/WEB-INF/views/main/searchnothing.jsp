@@ -26,8 +26,9 @@
 	
 		
 		
-		<!-- 여기 안에다 작업하시면 돼요 -->	
-		<div id = "searchHolder">
+		<!-- 여기 안에다 작업하시면 돼요 -->
+			<%@ include file="/WEB-INF/views/include/filter_include.jsp" %>	
+			<div id = "searchHolder">
 			
 			<!-- 검색 -->
 			<div>
@@ -45,14 +46,15 @@
 										<img id="searchBtn" src = "../resources/img/searchBtn.png">
 									</nobr>
 								</td>
-								<td class="filter"> 필터</td>
+								<td class = "filter"> 필터</td>
+								<td class = "filter_apply"><b><span class="filter_apply">0</span></b>개 적용중</td>
 							</tr>
 						</table>
 					</form>
 				</div>
 		</div>
 
-			<div class="container2">	
+			<div class="container2">
 				
 				<!-- 기업 정보 -->
 				<div id="resultHolder">
