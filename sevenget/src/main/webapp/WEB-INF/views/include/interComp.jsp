@@ -22,16 +22,10 @@
 						<!-- 연습 -->
 						<table style="border:1px solid red ; clear:both; margin-left:10px;">
 							<tr>
-							<%-- <c:forEach var="item" items="${inter_list}"> --%>
 								<td style="width: 220px; height:150px; border:1px solid red ; clear:both;">
 									<img style="width: 220px; height: 150px;" src="c://img//kakao.png" />
 								</td>
 								<td style="width: 220px; height:150px; border:1px solid red ; clear:both;">
-									
-									<%-- <c:forEach var="item" items="${MemBasicInfoDAO}">
-									${MemBasicInfoDAO.getMemBasicInfo}
-									
-									</c:forEach> --%>
 								</td>
 								<td style="width: 220px; height:150px; border:1px solid red ; clear:both;">
 									<c:forEach items="${member}" var="iid" >
