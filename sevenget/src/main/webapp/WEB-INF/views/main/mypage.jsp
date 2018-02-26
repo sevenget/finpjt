@@ -75,7 +75,7 @@
 							<!-- class 명 지정해서 css 가서 width, height 값 지정해주고 float:left; 전에 설계하신대로 3개로 
 							  만들 수 있을 거예요  border:1px solid red; 이거 추가해서 작업하면 더 보기 편해요 -->
 							<h4 style="margin-left: 50px;">나에게 추천하는 기업</h4>
-							<hr style="margin-left: 30px;" width="280px" color="#aaa"
+							<hr style="margin-left: 30px;" width="230px" color="#aaa"
 								size="1" class="hr">
 							<!-- 구분선 -->
 							<h4 style="padding-left: 60px">1.</h4>
@@ -101,7 +101,7 @@
 						<div style="margin-top: 130px; clear: both">
 
 							<h4 style="padding-left: 400px">관심 기업 리스트</h4>
-							<hr id="line4" width="840px" color="#aaa" size="1" class="hr"
+							<hr id="line4" width="885px" color="#aaa" size="1" class="hr"
 								style="margin-left: 30px">
 						</div>
 						<!-- 관심 기업 리스트 표 -->
