@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sevenget.Rcode.Evaluation;
@@ -27,6 +28,7 @@ import model.companySco.CompanyRawScoDto;
 import model.companySco.CompanyScoDto;
 import model.member.MemBasicInfoDAO;
 import model.member.MemBasicInfoDTO;
+import model.member.MemIdCheckDaoImpl;
 import model.member.MemLoginDao;
 import model.plots.PlotsDaoImpl;
 import model.plots.PlotsDto;
@@ -145,10 +147,49 @@ public class HomeController {
 	}
 	
 	//@아이디 중복확인
-	@RequestMapping(value="/main/check_id", method = RequestMethod.GET)
-	public String CheckId(Locale locale, Model model){
+	@RequestMapping(value="/main/checkID", method = RequestMethod.GET)
+	public ModelAndView CheckId(ModelAndView mav,@RequestParam("id")String id){
+		MemIdCheckDaoImpl dao = new MemIdCheckDaoImpl();
+		int check = dao.Check(id);
 		
-		return "main/check_id";
+		mav.addObject("id",id);
+		mav.addObject("check",check);
+		mav.setViewName("main/member_id_check");
+		return mav;
+	}
+	
+	// 회원가입 하기
+	@RequestMapping(value="/main/insertUser", method = RequestMethod.POST)
+	public ModelAndView insertMember(ModelAndView mav,@RequestParam("id")String id,
+			@RequestParam("password")String password,@RequestParam("name")String name,@RequestParam("birth") String birth,
+			@RequestParam("gender")String gender,@RequestParam("address")String address,
+			@RequestParam("email")String email,@RequestParam("dream")int dream,
+			@RequestParam("marry")int marry,@RequestParam("child")int child,
+			@RequestParam("home")int home,@RequestParam("job")int job,
+			@RequestParam("love")int love,@RequestParam("human")int human){
+		MemBasicInfoDAO dao = new MemBasicInfoDAO();
+		MemBasicInfoDTO dto = new MemBasicInfoDTO();
+		
+		dto.setId(id);
+		dto.setPassword(password);
+		dto.setName(name);
+		dto.setBirth(birth);
+		dto.setGender(gender);
+		dto.setAddress(address);
+		dto.setEmail(email);
+		
+		dto.setDream(dream);
+		dto.setMarry(marry);
+		dto.setChild(child);
+		dto.setHome(home);
+		dto.setJob(job);
+		dto.setLove(love);
+		dto.setHuman(human);
+		
+		dao.insertMember(dto);
+		
+		mav.setViewName("main/login");
+		return mav;
 	}
 	
 	//마이페이지1

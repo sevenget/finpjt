@@ -12,7 +12,7 @@ insert into companyBasicInfo values(
 	'카카오(주)', 
 	'포털 및 기타 인터넷 정보매개 서비스업', 
 	'제주특별자치도 제주시 첨단로 242',
-	'1조 4,642억 3,279만 (2016.12. IFRS 연결)',
+	'1조 4,642억 3,279만 <br> (2016.12. IFRS 연결)',
 	2629,
 	'카카오는 새로운 연결을 통해 더 편리하고 즐거운 세상을 꿈꿉니다.
 	 사람과 사람, 사람과 기술을 한층 가깝게 연결함으로써 세상을 어제보다 더 나은 곳으로 만들기 위해 노력하고 있습니다.',
@@ -25,6 +25,7 @@ insert into companyBasicInfo values(
 	'T','T','T','N','F','F','F' 
 );
 
+delete from companyBasicInfo cascade constraint
 select * from companyBasicInfo
 
 insert into advCompany values(2, '100000000', sysdate, sysdate+1);
@@ -44,7 +45,7 @@ insert into companyBasicInfo values(
 	'네이버',
 	'포털 및 기타 인터넷 정보매개 서비스업',
 	'경기도 성남시 분당구 불정로 6',
-	'4조 226억 2,962만 (2016.12. IFRS 연결)',
+	'4조 226억 2,962만 <br>(2016.12. IFRS 연결)',
 	2655,
 	'사람과 사람, 오늘과 내일, 네트워크와 네트워크가 연결되는 더 큰 세상, NAVER가 만들어 갑니다', 
 	'동사는 다음과의 합병을 통해 우회상장. 전문화된 인력, 기술력, 콘텐츠, 경쟁력 높은 모바일 트래픽을 바탕으로 글로벌 모바일 및 인터넷 시장에서 혁신적인 라이프 서비스를 제공하는 ‘모바일 라이프 플랫폼’ 기업임
@@ -80,5 +81,6 @@ commit
 insert into companyreview values('mem', 1, sysdate, '아왜안돼');
 
 
+select * from companyreview
 delete from companyreview
 commit

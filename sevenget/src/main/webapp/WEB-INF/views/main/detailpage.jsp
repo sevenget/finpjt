@@ -162,7 +162,7 @@ $(document).ready(function($)
 
    <div id="all">
       <div id=contect">
-
+      
          <!-- 여기 안에다 작업하시면 돼요 -->
          <div class="container2">
 
@@ -243,8 +243,17 @@ $(document).ready(function($)
 				
                   <form action="" method="post" enctype="" name="">
                      <div class="c_review">
+					
+					<!-- 댓글 3개 불러오기!!! -->
+					<c:forEach var = "i" begin = "1" end = "3">
+						<div class="review${i} }">
+                           <p class="cr_view">"${review.get(i).content }"</p>
+                           <p class="cr_date">2018/02/07</p>
+                        </div>
+					</c:forEach>
 
-                        <div class="review1">
+
+                        <!-- <div class="review1">
                            <p class="cr_view">"기술직이 자신의 능력만큼 대우 받을 수 있는 회사. 대한민국에서
                               만족스러운 수준의 워라벨."</p>
                            <p class="cr_date">2018/02/07</p>
@@ -260,7 +269,7 @@ $(document).ready(function($)
                               입니다."</p>
                            <p class="cr_date">2018/01/11</p>
                         </div>
-
+ -->
                      </div>
 
                      <div class="c_write">

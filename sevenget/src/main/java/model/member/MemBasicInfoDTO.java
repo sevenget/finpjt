@@ -1,6 +1,6 @@
 package model.member;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class MemBasicInfoDTO {
 	String id;
@@ -10,6 +10,14 @@ public class MemBasicInfoDTO {
 	String gender;
 	String address;
 	String email;
+	String picture;
+	int dream;
+	int marry;
+	int child;
+	int home;
+	int job;
+	int love;
+	int human;
 	
 	public String getId() {
 		return id;
@@ -53,5 +61,55 @@ public class MemBasicInfoDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	public String getPicture() {
+		return picture;
+	}
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
+	public int getDream() {
+		return dream;
+	}
+	public void setDream(int dream) {
+		this.dream = dream;
+	}
+	public int getMarry() {
+		return marry;
+	}
+	public void setMarry(int marry) {
+		this.marry = marry;
+	}
+	public int getChild() {
+		return child;
+	}
+	public void setChild(int child) {
+		this.child = child;
+	}
+	public int getHome() {
+		return home;
+	}
+	public void setHome(int home) {
+		this.home = home;
+	}
+	public int getJob() {
+		return job;
+	}
+	public void setJob(int job) {
+		this.job = job;
+	}
+	public int getLove() {
+		return love;
+	}
+	public void setLove(int love) {
+		this.love = love;
+	}
+	public int getHuman() {
+		return human;
+	}
+	public void setHuman(int human) {
+		this.human = human;
+	}
+	
+	
 	
 }
