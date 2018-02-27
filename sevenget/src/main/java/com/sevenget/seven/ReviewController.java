@@ -20,14 +20,14 @@ public class ReviewController {
 
 	// 기업 상세페이지
 	@RequestMapping(value = "main/detailpage", method = RequestMethod.GET)
-	public ModelAndView DetailP(ReviewDaoImpl reviewDao, HttpServletRequest request,HttpSession session) {
+	public ModelAndView DetailP(ReviewDaoImpl reviewDao, HttpServletRequest request,HttpSession session, @RequestParam int cid) {
 		MemBasicInfoDAO DAO = new MemBasicInfoDAO();
 		//InterestedRCDAO CDAO = new InterestedRCDAO();
 		CompanyBasicDAO CDAO = new CompanyBasicDAO();
 		
 		String id = (String)session.getAttribute("id"); // 파라메터로 받아오기
-		int cid = 2; // 1번 = 카카오 , 2번 = 네이버
-		
+		//int cid = 2; // 1번 = 카카오 , 2번 = 네이버
+		System.out.println(cid);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("review", reviewDao.selectReview());
 		mav.addObject("member", DAO.getMemBasicInfo(id));
@@ -57,10 +57,10 @@ public class ReviewController {
 	// 기업 상세페이지-리뷰
 	@RequestMapping(value = "/main/review", method = RequestMethod.GET)
 	/* public String ReviewP(Locale locale, Model model) { */
-	public String ReviewP(ReviewDaoImpl reviewDao, HttpServletRequest request) {
+	public String ReviewP(ReviewDaoImpl reviewDao, HttpServletRequest request, @RequestParam int cid) {
 		// DAO.selectReview();
 
-		int cid = 1;
+		//int cid = 1;
 		request.setAttribute("review", reviewDao.selectReview());
 
 		request.setAttribute("cnt", reviewDao.getListCount()); // 전체 댓글 수
