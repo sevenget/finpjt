@@ -7,6 +7,7 @@ import org.rosuda.REngine.Rserve.RConnection;
 
 import model.companySco.CompanyRawScoDto;
 import model.companySco.CompanyScoDto;
+import model.companySco.PublicRawScoDto;
 
 // 실행 전 Rserve.R 반드시 실행시키기
 
@@ -72,49 +73,38 @@ public class Evaluation {
 	
 	
 	
-	public void EvalCompanyPUP() throws REXPMismatchException, REngineException {
-
-		RConnection connection = null;
-		connection = new RConnection();
+	public CompanyScoDto EvalCompanyPUP(PublicRawScoDto PRScoDto) throws REXPMismatchException, REngineException {
+		CompanyScoDto CScoDto = new CompanyScoDto();
 
 		// DB에서 받아온 데이터 집어넣기
-		connection.eval("noOTPuP <- 10");
-		connection.eval("flexible_Work_SchemePuP <- 10");
-		connection.eval("weekendWorkPuP <- 10");
-		connection.eval("walking_on_eggshellsPuP <- 10");
-		connection.eval("financial_supportPuP <- 10");
-		connection.eval("dormitory_Companyhousing_SupportPuP <- 10");
-		connection.eval("loan_supportPuP <- 10");
-		connection.eval("self_development_supportPuP <- 10");
-		connection.eval("appropriate_amount_of_work <- 10");
-		connection.eval("sufficient_salary <- 10");
-		connection.eval("related_system_after_marriage <- 10");
-		connection.eval("childcare_leave <- 10");
-		connection.eval("guaranteed_reinstatement <- 10");
-		connection.eval("vacation <- 10");
-		connection.eval("mood_environment_improvement <- 10");
-		connection.eval("dining_together <- 10");
-		connection.eval("money_management_coaching <- 10");
+		PRScoDto.setNoOTPuP(10);
+		PRScoDto.setFlexWorkPuP(10);
+		PRScoDto.setWeekendWorkPuP(10);
+		PRScoDto.setEggshellsPuP(10);
+		PRScoDto.setFinanSupportPuP(10);
+		PRScoDto.setDormiHousingSupportPuP(10);
+		PRScoDto.setLoanSupportPuP(10);
+		PRScoDto.setSelfDevSupportPuP(10);
+		PRScoDto.setApprAmountWorkPuP(10);
+		PRScoDto.setSuffSalaryPuP(10);
+		PRScoDto.setRelSysAfterMarriagePuP(10);
+		PRScoDto.setChildcareLeavePuP(10);
+		PRScoDto.setGuarantReinstatementPuP(10);
+		PRScoDto.setVacationPuP(10);
+		PRScoDto.setMoodEnvImprovPuP(10);
+		PRScoDto.setDiningTogetherPuP(10);
+		PRScoDto.setMoneyManageCoachPuP(10);
 		
-		REXP i =  connection.eval("datePuP <- (noOTPuP*(46/79) + weekendWorkPuP*15/79 + walking_on_eggshellsPuP*6/79 + Financial_supportPuP*6/79 + appropriate_amount_of_work*6/79)*6.8/10 ");
-		REXP j = connection.eval("marriagePuP <- (Related_system_after_marriage*18/62 + sufficient_salary*13/62 + walking_on_eggshellsPuP*11/62 + noOTPuP*11/62 + Financial_supportPuP*9/62)*6.8/10 ");
-		REXP k = connection.eval("babyPuP <- (childcare_leave*24/65 + Guaranteed_reinstatement*13/65 + vacation*11/65 + walking_on_eggshellsPuP*9/65 + Financial_supportPuP*8/65)*6.8/10");
-		REXP l = connection.eval("housePuP <- (sufficient_salary*29/52 + Loan_supportPuP*13/52 + Dormitory_Companyhousing_SupportPuP*6/52 + Money_management_coaching*4/52)*6.8/10 ");
-		REXP m = connection.eval("relationshipPuP <- (noOTPuP*29/58 + mood_environment_improvement*11/58 + weekendWorkPuP*8/58 + Flexible_Work_SchemePuP*5/58 +Dining_together*5/58)*6.8/10 ");
-		REXP n = connection.eval("dreamPuP <- (Self_development_supportPuP*30/44 + noOTPuP*14/44)*3/10 ");
-		REXP o = connection.eval("hopePuP <- (sufficient_salary*20/36 + mood_environment_improvement*9/36 + noOTPuP*7/36)*3/10");
+		int datePuP = (int) ((int) (PRScoDto.getNoOTPuP()*(46/79) + PRScoDto.getWeekendWorkPuP()*15/79 + PRScoDto.getEggshellsPuP()*6/79 + PRScoDto.getFinanSupportPuP()*6/79 + PRScoDto.getApprAmountWorkPuP()*6/79)*6.8/10);
+		int marriagePuP = (int) ((int) (PRScoDto.getRelSysAfterMarriagePuP()*18/62 + PRScoDto.getSuffSalaryPuP()*13/62 + PRScoDto.getEggshellsPuP()*11/62 + PRScoDto.getNoOTPuP()*11/62 + PRScoDto.getFinanSupportPuP()*9/62)*6.8/10);
+		int babyPuP = (int) ((int) (PRScoDto.getChildcareLeavePuP()*24/65 + PRScoDto.getGuarantReinstatementPuP()*13/65 + PRScoDto.getVacationPuP()*11/65 + PRScoDto.getEggshellsPuP()*9/65 + PRScoDto.getFinanSupportPuP()*8/65)*6.8/10);
+		int housePuP = (int) ((int) (PRScoDto.getSuffSalaryPuP()*29/52 + PRScoDto.getLoanSupportPuP()*13/52 + PRScoDto.getDormiHousingSupportPuP()*6/52 + PRScoDto.getMoneyManageCoachPuP()*4/52)*6.8/10);
+		int relationshipPuP = (int) ((int) (PRScoDto.getNoOTPuP()*29/58 + PRScoDto.getMoodEnvImprovPuP()*11/58 + PRScoDto.getWeekendWorkPuP()*8/58 + PRScoDto.getFlexWorkPuP()*5/58 +PRScoDto.getDiningTogetherPuP()*5/58)*6.8/10) ;
+		int dreamPuP = (PRScoDto.getSelfDevSupportPuP()*30/44 + PRScoDto.getNoOTPuP()*14/44)*3/10 ;
+		int hopePuP = (PRScoDto.getSuffSalaryPuP()*20/36 + PRScoDto.getMoodEnvImprovPuP()*9/36 + PRScoDto.getNoOTPuP()*7/36)*3/10;
 		
-		REXP p = connection.eval("EvaluationPuP <- datePuP + marriagePuP + babyPuP + housePuP + relationshipPuP + dreamPuP + hopePuP");
+		int EvaluationPuP = datePuP + marriagePuP + babyPuP + housePuP + relationshipPuP + dreamPuP + hopePuP;
 		
-		int datePuP = i.asInteger();
-		int marriagePuP = j.asInteger();
-		int babyPuP = k.asInteger();
-		int housePuP = l.asInteger();
-		int relationshipPuP = m.asInteger();
-		int dreamPuP = n.asInteger();
-		int hopePuP = o.asInteger();
-		int EvaluationPuP = p.asInteger();
-
 		System.out.println("연애=" + datePuP);
 		System.out.println("결혼=" + marriagePuP);
 		System.out.println("출산및육아=" + babyPuP);
@@ -124,7 +114,16 @@ public class Evaluation {
 		System.out.println("희망=" + hopePuP);
 		System.out.println("기업평가40%=" + EvaluationPuP);
 		
-
+		CScoDto.setCid(PRScoDto.getCid());
+		CScoDto.setDateSco(datePuP);
+		CScoDto.setMarrySco(marriagePuP);
+		CScoDto.setBabySco(babyPuP);
+		CScoDto.setHouseSco(housePuP);
+		CScoDto.setRelationSco(relationshipPuP);
+		CScoDto.setDreamSco(dreamPuP);
+		CScoDto.setHopeSco(dreamPuP);
+		
+		return CScoDto;
 	}
 
 

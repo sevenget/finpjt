@@ -59,21 +59,20 @@
 					<div class="cc_review">
 						<!-- 댓글 전체 불러오기!!! -->
 						${review}
-						<%-- <c:forEach var="i" begin="${cnt}" end="0" step="1">
+						<c:forEach var="i" begin="0" end="2">
 							<div class="review${i+1}">
-1
+
 								<p class="cr_view">"${review.get(i).content }"</p>
 								<p class="cr_view">${review.get(i).reviewdate }</p>
-							
 							</div>
-						</c:forEach> --%>
-						<c:forEach items="${review}" var ="reviewdto">
+						</c:forEach>
+						<%-- <c:forEach items="${review}" var ="reviewdto">
 							<div class="review">
 								<p class="cr_view">"${reviewdto.content }"</p>
 								<p class="cr_view">${reviewdto.reviewdate }</p>
 							
 							</div>
-						</c:forEach>
+						</c:forEach> --%>
 
 					</div>
 

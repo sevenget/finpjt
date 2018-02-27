@@ -33,6 +33,14 @@ public class PublicRawScoDaoImpl implements PublicRawScoDao {
 		mybatis.commit();
 	}
 	
+	public PublicRawScoDto selectbyCid(int cid){
+		PublicRawScoDto dto = new PublicRawScoDto();
+		System.out.println(cid+"의 PublicRawScoDto목록을 가져옵니다. 로딩중");
+
+		dto = (PublicRawScoDto) mybatis.selectOne("PublicRawScoDAO.getById", cid);
+		return dto;
+	}
+	
 	/*public CompanyScoDto inquiryId(String id){
 		CompanyScoDto dto = new CompanyScoDto();
 		

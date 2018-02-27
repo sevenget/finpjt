@@ -1,14 +1,10 @@
 package com.sevenget.seven;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.jasper.tagplugins.jstl.core.Out;
 import org.rosuda.REngine.REXPMismatchException;
 import org.rosuda.REngine.REngineException;
 import org.slf4j.Logger;
@@ -17,20 +13,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sevenget.Rcode.Evaluation;
 import com.sevenget.Rcode.MakingPlot;
 
-import model.company.InterestedRCDAO;
 import model.companySco.CompanyRawScoDaoImpl;
 import model.companySco.CompanyRawScoDto;
 import model.companySco.CompanyScoDto;
-import model.member.MemBasicInfoDAO;
-import model.member.MemBasicInfoDTO;
-import model.member.MemIdCheckDaoImpl;
-import model.member.MemLoginDao;
+import model.companySco.PublicRawScoDaoImpl;
+import model.companySco.PublicRawScoDto;
 import model.plots.PlotsDaoImpl;
 import model.plots.PlotsDto;
 
@@ -74,34 +66,6 @@ public class HomeController {
 		return mav;
 	}
 
-	/*
-	// 기업 상세페이지
-	@RequestMapping(value = "/main/detailpage", method = RequestMethod.GET)
-	public String DetailP(Locale locale, Model model) {
-
-		return "main/detailpage";
-	}
-
-	// 기업 상세페이지-리뷰
-	@RequestMapping(value = "/main/review", method = RequestMethod.GET)
-	public String ReviewP(Locale locale, Model model) {
-
-		return "main/review";
-	}
-	*/
-
-	/*
-	 * //MakingPlot
-	 * 
-	 * @RequestMapping(value = "/main/mypage2", method = RequestMethod.GET)
-	 * public ModelAndView MPlot(Locale locale, Model model) { ModelAndView mav
-	 * = new ModelAndView();
-	 * 
-	 * mav.addObject("a");
-	 * 
-	 * return mav; }
-	 */
-
 	// loading
 	@RequestMapping(value = "/main/loading", method = RequestMethod.GET)
 	public String MPlot(PlotsDaoImpl DAO, HttpServletRequest request) throws REXPMismatchException, REngineException{
@@ -131,6 +95,15 @@ public class HomeController {
 
 		CScoDto = evaluation.EvalCompanyEPR(CRScoDto);
 		System.out.printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n", CScoDto.getCid(), CScoDto.getDateSco(), CScoDto.getMarrySco(), CScoDto.getBabySco(), CScoDto.getHouseSco(), CScoDto.getRelationSco(), CScoDto.getDreamSco(), CScoDto.getHopeSco());
+		
+		
+		// 일반인 평가
+		PublicRawScoDaoImpl PRScoDaoImpl = new PublicRawScoDaoImpl();
+		PublicRawScoDto PRScoDto= PRScoDaoImpl.selectbyCid(cid);
+
+		
+		
+		
 		
 
 		//*********************************************
