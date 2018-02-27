@@ -312,16 +312,15 @@
 
 
 										<!-- 댓글 3개 불러오기!!! -->
-										<c:forEach var="i" begin="0" end="2">
+										<%-- <c:forEach var="i" begin="0" end="2">
 											<div class="review${i+1}">
 
 												<p class="cr_view">"${review.get(i).content }"</p>
 													<p class="cr_view">${review.get(i).reviewdate }</p>
-												<%-- <p class="cr_view">"${review.get(i).reviewDate }"</p> --%>
+												<p class="cr_view">"${review.get(i).reviewDate }"</p>
 											</div>
-										</c:forEach>
-
-										<!-- 	<div class="review1">
+										</c:forEach> --%>
+											<!-- <div class="review1">
                            <p class="cr_view">"기술직이 자신의 능력만큼 대우 받을 수 있는 회사. 대한민국에서
                               만족스러운 수준의 워라벨."</p>
                            <p class="cr_date">2018/02/07</p>
@@ -336,7 +335,7 @@
                            <p class="cr_view">"국내에서 IT관련 모든 직군을 경험해 볼 수 있는 몇 안되는 좋은 회사
                               입니다."</p>
                            <p class="cr_date">2018/01/11</p>
-                        </div>  -->
+                        </div> --> 
 									</div>
 								</form>
 

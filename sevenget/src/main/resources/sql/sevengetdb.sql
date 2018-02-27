@@ -68,7 +68,7 @@ create table companyScore(
    dreamSco number(4,2),
    hopeSco number(4,2)
 );
-insert into companyscore values('mem',1, 6.8,6.8,6.8,6.8,6.8,3,3)
+insert into companyscore values(1, 6.8,6.8,6.8,6.8,6.8,3,3)
 select * from companyscore
 delete companyscore
 -- 기업세부정보
@@ -138,7 +138,7 @@ create table plots(
 );
 
 select * from plots;
-insert into plots values('mem',1, 'mem.png', sysdate)
+insert into plots values(pid_seq.nextval,'mem',1, 'mem.png', sysdate)
 
 
 -- 점수입력(전문가?패널)
