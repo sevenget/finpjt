@@ -1,7 +1,5 @@
 package model.member;
 
-import java.sql.Date;
-
 public class MemBasicInfoDTO {
 	String id;
 	String password;
@@ -11,13 +9,13 @@ public class MemBasicInfoDTO {
 	String address;
 	String email;
 	String picture;
-	int dream;
-	int marry;
-	int child;
-	int home;
-	int job;
-	int love;
-	int human;
+	int dateCon;
+	int marryCon;
+	int babyCon;
+	int houseCon;
+	int relationCon;
+	int dreamCon;
+	int hopeCon;
 	
 	public String getId() {
 		return id;
@@ -67,49 +65,48 @@ public class MemBasicInfoDTO {
 	public void setPicture(String picture) {
 		this.picture = picture;
 	}
-	public int getDream() {
-		return dream;
+	public int getDateCon() {
+		return dateCon;
 	}
-	public void setDream(int dream) {
-		this.dream = dream;
+	public void setDateCon(int dateCon) {
+		this.dateCon = dateCon;
 	}
-	public int getMarry() {
-		return marry;
+	public int getMarryCon() {
+		return marryCon;
 	}
-	public void setMarry(int marry) {
-		this.marry = marry;
+	public void setMarryCon(int marryCon) {
+		this.marryCon = marryCon;
 	}
-	public int getChild() {
-		return child;
+	public int getBabyCon() {
+		return babyCon;
 	}
-	public void setChild(int child) {
-		this.child = child;
+	public void setBabyCon(int babyCon) {
+		this.babyCon = babyCon;
 	}
-	public int getHome() {
-		return home;
+	public int getHouseCon() {
+		return houseCon;
 	}
-	public void setHome(int home) {
-		this.home = home;
+	public void setHouseCon(int houseCon) {
+		this.houseCon = houseCon;
 	}
-	public int getJob() {
-		return job;
+	public int getRelationCon() {
+		return relationCon;
 	}
-	public void setJob(int job) {
-		this.job = job;
+	public void setRelationCon(int relationCon) {
+		this.relationCon = relationCon;
 	}
-	public int getLove() {
-		return love;
+	public int getDreamCon() {
+		return dreamCon;
 	}
-	public void setLove(int love) {
-		this.love = love;
+	public void setDreamCon(int dreamCon) {
+		this.dreamCon = dreamCon;
 	}
-	public int getHuman() {
-		return human;
+	public int getHopeCon() {
+		return hopeCon;
 	}
-	public void setHuman(int human) {
-		this.human = human;
+	public void setHopeCon(int hopeCon) {
+		this.hopeCon = hopeCon;
 	}
-	
 	
 	
 }
