@@ -31,6 +31,10 @@ create sequence psid_seq start with 1 increment by 1;
 --sequence 사용방법
 --- combasic_seq.nextval : 다음 값
 
+
+
+
+
 ------- 위에서 테이블 모두 drop 하신 다음
 -----------여기서부터 맨 마지막까지 다 선택 후 실행시키시면 됩니다. 
 -------------회원 기본 정보 3개, 기업(카카오, 네이버) 데이터도 들어갑니다. ----------
