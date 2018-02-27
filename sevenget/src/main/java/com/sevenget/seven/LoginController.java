@@ -125,10 +125,10 @@ public class LoginController {
 	public ModelAndView insertMember(ModelAndView mav,@RequestParam("id")String id,
 			@RequestParam("password")String password,@RequestParam("name")String name,@RequestParam("birth") String birth,
 			@RequestParam("gender")String gender,@RequestParam("address")String address,
-			@RequestParam("email")String email,@RequestParam("dream")int dream,
-			@RequestParam("marry")int marry,@RequestParam("child")int child,
-			@RequestParam("home")int home,@RequestParam("job")int job,
-			@RequestParam("love")int love,@RequestParam("human")int human){
+			@RequestParam("email")String email,@RequestParam("dateCon")int dateCon,
+			@RequestParam("marryCon")int marryCon,@RequestParam("babyCon")int babyCon,
+			@RequestParam("houseCon")int houseCon,@RequestParam("relationCon")int relationCon,
+			@RequestParam("dreamCon")int dreamCon,@RequestParam("hopeCon")int hopeCon){
 		MemBasicInfoDAO dao = new MemBasicInfoDAO();
 		MemBasicInfoDTO dto = new MemBasicInfoDTO();
 		
@@ -139,15 +139,14 @@ public class LoginController {
 		dto.setGender(gender);
 		dto.setAddress(address);
 		dto.setEmail(email);
-		
-		dto.setDream(dream);
-		dto.setMarry(marry);
-		dto.setChild(child);
-		dto.setHome(home);
-		dto.setJob(job);
-		dto.setLove(love);
-		dto.setHuman(human);
-		
+		dto.setDateCon(dateCon);
+		dto.setMarryCon(marryCon);
+		dto.setBabyCon(babyCon);
+		dto.setHouseCon(houseCon);
+		dto.setRelationCon(relationCon);
+		dto.setDreamCon(dreamCon);
+		dto.setHopeCon(hopeCon);
+
 		dao.insertMember(dto);
 		
 		mav.setViewName("main/login");
