@@ -38,6 +38,7 @@ public class CompanyRawScoDaoImpl implements CompanyScoDao {
 	public CompanyRawScoDto selectbyCid(int cid){
 		CompanyRawScoDto dto = new CompanyRawScoDto();
 		dto = (CompanyRawScoDto) mybatis.selectOne("CompanyRawScoDAO.getById", cid);
+		System.out.println("******************"+dto.getCid() +" "+dto.getBusiGrowthEPr());
 		return dto;
 	}
 
@@ -79,7 +80,7 @@ public class CompanyRawScoDaoImpl implements CompanyScoDao {
 	public static void main(String args[]) {
 		CompanyRawScoDaoImpl pp = new CompanyRawScoDaoImpl();
 		CompanyScoDto dto = new CompanyScoDto();
-		//pp.insertCompanyRawScore();
+		pp.insertCompanyRawScore();
 		pp.selectCompanyRawScores();
 		pp.selectbyCid(1);
 	}

@@ -4,7 +4,6 @@
 
 <mapper namespace="CompanyScoDAO">
  	<resultMap type="companySco" id="CompanyScoMap">
-		<result column="id" property="id" />
 		<result column="cid" property="cid" />
 		<result column="dateSco" property="dateSco" />
 		<result column="marrySco" property="marrySco" />
@@ -28,11 +27,11 @@
 
 	<insert id="insertSCs" ><!-- parameterType="CompanyScoMap" -->
 		INSERT INTO companyscore
-		VALUES(#{id},#{cid},#{dateSco},#{marrySco},#{babySco},#{houseSco},#{relationSco},#{dreamSco},#{hopeSco})
+		VALUES(#{cid},#{dateSco},#{marrySco},#{babySco},#{houseSco},#{relationSco},#{dreamSco},#{hopeSco})
 	</insert>
 	
 	<update id="updateSCs">
 		UPDATE companyscore
-		SET cid = #{cid} WHERE id = #{id}
+		SET cid = #{cid}, dateSco=#{dateSco},marrySco=#{marrySco},babySco=#{babySco},houseSco=#{houseSco},relationSco=#{relationSco},dreamSco=#{dreamSco},hopeSco=#{hopeSco}
 	</update>
 </mapper>

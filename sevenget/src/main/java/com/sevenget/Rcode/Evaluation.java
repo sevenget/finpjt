@@ -1,7 +1,5 @@
 package com.sevenget.Rcode;
 
-import com.sun.javafx.binding.StringFormatter;
-
 import model.companySco.CompanyRawScoDaoImpl;
 import model.companySco.CompanyRawScoDto;
 import model.companySco.CompanyScoDaoImpl;
@@ -27,7 +25,6 @@ public class Evaluation {
 		double EvaluationPrP = dateEPr + marriageEPr + babyEPr + houseEPr + relationshipEPr + dreamEPr + hopeEPr;
 		
 		System.out.println("기업평가PRP :" + EvaluationPrP);
-		System.out.println(CRScoDto.getCid());
 		
 		CScoDtoEP.setCid(CRScoDto.getCid());
 		CScoDtoEP.setDateSco(Double.parseDouble(String.format("%.2f" , dateEPr)));
@@ -37,7 +34,6 @@ public class Evaluation {
 		CScoDtoEP.setRelationSco(Double.parseDouble(String.format("%.2f" , relationshipEPr)));
 		CScoDtoEP.setDreamSco(Double.parseDouble(String.format("%.2f" , dreamEPr)));
 		CScoDtoEP.setHopeSco(Double.parseDouble(String.format("%.2f" , dreamEPr)));
-		
 		return CScoDtoEP;
 	}
 	
@@ -105,9 +101,7 @@ public class Evaluation {
 		CompanyScoDaoImpl ComScoDao = new CompanyScoDaoImpl();
 		CompanyScoDto CScoDto = new CompanyScoDto(); 
 		CScoDto.setCid(cid);
-		CScoDto.setId(id);
-		System.out.println(CScoDto.getCid());
-		System.out.println(CScoDto.getId());
+		System.out.println("*********CScoDto.getCid() : "+CScoDto.getCid());
 		//전문 패널 점수
 		CompanyRawScoDaoImpl CRScoDao = new CompanyRawScoDaoImpl();
 		CompanyScoDto dtoEP = new CompanyScoDto();
@@ -147,7 +141,7 @@ public class Evaluation {
 			double hopeEP = Double.parseDouble(String.format("%.2f" , dtoEP.getHopeSco()*1.2));
 			double hopePP = Double.parseDouble(String.format("%.2f" , dtoPP.getHopeSco()*4/3));
 
-
+			
 			CScoDto.setDateSco(Double.parseDouble(String.format("%.2f" , dateEP + datePP)));
 			CScoDto.setMarrySco(Double.parseDouble(String.format("%.2f" , marryEP + marryPP)));
 			CScoDto.setBabySco(Double.parseDouble(String.format("%.2f" , babyEP + babyPP)));
@@ -156,8 +150,7 @@ public class Evaluation {
 			CScoDto.setDreamSco(Double.parseDouble(String.format("%.2f" , dreamEP + dreamPP)));
 			CScoDto.setHopeSco(Double.parseDouble(String.format("%.2f" , hopeEP + hopePP)));
 			System.out.printf("연애%s\t결혼%s\t아기%s\t내집%s\t인간%s\t꿈%s\t희망%s\n",CScoDto.getDateSco(),CScoDto.getMarrySco(),CScoDto.getBabySco(),CScoDto.getHouseSco(),CScoDto.getRelationSco(),CScoDto.getDreamSco(),CScoDto.getHopeSco());
-			System.out.println(CScoDto.getCid());
-			System.out.println(CScoDto.getId());
+
 			ComScoDao.insertCompanyScore(CScoDto);
 		
 			return CScoDto;
@@ -166,7 +159,7 @@ public class Evaluation {
 			System.out.println("일반인 평가 없을 때");
 			System.out.println("dtoEP에 저장된 cid"+dtoEP.getCid());
 
-			System.out.println(13);
+			System.out.println(16);
 			CScoDto.setDateSco(Double.parseDouble(String.format("%.2f" , dtoEP.getDateSco()*10/6)));
 			CScoDto.setMarrySco(Double.parseDouble(String.format("%.2f" , dtoEP.getMarrySco()*10/6)));
 			CScoDto.setBabySco(Double.parseDouble(String.format("%.2f" , dtoEP.getBabySco()*10/6)));
@@ -176,8 +169,9 @@ public class Evaluation {
 			CScoDto.setHopeSco(Double.parseDouble(String.format("%.2f" , dtoEP.getHopeSco()*10/6)));
 			System.out.printf("연애%s\t결혼%s\t아기%s\t내집%s\t인간%s\t꿈%s\t희망%s\n",CScoDto.getDateSco(),CScoDto.getMarrySco(),CScoDto.getBabySco(),CScoDto.getHouseSco(),CScoDto.getRelationSco(),CScoDto.getDreamSco(),CScoDto.getHopeSco());
 			
-			System.out.println(14);
+			System.out.println(17);
 			ComScoDao.insertCompanyScore(CScoDto);
+			System.out.println(18);
 			
 			return CScoDto;
 		}

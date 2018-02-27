@@ -1,6 +1,7 @@
 package model.companySco;
 
 public class PublicRawScoDto {
+	int psid;
 	String id;
 	int cid;
 	double noOTPuP;
@@ -21,6 +22,12 @@ public class PublicRawScoDto {
 	double diningTogetherPuP;
 	double moneyManageCoachPuP;
 	
+	public int getPsid() {
+		return psid;
+	}
+	public void setPsid(int psid) {
+		this.psid = psid;
+	}
 	public String getId() {
 		return id;
 	}

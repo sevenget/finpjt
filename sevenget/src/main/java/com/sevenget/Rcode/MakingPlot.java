@@ -40,7 +40,7 @@ public class MakingPlot {
 		
 		
 		
-		connection.eval("png(filename = 'radarchart"+CScoDto.getCid()+CScoDto.getId()+".png', width = 510, height = 400)"); // plot의 너비와 높이는 언제든지 변경가능!
+		connection.eval("png(filename = 'radarchart"+CScoDto.getCid()+".png', width = 510, height = 400)"); // plot의 너비와 높이는 언제든지 변경가능!
 		connection.eval("par(mar=c(1,1,1,1))");
 		connection.eval("radarchart( data  , axistype=1 , seg = 5, pcol=colors_border , pfcol=colors_in , plwd=4 , plty=1, cglcol='grey', cglty=1, axislabcol='grey', caxislabels=seq(0,10,2), cglwd=0.8,vlcex=0.8)");
 		connection.eval("legend(x=0.7, y=1.3, legend = rownames(data[-c(1,2),]), bty = 'n', pch=20 , col=colors_in , text.col = 'grey', cex=1.2, pt.cex=3)");
@@ -61,6 +61,6 @@ public class MakingPlot {
 			}
 			System.out.println();
 		}
-		return "radarchart"+CScoDto.getCid()+CScoDto.getId()+".png";
+		return "radarchart"+CScoDto.getCid()+".png";
 	}
 }

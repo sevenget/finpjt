@@ -34,8 +34,10 @@ public class PublicRawScoDaoImpl implements PublicRawScoDao {
 	}
 	
 	public PublicRawScoDto selectbyCid(int cid){
+		System.out.println(cid);
 		PublicRawScoDto dto = new PublicRawScoDto();
 		dto = (PublicRawScoDto) mybatis.selectOne("PublicRawScoDAO.getById", cid);
+		System.out.println(dto.getCid());
 		return dto;
 	}
 	

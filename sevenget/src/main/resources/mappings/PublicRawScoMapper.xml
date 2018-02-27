@@ -4,6 +4,7 @@
 
 <mapper namespace="PublicRawScoDAO">
  	<resultMap type="publicRawSco" id="PublicRawScoMap">
+		<result column="psid" property="psid" />
 		<result column="id" property="id" />
 		<result column="cid" property="cid" />
 		<result column="noOTPuP" property="noOTPuP" />

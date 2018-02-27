@@ -1,7 +1,6 @@
 package model.companySco;
 
 public class CompanyScoDto {
-	String id;
 	int cid;
 	double dateSco;
 	double marrySco;
@@ -11,12 +10,6 @@ public class CompanyScoDto {
 	double dreamSco;
 	double hopeSco;
 	
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
 	public int getCid() {
 		return cid;
 	}

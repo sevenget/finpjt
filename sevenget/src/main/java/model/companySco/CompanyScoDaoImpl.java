@@ -24,7 +24,7 @@ public class CompanyScoDaoImpl implements CompanyScoDao {
 		System.out.println("목록가져오기 완료. 출력.");
 
 		for (CompanyScoDto dto : list) {
-			System.out.printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n", dto.getId(),dto.getCid(), dto.getDateSco(), dto.getMarrySco(), dto.getBabySco(), dto.getHouseSco(), dto.getRelationSco(), dto.getDreamSco(), dto.getHopeSco());
+			System.out.printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n", dto.getCid(), dto.getDateSco(), dto.getMarrySco(), dto.getBabySco(), dto.getHouseSco(), dto.getRelationSco(), dto.getDreamSco(), dto.getHopeSco());
 		}
 
 		mybatis.commit();
@@ -32,7 +32,11 @@ public class CompanyScoDaoImpl implements CompanyScoDao {
 	
 	public void insertCompanyScore(CompanyScoDto dto) {
 		System.out.println("기업 점수 삽입 전");
-		mybatis.insert("CompanyScoDAO.insertSCs", dto);
+		try {
+			mybatis.insert("CompanyScoDAO.insertSCs", dto);
+		} catch (Exception e) {
+			mybatis.update("CompanyScoDAO.updateSCs", dto);
+		}
 		System.out.println("기업 점수 삽입 완료");
 		mybatis.commit();
 
