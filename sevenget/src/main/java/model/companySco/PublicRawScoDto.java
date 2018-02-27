@@ -3,23 +3,23 @@ package model.companySco;
 public class PublicRawScoDto {
 	String id;
 	int cid;
-	int noOTPuP;
-	int flexWorkPuP;
-	int weekendWorkPuP;
-	int eggshellsPuP;
-	int finanSupportPuP;
-	int dormiHousingSupportPuP;
-	int loanSupportPuP;
-	int selfDevSupportPuP;
-	int apprAmountWorkPuP;
-	int suffSalaryPuP;
-	int relSysAfterMarriagePuP;
-	int childcareLeavePuP;
-	int guarantReinstatementPuP;
-	int vacationPuP;
-	int moodEnvImprovPuP;
-	int diningTogetherPuP;
-	int moneyManageCoachPuP;
+	double noOTPuP;
+	double flexWorkPuP;
+	double weekendWorkPuP;
+	double eggshellsPuP;
+	double finanSupportPuP;
+	double dormiHousingSupportPuP;
+	double loanSupportPuP;
+	double selfDevSupportPuP;
+	double apprAmountWorkPuP;
+	double suffSalaryPuP;
+	double relSysAfterMarriagePuP;
+	double childcareLeavePuP;
+	double guarantReinstatementPuP;
+	double vacationPuP;
+	double moodEnvImprovPuP;
+	double diningTogetherPuP;
+	double moneyManageCoachPuP;
 	
 	public String getId() {
 		return id;
@@ -33,107 +33,108 @@ public class PublicRawScoDto {
 	public void setCid(int cid) {
 		this.cid = cid;
 	}
-	public int getNoOTPuP() {
+	public double getNoOTPuP() {
 		return noOTPuP;
 	}
-	public void setNoOTPuP(int noOTPuP) {
+	public void setNoOTPuP(double noOTPuP) {
 		this.noOTPuP = noOTPuP;
 	}
-	public int getFlexWorkPuP() {
+	public double getFlexWorkPuP() {
 		return flexWorkPuP;
 	}
-	public void setFlexWorkPuP(int flexWorkPuP) {
+	public void setFlexWorkPuP(double flexWorkPuP) {
 		this.flexWorkPuP = flexWorkPuP;
 	}
-	public int getWeekendWorkPuP() {
+	public double getWeekendWorkPuP() {
 		return weekendWorkPuP;
 	}
-	public void setWeekendWorkPuP(int weekendWorkPuP) {
+	public void setWeekendWorkPuP(double weekendWorkPuP) {
 		this.weekendWorkPuP = weekendWorkPuP;
 	}
-	public int getEggshellsPuP() {
+	public double getEggshellsPuP() {
 		return eggshellsPuP;
 	}
-	public void setEggshellsPuP(int eggshellsPuP) {
+	public void setEggshellsPuP(double eggshellsPuP) {
 		this.eggshellsPuP = eggshellsPuP;
 	}
-	public int getFinanSupportPuP() {
+	public double getFinanSupportPuP() {
 		return finanSupportPuP;
 	}
-	public void setFinanSupportPuP(int finanSupportPuP) {
+	public void setFinanSupportPuP(double finanSupportPuP) {
 		this.finanSupportPuP = finanSupportPuP;
 	}
-	public int getDormiHousingSupportPuP() {
+	public double getDormiHousingSupportPuP() {
 		return dormiHousingSupportPuP;
 	}
-	public void setDormiHousingSupportPuP(int dormiHousingSupportPuP) {
+	public void setDormiHousingSupportPuP(double dormiHousingSupportPuP) {
 		this.dormiHousingSupportPuP = dormiHousingSupportPuP;
 	}
-	public int getLoanSupportPuP() {
+	public double getLoanSupportPuP() {
 		return loanSupportPuP;
 	}
-	public void setLoanSupportPuP(int loanSupportPuP) {
+	public void setLoanSupportPuP(double loanSupportPuP) {
 		this.loanSupportPuP = loanSupportPuP;
 	}
-	public int getSelfDevSupportPuP() {
+	public double getSelfDevSupportPuP() {
 		return selfDevSupportPuP;
 	}
-	public void setSelfDevSupportPuP(int selfDevSupportPuP) {
+	public void setSelfDevSupportPuP(double selfDevSupportPuP) {
 		this.selfDevSupportPuP = selfDevSupportPuP;
 	}
-	public int getApprAmountWorkPuP() {
+	public double getApprAmountWorkPuP() {
 		return apprAmountWorkPuP;
 	}
-	public void setApprAmountWorkPuP(int apprAmountWorkPuP) {
+	public void setApprAmountWorkPuP(double apprAmountWorkPuP) {
 		this.apprAmountWorkPuP = apprAmountWorkPuP;
 	}
-	public int getSuffSalaryPuP() {
+	public double getSuffSalaryPuP() {
 		return suffSalaryPuP;
 	}
-	public void setSuffSalaryPuP(int suffSalaryPuP) {
+	public void setSuffSalaryPuP(double suffSalaryPuP) {
 		this.suffSalaryPuP = suffSalaryPuP;
 	}
-	public int getRelSysAfterMarriagePuP() {
+	public double getRelSysAfterMarriagePuP() {
 		return relSysAfterMarriagePuP;
 	}
-	public void setRelSysAfterMarriagePuP(int relSysAfterMarriagePuP) {
+	public void setRelSysAfterMarriagePuP(double relSysAfterMarriagePuP) {
 		this.relSysAfterMarriagePuP = relSysAfterMarriagePuP;
 	}
-	public int getChildcareLeavePuP() {
+	public double getChildcareLeavePuP() {
 		return childcareLeavePuP;
 	}
-	public void setChildcareLeavePuP(int childcareLeavePuP) {
+	public void setChildcareLeavePuP(double childcareLeavePuP) {
 		this.childcareLeavePuP = childcareLeavePuP;
 	}
-	public int getGuarantReinstatementPuP() {
+	public double getGuarantReinstatementPuP() {
 		return guarantReinstatementPuP;
 	}
-	public void setGuarantReinstatementPuP(int guarantReinstatementPuP) {
+	public void setGuarantReinstatementPuP(double guarantReinstatementPuP) {
 		this.guarantReinstatementPuP = guarantReinstatementPuP;
 	}
-	public int getVacationPuP() {
+	public double getVacationPuP() {
 		return vacationPuP;
 	}
-	public void setVacationPuP(int vacationPuP) {
+	public void setVacationPuP(double vacationPuP) {
 		this.vacationPuP = vacationPuP;
 	}
-	public int getMoodEnvImprovPuP() {
+	public double getMoodEnvImprovPuP() {
 		return moodEnvImprovPuP;
 	}
-	public void setMoodEnvImprovPuP(int moodEnvImprovPuP) {
+	public void setMoodEnvImprovPuP(double moodEnvImprovPuP) {
 		this.moodEnvImprovPuP = moodEnvImprovPuP;
 	}
-	public int getDiningTogetherPuP() {
+	public double getDiningTogetherPuP() {
 		return diningTogetherPuP;
 	}
-	public void setDiningTogetherPuP(int diningTogetherPuP) {
+	public void setDiningTogetherPuP(double diningTogetherPuP) {
 		this.diningTogetherPuP = diningTogetherPuP;
 	}
-	public int getMoneyManageCoachPuP() {
+	public double getMoneyManageCoachPuP() {
 		return moneyManageCoachPuP;
 	}
-	public void setMoneyManageCoachPuP(int moneyManageCoachPuP) {
+	public void setMoneyManageCoachPuP(double moneyManageCoachPuP) {
 		this.moneyManageCoachPuP = moneyManageCoachPuP;
 	}
-
+	
+	
 }

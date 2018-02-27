@@ -35,8 +35,6 @@ public class PublicRawScoDaoImpl implements PublicRawScoDao {
 	
 	public PublicRawScoDto selectbyCid(int cid){
 		PublicRawScoDto dto = new PublicRawScoDto();
-		System.out.println(cid+"의 PublicRawScoDto목록을 가져옵니다. 로딩중");
-
 		dto = (PublicRawScoDto) mybatis.selectOne("PublicRawScoDAO.getById", cid);
 		return dto;
 	}
@@ -86,9 +84,11 @@ public class PublicRawScoDaoImpl implements PublicRawScoDao {
 
 	public static void main(String args[]) {
 		PublicRawScoDaoImpl pp = new PublicRawScoDaoImpl();
-		pp.insertPublicRawScore();
+		/*pp.insertPublicRawScore();
 		pp.selectPublicRawScores();
-		/*pp.insertOrUpdatePlots("mem1");// mem은 세션에서 받아온 게 없어서 그냥 해 둠.
+		pp.insertOrUpdatePlots("mem1");// mem은 세션에서 받아온 게 없어서 그냥 해 둠.
 		pp.selectPlots();*/
+		pp.insertPublicRawScore();
+		pp.selectbyCid(1);
 	}
 }
