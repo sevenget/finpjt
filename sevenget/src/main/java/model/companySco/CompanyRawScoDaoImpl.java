@@ -46,29 +46,30 @@ public class CompanyRawScoDaoImpl implements CompanyScoDao {
 		CompanyRawScoDto dto = new CompanyRawScoDto();
 		System.out.println("데이터 입력 시작");
 		
-		dto.setCid(1);
-		dto.setNoOTEPr(5);
-		dto.setFlexWorkEPr(1);
-		dto.setWeekendWorkEPr(1);
-		dto.setNewcomerSalEPr(3000);
-		dto.setPaidVacaEPr(15);
-		dto.setCompKindergartenEPr(1);
-		dto.setEduSupportEPr(1);
-		dto.setLoanSupportEPr(1);
-		dto.setDormiHousingSupportEPr(1);
-		dto.setOpClubEPr(1);
-		dto.setSupportClubEPr(1);
-		dto.setClubMemRateEPr(100);
-		dto.setSelfDevSupportEPr(1);
-		dto.setSeminarInvEPr(5);
-		dto.setHorizStrucEPr(1);
-		dto.setVarWorkExpEPr(1);
-		dto.setTelAvailEPr(1);
-		dto.setSalIncreRateEPr(20);
+		dto.setCid(2);
+		// dto.setCid(1);
+		dto.setNoOTEPr(4);
+		dto.setFlexWorkEPr(0);
+		dto.setWeekendWorkEPr(0);
+		dto.setNewcomerSalEPr(1000);
+		dto.setPaidVacaEPr(7);
+		dto.setCompKindergartenEPr(0);
+		dto.setEduSupportEPr(0);
+		dto.setLoanSupportEPr(0);
+		dto.setDormiHousingSupportEPr(0);
+		dto.setOpClubEPr(0);
+		dto.setSupportClubEPr(0);
+		dto.setClubMemRateEPr(0);
+		dto.setSelfDevSupportEPr(0);
+		dto.setSeminarInvEPr(0);
+		dto.setHorizStrucEPr(0);
+		dto.setVarWorkExpEPr(0);
+		dto.setTelAvailEPr(0);
+		dto.setSalIncreRateEPr(0);
 		dto.setRetireRateEPr(0);
-		dto.setBusiGrowthEPr(100);
-		dto.setInduGrowthEPr(50);
-		dto.setGovSupportEPr(1);
+		dto.setBusiGrowthEPr(0);
+		dto.setInduGrowthEPr(0);
+		dto.setGovSupportEPr(0);
 			
 		mybatis.update("CompanyRawScoDAO.insertRawScore", dto);
 		System.out.println("데이터 입력 완료");
@@ -80,8 +81,8 @@ public class CompanyRawScoDaoImpl implements CompanyScoDao {
 	public static void main(String args[]) {
 		CompanyRawScoDaoImpl pp = new CompanyRawScoDaoImpl();
 		CompanyScoDto dto = new CompanyScoDto();
-		pp.insertCompanyRawScore();
+		//pp.insertCompanyRawScore();
 		pp.selectCompanyRawScores();
-		pp.selectbyCid(1);
+		pp.selectbyCid(2);
 	}
 }
