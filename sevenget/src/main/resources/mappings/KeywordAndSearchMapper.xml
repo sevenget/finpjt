@@ -126,7 +126,8 @@
 		<if test='hopeloss=="T"'>
 			AND HOPEGET = 'F'
 		</if>
-	</select>
+	</select
+	>
 	<select id="selectAllSearch" resultType="keyword">
 		SELECT * FROM search
 	</select>
@@ -141,7 +142,7 @@
 	</select>
 
 	<insert id="insertSearch">
-		INSERT INTO search VALUES(sysdate, #{keyword},#{searchMem})
+		INSERT INTO search VALUES((select nvl(max(sid), 0)+1 from search), sysdate, #{keyword},#{searchMem})
 	</insert>
 	
 

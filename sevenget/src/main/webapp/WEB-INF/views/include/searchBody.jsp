@@ -6,6 +6,11 @@
 	<script>
 		$(function(){
 			$('img.interested').click(function(){
+				if("${id}"=="Guest"){
+					alert("관심기업 등록 및 해지는 로그인 이후 사용이 가능합니다");
+					return false;
+				}
+				
 				if($(this).attr('src')=='../resources/img/whiteheart.jpg'){
 					$(this).attr('src', '../resources/img/colorheart.jpg')
 					$('span.nothing').load('regInter?cid='+$(this).attr('data-cid'))
@@ -14,6 +19,15 @@
 					$('span.nothing').load('canInter?cid='+$(this).attr('data-cid'))
 				}
 			})
+			
+			$('.requestdetail').click(function(){
+				if('${id}'=="Guest"){
+					alert('상세보기는 로그인 후 이용할 수 있습니다'); 
+					return false;
+				}
+				$('#form_'+$(this).attr('data-cid')).submit();
+			})
+				
 		})	
 	</script>
 	<c:forEach var= "loveComp" items="${ interestedComList }">
@@ -30,11 +44,12 @@
 
 		<hr width="915px" color="#aaa" size="1" class="dt_hr">
 		<c:forEach var="company" items="${ companylist }">
-		<form>
+		<form action="detailpage" id="form_${company.cid}">
+			<input type="hidden" name= "cid" value="${company.cid }">
 			<table>
 				<tr>
-					<td class="companylogo" rowspan=4><img class="companylogo" src="../resources/img/logos/${company.logo}"></td>
-					<td class="companytitle" rowspan=4><nobr>${company.cname }</nobr></td>
+					<td class="companylogo requestdetail" rowspan=4 data-cid="${company.cid }"><img class="companylogo" src="../resources/img/logos/${company.logo}"></td>
+					<td class="companytitle" rowspan=4><b  class="requestdetail" data-cid="${company.cid }"><nobr>${company.cname}</nobr></b></td>
 					<td colspan=5></td>
 					<td class="interested"rowspan=4><img class="interested" src="../resources/img/whiteheart.jpg" data-cid="${company.cid}"></td>
 				</tr>

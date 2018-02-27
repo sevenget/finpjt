@@ -164,7 +164,7 @@ create table advCompany(
 	endDate date
 );
 
-insert into advCompany values(adv_seq.nextval ,2, '100000000', sysdate, sysdate+1);
+insert into advCompany values(1,2, '100000000', sysdate, sysdate+1);
 
  -- 검색 키워드 관련
 create table keywords(

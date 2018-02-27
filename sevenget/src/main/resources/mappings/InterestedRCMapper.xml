@@ -5,7 +5,7 @@
 <mapper namespace="InterestedRCDAO">
 	<insert id="register">
 		insert into InterestedRC values(
-			#{memid}, #{cid}, sysdate, null
+			(select nvl(max(rcid),0)+1 from InterestedRC), #{memid}, #{cid}, sysdate, null
 		)
 	</insert>
 	
