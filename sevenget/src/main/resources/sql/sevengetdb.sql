@@ -2,20 +2,20 @@
 drop table memBasicInfo CASCADE CONSTRAINTS;
 create table memBasicInfo( 
    id   varchar2(40) constraint membasicinfo_id_pk primary key,
-   password varchar2(20) not null,
-   name varchar2(20) not null,
-   birth date,
-   gender varchar2(2) constraint membasicinfo_gender_ck check(gender in ('M', 'F')),
-   address varchar2(100) not null,
-   email varchar2(30),
-   picture varchar2(30),
-   dateCon number(2),
-   marryCon number(2),
-   babyCon number(2),
-   houseCon number(2),
-   relationCon number(2),
-   dreamCon number(2),
-   hopeCon number(2)
+      password varchar2(20) not null,
+      name varchar2(20) not null,
+      birth date,
+      gender varchar2(2) constraint membasicinfo_gender_ck check(gender in ('M', 'F')),
+      address varchar2(100) not null,
+      email varchar2(30),
+      picture varchar2(30),
+      dateCon number(2),
+      marryCon number(2),
+      babyCon number(2),
+      houseCon number(2),
+      relationCon number(2),
+      dreamCon number(2),
+      hopeCon number(2)
 );
 SELECT * FROM memBasicInfo where id = 'Guest'
 select id from memBasicInfo where id='mem';
@@ -24,9 +24,9 @@ select * from MEMBASICINFO,interestedRC;
 -- 회원 속성
 drop table memDetail purge;
 create table memDetail(
-   	id varchar2(20) constraint memdetail_id_fk references memBasicInfo(id),
-   	detail varchar(100) constraint memdetail_detail_nn  not null,
-   	score number(3) constraint memdetail_score_nn  not null
+      id varchar2(20) constraint memdetail_id_fk references memBasicInfo(id),
+      detail varchar(100) constraint memdetail_detail_nn  not null,
+      score number(3) constraint memdetail_score_nn  not null
 );
 
 
@@ -104,22 +104,22 @@ select * from companyreview;
 
 --광고기업
 create table advCompany(
-	cid number(10) constraint advcom_cid_fk references companybasicinfo(cid), 
-	cost number(10),
-	startDate date,
-	endDate date
+   cid number(10) constraint advcom_cid_fk references companybasicinfo(cid), 
+   cost number(10),
+   startDate date,
+   endDate date
 )
 
 
 
  -- 검색 키워드 관련
-drop table keywords purge;
+drop table keywords CASCADE CONSTRAINTS;
 create table keywords(
    keyword varchar2(500) constraint keywords_keyword_pk primary key,
    searchNum number(20)
 );
 
-drop table searched purge;
+drop table search purge;
 create table search(
    searchDate date default sysdate,
    keyword varchar2(500) constraint search_keyword_fk references keywords(keyword), 
