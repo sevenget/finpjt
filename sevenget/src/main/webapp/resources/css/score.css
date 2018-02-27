@@ -1,0 +1,63 @@
+@CHARSET "UTF-8";
+
+
+#sc_div { width:500px; height:50px; margin-left:69px; margin-top:20px; }
+.sc_head { float:right; font-size:15px; /* font-weight:bold; */ color:#9a9a9a; margin-right:32px; }
+
+.score_hd { width:500px; height:20px; float:left; margin-top:13px; margin-left:69px;  }
+.score_head { float:right; font-size:14px; color:#929292; margin-right:20px; }
+
+/* .sc_head_l { float:left; font-size:15px; font-weight:bold; color:#9a9a9a; margin-left:17px; }
+.sc_head_dr { float:left; font-size:15px; font-weight:bold; color:#9a9a9a; margin-left:21px; } */
+
+.sc_head_l { float:right; font-size:15px;  color:#9a9a9a; margin-right:18px; }
+.sc_head_dr { float:right; font-size:15px;  color:#9a9a9a; margin-right:40px; }
+
+.sc_num { margin-left:14px; }
+
+
+.check-colours {  
+    overflow:hidden;
+    position:relative;
+    /* padding:5px; */
+    /* border:1px solid #000; */
+    /* float:left; */
+    float:right;
+    margin-right:17px;
+    margin-top:5px;
+}
+
+/* radio btn */
+input.check-colour, label.check-colour span {
+    position:absolute;
+    left:-999em;
+}
+label.check-colour {
+    width:40px;
+    height:40px;
+    float:left;
+    cursor:pointer;
+}
+
+.sc { background-color: #ebebeb; }
+
+
+
+.check-colours label:hover{
+  outline:1px solid silver;
+  box-shadow:0 0 10px rgba(0,0,0,0.4);
+  position:relative;
+  overflow:hidden;
+}
+
+
+input.check-colour:checked + label {
+    /*outline:3px solid silver;*/
+    background-color: #8772bf;
+    position:relative;
+  overflow:hidden;
+  z-index:4;
+  color:#fff;
+ 
+ }
+.check-colours div{float:left}
