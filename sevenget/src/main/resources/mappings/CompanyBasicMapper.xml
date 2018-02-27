@@ -13,6 +13,10 @@
 	<select id="selectAllCompany" resultType="companybasic">
 		SELECT * FROM companybasicinfo
 	</select>
+	
+	<select id="selectCompany" resultType="companybasic">
+		SELECT * FROM companybasicinfo where cid = #{cid}
+	</select>
 
 	<insert id="insertKeyword">
 		INSERT INTO keywords VALUES(#{keyword},#{searchedNum})

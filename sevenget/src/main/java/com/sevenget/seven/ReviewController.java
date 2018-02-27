@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import model.company.CompanyBasicDAO;
 import model.company.InterestedRCDAO;
 import model.member.MemBasicInfoDAO;
 import model.review.ReviewDaoImpl;
@@ -18,19 +19,20 @@ import model.review.ReviewDto;
 public class ReviewController {
 
 	// 기업 상세페이지
-	@RequestMapping(value = "/main/detailpage", method = RequestMethod.GET)
-	public ModelAndView DetailP(ReviewDaoImpl reviewDao, HttpServletRequest request) {
+	@RequestMapping(value = "main/detailpage", method = RequestMethod.GET)
+	public ModelAndView DetailP(ReviewDaoImpl reviewDao, HttpServletRequest request,HttpSession session) {
 		MemBasicInfoDAO DAO = new MemBasicInfoDAO();
-		InterestedRCDAO CDAO = new InterestedRCDAO();
+		//InterestedRCDAO CDAO = new InterestedRCDAO();
+		CompanyBasicDAO CDAO = new CompanyBasicDAO();
 		
-		String id = "mem"; // 파라메터로 받아오기
+		String id = (String)session.getAttribute("id"); // 파라메터로 받아오기
+		int cid = 2; // 1번 = 카카오 , 2번 = 네이버
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("review", reviewDao.selectReview());
 		mav.addObject("member", DAO.getMemBasicInfo(id));
-		mav.addObject("company", CDAO.selectRelatedAll(id));
-		
-		
+		mav.addObject("company",CDAO.selectCompany(cid));
+		//mav.addObject("company", CDAO.selectRelatedAll(id));
 		
 		mav.setViewName("main/detailpage");
 		//request.setAttribute("review", reviewDao.selectReview());
