@@ -2,28 +2,28 @@ package model.companySco;
 
 public class CompanyRawScoDto {
 	int cid;
-	int noOTEPr;
-	int flexWorkEPr;
-	int weekendWorkEPr;
-	int newcomerSalEPr;
-	int paidVacaEPr;
-	int compKindergartenEPr;
-	int eduSupportEPr;
-	int loanSupportEPr;
-	int dormiHousingSupportEPr;
-	int opClubEPr;
-	int supportClubEPr;
-	int clubMemRateEPr;
-	int selfDevSupportEPr;
-	int seminarInvEPr;
-	int horizStrucEPr;
-	int varWorkExpEPr;
-	int telAvailEPr;
-	int salIncreRateEPr;
-	int retireRateEPr;
-	int busiGrowthEPr;
-	int induGrowthEPr;
-	int govSupportEPr;
+	double noOTEPr;
+	double flexWorkEPr;
+	double weekendWorkEPr;
+	double newcomerSalEPr;
+	double paidVacaEPr;
+	double compKindergartenEPr;
+	double eduSupportEPr;
+	double loanSupportEPr;
+	double dormiHousingSupportEPr;
+	double opClubEPr;
+	double supportClubEPr;
+	double clubMemRateEPr;
+	double selfDevSupportEPr;
+	double seminarInvEPr;
+	double horizStrucEPr;
+	double varWorkExpEPr;
+	double telAvailEPr;
+	double salIncreRateEPr;
+	double retireRateEPr;
+	double busiGrowthEPr;
+	double induGrowthEPr;
+	double govSupportEPr;
 	
 	public int getCid() {
 		return cid;
@@ -31,136 +31,138 @@ public class CompanyRawScoDto {
 	public void setCid(int cid) {
 		this.cid = cid;
 	}
-	public int getNoOTEPr() {
+	public double getNoOTEPr() {
 		return noOTEPr;
 	}
-	public void setNoOTEPr(int noOTEPr) {
+	public void setNoOTEPr(double noOTEPr) {
 		this.noOTEPr = noOTEPr;
 	}
-	public int getFlexWorkEPr() {
+	public double getFlexWorkEPr() {
 		return flexWorkEPr;
 	}
-	public void setFlexWorkEPr(int flexWorkEPr) {
+	public void setFlexWorkEPr(double flexWorkEPr) {
 		this.flexWorkEPr = flexWorkEPr;
 	}
-	public int getWeekendWorkEPr() {
+	public double getWeekendWorkEPr() {
 		return weekendWorkEPr;
 	}
-	public void setWeekendWorkEPr(int weekendWorkEPr) {
+	public void setWeekendWorkEPr(double weekendWorkEPr) {
 		this.weekendWorkEPr = weekendWorkEPr;
 	}
-	public int getNewcomerSalEPr() {
+	public double getNewcomerSalEPr() {
 		return newcomerSalEPr;
 	}
-	public void setNewcomerSalEPr(int newcomerSalEPr) {
+	public void setNewcomerSalEPr(double newcomerSalEPr) {
 		this.newcomerSalEPr = newcomerSalEPr;
 	}
-	public int getPaidVacaEPr() {
+	public double getPaidVacaEPr() {
 		return paidVacaEPr;
 	}
-	public void setPaidVacaEPr(int paidVacaEPr) {
+	public void setPaidVacaEPr(double paidVacaEPr) {
 		this.paidVacaEPr = paidVacaEPr;
 	}
-	public int getCompKindergartenEPr() {
+	public double getCompKindergartenEPr() {
 		return compKindergartenEPr;
 	}
-	public void setCompKindergartenEPr(int compKindergartenEPr) {
+	public void setCompKindergartenEPr(double compKindergartenEPr) {
 		this.compKindergartenEPr = compKindergartenEPr;
 	}
-	public int getEduSupportEPr() {
+	public double getEduSupportEPr() {
 		return eduSupportEPr;
 	}
-	public void setEduSupportEPr(int eduSupportEPr) {
+	public void setEduSupportEPr(double eduSupportEPr) {
 		this.eduSupportEPr = eduSupportEPr;
 	}
-	public int getLoanSupportEPr() {
+	public double getLoanSupportEPr() {
 		return loanSupportEPr;
 	}
-	public void setLoanSupportEPr(int loanSupportEPr) {
+	public void setLoanSupportEPr(double loanSupportEPr) {
 		this.loanSupportEPr = loanSupportEPr;
 	}
-	public int getDormiHousingSupportEPr() {
+	public double getDormiHousingSupportEPr() {
 		return dormiHousingSupportEPr;
 	}
-	public void setDormiHousingSupportEPr(int dormiHousingSupportEPr) {
+	public void setDormiHousingSupportEPr(double dormiHousingSupportEPr) {
 		this.dormiHousingSupportEPr = dormiHousingSupportEPr;
 	}
-	public int getOpClubEPr() {
+	public double getOpClubEPr() {
 		return opClubEPr;
 	}
-	public void setOpClubEPr(int opClubEPr) {
+	public void setOpClubEPr(double opClubEPr) {
 		this.opClubEPr = opClubEPr;
 	}
-	public int getSupportClubEPr() {
+	public double getSupportClubEPr() {
 		return supportClubEPr;
 	}
-	public void setSupportClubEPr(int supportClubEPr) {
+	public void setSupportClubEPr(double supportClubEPr) {
 		this.supportClubEPr = supportClubEPr;
 	}
-	public int getClubMemRateEPr() {
+	public double getClubMemRateEPr() {
 		return clubMemRateEPr;
 	}
-	public void setClubMemRateEPr(int clubMemRateEPr) {
+	public void setClubMemRateEPr(double clubMemRateEPr) {
 		this.clubMemRateEPr = clubMemRateEPr;
 	}
-	public int getSelfDevSupportEPr() {
+	public double getSelfDevSupportEPr() {
 		return selfDevSupportEPr;
 	}
-	public void setSelfDevSupportEPr(int selfDevSupportEPr) {
+	public void setSelfDevSupportEPr(double selfDevSupportEPr) {
 		this.selfDevSupportEPr = selfDevSupportEPr;
 	}
-	public int getSeminarInvEPr() {
+	public double getSeminarInvEPr() {
 		return seminarInvEPr;
 	}
-	public void setSeminarInvEPr(int seminarInvEPr) {
+	public void setSeminarInvEPr(double seminarInvEPr) {
 		this.seminarInvEPr = seminarInvEPr;
 	}
-	public int getHorizStrucEPr() {
+	public double getHorizStrucEPr() {
 		return horizStrucEPr;
 	}
-	public void setHorizStrucEPr(int horizStrucEPr) {
+	public void setHorizStrucEPr(double horizStrucEPr) {
 		this.horizStrucEPr = horizStrucEPr;
 	}
-	public int getVarWorkExpEPr() {
+	public double getVarWorkExpEPr() {
 		return varWorkExpEPr;
 	}
-	public void setVarWorkExpEPr(int varWorkExpEPr) {
+	public void setVarWorkExpEPr(double varWorkExpEPr) {
 		this.varWorkExpEPr = varWorkExpEPr;
 	}
-	public int getTelAvailEPr() {
+	public double getTelAvailEPr() {
 		return telAvailEPr;
 	}
-	public void setTelAvailEPr(int telAvailEPr) {
+	public void setTelAvailEPr(double telAvailEPr) {
 		this.telAvailEPr = telAvailEPr;
 	}
-	public int getSalIncreRateEPr() {
+	public double getSalIncreRateEPr() {
 		return salIncreRateEPr;
 	}
-	public void setSalIncreRateEPr(int salIncreRateEPr) {
+	public void setSalIncreRateEPr(double salIncreRateEPr) {
 		this.salIncreRateEPr = salIncreRateEPr;
 	}
-	public int getRetireRateEPr() {
+	public double getRetireRateEPr() {
 		return retireRateEPr;
 	}
-	public void setRetireRateEPr(int retireRateEPr) {
+	public void setRetireRateEPr(double retireRateEPr) {
 		this.retireRateEPr = retireRateEPr;
 	}
-	public int getBusiGrowthEPr() {
+	public double getBusiGrowthEPr() {
 		return busiGrowthEPr;
 	}
-	public void setBusiGrowthEPr(int busiGrowthEPr) {
+	public void setBusiGrowthEPr(double busiGrowthEPr) {
 		this.busiGrowthEPr = busiGrowthEPr;
 	}
-	public int getInduGrowthEPr() {
+	public double getInduGrowthEPr() {
 		return induGrowthEPr;
 	}
-	public void setInduGrowthEPr(int induGrowthEPr) {
+	public void setInduGrowthEPr(double induGrowthEPr) {
 		this.induGrowthEPr = induGrowthEPr;
 	}
-	public int getGovSupportEPr() {
+	public double getGovSupportEPr() {
 		return govSupportEPr;
 	}
-	public void setGovSupportEPr(int govSupportEPr) {
+	public void setGovSupportEPr(double govSupportEPr) {
 		this.govSupportEPr = govSupportEPr;
 	}
+
+
 }

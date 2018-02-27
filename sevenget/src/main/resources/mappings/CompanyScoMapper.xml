@@ -4,6 +4,7 @@
 
 <mapper namespace="CompanyScoDAO">
  	<resultMap type="companySco" id="CompanyScoMap">
+		<result column="id" property="id" />
 		<result column="cid" property="cid" />
 		<result column="dateSco" property="dateSco" />
 		<result column="marrySco" property="marrySco" />
@@ -18,20 +19,20 @@
 		SELECT * FROM companyscore
 	</select>
 
-	<select id="getById" parameterType="String"  resultMap="CompanyScoMap">
+	<select id="getById" parameterType="int"  resultMap="CompanyScoMap">
 		SELECT *
 		FROM companyscore
 		WHERE cid = #{cid}
 	</select>
 
 
-	<insert id="insertPlts">
+	<insert id="insertSCs" ><!-- parameterType="CompanyScoMap" -->
 		INSERT INTO companyscore
-		VALUES(#{cid},#{dateSco},#{marrySco},#{babySco},#{houseSco},#{relationSco},#{dreamSco},#{hopeSco})
+		VALUES(#{id},#{cid},#{dateSco},#{marrySco},#{babySco},#{houseSco},#{relationSco},#{dreamSco},#{hopeSco})
 	</insert>
 	
-	<!-- <update id="updatePlts">
-		UPDATE plots
-		SET plotpng = #{plotpng} WHERE memid = #{memid}
-	</update> -->
+	<update id="updateSCs">
+		UPDATE companyscore
+		SET cid = #{cid} WHERE id = #{id}
+	</update>
 </mapper>

@@ -37,8 +37,6 @@ public class CompanyRawScoDaoImpl implements CompanyScoDao {
 	
 	public CompanyRawScoDto selectbyCid(int cid){
 		CompanyRawScoDto dto = new CompanyRawScoDto();
-		System.out.println(cid+"의 CompanyRawScoDto목록을 가져옵니다. 로딩중");
-
 		dto = (CompanyRawScoDto) mybatis.selectOne("CompanyRawScoDAO.getById", cid);
 		return dto;
 	}
