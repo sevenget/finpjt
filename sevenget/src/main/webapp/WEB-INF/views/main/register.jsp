@@ -83,7 +83,7 @@
 			return false;
 		}
 		
-		var url = "./insertUser?id="+forms.id.value
+		/* var url = "./insertUser?id="+forms.id.value
 		+"&password="+forms.password.value
 		+"&name="+forms.name.value
 		+"&birth="+forms.birth.value
@@ -98,7 +98,7 @@
 		+"&home="+forms.home.value
 		+"&job="+forms.job.value;
 		
-		location.href=url;
+		location.href=url; */
 		return true;
 		
 	} 
@@ -233,115 +233,115 @@
 		<div id="layer">
 		
 		<!--  테이블 2-8-->
-			<table class="table table_dream">
-				<tr>
-					<th><img src="../resources/img/dream.jpg"></th>
-					<td style="background-color:#8772bf"><input name="dream" type="radio" value="1" checked="checked">1점</td>
-					<td><input name="dream" type="radio" value="2">2점</td>
-					<td><input name="dream" type="radio" value="3">3점</td>
-					<td><input name="dream" type="radio" value="4">4점</td>
-					<td><input name="dream" type="radio" value="5">5점</td>
-					<td><input name="dream" type="radio" value="6">6점</td>
-					<td><input name="dream" type="radio" value="7">7점</td>
-					<td><input name="dream" type="radio" value="8">8점</td>
-					<td><input name="dream" type="radio" value="9">9점</td>
-					<td><input name="dream" type="radio" value="10">10점</td>
-				</tr>
-			</table>
-			
-			<table class="table table_love">
+			<table class="table table_dateCon">
 				<tr>
 					<th><img src="../resources/img/love.jpg"></th>
-					<td style="background-color:#8772bf"><input name="love" type="radio" value="1" checked="checked">1점</td>
-					<td><input name="love" type="radio" value="2">2점</td>
-					<td><input name="love" type="radio" value="3">3점</td>
-					<td><input name="love" type="radio" value="4">4점</td>
-					<td><input name="love" type="radio" value="5">5점</td>
-					<td><input name="love" type="radio" value="6">6점</td>
-					<td><input name="love" type="radio" value="7">7점</td>
-					<td><input name="love" type="radio" value="8">8점</td>
-					<td><input name="love" type="radio" value="9">9점</td>
-					<td><input name="love" type="radio" value="10">10점</td>
+					<td style="background-color:#8772bf"><input name="dateCon" type="radio" value="1" checked="checked">1점</td>
+					<td><input name="dateCon" type="radio" value="2">2점</td>
+					<td><input name="dateCon" type="radio" value="3">3점</td>
+					<td><input name="dateCon" type="radio" value="4">4점</td>
+					<td><input name="dateCon" type="radio" value="5">5점</td>
+					<td><input name="dateCon" type="radio" value="6">6점</td>
+					<td><input name="dateCon" type="radio" value="7">7점</td>
+					<td><input name="dateCon" type="radio" value="8">8점</td>
+					<td><input name="dateCon" type="radio" value="9">9점</td>
+					<td><input name="dateCon" type="radio" value="10">10점</td>
 				</tr>
 			</table>
 			
-			<table class="table table_marry">
+			<table class="table table_marryCon">
 				<tr>
 					<th><img src="../resources/img/marry.jpg"></th>
-					<td style="background-color:#8772bf"><input name="marry" type="radio" value="1" checked="checked">1점</td>
-					<td><input name="marry" type="radio" value="2">2점</td>
-					<td><input name="marry" type="radio" value="3">3점</td>
-					<td><input name="marry" type="radio" value="4">4점</td>
-					<td><input name="marry" type="radio" value="5">5점</td>
-					<td><input name="marry" type="radio" value="6">6점</td>
-					<td><input name="marry" type="radio" value="7">7점</td>
-					<td><input name="marry" type="radio" value="8">8점</td>
-					<td><input name="marry" type="radio" value="9">9점</td>
-					<td><input name="marry" type="radio" value="10">10점</td>
+					<td style="background-color:#8772bf"><input name="marryCon" type="radio" value="1" checked="checked">1점</td>
+					<td><input name="marryCon" type="radio" value="2">2점</td>
+					<td><input name="marryCon" type="radio" value="3">3점</td>
+					<td><input name="marryCon" type="radio" value="4">4점</td>
+					<td><input name="marryCon" type="radio" value="5">5점</td>
+					<td><input name="marryCon" type="radio" value="6">6점</td>
+					<td><input name="marryCon" type="radio" value="7">7점</td>
+					<td><input name="marryCon" type="radio" value="8">8점</td>
+					<td><input name="marryCon" type="radio" value="9">9점</td>
+					<td><input name="marryCon" type="radio" value="10">10점</td>
 				</tr>
 			</table>
 			
-			<table class="table table_human">
-				<tr>
-					<th><img src="../resources/img/human.jpg"></th>
-					<td style="background-color:#8772bf"><input name="human" type="radio" value="1" checked="checked">1점</td>
-					<td><input name="human" type="radio" value="2">2점</td>
-					<td><input name="human" type="radio" value="3">3점</td>
-					<td><input name="human" type="radio" value="4">4점</td>
-					<td><input name="human" type="radio" value="5">5점</td>
-					<td><input name="human" type="radio" value="6">6점</td>
-					<td><input name="human" type="radio" value="7">7점</td>
-					<td><input name="human" type="radio" value="8">8점</td>
-					<td><input name="human" type="radio" value="9">9점</td>
-					<td><input name="human" type="radio" value="10">10점</td>
-				</tr>
-			</table>
-			
-			<table class="table table_child">
+			<table class="table table_babyCon">
 				<tr>
 					<th><img src="../resources/img/child.jpg"></th>
-					<td style="background-color:#8772bf"><input name="child" type="radio" value="1" checked="checked">1점</td>
-					<td><input name="child" type="radio" value="2">2점</td>
-					<td><input name="child" type="radio" value="3">3점</td>
-					<td><input name="child" type="radio" value="4">4점</td>
-					<td><input name="child" type="radio" value="5">5점</td>
-					<td><input name="child" type="radio" value="6">6점</td>
-					<td><input name="child" type="radio" value="7">7점</td>
-					<td><input name="child" type="radio" value="8">8점</td>
-					<td><input name="child" type="radio" value="9">9점</td>
-					<td><input name="child" type="radio" value="10">10점</td>
+					<td style="background-color:#8772bf"><input name="babyCon" type="radio" value="1" checked="checked">1점</td>
+					<td><input name="babyCon" type="radio" value="2">2점</td>
+					<td><input name="babyCon" type="radio" value="3">3점</td>
+					<td><input name="babyCon" type="radio" value="4">4점</td>
+					<td><input name="babyCon" type="radio" value="5">5점</td>
+					<td><input name="babyCon" type="radio" value="6">6점</td>
+					<td><input name="babyCon" type="radio" value="7">7점</td>
+					<td><input name="babyCon" type="radio" value="8">8점</td>
+					<td><input name="babyCon" type="radio" value="9">9점</td>
+					<td><input name="babyCon" type="radio" value="10">10점</td>
 				</tr>
 			</table>
 			
-			<table class="table table_home">
+			<table class="table table_houseCon">
 				<tr>
 					<th><img src="../resources/img/home.jpg"></th>
-					<td style="background-color:#8772bf"><input name="home" type="radio" value="1" checked="checked">1점</td>
-					<td><input name="home" type="radio" value="2">2점</td>
-					<td><input name="home" type="radio" value="3">3점</td>
-					<td><input name="home" type="radio" value="4">4점</td>
-					<td><input name="home" type="radio" value="5">5점</td>
-					<td><input name="home" type="radio" value="6">6점</td>
-					<td><input name="home" type="radio" value="7">7점</td>
-					<td><input name="home" type="radio" value="8">8점</td>
-					<td><input name="home" type="radio" value="9">9점</td>
-					<td><input name="home" type="radio" value="10">10점</td>
+					<td style="background-color:#8772bf"><input name="houseCon" type="radio" value="1" checked="checked">1점</td>
+					<td><input name="houseCon" type="radio" value="2">2점</td>
+					<td><input name="houseCon" type="radio" value="3">3점</td>
+					<td><input name="houseCon" type="radio" value="4">4점</td>
+					<td><input name="houseCon" type="radio" value="5">5점</td>
+					<td><input name="houseCon" type="radio" value="6">6점</td>
+					<td><input name="houseCon" type="radio" value="7">7점</td>
+					<td><input name="houseCon" type="radio" value="8">8점</td>
+					<td><input name="houseCon" type="radio" value="9">9점</td>
+					<td><input name="houseCon" type="radio" value="10">10점</td>
 				</tr>
 			</table>
 			
-			<table class="table table_job">
+			<table class="table table_relationCon">
+				<tr>
+					<th><img src="../resources/img/human.jpg"></th>
+					<td style="background-color:#8772bf"><input name="relationCon" type="radio" value="1" checked="checked">1점</td>
+					<td><input name="relationCon" type="radio" value="2">2점</td>
+					<td><input name="relationCon" type="radio" value="3">3점</td>
+					<td><input name="relationCon" type="radio" value="4">4점</td>
+					<td><input name="relationCon" type="radio" value="5">5점</td>
+					<td><input name="relationCon" type="radio" value="6">6점</td>
+					<td><input name="relationCon" type="radio" value="7">7점</td>
+					<td><input name="relationCon" type="radio" value="8">8점</td>
+					<td><input name="relationCon" type="radio" value="9">9점</td>
+					<td><input name="relationCon" type="radio" value="10">10점</td>
+				</tr>
+			</table>
+			
+			<table class="table table_dreamCon">
+				<tr>
+					<th><img src="../resources/img/dream.jpg"></th>
+					<td style="background-color:#8772bf"><input name="dreamCon" type="radio" value="1" checked="checked">1점</td>
+					<td><input name="dreamCon" type="radio" value="2">2점</td>
+					<td><input name="dreamCon" type="radio" value="3">3점</td>
+					<td><input name="dreamCon" type="radio" value="4">4점</td>
+					<td><input name="dreamCon" type="radio" value="5">5점</td>
+					<td><input name="dreamCon" type="radio" value="6">6점</td>
+					<td><input name="dreamCon" type="radio" value="7">7점</td>
+					<td><input name="dreamCon" type="radio" value="8">8점</td>
+					<td><input name="dreamCon" type="radio" value="9">9점</td>
+					<td><input name="dreamCon" type="radio" value="10">10점</td>
+				</tr>
+			</table>
+			
+			<table class="table table_hopeCon">
 				<tr>
 					<th><img src="../resources/img/job.jpg"></th>
-					<td style="background-color:#8772bf"><input name="job" type="radio" value="1" checked="checked">1점</td>
-					<td><input name="job" type="radio" value="2">2점</td>
-					<td><input name="job" type="radio" value="3">3점</td>
-					<td><input name="job" type="radio" value="4">4점</td>
-					<td><input name="job" type="radio" value="5">5점</td>
-					<td><input name="job" type="radio" value="6">6점</td>
-					<td><input name="job" type="radio" value="7">7점</td>
-					<td><input name="job" type="radio" value="8">8점</td>
-					<td><input name="job" type="radio" value="9">9점</td>
-					<td><input name="job" type="radio" value="10">10점</td>
+					<td style="background-color:#8772bf"><input name="hopeCon" type="radio" value="1" checked="checked">1점</td>
+					<td><input name="hopeCon" type="radio" value="2">2점</td>
+					<td><input name="hopeCon" type="radio" value="3">3점</td>
+					<td><input name="hopeCon" type="radio" value="4">4점</td>
+					<td><input name="hopeCon" type="radio" value="5">5점</td>
+					<td><input name="hopeCon" type="radio" value="6">6점</td>
+					<td><input name="hopeCon" type="radio" value="7">7점</td>
+					<td><input name="hopeCon" type="radio" value="8">8점</td>
+					<td><input name="hopeCon" type="radio" value="9">9점</td>
+					<td><input name="hopeCon" type="radio" value="10">10점</td>
 				</tr>
 			</table>
 			
