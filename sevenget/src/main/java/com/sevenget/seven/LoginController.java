@@ -23,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.sevenget.Rcode.Evaluation;
 import com.sevenget.Rcode.MakingPlot;
 
+import model.company.CompanyBasicDAO;
 import model.company.InterestedRCDAO;
 import model.companySco.CompanyRawScoDaoImpl;
 import model.companySco.CompanyRawScoDto;
@@ -33,6 +34,7 @@ import model.member.MemIdCheckDaoImpl;
 import model.member.MemLoginDao;
 import model.plots.PlotsDaoImpl;
 import model.plots.PlotsDto;
+import model.review.ReviewDaoImpl;
 
 /**
  * Handles requests for the application home page.
