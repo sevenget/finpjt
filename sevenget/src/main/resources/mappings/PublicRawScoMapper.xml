@@ -38,7 +38,7 @@
 
 	<insert id="insertRawScore">
 		INSERT INTO publicrawscore
-		VALUES(#{id},#{cid},#{noOTPuP},#{flexWorkPuP},
+		VALUES((select nvl(max(psid), 0)+1 from publicrawscore),#{id},#{cid},#{noOTPuP},#{flexWorkPuP},
 		#{weekendWorkPuP},#{eggshellsPuP},#{finanSupportPuP},#{dormiHousingSupportPuP},
 		#{loanSupportPuP},#{selfDevSupportPuP},#{apprAmountWorkPuP},#{suffSalaryPuP},
 		#{relSysAfterMarriagePuP},#{childcareLeavePuP},#{guarantReinstatementPuP},#{vacationPuP},
