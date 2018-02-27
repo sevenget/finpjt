@@ -1,21 +1,21 @@
 -- 회원정보 --
 drop table memBasicInfo CASCADE CONSTRAINTS;
 create table memBasicInfo( 
-	id   varchar2(40) constraint membasicinfo_id_pk primary key,
-   	password varchar2(20) not null,
-   	name varchar2(20) not null,
-   	birth date,
-   	gender varchar2(2) constraint membasicinfo_gender_ck check(gender in ('M', 'F')),
-   	address varchar2(100) not null,
-   	email varchar2(30),
-   	picture varchar2(30),
-   	dream number(2),
-  	marry number(2),
-   	child number(2),
-   	home number(2),
-   	job number(2),
-   	love number(2),
-   	human number(2)
+   id   varchar2(40) constraint membasicinfo_id_pk primary key,
+   password varchar2(20) not null,
+   name varchar2(20) not null,
+   birth date,
+   gender varchar2(2) constraint membasicinfo_gender_ck check(gender in ('M', 'F')),
+   address varchar2(100) not null,
+   email varchar2(30),
+   picture varchar2(30),
+   dateCon number(2),
+   marryCon number(2),
+   babyCon number(2),
+   houseCon number(2),
+   relationCon number(2),
+   dreamCon number(2),
+   hopeCon number(2)
 );
 SELECT * FROM memBasicInfo where id = 'Guest'
 select id from memBasicInfo where id='mem';
@@ -51,7 +51,7 @@ create table companyBasicInfo(
    dreamGet varchar2(2) constraint combasicinfo_dreamget_ck check(dreamGet in('T', 'F', 'N')),
    hopeGet varchar2(2) constraint combasicinfo_hopeget_ck check(hopeGet in('T', 'F', 'N'))
 );
-alter table companyBasicInfo drop constraint companybasicinfo_cid_pk cascade;
+--alter table companyBasicInfo drop constraint companybasicinfo_cid_pk cascade;
 
 select * from companyBasicInfo;
 

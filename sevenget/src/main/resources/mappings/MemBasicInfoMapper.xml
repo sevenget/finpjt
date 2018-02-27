@@ -16,8 +16,7 @@
 
 	<select id="getMemBasicInfo" resultType="memBasicInfo">
 		<![CDATA[
-		SELECT id,password,name, to_char(birth,'yyyy"년"mm"월"dd"일"') "birth", gender, address, email, picture,
-		dream,marry,child,home,job,love,human from MEMBASICINFO where id = #{id}
+		SELECT id,password,name, to_char(birth,'yyyy"년"mm"월"dd"일"') "birth", gender, address, email, picture, dateCon, marryCon, babyCon, houseCon, relationCon, dreamCon, hopeCon from MEMBASICINFO where id = #{id}
 		]]>
 	</select>
 	
@@ -31,7 +30,7 @@
 			#{gender},
 			#{address},
 			#{email},
-			'Guest.jpg',
+			'Guest.gif',
 			#{dream},
 			#{marry},
 			#{child},
