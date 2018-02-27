@@ -1,7 +1,7 @@
 -- 회원정보 --
 drop table memBasicInfo CASCADE CONSTRAINTS;
 create table memBasicInfo( 
-   id   varchar2(40) constraint membasicinfo_id_pk primary key,
+	  id   varchar2(40) constraint membasicinfo_id_pk primary key,
       password varchar2(20) not null,
       name varchar2(20) not null,
       birth date,
