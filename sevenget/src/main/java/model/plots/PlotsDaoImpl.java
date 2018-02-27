@@ -53,7 +53,7 @@ public class PlotsDaoImpl implements PlotsDao {
 		PlotsDto dto = new PlotsDto();
 		
 		dto = inquiryId(id);// 세션에서 받아온 아이디 확인. 없는 경우는 생각 안해봄... 설마 있겠지...
-		
+		System.out.println("PlotsDaoImpl");
 		if(dto == null){
 			System.out.println("해당 아이디가 존재하지 않습니다.");
 		}else{

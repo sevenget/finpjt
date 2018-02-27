@@ -23,7 +23,7 @@
 
 	<insert id="insertPlts">
 		INSERT INTO plots
-		VALUES(#{memid},#{cid},#{plotpng},sysdate)
+		VALUES((select nvl(max(pid), 0)+1 from plots), #{memid},#{cid},#{plotpng},sysdate)
 	</insert>
 	
 	<update id="updatePlts">

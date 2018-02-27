@@ -21,7 +21,7 @@
 	<div id="portside1">
 		
 		<div class="info">
-			<p class="head_member">회원 정보</p>
+			<p class="head_member" align="center">회원 정보</p>
 			<hr width="285px" color="#aaa" size="1" class="hr">
 		
 			<div class="ficture"> 
@@ -49,13 +49,26 @@
 				</c:forEach>  
 			</div>
 		</div>
+		<div><!-- 관심 분야 점수 -->
+			<h3 align="center" style="margin-top: 5px; margin-bottom: 5px;">관심 분야 점수</h3>
+			<c:forEach items="${member}" var="iid" >
+			<img style="width:60px; height: 60px; margin-top: 5px; margin-left:25px; float: left;" src="../resources/img/date1.jpg">  <h2 class="font" style=" float: left; margin-right: 80px; margin-top: 15px; margin-bottom: 0px;"> ${iid.dateCon}</h2>
+			<img style="width:60px; height: 60px; margin-top: 5px; float: left;" src="../resources/img/marry1.jpg"><h2 class="font"> ${iid.marryCon}</h2><br>
+			<img style="width:60px; height: 60px; margin-top: 5px; margin-left:25px; float: left;" src="../resources/img/baby1.jpg"><h2 class="font" style=" float: left; margin-right: 80px; margin-top: 15px; margin-bottom: 0px;"> ${iid.babyCon}</h2>
+			<img style="width:60px; height: 60px; margin-top: 5px; float: left;" src="../resources/img/house1.jpg"><h2 class="font"> ${iid.houseCon}</h2><br>
+			<img style="width:60px; height: 60px; margin-top: 5px; margin-left:25px; float: left;" src="../resources/img/relation1.jpg"><h2 class="font" style=" float: left; margin-right: 80px; margin-top: 15px; margin-bottom: 0px;"> ${iid.relationCon}</h2>
+			<img style="width:60px; height: 60px; margin-top: 5px; float: left;" src="../resources/img/dream1.jpg"><h2 class="font"> ${iid.dreamCon}</h2><br>
+			<img style="width:60px; height: 60px; margin-top: 5px; margin-left:25px; float: left;" src="../resources/img/hope1.png"><h2 class="font" style=" float: left; margin-right: 80px; margin-top: 15px; margin-bottom: 0px;"> ${iid.hopeCon}</h2>
+			</c:forEach>  
+		</div>
+		
 	</div> 	
 	
-	<div id="portside2"> 
+<!-- 	<div id="portside2"> 
 		<div class="ad1">
 			<a href="void(0);" onclick="alert('준비 중입니다.');return false;"><img src="../resources/img/ad1.png"></a>
 		</div>
-	</div>
+	</div> -->
 	
 	<div id="portside2"> 
 		<div class="ad2">

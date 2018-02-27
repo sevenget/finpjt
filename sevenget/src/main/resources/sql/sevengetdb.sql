@@ -1,7 +1,7 @@
 -- 회원정보 --
 drop table memBasicInfo CASCADE CONSTRAINTS;
 create table memBasicInfo( 
-   id   varchar2(40) constraint membasicinfo_id_pk primary key,
+	  id   varchar2(40) constraint membasicinfo_id_pk primary key,
       password varchar2(20) not null,
       name varchar2(20) not null,
       birth date,
@@ -58,17 +58,19 @@ select * from companyBasicInfo;
 -- 기업 점수
 drop table companyscore purge;
 create table companyScore(
+   id varchar2(20) constraint companyScore_id_fk references memBasicInfo(id),
    cid number(10) constraint companyConcern_id_fk references companyBasicInfo(cid),
-   dateSco number(2),
-   marrySco number(2),
-   babySco number(2),
-   houseSco number(2),
-   relationSco number(2),
-   dreamSco number(2),
-   hopeSco number(2)
+   dateSco number(4,2),
+   marrySco number(4,2),
+   babySco number(4,2),
+   houseSco number(4,2),
+   relationSco number(4,2),
+   dreamSco number(4,2),
+   hopeSco number(4,2)
 );
+insert into companyscore values(1, 6.8,6.8,6.8,6.8,6.8,3,3)
 select * from companyscore
-
+delete companyscore
 -- 기업세부정보
 drop table companydetail purge;
 create table companyDetail(
@@ -136,62 +138,63 @@ create table plots(
 );
 
 select * from plots;
-insert into plots values('mem',1, 'mem.png', sysdate)
+insert into plots values(pid_seq.nextval,'mem',1, 'mem.png', sysdate)
 
 
 -- 점수입력(전문가?패널)
 drop table comprawscore purge;
 create table comprawscore(
    cid number(10) constraint companyRawscore_id_fk references companyBasicInfo(cid),
-   noOTEPr number(6),
-   flexWorkEPr number(6),
-   weekendWorkEPr number(6),
-   newcomerSalEPr number(6),
-   paidVacaEPr number(6),
-   compKindergartenEPr number(6),
-   eduSupportEPr number(6),
-   loanSupportEPr number(6),
-   dormiHousingSupportEPr number(6),
-   opClubEPr number(6),
-   supportClubEPr number(6),
-   clubMemRateEPr number(6),
-   selfDevSupportEPr number(6),
-   seminarInvEPr number(6),
-   horizStrucEPr number(6),
-   varWorkExpEPr number(6),
-   telAvailEPr number(6),
-   salIncreRateEPr number(6),
-   retireRateEPr number(6),
-   busiGrowthEPr number(6),
-   induGrowthEPr number(6),
-   govSupportEPr number(6)
+   noOTEPr number(6,2),
+   flexWorkEPr number(6,2),
+   weekendWorkEPr number(6,2),
+   newcomerSalEPr number(6,2),
+   paidVacaEPr number(6,2),
+   compKindergartenEPr number(6,2),
+   eduSupportEPr number(6,2),
+   loanSupportEPr number(6,2),
+   dormiHousingSupportEPr number(6,2),
+   opClubEPr number(6,2),
+   supportClubEPr number(6,2),
+   clubMemRateEPr number(6,2),
+   selfDevSupportEPr number(6,2),
+   seminarInvEPr number(6,2),
+   horizStrucEPr number(6,2),
+   varWorkExpEPr number(6,2),
+   telAvailEPr number(6,2),
+   salIncreRateEPr number(6,2),
+   retireRateEPr number(6,2),
+   busiGrowthEPr number(6,2),
+   induGrowthEPr number(6,2),
+   govSupportEPr number(6,2)
 );
 
 delete comprawscore
-
+select * from comprawscore
 
 -- 점수입력(설문조사 결과 반영한 기준으로..)
 drop table publicrawscore purge;
 create table publicrawscore(
    id varchar2(20) constraint publicmemdetail_id_fk references memBasicInfo(id),
    cid number(10) constraint publicCompanyRawscore_id_fk references companyBasicInfo(cid),
-   noOTPuP number(6),
-   flexWorkPuP number(6),
-   weekendWorkPuP number(6),
-   eggshellsPuP number(6),
-   finanSupportPuP number(6),
-   dormiHousingSupportPuP number(6),
-   loanSupportPuP number(6),
-   selfDevSupportPuP number(6),
-   apprAmountWorkPuP number(6),
-   suffSalaryPuP number(6),
-   relSysAfterMarriagePuP number(6),
-   childcareLeavePuP number(6),
-   guarantReinstatementPuP number(6),
-   vacationPuP number(6),
-   moodEnvImprovPuP number(6),
-   diningTogetherPuP number(6),
-   moneyManageCoachPuP number(6)
+   noOTPuP number(6,2),
+   flexWorkPuP number(6,2),
+   weekendWorkPuP number(6,2),
+   eggshellsPuP number(6,2),
+   finanSupportPuP number(6,2),
+   dormiHousingSupportPuP number(6,2),
+   loanSupportPuP number(6,2),
+   selfDevSupportPuP number(6,2),
+   apprAmountWorkPuP number(6,2),
+   suffSalaryPuP number(6,2),
+   relSysAfterMarriagePuP number(6,2),
+   childcareLeavePuP number(6,2),
+   guarantReinstatementPuP number(6,2),
+   vacationPuP number(6,2),
+   moodEnvImprovPuP number(6,2),
+   diningTogetherPuP number(6,2),
+   moneyManageCoachPuP number(6,2)
 );
 
+select * from PUBLICRAWSCORE;
 delete publicrawscore

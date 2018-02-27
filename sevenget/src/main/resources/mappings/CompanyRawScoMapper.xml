@@ -42,7 +42,8 @@
 
 	<insert id="insertRawScore">
 		INSERT INTO comprawscore
-		VALUES(#{cid},#{noOTEPr},#{flexWorkEPr},#{weekendWorkEPr},
+		VALUES(<!-- (select nvl(max(cid), 0)+1 from comprawscore), -->
+		#{cid},#{noOTEPr},#{flexWorkEPr},#{weekendWorkEPr},
 		#{newcomerSalEPr},#{paidVacaEPr},#{compKindergartenEPr},#{eduSupportEPr},
 		#{loanSupportEPr},#{dormiHousingSupportEPr},#{opClubEPr},#{supportClubEPr},
 		#{clubMemRateEPr},#{selfDevSupportEPr},#{seminarInvEPr},#{horizStrucEPr},

@@ -16,4 +16,10 @@ public class CompanyBasicDAO {
 	public List<CompanyBasicDTO> selectAllCompanyBasic(){
 		return mybatis.selectList("CompanyBasicDAO.selectAllCompany");
 	}
+	
+	public List<CompanyBasicDTO> selectCompany(int cid){
+		List<CompanyBasicDTO> list;
+		list = mybatis.selectList("CompanyBasicDAO.selectCompany", cid);
+		return list;
+	}
 }

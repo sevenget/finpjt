@@ -1,6 +1,7 @@
+<%@page import="model.company.CompanyBasicDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -209,12 +210,12 @@
 								<div class="graph_img">
 									<!-- 버튼 클릭시 로딩 화면 5초/R작동, 결과출력 -->
 
-									<a onClick="fLoadData()">
-										<div id="loadData"
-											style="width: 502px; height: 400px; margin-top: 20px; /* border: 1px solid #CCCCCC; */ background: #EFEFEF; display: table;">
+										<a onClick="fLoadData()">									
+											<div id="loadData" style="width: 502px; height: 400px; margin-top: 20px; background: #EFEFEF; display: table;">
 											<p class="pp">정보를 호출하시려면 클릭하세요</p>
 										</div>
-									</a>
+										</a>
+									
 									<!--  <div style="margin-top: 20px; display:inline;">
                               <input type="button" value="호출" onClick="fLoadData()" />
                            </div> -->
@@ -222,41 +223,44 @@
 							</div>
 
 							<div class="c_info">
+								<%-- <c:set var="company" value="${company}" property="*"></c:set> --%>
+								<c:forEach var="cl" items="${company }">
+							
 								<div class="c_head_name">
 									<!-- <div class="c_heart">♥</div> -->
 									<div class="c_heart">
 										<img class="interested" src="../resources/img/whiteheart2.png"<%-- data-cid="${company.cid} --%>">
 									</div>
 									<div class="c_name">
-										(주)카카오
-										<%-- ${company.cname } --%>
+										<!-- (주)카카오 -->
+										${cl.cname }
 									</div>
 								</div>
 
 								<!-- 상세 정보  들어가는 곳 -->
 								<div class="c_information">
 									<div class="c_logo">
-										<img src="../resources/img/logos/kakao.png">
+										<img src="../resources/img/logos/${cl.logo }">
 									</div>
 									<div class="c_content">
 										<p class="c_group">산업군</p>
 										<p class="c_gc">
-											IT/웹/통신
-											<%-- ${company.industry} --%>
+											<!-- IT/웹/통신 -->
+											${cl.industry}
 										</p>
 									</div>
 									<div class="c_content">
 										<p class="c_group">사원수</p>
 										<p class="c_gc">
-											2500명
-											<%-- ${company.employee}명 --%>
+											<!-- 2500명 -->
+											${cl.employee}명
 										</p>
 									</div>
 									<div class="c_content">
 										<p class="c_group">매출액</p>
 										<p class="c_gc">
-											9248억 (2015)
-											<%--  ${company.sales} --%>
+											<!-- 9248억 (2015) -->
+											${cl.sales}
 										</p>
 									</div>
 									<div class="c_content1">
@@ -264,13 +268,14 @@
 											<p class="c_group">본사</p>
 										</div>
 										<p class="c_gc1">
-											제주특별자치도 제주시 첨단로 242
-											<%-- ${company.location}  --%>
+											<!-- 제주특별자치도 제주시 첨단로 242 -->
+											${cl.location}
 										</p>
 									</div>
 								</div>
+								</c:forEach>
 							</div>
-
+							
 							<div class="c_result">
 								<!-- <p class="marks">"</p> -->
 								<img src="../resources/img/marks1.png" class="marks">
@@ -307,16 +312,15 @@
 
 
 										<!-- 댓글 3개 불러오기!!! -->
-										<c:forEach var="i" begin="0" end="2">
+										<%-- <c:forEach var="i" begin="0" end="2">
 											<div class="review${i+1}">
 
 												<p class="cr_view">"${review.get(i).content }"</p>
 													<p class="cr_view">${review.get(i).reviewdate }</p>
-												<%-- <p class="cr_view">"${review.get(i).reviewDate }"</p> --%>
+												<p class="cr_view">"${review.get(i).reviewDate }"</p>
 											</div>
-										</c:forEach>
-
-										<!-- 	<div class="review1">
+										</c:forEach> --%>
+											<!-- <div class="review1">
                            <p class="cr_view">"기술직이 자신의 능력만큼 대우 받을 수 있는 회사. 대한민국에서
                               만족스러운 수준의 워라벨."</p>
                            <p class="cr_date">2018/02/07</p>
@@ -331,7 +335,7 @@
                            <p class="cr_view">"국내에서 IT관련 모든 직군을 경험해 볼 수 있는 몇 안되는 좋은 회사
                               입니다."</p>
                            <p class="cr_date">2018/01/11</p>
-                        </div>  -->
+                        </div> --> 
 									</div>
 								</form>
 

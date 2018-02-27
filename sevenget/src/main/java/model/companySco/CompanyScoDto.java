@@ -2,13 +2,13 @@ package model.companySco;
 
 public class CompanyScoDto {
 	int cid;
-	int dateSco;
-	int marrySco;
-	int babySco;
-	int houseSco;
-	int relationSco;
-	int dreamSco;
-	int hopeSco;
+	double dateSco;
+	double marrySco;
+	double babySco;
+	double houseSco;
+	double relationSco;
+	double dreamSco;
+	double hopeSco;
 	
 	public int getCid() {
 		return cid;
@@ -16,46 +16,46 @@ public class CompanyScoDto {
 	public void setCid(int cid) {
 		this.cid = cid;
 	}
-	public int getDateSco() {
+	public double getDateSco() {
 		return dateSco;
 	}
-	public void setDateSco(int dateSco) {
+	public void setDateSco(double dateSco) {
 		this.dateSco = dateSco;
 	}
-	public int getMarrySco() {
+	public double getMarrySco() {
 		return marrySco;
 	}
-	public void setMarrySco(int marrySco) {
+	public void setMarrySco(double marrySco) {
 		this.marrySco = marrySco;
 	}
-	public int getBabySco() {
+	public double getBabySco() {
 		return babySco;
 	}
-	public void setBabySco(int babySco) {
+	public void setBabySco(double babySco) {
 		this.babySco = babySco;
 	}
-	public int getHouseSco() {
+	public double getHouseSco() {
 		return houseSco;
 	}
-	public void setHouseSco(int houseSco) {
+	public void setHouseSco(double houseSco) {
 		this.houseSco = houseSco;
 	}
-	public int getRelationSco() {
+	public double getRelationSco() {
 		return relationSco;
 	}
-	public void setRelationSco(int relationSco) {
+	public void setRelationSco(double relationSco) {
 		this.relationSco = relationSco;
 	}
-	public int getDreamSco() {
+	public double getDreamSco() {
 		return dreamSco;
 	}
-	public void setDreamSco(int dreamSco) {
+	public void setDreamSco(double dreamSco) {
 		this.dreamSco = dreamSco;
 	}
-	public int getHopeSco() {
+	public double getHopeSco() {
 		return hopeSco;
 	}
-	public void setHopeSco(int hopeSco) {
+	public void setHopeSco(double hopeSco) {
 		this.hopeSco = hopeSco;
 	}
 }

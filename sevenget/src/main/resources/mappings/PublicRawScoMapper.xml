@@ -4,6 +4,7 @@
 
 <mapper namespace="PublicRawScoDAO">
  	<resultMap type="publicRawSco" id="PublicRawScoMap">
+		<result column="psid" property="psid" />
 		<result column="id" property="id" />
 		<result column="cid" property="cid" />
 		<result column="noOTPuP" property="noOTPuP" />
@@ -38,7 +39,7 @@
 
 	<insert id="insertRawScore">
 		INSERT INTO publicrawscore
-		VALUES(#{id},#{cid},#{noOTPuP},#{flexWorkPuP},
+		VALUES((select nvl(max(psid), 0)+1 from publicrawscore),#{id},#{cid},#{noOTPuP},#{flexWorkPuP},
 		#{weekendWorkPuP},#{eggshellsPuP},#{finanSupportPuP},#{dormiHousingSupportPuP},
 		#{loanSupportPuP},#{selfDevSupportPuP},#{apprAmountWorkPuP},#{suffSalaryPuP},
 		#{relSysAfterMarriagePuP},#{childcareLeavePuP},#{guarantReinstatementPuP},#{vacationPuP},
