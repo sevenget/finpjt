@@ -41,7 +41,7 @@ public class MypageController {
 	public String Mypage(MemBasicInfoDAO DAO, InterestedRCDAO CDAO ,HttpServletRequest request, HttpSession session) {
 		String id = (String)session.getAttribute("id");
 		request.setAttribute("member", DAO.getMemBasicInfo(id));
-		request.setAttribute("company", CDAO.selectRelatedAll(id));
+		/*request.setAttribute("company", CDAO.selectRelatedAllAndMemBasicInFo(id));*/
 		System.out.println("mypage");
 		return "main/mypage"; 
 	}

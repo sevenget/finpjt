@@ -49,7 +49,7 @@ public class KeywordAndSearchDAO {
 	}
 	
 	public List searchByFilter(FilterDTO dto){
-		return mybatis.selectList("KeywordAndSearchDAO.searchByCnameAndFilter", dto.getFilterMap());
+		return mybatis.selectList("KeywordAndSearchDAO.searchByFilter", dto.getFilterMap());
 	}
 	
 	public List searchAdvs(){

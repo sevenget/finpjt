@@ -6,11 +6,11 @@
 	<script>
 		$(function(){
 			$('img.interested').click(function(){
-				if($(this).attr('src')=='../resources/img/blackheart.jpg'){
+				if($(this).attr('src')=='../resources/img/whiteheart.jpg'){
 					$(this).attr('src', '../resources/img/colorheart.jpg')
 					$('span.nothing').load('regInter?cid='+$(this).attr('data-cid'))
 				} else{
-					$(this).attr('src', '../resources/img/blackheart.jpg')
+					$(this).attr('src', '../resources/img/whiteheart.jpg')
 					$('span.nothing').load('canInter?cid='+$(this).attr('data-cid'))
 				}
 			})
@@ -34,9 +34,9 @@
 			<table>
 				<tr>
 					<td class="companylogo" rowspan=4><img class="companylogo" src="../resources/img/logos/${company.logo}"></td>
-					<td class="companytitle" rowspan=4>${company.cname }</td>
+					<td class="companytitle" rowspan=4><nobr>${company.cname }</nobr></td>
 					<td colspan=5></td>
-					<td class="interested"rowspan=4><img class="interested" src="../resources/img/blackheart.jpg" data-cid="${company.cid}"></td>
+					<td class="interested"rowspan=4><img class="interested" src="../resources/img/whiteheart.jpg" data-cid="${company.cid}"></td>
 				</tr>
 				<tr>
 					<td class="companyindustry">${company.industry}</td>

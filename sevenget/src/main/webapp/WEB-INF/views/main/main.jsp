@@ -9,8 +9,26 @@
 <title>7get-Search</title>
 <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src = "http://malsup.github.com/jquery.cycle2.js"></script>
-<script src = "../resources/js/search.js"></script>
-	
+<script>
+$(function(){
+		$('#searchHolder form').submit(function(){
+			$('div.search_ad').hide('slow');
+			$('')
+		});
+		
+		$('#searchBtn').click(function(){
+			$('#searchHolder form').submit();
+		});
+		
+		$('.companylogo').click(function(){
+		 	if('${id}'=='Guest'){
+				alert('상세정보를 보려면 로그인이 필요합니다.')
+			} else{
+				location.href="detailpage";		
+			}
+		});
+});
+</script>
 
 <link rel="stylesheet" type="text/css" href="../resources/css/session.css " media="all" flush="false">
 <link rel="stylesheet" href="../resources/css/searchMain.css" >
@@ -45,7 +63,8 @@
 										<img id="searchBtn" src = "../resources/img/searchBtn.png">
 									</nobr>
 								</td>
-								<td class="filter"> 필터</td>
+								<td class = "filter"> 필터</td>
+								<td class = "filter_apply"><b><span class="filter_apply">0</span></b>개 적용중</td>
 							</tr>
 						</table>
 					</form>

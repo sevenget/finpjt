@@ -86,8 +86,8 @@ create table interestedRC(
    regTime date default sysdate,
    canTime date
 );
-select * from interestedRC, membasicinfo;
-select MEMBASICINFO.ID, INTERESTEDRC.REGTIME, INTERESTEDRC.CID, INTERESTEDRC.CANTIME, INTERESTEDRC.MEMID from MEMBASICINFO left outer join INTERESTEDRC on MEMBASICINFO.ID = INTERESTEDRC.MEMID;
+select * from interestedRC, membasicinfo; 
+select MEMBASICINFO.ID, INTERESTEDRC.CID "cid", INTERESTEDRC.MEMID from MEMBASICINFO left outer join INTERESTEDRC on companybasicinfo.ID = INTERESTEDRC.MEMID where MEMBASICINFO.ID = 'mem' and canTime is null;
 
 -- 기업 리뷰
 drop table companyreview purge;

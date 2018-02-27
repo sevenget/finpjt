@@ -19,7 +19,9 @@
 			$('td[name=${filter.key}]').attr('data-get', '${filter.value}')
 			if('${filter.value}'=='T'){
 				$('td[name=${filter.key}]').css('background-color', '#8772bf');
-				$('td.filter').append('<input type="hidden" name= ${filter.key} value="T"/>');	
+				$('td.filter').append('<input type="hidden" name= ${filter.key} value="T"/>');
+				if(parseInt($('span.filter_apply').html())<14)
+					$('span.filter_apply').html(parseInt($('span.filter_apply').html())+1)
 			}
 			
 		} else if($('td[name=${filter.key}]').attr('data-loss')=='F'){
@@ -27,6 +29,8 @@
 			if('${filter.value}'=='T'){
 				$('td[name=${filter.key}]').css('background-color', '#8772bf');
 				$('td.filter').append('<input type="hidden" name= ${filter.key} value="X"/>');
+				if(parseInt($('span.filter_apply').html())<14)
+					$('span.filter_apply').html(parseInt($('span.filter_apply').html())+1)
 			}
 		}
 		
@@ -68,18 +72,26 @@
 				$(this).css('background-color', '#8772bf');
 				$(this).attr('data-get', "T")
 				$('td.filter').append('<input type="hidden" name='+$(this).attr('name')+' value="T"/>');
+				if(parseInt($('span.filter_apply').html())<14)
+					$('span.filter_apply').html(parseInt($('span.filter_apply').html())+1)
 			} else if ($(this).attr('data-loss') == "F") {
 				$(this).css('background-color', '#8772bf');
 				$(this).attr('data-loss', "T")
 				$('td.filter').append('<input type="hidden" name='+$(this).attr('name')+' value="X"/>');
+				if(parseInt($('span.filter_apply').html())<14)
+					$('span.filter_apply').html(parseInt($('span.filter_apply').html())+1)
 			} else if ($(this).attr('data-get') == "T") {
 				$(this).css('background-color', '#a4a4a4');
 				$(this).attr('data-get', "F")
 				$('td.filter').children('input[name='+$(this).attr('name')+']').remove()
+				if(parseInt($('span.filter_apply').html())>0)
+					$('span.filter_apply').html(parseInt($('span.filter_apply').html())-1)
 			} else if ($(this).attr('data-loss') == "T") {
 				$(this).css('background-color', '#a4a4a4');
 				$(this).attr('data-loss', "F")
 				$('td.filter').children('input[name='+$(this).attr('name')+']').remove()
+				if(parseInt($('span.filter_apply').html())>0)
+					$('span.filter_apply').html(parseInt($('span.filter_apply').html())-1)
 			}
 		})
 
