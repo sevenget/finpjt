@@ -124,7 +124,7 @@ insert into companyBasicInfo values(
 
 insert into companyBasicInfo values(
 	3, 
-	'toss.png', 
+	'toss.jpg', 
 	'(주)비바리퍼블리카',
 	'통신 판매업',
 	'길찾기서울특별시 강남구 테헤란로 142 아크플레이스 12층',
