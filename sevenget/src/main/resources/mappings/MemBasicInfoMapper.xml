@@ -43,7 +43,9 @@
 	</insert>
 	
 	<update id="updateMember" parameterType="memBasicInfo">
-		
+		update memBasicInfo
+			set name=#{name}, password=#{password}, birth=#{birth},address=	#{address}, email=#{email}
+			where id=#{id}
 	</update>
 
 </mapper>

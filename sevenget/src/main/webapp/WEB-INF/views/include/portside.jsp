@@ -12,6 +12,16 @@
 		window.open("http://www.jobkorea.co.kr/", "_blank");
 	}
 </script>
+<!-- <script>
+$(function(){
+	$("#btnDelete").click(function(){
+		if(confirm("삭제하시겠습니까?")){
+			document.form1.action="${path}/seven/main/delete.do";
+			document.form1.submit();
+		}
+	});
+});
+</script> -->
 
 </head>
 <body>
@@ -47,7 +57,8 @@
 				</c:choose>
 				<p class="font"> ${iid.address}</p>			 
 				</c:forEach>
-				<%-- <input type="button" value="정보 수정" onclick="location.href='${path}/seven/main/update'"> --%>
+				<%-- <input type="button" value="정보 수정" onclick="location.href='${path}/seven/main/update'"> 
+						<input type="button" value="정보 삭제" id="btnDelete"> --%>
 			</div>
 		</div>
 		<div><!-- 관심 분야 점수 -->
