@@ -3,15 +3,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="ReviewDAO">	<!-- 임의로 지정하는 이름 -->
-
-	<resultMap type="review" id="ReviewMap">
-		<result column="writer" property="writer" />
-		<result column="cid" property="cid" />
-		<result column="content" property="content" />
-		<result column="reviewdate" property="reviewdate" />
-	</resultMap>
-
-	<select id="getReview" parameterType="int" resultMap="ReviewMap">
+	<select id="getReview" parameterType="int" resultType="review">
 		SELECT *
 		FROM companyreview WHERE cid = #{cid}
 	</select>

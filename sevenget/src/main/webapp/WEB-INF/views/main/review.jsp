@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,23 +59,13 @@
 
 
 					<div class="cc_review">
-						<!-- 댓글 전체 불러오기!!! -->
-						${review}
-						<%-- <c:forEach var="i" begin="0" end="2">
-							<div class="review${i+1}">
-
-								<p class="cr_view">"${review.get(i).content }"</p>
-								<p class="cr_view">${review.get(i).reviewdate }</p>
-							</div>
-						</c:forEach> --%>
-						<%-- <c:forEach items="${review}" var ="reviewdto">
-							<div class="review">
-								<p class="cr_view">"${reviewdto.content }"</p>
-								<p class="cr_view">${reviewdto.reviewdate }</p>
-							
-							</div>
-						</c:forEach> --%>
-
+						<c:forEach var="review" items="${reviewList}">
+								<div class="review">
+									<p class="cr_view">${review.content}</p>
+									<p class="cr_view">${review.reviewdate}</p>
+									<p class="cr_view">${review.writer}</p>
+								</div>
+							</c:forEach>
 					</div>
 
 					<div class="cc_write">

@@ -9,8 +9,20 @@
 		)
 	</insert>
 	
+	<update id="register_sub">
+		update companybasicinfo set interestedtimes=interestedtimes+1 where cid=#{cid}
+	</update>
+	
 	<update id="cancel">
 		update InterestedRC set canTime = sysdate where memid=#{memid} and cid= #{cid} and canTime is null
+	</update>
+	
+	<select id="getInterTimes" parameterType="Integer" resultType="Integer">
+		select interestedtimes from companybasicinfo where cid=#{cid}
+	</select>
+	
+	<update id="cancel_sub">
+		update companybasicinfo set interestedtimes=interestedtimes-1 where cid=#{cid}
 	</update>
 	
 	<select id="selectRelatedOne" resultType="interested">

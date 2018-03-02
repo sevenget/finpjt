@@ -29,18 +29,9 @@ public class ReviewDaoImpl implements ReviewDao {
 	}
 	
 	// 해당 기업에 대한 댓글 전체 불러오기
-	public List<ReviewDto> selectReview() {
-		 ReviewDto dto = new ReviewDto();
-		 List<ReviewDto> list = mybatis.selectList("ReviewDAO.getReview",1); // 1 자리에는 cid가 들어가야 함. 컨트롤러 통해 파라미터로 받아올것!
-		 if(dto == null){
-				System.out.println("검색된 아이디가 없습니다.");
-			}else{
-				/*for(ReviewDto dto1 : list){
-				System.out.printf("%s\t%s\t%s\n",dto1.getWriter(),dto1.getCid(),dto1.getContent());
-				}*/
-			}
-		 return list;
-		}
+	public List<ReviewDto> selectReview(int cid) {
+		 return mybatis.selectList("ReviewDAO.getReview",cid);
+	}
 	
 	// 댓글 등록
 	public void insertReview(String writer,int cid, String content) {
@@ -58,7 +49,7 @@ public class ReviewDaoImpl implements ReviewDao {
 	public static void main(String args[]) {
 		ReviewDaoImpl pp = new ReviewDaoImpl();
 		// pp.insertReview();
-		pp.selectReview();
+		pp.selectReview(1);
 		pp.getListCount();
 	}
 }

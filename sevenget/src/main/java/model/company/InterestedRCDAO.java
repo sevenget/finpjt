@@ -15,17 +15,33 @@ public class InterestedRCDAO {
 	
 	public void insertReg(InterestedRCDTO dto){
 		mybatis.insert("InterestedRCDAO.register", dto);
+		mybatis.update("InterestedRCDAO.register_sub", dto);
 		mybatis.commit();
 	}
 	
 	public void updateCan(InterestedRCDTO dto){
 		mybatis.update("InterestedRCDAO.cancel", dto);
+		if((int)mybatis.selectOne("InterestedRCDAO.getInterTimes", dto)==0){
+			mybatis.commit();
+			return;
+		}
+		mybatis.update("InterestedRCDAO.register_sub", dto);
 		mybatis.commit();
 	}
 	
 	public InterestedRCDTO selectRelatedOne(InterestedRCDTO dto){
-		return (InterestedRCDTO) mybatis.selectList("InterestedRCDAO.selectRelatedOne", dto).get(0);
+		List list =mybatis.selectList("InterestedRCDAO.selectRelatedOne", dto);
+		if(list.size()>0){
+			return (InterestedRCDTO) list.get(0);
+		} else{
+			return null;
+		}
 	}
+	
+	public int getInterTimesByCid(int cid){
+		return (int)mybatis.selectOne("InterestedRCDAO.getInterTimes", cid);
+	}
+	
 	
 	public List selectRelatedAll(String id){
 		return mybatis.selectList("InterestedRCDAO.selectRelatedAll", id);
