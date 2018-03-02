@@ -26,18 +26,20 @@ public class ReviewController {
 		CompanyBasicDAO CDAO = new CompanyBasicDAO();
 		
 		String id = (String)session.getAttribute("id"); // 파라메터로 받아오기
-		//int cid = 2; // 1번 = 카카오 , 2번 = 네이버
-		System.out.println("main/detailpage을 불러오는 컨트롤러.."+cid);
+		System.out.println("main/detailpage"+id);
+		
 		ModelAndView mav = new ModelAndView();
+		
 		mav.addObject("review", reviewDao.selectReview());
 		mav.addObject("member", DAO.getMemBasicInfo(id));
-		mav.addObject("company",CDAO.selectCompany(cid));
+		mav.addObject("company",CDAO.selectCompany(cid).get(0));
 		mav.addObject("cid", cid);
+		mav.addObject("id", id);
+		
 		//mav.addObject("company", CDAO.selectRelatedAll(id));
 		
 		mav.setViewName("main/detailpage");
-		System.out.println("응 main/detailpage끝이야.");
-		//request.setAttribute("review", reviewDao.selectReview());
+		request.setAttribute("id", id);
 		return mav;
 	}
 	
@@ -59,7 +61,21 @@ public class ReviewController {
 	// 기업 상세페이지-리뷰
 	@RequestMapping(value = "/main/review", method = RequestMethod.GET)
 	/* public String ReviewP(Locale locale, Model model) { */
-	public String ReviewP(ReviewDaoImpl reviewDao, HttpServletRequest request, @RequestParam int cid) {
+	public String ReviewP(ReviewDaoImpl reviewDao, ReviewDto dto, HttpSession session, ModelAndView mav) {
+		// DAO.selectReview();
+
+		System.out.println("reviewadd");
+		
+		reviewDao.insertReview((String)session.getAttribute("id"), dto.getCid(), dto.getContent());
+		System.out.println("리뷰 입력이 되엇습니다.");
+		// request.setAttribute("id", reviewDao.selectReview(id));
+
+		return "main/review";
+	}
+	
+	@RequestMapping(value = "/main/review", method = RequestMethod.POST)
+	/* public String ReviewP(Locale locale, Model model) { */
+	public String ReviewAdd(ReviewDaoImpl reviewDao, HttpServletRequest request, @RequestParam int cid) {
 		// DAO.selectReview();
 
 		//int cid = 1;

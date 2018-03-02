@@ -22,7 +22,7 @@
 
 	<insert id="insertReview">
 		INSERT INTO companyreview
-		VALUES(#{writer},#{cid},#{content},sysdate)
+		VALUES((select nvl(max(rid),0)+1 from companyreview), #{writer},#{cid},#{content},sysdate)
 	</insert>
 
 	<select id="selectCount" parameterType="int" resultType="java.lang.Integer">

@@ -13,7 +13,7 @@
 				$('#loadData').html(resultText);
 			},
 			error : function() {
-				alert("호출 실패");
+				alert("호출 실패 loadContent");
 			}
 		});
 	}
@@ -38,6 +38,7 @@
 		 }); */
 	});
 </script>
+
 <a onClick="fLoadData()"> <img
 	src="../resources/img/plots/${plotpng}" />
 </a>

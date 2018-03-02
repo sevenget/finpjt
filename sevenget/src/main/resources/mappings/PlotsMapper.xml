@@ -14,14 +14,14 @@
 		SELECT * FROM plots
 	</select>
 
-	<select id="getById" parameterType="String"  resultMap="PlotsMap">
+	<select id="getById"  resultMap="PlotsMap"><!-- parameterType="String"  -->
 		SELECT *
 		FROM plots
-		WHERE memid = #{memid}
+		WHERE memid = #{memid}  AND cid=#{cid}
 	</select>
 
 
-	<insert id="insertPlts">
+	<insert id="insertPlts" parameterType="plts">
 		INSERT INTO plots
 		VALUES((select nvl(max(pid), 0)+1 from plots), #{memid},#{cid},#{plotpng},sysdate)
 	</insert>
