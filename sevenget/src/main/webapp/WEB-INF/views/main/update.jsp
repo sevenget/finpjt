@@ -11,7 +11,8 @@
 //		/main 앞에 /seven 써줘야하는지 모르겠음
 $(function(){
 	$("#btnUpdate").click(function(){
-		document.form1.action="${path}/main/update"
+		document.form1.action="${path}/main/update.do";
+		document.form1.submit();
 	});
 });
 </script>
@@ -20,7 +21,11 @@ $(function(){
  <table border="1" width="600">
  	
  <c:forEach items="${member}" var="iid" >
-
+				
+				<tr>
+					<td align="center" >아이디</td>
+					<td>${iid.name}</td>
+				</tr>
 				<tr>
 					<td align="center" >이름</td>
 					<td><input class="font" name="memName" value="${iid.name}" > </td>
@@ -31,11 +36,15 @@ $(function(){
 				</tr>
 				<tr>
 					<td align="center" >생년월일</td>
-					<td><input class="font" name="memBirth" value="${iid.birth}" placeholder="주민번호 앞자리만 입력하시오(예시 901010)" > </td>
+					<td><input class="font" name="memBirth" style="width: 360px;" value="${iid.birth}" placeholder="주민번호 앞자리만 입력하시오(예시 901010)" > </td>
 				</tr>
 				<tr>
 					<td align="center" >주소</td>
 					<td><input class="font" name="memAddress" value="${iid.address}" > </td>
+				</tr>
+				<tr>
+					<td align="center" >이메일</td>
+					<td><input class="font" name="memEmail" value="${iid.email}" > </td>
 				</tr>
 
 				<tr>
@@ -68,7 +77,7 @@ $(function(){
 				</tr>
 				<tr>
 					<td colspan="2" align="center">
-						<input type="button" value="수정" id="btnUpdate" ><input type="button" onclick="" value="취소" > 
+						<input type="button" id="btnUpdate" value="수정" ><input type="button" onclick=" history.go(-1);" value="취소" > 
 						<div style="color: red;">${message }</div>
 					</td>
 				</tr>

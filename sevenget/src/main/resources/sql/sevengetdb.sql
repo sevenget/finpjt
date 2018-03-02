@@ -19,7 +19,7 @@ create table memBasicInfo(
 );
 SELECT * FROM memBasicInfo where id = 'Guest'
 select id from memBasicInfo where id='mem';
-select * from MEMBASICINFO,interestedRC;
+select * from MEMBASICINFO,interestedRC ;
 
 -- 회원 속성
 drop table memDetail purge;

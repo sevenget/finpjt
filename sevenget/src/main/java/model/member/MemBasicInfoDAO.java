@@ -29,5 +29,10 @@ public class MemBasicInfoDAO {
 		mybatis.commit();
 	}
 	
+	/*public void deleteMember(String id){
+		mybatis.delete("",)
+		mybatis.commit();
+	}*/
+	
 }
 
