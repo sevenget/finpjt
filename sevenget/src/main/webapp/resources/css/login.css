@@ -1,13 +1,29 @@
 @charset "utf-8";
 
 #regiHead { width:1300px; height:90px; border:1px solid white; background-color: white; margin-bottom: 40px;}
+#header { text-align:center; padding-top:10px; }
+
 #regiMain { width:1300px; height:718px; border:1px solid white; background-color:white; margin-bottom: 40px; display:table}
-.login { width:200px;margin:0 auto; border:0px; /* margin-left:492px; */ margin-top:252px; }
+.login { width:200px;margin:0 auto; border:0px; /* margin-left:492px; */ /* margin-top:252px; */ margin-top:6px; z-index:999; }
 #id { width:200px; height:40px; }
-#pw { width:200px; height:40px; margin-top:3px;}
+#pw { width:200px; height:40px; margin-top:3px; }
 #login {width:100px; height:100px; border:0; background-color:#ebebeb; color:#929292; font-size:15px; }
 #facebook { background-color:#3b5998; color:white; width:310px; height:50px; border:0; margin-top:7px; }
 #guest { background-color:orange; color: white; width:310px; height:50px; border:0; margin-top:5px; }
 #submit { background-color:#8772bf; color: white; width:310px; height:50px; border:0; margin-top:5px; }
 tr td{width:200px; height:30px;border:0;}
 .face_logo { width:20px; height:20px; }
+.adgif { width:100%; display:block; z-index:2; z-index:-1; }
+.adgif img { width:1301px; height:720px; margin-left:-0.6px; margin-top:-537px; z-index:-1; }
+
+
+.login1 { position:absolute; /* left:50%; top:50%; */ left:50%; top:55%; /* width:100%; */ width:420px; height:300px; max-width:400px; margin-left:-200px; margin-top:-222px; 
+		opacity:0.95; padding:20px; z-index:2; background-color: #fff; line-height: 1.8; }
+#BigWrap { height:100%; hegiht:100%; position:relative; }
+
+#BigWrap #videoEle{ position: absolute; overflow: hidden; left: 0; top: 0; width: 100%; height: 100%; z-index: 1; }
+#copy{ position: relative; text-align: right; border-top: 1px solid #333; }   
+.vjs-control-bar{ display: none; }
+
+.black { position:absolute; left:80%; top:120%; /* width:100%; */ width:400px; height:20px; max-width:400px; margin-left:-200px; margin-top:-222px; 
+		padding:20px; z-index:2; background-color: #000; line-height: 1.8;  }

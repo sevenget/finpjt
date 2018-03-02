@@ -160,7 +160,7 @@
 		<!-- 여기 안에다 작업하시면 돼요 -->	
 			<div class="container2">
 				<div id="regiHead">
-					<h3 id="header">칠득에 오신것을 환영합니다.</h3>
+					<h3 id="header">칠득에 오신 것을 환영합니다.</h3>
 				</div>
 				
 				<div id="regiMain1">
