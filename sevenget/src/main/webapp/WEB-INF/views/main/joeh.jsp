@@ -111,9 +111,7 @@
 					
 					
 					
-					$( ".zt-skill-bar > div " ).each(
-							(function(){ $( "#block1" ).animate( { width: "90%" }, { queue: false, duration: 3000 }) .animate({ fontSize: "24px" }, 1500 ) .animate({ borderRightWidth: "15px" }, 1500 ); });
-							);
+					$( ".zt-skill-bar > div " ).click(function(){ $this.animate( { width: "90%" }, { queue: false, duration: 3000 }) .animate({ fontSize: "24px" }, 1500 ) .animate({ borderRightWidth: "15px" }, 1500 ); });
 
 				</script>
 				
