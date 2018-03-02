@@ -41,5 +41,9 @@
 			#{hopeCon}
 		)
 	</insert>
+	
+	<update id="updateMember" parameterType="memBasicInfo">
+		
+	</update>
 
 </mapper>

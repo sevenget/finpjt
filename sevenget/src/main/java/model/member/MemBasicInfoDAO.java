@@ -19,10 +19,15 @@ public class MemBasicInfoDAO {
 	
 	public void insertMember(MemBasicInfoDTO dto){
 		
-		
-		
 		mybatis.insert("insertMember",dto);
 		mybatis.commit();
 	}
+	
+	public void updateMember(MemBasicInfoDTO dto){
+		
+		mybatis.update("updateMember",dto);
+		mybatis.commit();
+	}
+	
 }
 
