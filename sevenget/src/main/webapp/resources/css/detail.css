@@ -21,8 +21,8 @@ a { text-decoration:none; }
 .c_head_name { width:400px; height:50px; }
 .c_information { width:400px; height:350px; }
 
-.c_logo { width:400px; height:125px; margin-top:5px; /* background-color:#ffd3d3;  */ }
-.c_logo img {  height:115px; margin-top:5px; margin-left:140px; }
+.c_logo { width:400px; height:100px; margin-top:5px; /* background-color:#ffd3d3;  */ }
+.c_logo img { /*  height:115px; */ /* width:50%; */ height:80px; margin-top:5px; margin-left:25%; }
 
 .c_content { width:400px;height:40px; margin-top:5px; float:left; }
 .c_content1 { width:400px; height:100px; margin-top:5px; float:left; }
