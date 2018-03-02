@@ -122,6 +122,20 @@ insert into companyBasicInfo values(
 	'T','F','F','T','N','N','N'
 );
 
+insert into companyBasicInfo values(
+	3, 
+	'toss.png', 
+	'(주)비바리퍼블리카',
+	'통신 판매업',
+	'길찾기서울특별시 강남구 테헤란로 142 아크플레이스 12층',
+	'200억',
+	110,
+	'불편하고 복잡한 금융의 문제를 해결하는 것. 복잡한 절차, 정책, 수많은 제약사항과 어려운 용어, 간단한 일에도 매번 겪게 되는 불편함. 이 불편하고 복잡한 금융의 문제를 토스팀이 끝내려고 합니다.', 
+	'인터넷서비스(토스) 제공/소프트웨어 개발/공급, 통신판매 등 포털 및 기타 인터넷 정보매개 서비스업체', 
+	0,
+	'N','N','N','N','N','N','N'
+);
+
 -- 기업 점수
 create table companyScore(
    cid number(10) constraint companyConcern_id_fk references companyBasicInfo(cid),
