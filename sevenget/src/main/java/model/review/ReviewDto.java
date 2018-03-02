@@ -3,11 +3,20 @@ package model.review;
 import java.sql.Date;
 
 public class ReviewDto {
+	private int rid;
 	private String writer;
 	private int cid;
 	private Date reviewdate;
 	private String content;
 	
+	
+	
+	public int getRid() {
+		return rid;
+	}
+	public void setRid(int rid) {
+		this.rid = rid;
+	}
 	public String getWriter() {
 		return writer;
 	}

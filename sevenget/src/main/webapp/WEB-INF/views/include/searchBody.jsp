@@ -27,7 +27,6 @@
 				}
 				$('#form_'+$(this).attr('data-cid')).submit();
 			})
-				
 		})	
 	</script>
 	<c:forEach var= "loveComp" items="${ interestedComList }">

@@ -84,23 +84,8 @@ $(function(){
 					
 					<!-- 회원정보 -->
 					<div class="infoContHolder">
-						<div class="infocontholder_2">
-
-								<p class="head_member">회원 정보</p>
-								<hr width="285px" color="#aaa" size="1" class="hr_member">
-						
-								<div class="ficture">
-									<img src="../resources/img/johnpic.jpg">
-								</div>
-							
-								<div class="membership">
-									<p>홍길동</p><br>
-									<p class="font">1990/02/10</p>
-									<p class="font">쾌도대학교 졸업</p>			
-								</div>
-								
-								<input type="button" value="MyPage" class="MyPage_btn" onclick="location.href='mypage';">
-						</div>
+						<jsp:include page="/WEB-INF/views/include/info_include.jsp"></jsp:include>
+					</div>
 					</div>
 						<!-- 
 						<table>
