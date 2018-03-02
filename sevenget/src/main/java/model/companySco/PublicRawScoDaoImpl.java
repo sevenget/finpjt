@@ -1,11 +1,14 @@
 package model.companySco;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /*만들어진 plot의 저장 및 수정에 대한 내용을 우선적으로 만듦*/
 import org.apache.ibatis.session.SqlSession;
 
 import model.common.SqlSessionFactoryBean;
+import model.plots.PlotsDto;
 
 public class PublicRawScoDaoImpl implements PublicRawScoDao {
 	private SqlSession mybatis;
@@ -33,10 +36,15 @@ public class PublicRawScoDaoImpl implements PublicRawScoDao {
 		mybatis.commit();
 	}
 	
-	public PublicRawScoDto selectbyCid(int cid){
+	public PublicRawScoDto selectbyCid(int cid, String id){
 		System.out.println(cid);
 		PublicRawScoDto dto = new PublicRawScoDto();
-		dto = (PublicRawScoDto) mybatis.selectOne("PublicRawScoDAO.getById", cid);
+		
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("id", id);
+		parameters.put("cid", cid);
+
+		dto = (PublicRawScoDto) mybatis.selectOne("PublicRawScoDAO.getById", parameters);
 		System.out.println(dto.getCid());
 		return dto;
 	}
@@ -91,7 +99,7 @@ public class PublicRawScoDaoImpl implements PublicRawScoDao {
 		pp.insertOrUpdatePlots("mem1");// mem은 세션에서 받아온 게 없어서 그냥 해 둠.
 		pp.selectPlots();*/
 		//pp.insertPublicRawScore();
-		pp.selectbyCid(2);
+		//pp.selectbyCid(2);
 		//pp.selectbyCid(1);
 		
 	}

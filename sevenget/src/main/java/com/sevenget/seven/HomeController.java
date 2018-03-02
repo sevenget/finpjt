@@ -96,7 +96,7 @@ public class HomeController {
 		// plot 뽑는 중..
 		System.out.println("R시작");
 		// 기능2
-		plotName = mplot.mPlot(CScoDto);
+		plotName = mplot.mPlot(CScoDto, id);
 		System.out.println("R종료");
 		
 		// plot 이름 지정 완료

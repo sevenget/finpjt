@@ -6,6 +6,9 @@ import model.companySco.CompanyScoDaoImpl;
 import model.companySco.CompanyScoDto;
 import model.companySco.PublicRawScoDaoImpl;
 import model.companySco.PublicRawScoDto;
+import model.member.MemBasicInfoDTO;
+import model.member.MemConcernDAO;
+import model.member.MemConcernDto;
 
 // 실행 전 Rserve.R 반드시 실행시키기
 
@@ -110,78 +113,90 @@ public class Evaluation {
 		CompanyScoDto dtoEP = new CompanyScoDto();
 		Evaluation ev = new Evaluation();
 
-		dtoEP = ev.EvalCompanyEPR(CRScoDao.selectbyCid(cid));//값을 입력을 먼저 해줘서 그걸 넘겨줘야 하는데... 일단 값을 미리 넣어둠.
 
 		// 일반인 평가
-		PublicRawScoDaoImpl PRScoDao = new PublicRawScoDaoImpl();
-		System.out.println(5);
-		CompanyScoDto dtoPP = new CompanyScoDto();
-		System.out.println(6);
+		try{ //세부 점수를 넣어줬으면 
+			dtoEP = ev.EvalCompanyEPR(CRScoDao.selectbyCid(cid));//값을 입력을 먼저 해줘서 그걸 넘겨줘야 하는데... 일단 값을 미리 넣어둠.
 
-		dtoPP = ev.EvalCompanyPUP(PRScoDao.selectbyCid(cid));// 이것도 값을 입력을 해줘야 하는데 일단 db로 강제 입력함!
-		System.out.println(7);
+			PublicRawScoDaoImpl PRScoDao = new PublicRawScoDaoImpl();
+			System.out.println(5);
+			CompanyScoDto dtoPP = new CompanyScoDto();
+			System.out.println(6);
 
-		////점수환산 과정 중 마지막! 다 합쳐주는 것!
-		//CScoDto = evaluation.EvalCompanyEPR(CRScoDto);
-		//System.out.printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n", CScoDto.getCid(), CScoDto.getDateSco(), CScoDto.getMarrySco(), CScoDto.getBabySco(), CScoDto.getHouseSco(), CScoDto.getRelationSco(), CScoDto.getDreamSco(), CScoDto.getHopeSco());
-		if(dtoPP != null){
-			System.out.println("일반인 평가 있을 때"); //10 6.8 -> 6 4
-			double dateEP = Double.parseDouble(String.format("%.2f" , dtoEP.getDateSco()*0.6));
-			double datePP = Double.parseDouble(String.format("%.2f" , dtoPP.getDateSco()*4/6.8));
+			dtoPP = ev.EvalCompanyPUP(PRScoDao.selectbyCid(cid,id));// 이것도 값을 입력을 해줘야 하는데 일단 db로 강제 입력함!
+			System.out.println(7);
+
+			////점수환산 과정 중 마지막! 다 합쳐주는 것!
+			//CScoDto = evaluation.EvalCompanyEPR(CRScoDto);
+			//System.out.printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n", CScoDto.getCid(), CScoDto.getDateSco(), CScoDto.getMarrySco(), CScoDto.getBabySco(), CScoDto.getHouseSco(), CScoDto.getRelationSco(), CScoDto.getDreamSco(), CScoDto.getHopeSco());
+			if(dtoPP != null){
+				System.out.println("일반인 평가 있을 때"); //10 6.8 -> 6 4
+				double dateEP = Double.parseDouble(String.format("%.2f" , dtoEP.getDateSco()*0.6));
+				double datePP = Double.parseDouble(String.format("%.2f" , dtoPP.getDateSco()*4/6.8));
+				
+				double marryEP = Double.parseDouble(String.format("%.2f" , dtoEP.getMarrySco()*0.6));
+				double marryPP = Double.parseDouble(String.format("%.2f" , dtoPP.getMarrySco()*4/6.8));
+				
+				double babyEP = Double.parseDouble(String.format("%.2f" , dtoEP.getBabySco()*0.6));
+				double babyPP = Double.parseDouble(String.format("%.2f" , dtoPP.getBabySco()*4/6.8));
+
+				double houseEP = Double.parseDouble(String.format("%.2f" , dtoEP.getHouseSco()*0.6));
+				double housePP = Double.parseDouble(String.format("%.2f" , dtoPP.getHouseSco()*4/6.8));
+
+				double relEP = Double.parseDouble(String.format("%.2f" , dtoEP.getRelationSco()*0.6));
+				double relPP = Double.parseDouble(String.format("%.2f" , dtoPP.getRelationSco()*4/6.8));
+
+				double dreamEP = Double.parseDouble(String.format("%.2f" , dtoEP.getDreamSco()*1.2));
+				double dreamPP = Double.parseDouble(String.format("%.2f" , dtoPP.getDreamSco()*4/3));
+
+				double hopeEP = Double.parseDouble(String.format("%.2f" , dtoEP.getHopeSco()*1.2));
+				double hopePP = Double.parseDouble(String.format("%.2f" , dtoPP.getHopeSco()*4/3));
+
+				
+				System.out.println(8);
+				CScoDto.setDateSco(Double.parseDouble(String.format("%.2f" , dateEP + datePP)));
+				CScoDto.setMarrySco(Double.parseDouble(String.format("%.2f" , marryEP + marryPP)));
+				CScoDto.setBabySco(Double.parseDouble(String.format("%.2f" , babyEP + babyPP)));
+				CScoDto.setHouseSco(Double.parseDouble(String.format("%.2f" , houseEP + housePP)));
+				CScoDto.setRelationSco(Double.parseDouble(String.format("%.2f" , relEP + relPP)));
+				CScoDto.setDreamSco(Double.parseDouble(String.format("%.2f" , dreamEP + dreamPP)));
+				CScoDto.setHopeSco(Double.parseDouble(String.format("%.2f" , hopeEP + hopePP)));
+				System.out.printf("연애%s\t결혼%s\t아기%s\t내집%s\t인간%s\t꿈%s\t희망%s\n",CScoDto.getDateSco(),CScoDto.getMarrySco(),CScoDto.getBabySco(),CScoDto.getHouseSco(),CScoDto.getRelationSco(),CScoDto.getDreamSco(),CScoDto.getHopeSco());
+
+				ComScoDao.insertCompanyScore(CScoDto);
 			
-			double marryEP = Double.parseDouble(String.format("%.2f" , dtoEP.getMarrySco()*0.6));
-			double marryPP = Double.parseDouble(String.format("%.2f" , dtoPP.getMarrySco()*4/6.8));
+				return CScoDto;
+				
+			}else{
+				System.out.println("일반인 평가 없을 때");
+				System.out.println("dtoEP에 저장된 cid"+dtoEP.getCid());
+
+				System.out.println(16);
+				CScoDto.setDateSco(Double.parseDouble(String.format("%.2f" , dtoEP.getDateSco()*10/6)));
+				CScoDto.setMarrySco(Double.parseDouble(String.format("%.2f" , dtoEP.getMarrySco()*10/6)));
+				CScoDto.setBabySco(Double.parseDouble(String.format("%.2f" , dtoEP.getBabySco()*10/6)));
+				CScoDto.setHouseSco(Double.parseDouble(String.format("%.2f" , dtoEP.getHouseSco()*10/6)));
+				CScoDto.setRelationSco(Double.parseDouble(String.format("%.2f" , dtoEP.getRelationSco()*10/6)));
+				CScoDto.setDreamSco(Double.parseDouble(String.format("%.2f" , dtoEP.getDreamSco()*10/6)));
+				CScoDto.setHopeSco(Double.parseDouble(String.format("%.2f" , dtoEP.getHopeSco()*10/6)));
+				System.out.printf("연애%s\t결혼%s\t아기%s\t내집%s\t인간%s\t꿈%s\t희망%s\n",CScoDto.getDateSco(),CScoDto.getMarrySco(),CScoDto.getBabySco(),CScoDto.getHouseSco(),CScoDto.getRelationSco(),CScoDto.getDreamSco(),CScoDto.getHopeSco());
+				
+				System.out.println(17);
+				ComScoDao.insertCompanyScore(CScoDto);
+				System.out.println(18);
+			}
+		}catch (Exception e) {//세부 점수를 안 넣어줬으면
+			MemConcernDAO MCdao = new MemConcernDAO();
+			System.out.println(19);
+			MemConcernDto MCdto = new MemConcernDto();
+			System.out.println(20);
+			MCdto = MCdao.getMemConcern(id);
+			System.out.println(21);
 			
-			double babyEP = Double.parseDouble(String.format("%.2f" , dtoEP.getBabySco()*0.6));
-			double babyPP = Double.parseDouble(String.format("%.2f" , dtoPP.getBabySco()*4/6.8));
-
-			double houseEP = Double.parseDouble(String.format("%.2f" , dtoEP.getHouseSco()*0.6));
-			double housePP = Double.parseDouble(String.format("%.2f" , dtoPP.getHouseSco()*4/6.8));
-
-			double relEP = Double.parseDouble(String.format("%.2f" , dtoEP.getRelationSco()*0.6));
-			double relPP = Double.parseDouble(String.format("%.2f" , dtoPP.getRelationSco()*4/6.8));
-
-			double dreamEP = Double.parseDouble(String.format("%.2f" , dtoEP.getDreamSco()*1.2));
-			double dreamPP = Double.parseDouble(String.format("%.2f" , dtoPP.getDreamSco()*4/3));
-
-			double hopeEP = Double.parseDouble(String.format("%.2f" , dtoEP.getHopeSco()*1.2));
-			double hopePP = Double.parseDouble(String.format("%.2f" , dtoPP.getHopeSco()*4/3));
-
-			
-			System.out.println(8);
-			CScoDto.setDateSco(Double.parseDouble(String.format("%.2f" , dateEP + datePP)));
-			CScoDto.setMarrySco(Double.parseDouble(String.format("%.2f" , marryEP + marryPP)));
-			CScoDto.setBabySco(Double.parseDouble(String.format("%.2f" , babyEP + babyPP)));
-			CScoDto.setHouseSco(Double.parseDouble(String.format("%.2f" , houseEP + housePP)));
-			CScoDto.setRelationSco(Double.parseDouble(String.format("%.2f" , relEP + relPP)));
-			CScoDto.setDreamSco(Double.parseDouble(String.format("%.2f" , dreamEP + dreamPP)));
-			CScoDto.setHopeSco(Double.parseDouble(String.format("%.2f" , hopeEP + hopePP)));
-			System.out.printf("연애%s\t결혼%s\t아기%s\t내집%s\t인간%s\t꿈%s\t희망%s\n",CScoDto.getDateSco(),CScoDto.getMarrySco(),CScoDto.getBabySco(),CScoDto.getHouseSco(),CScoDto.getRelationSco(),CScoDto.getDreamSco(),CScoDto.getHopeSco());
-
-			ComScoDao.insertCompanyScore(CScoDto);
-		
-			return CScoDto;
-			
-		}else{
-			System.out.println("일반인 평가 없을 때");
-			System.out.println("dtoEP에 저장된 cid"+dtoEP.getCid());
-
-			System.out.println(16);
-			CScoDto.setDateSco(Double.parseDouble(String.format("%.2f" , dtoEP.getDateSco()*10/6)));
-			CScoDto.setMarrySco(Double.parseDouble(String.format("%.2f" , dtoEP.getMarrySco()*10/6)));
-			CScoDto.setBabySco(Double.parseDouble(String.format("%.2f" , dtoEP.getBabySco()*10/6)));
-			CScoDto.setHouseSco(Double.parseDouble(String.format("%.2f" , dtoEP.getHouseSco()*10/6)));
-			CScoDto.setRelationSco(Double.parseDouble(String.format("%.2f" , dtoEP.getRelationSco()*10/6)));
-			CScoDto.setDreamSco(Double.parseDouble(String.format("%.2f" , dtoEP.getDreamSco()*10/6)));
-			CScoDto.setHopeSco(Double.parseDouble(String.format("%.2f" , dtoEP.getHopeSco()*10/6)));
-			System.out.printf("연애%s\t결혼%s\t아기%s\t내집%s\t인간%s\t꿈%s\t희망%s\n",CScoDto.getDateSco(),CScoDto.getMarrySco(),CScoDto.getBabySco(),CScoDto.getHouseSco(),CScoDto.getRelationSco(),CScoDto.getDreamSco(),CScoDto.getHopeSco());
-			
-			System.out.println(17);
-			ComScoDao.insertCompanyScore(CScoDto);
-			System.out.println(18);
-			
+		}finally {
 			return CScoDto;
 		}
+		
 	}
 
 }

@@ -30,10 +30,10 @@
 		SELECT * FROM publicrawscore
 	</select>
 
-	<select id="getById" parameterType="int"  resultMap="PublicRawScoMap">
+	<select id="getById"  resultMap="PublicRawScoMap">
 		SELECT *
 		FROM publicrawscore
-		WHERE cid = #{cid}
+		WHERE cid = #{cid} AND id=#{id}
 	</select>
 
 

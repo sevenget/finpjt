@@ -9,12 +9,13 @@ import org.rosuda.REngine.RList;
 import org.rosuda.REngine.Rserve.RConnection;
 
 import model.companySco.CompanyScoDto;
+import model.member.MemConcernDAO;
 
 // 실행 전 Rserve.R 반드시 실행시키기
 
 public class MakingPlot {
 	
-	public String mPlot(CompanyScoDto CScoDto) throws REXPMismatchException, REngineException {
+	public String mPlot(CompanyScoDto CScoDto, String id) throws REXPMismatchException, REngineException {
 		System.out.println("mplot "+CScoDto.getCid());
 		RConnection connection = null;
 		connection = new RConnection();
@@ -25,7 +26,10 @@ public class MakingPlot {
 		
 		// DB에서 받아온 데이터 집어넣기
 		System.out.println("데이터 집어넣기1");
-		RList dataframe = connection.eval("{data=as.data.frame(rbind( c(1,2,3,4,5,6,7), c("
+		
+		MemConcernDAO MemCdao = new MemConcernDAO();
+		
+		RList dataframe = connection.eval("{data=as.data.frame(rbind( c("+MemCdao.getMemConcern(id).getDateCon()+","+MemCdao.getMemConcern(id).getMarryCon()+","+MemCdao.getMemConcern(id).getBabyCon()+","+MemCdao.getMemConcern(id).getHouseCon()+","+MemCdao.getMemConcern(id).getRelationCon()+","+MemCdao.getMemConcern(id).getDreamCon()+","+MemCdao.getMemConcern(id).getHopeCon()+"), c("
 		+CScoDto.getDateSco()+","+CScoDto.getMarrySco()+","+CScoDto.getBabySco()+","+CScoDto.getHouseSco()+","+CScoDto.getRelationSco()+","+CScoDto.getDreamSco()+","+CScoDto.getHopeSco()+
 		")))}").asList();
 		System.out.println("데이터 집어넣기2");
@@ -44,7 +48,7 @@ public class MakingPlot {
 		
 		
 		
-		connection.eval("png(filename = 'radarchart"+CScoDto.getCid()+".png', width = 510, height = 400)"); // plot의 너비와 높이는 언제든지 변경가능!
+		connection.eval("png(filename = 'radarchart"+CScoDto.getCid()+"_"+id+".png', width = 510, height = 400)"); // plot의 너비와 높이는 언제든지 변경가능!
 		connection.eval("par(mar=c(1,1,1,1))");
 		connection.eval("radarchart( data  , axistype=1 , seg = 5, pcol=colors_border , pfcol=colors_in , plwd=4 , plty=1, cglcol='grey', cglty=1, axislabcol='grey', caxislabels=seq(0,10,2), cglwd=0.8,vlcex=0.8)");
 		connection.eval("legend(x=0.7, y=1.3, legend = rownames(data[-c(1,2),]), bty = 'n', pch=20 , col=colors_in , text.col = 'grey', cex=1.2, pt.cex=3)");
@@ -68,6 +72,6 @@ public class MakingPlot {
 		/*List<Object> data = new ArrayList<Object>();
 		data.add("radarchart"+CScoDto.getCid()+".png");
 		data.add(CScoDto.getCid());*/
-		return "radarchart"+CScoDto.getCid()+".png";//data
+		return "radarchart"+CScoDto.getCid()+"_"+id+".png";//data
 	}
 }
