@@ -60,6 +60,7 @@ $(function(){
 
 			<div class="info">
 				<p class="head_member" align="center">회원 정보</p>
+				<div class="m_btn"><a onclick="location.href='${path}/seven/main/update'"><p class="mp">수정</p></a></div>
 				<hr width="285px" color="#aaa" size="1" class="hr">
 
 				<div class="ficture">
@@ -102,7 +103,7 @@ $(function(){
 							<!-- <div class="bar1">미음</div> -->
 							<div class="zt-skill-bar bar1">
 								<div data-width="${iid.dateCon*10}" style="">
-									미음<span>${iid.dateCon}</span>
+									　<span>${iid.dateCon}</span>
 								</div>
 							</div>
 						</div>
@@ -112,7 +113,7 @@ $(function(){
 							<!-- <div class="bar1">미음</div> -->
 							<div class="zt-skill-bar bar1">
 								<div data-width="${iid.marryCon*10}" style="">
-									미음<span>${iid.marryCon}</span>
+									　<span>${iid.marryCon}</span>
 								</div>
 							</div>
 
@@ -123,7 +124,7 @@ $(function(){
 							<!-- <div class="bar1">미음</div> -->
 							<div class="zt-skill-bar bar1">
 								<div data-width="${iid.babyCon*10}" style="">
-									미음<span>${iid.babyCon}</span>
+									　<span>${iid.babyCon}</span>
 								</div>
 							</div>
 
@@ -134,7 +135,7 @@ $(function(){
 							<!-- <div class="bar3">미음</div> -->
 							<div class="zt-skill-bar bar3">
 								<div data-width="${iid.houseCon*10}" style="">
-									미음<span>${iid.houseCon}</span>
+									　<span>${iid.houseCon}</span>
 								</div>
 							</div>
 
@@ -145,7 +146,7 @@ $(function(){
 							<!-- <div class="bar3">미음</div> -->
 							<div class="zt-skill-bar bar3">
 								<div data-width="${iid.relationCon*10}" style="">
-									미음<span>${iid.relationCon}</span>
+									　<span>${iid.relationCon}</span>
 								</div>
 							</div>
 
@@ -156,7 +157,7 @@ $(function(){
 							<!-- <div class="bar2">미음</div> -->
 							<div class="zt-skill-bar bar2">
 								<div data-width="${iid.dreamCon*10}" style="">
-									미음<span>${iid.dreamCon}</span>
+									　<span>${iid.dreamCon}</span>
 								</div>
 							</div>
 
@@ -167,7 +168,7 @@ $(function(){
 							<!-- <div class="bar3">미음</div> -->
 							<div class="zt-skill-bar bar3">
 								<div data-width="${iid.hopeCon*10}" style="">
-									미음<span>${iid.hopeCon}</span>
+									　<span>${iid.hopeCon}</span>
 								</div>
 							</div>
 

@@ -13,8 +13,9 @@
         line-height: 25px;
         height: 25px;
         margin-bottom: 5px;
+        width:216px;
 
-        background-color: rgba(0,0,0,0.1);
+        background-color: rgba(0,0,0,0.05);
 
         -webkit-border-radius: 2px;
            -moz-border-radius: 2px;
@@ -33,6 +34,7 @@
 
     .zt-skill-bar div {
         background-color: #ffc600;
+       /*  background-color: #bea3d8; */
         position: relative;
         padding-left: 25px;
         width: 0;
@@ -51,6 +53,7 @@
         height: 100%;
         padding: 0 5px 0 10px;
         background-color: #1a1a1a;
+        color:#fff;
 
         -webkit-border-radius: 0 2px 2px 0;
            -moz-border-radius: 0 2px 2px 0;
