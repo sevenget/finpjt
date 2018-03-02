@@ -46,11 +46,21 @@ public class MypageController {
 		return "main/mypage"; 
 	}
 
-	//마이페이지2s
+	//마이페이지2
 	@RequestMapping(value = "/main/mypage2", method = RequestMethod.GET)
 	public String Mypage2(Locale locale, Model model) {
 
 		return "main/mypage2";
+	}
+	
+	//정보 수정 페이지
+	@RequestMapping(value = "/main/update", method = RequestMethod.GET)
+	public String update(MemBasicInfoDAO DAO, InterestedRCDAO CDAO ,HttpServletRequest request, HttpSession session) {
+		String id = (String)session.getAttribute("id");
+		request.setAttribute("member", DAO.getMemBasicInfo(id));
+		/*request.setAttribute("company", CDAO.selectRelatedAllAndMemBasicInFo(id));*/
+		System.out.println("update");
+		return "main/update"; 
 	}
 
 	

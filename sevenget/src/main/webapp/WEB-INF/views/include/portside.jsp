@@ -46,7 +46,8 @@
 					</c:otherwise>
 				</c:choose>
 				<p class="font"> ${iid.address}</p>			 
-				</c:forEach>  
+				</c:forEach>
+				<input type="button" value="정보 수정" onclick="location.href='${path}/seven/main/update'">
 			</div>
 		</div>
 		<div><!-- 관심 분야 점수 -->
