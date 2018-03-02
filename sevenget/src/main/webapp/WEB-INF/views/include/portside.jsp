@@ -55,13 +55,40 @@
 			<hr width="285px" color="#aaa" size="1" class="hr">
 			
 			<div class="ins_div">
-				<div class="ins_p"><p class="ml">연애</p></div>
-				<div class="ins_p"><p class="ml">결혼</p></div>
-				<div class="ins_p"><p class="ml">출산</p></div>
-				<div class="ins_p"><p>내집마련</p></div>
-				<div class="ins_p"><p>인간관계</p></div>
-				<div class="ins_p"><p class="ml2">꿈</p></div>
-				<div class="ins_p"><p>희망직업</p></div>
+				<div class="ins_p">
+					<p class="ml">연애</p>
+					<p class="bar1">미음</p>
+				</div>
+				
+				<div class="ins_p">
+					<p class="ml">결혼</p>
+					<p class="bar1">미음</p>
+				</div>
+				
+				<div class="ins_p">
+					<p class="ml">출산</p>
+					<p class="bar1">미음</p>
+				</div>
+				
+				<div class="ins_p">
+					<p class="ml3">내집마련</p>
+					<p class="bar3">미음</p>
+				</div>
+				
+				<div class="ins_p">
+					<p class="ml3">인간관계</p>
+					<p class="bar3">미음</p>
+				</div>
+				
+				<div class="ins_p">
+					<p class="ml2">꿈</p>
+					<p class="bar2">미음</p>
+				</div>
+				
+				<div class="ins_p">
+					<p class="ml3">희망직업</p>
+					<p class="bar3">미음</p>
+				</div>
 			</div>
 			
 			<!-- <h3 align="center" style="margin-top: 5px; margin-bottom: 5px;">관심 분야 점수</h3> -->
