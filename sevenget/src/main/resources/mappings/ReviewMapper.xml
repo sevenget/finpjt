@@ -4,8 +4,7 @@
 
 <mapper namespace="ReviewDAO">	<!-- 임의로 지정하는 이름 -->
 	<select id="getReview" parameterType="int" resultType="review">
-		SELECT *
-		FROM companyreview WHERE cid = #{cid}
+		SELECT * FROM companyreview WHERE cid = #{cid}
 	</select>
 
 	<select id="selectReview">
