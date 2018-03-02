@@ -80,52 +80,44 @@
 				<!-- barchart -->
 
 
+<script>
+				(function( $ ) {
+    "use strict";
+    $(function() {
+        function animated_contents() {
+            $(".zt-skill-bar > div ").each(function (i) {
+                var $this  = $(this),
+                    skills = $this.data('width');
 
-				<script>
-					(function($) {
-						"use strict";
-						$(function() {
-							function animated_contents() {
-								$(".zt-skill-bar > div ").each(
-										function(i) {
-											var $this = $(this), skills = $this
-													.data('width');
+                $this.css({'width' : skills + '%'});
 
-											$this.css({
-												'width' : skills + '%'
-											});
-
-										});
-							}
-
-							if (jQuery().appear) {
-								$('.zt-skill-bar').appear().on('appear',
-										function() {
-											animated_contents();
-										});
-							} else {
-								animated_contents();
-							}
-						});
-					}(jQuery));
-					
-					
-					
-					$( ".zt-skill-bar > div " ).click(function(){ $this.animate( { width: "90%" }, { queue: false, duration: 3000 }) .animate({ fontSize: "24px" }, 1500 ) .animate({ borderRightWidth: "15px" }, 1500 ); });
-
+            });
+        }
+        
+        if(jQuery().appear) {
+            $('.zt-skill-bar').appear().on('appear', function() {
+                animated_contents();
+            });
+        } else {
+            animated_contents();
+        }
+    });
+}(jQuery));
 				</script>
 				
 <div class="zt-span6 last">
 <h3><strong>진행율 바</strong></h3>
-<div class="zt-skill-bar"><div data-width="${10*10}" style="">연애<span>88%</span></div></div>
-<div class="zt-skill-bar"><div data-width="${10*8}" style="">결혼<span>92%</span></div></div>
-<div class="zt-skill-bar"><div data-width="${10*7}" style=";">출산및육아<span>82%</span></div></div>
-<div class="zt-skill-bar"><div data-width="${10*5}" style=";">내집마련<span>85%</span></div></div>
-<div class="zt-skill-bar"><div data-width="${10*3}" style=";">인간관계<span>60%</span></div></div>
-<div class="zt-skill-bar"><div data-width="${10*6}" style=";">꿈<span>60%</span></div></div>
-<div class="zt-skill-bar"><div data-width="${10*1}" style=";">희망<span>60%</span></div></div>
+<div class="zt-skill-bar bar1"><div data-width="${10*10}" style="">미음<span>88%</span></div></div>
+<div class="zt-skill-bar bar2"><div data-width="${10*8}" style="">미음<span>92%</span></div></div>
+<div class="zt-skill-bar bar3"><div data-width="${10*7}" style=";">미음<span>82%</span></div></div>
+<div class="zt-skill-bar bar4"><div data-width="${10*5}" style=";">미음<span>85%</span></div></div>
+<div class="zt-skill-bar bar5"><div data-width="${10*3}" style=";">미음<span>60%</span></div></div>
+<div class="zt-skill-bar bar6"><div data-width="${10*6}" style=";">미음<span>60%</span></div></div>
+<div class="zt-skill-bar bar7"><div data-width="${10*1}" style=";">미음<span>60%</span></div></div>
 
 </div>
+
+
 
 
 
