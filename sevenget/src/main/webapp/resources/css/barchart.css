@@ -8,6 +8,7 @@
 	
 }
     .zt-skill-bar {
+	    width:200px;
         color: #fff;
         font-size: 11px;
         line-height: 25px;
@@ -24,11 +25,11 @@
     }
 
     .zt-skill-bar * {
-        webkit-transition: all 5s ease;
-          -moz-transition: all 5s ease;
-           -ms-transition: all 5s ease;
-            -o-transition: all 5s ease;
-               transition: all 5s ease;
+        webkit-transition: all 2s ease;
+          -moz-transition: all 2s ease;
+           -ms-transition: all 2s ease;
+            -o-transition: all 2s ease;
+               transition: all 2s ease;
     }
 
     .zt-skill-bar div {
