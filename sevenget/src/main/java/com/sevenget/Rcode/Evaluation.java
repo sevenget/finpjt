@@ -107,14 +107,10 @@ public class Evaluation {
 		System.out.println("*********CScoDto.getCid() : "+CScoDto.getCid());
 		//전문 패널 점수
 		CompanyRawScoDaoImpl CRScoDao = new CompanyRawScoDaoImpl();
-		System.out.println(1);
 		CompanyScoDto dtoEP = new CompanyScoDto();
-		System.out.println(2);
 		Evaluation ev = new Evaluation();
-		System.out.println(3);
 
 		dtoEP = ev.EvalCompanyEPR(CRScoDao.selectbyCid(cid));//값을 입력을 먼저 해줘서 그걸 넘겨줘야 하는데... 일단 값을 미리 넣어둠.
-		System.out.println(4);
 
 		// 일반인 평가
 		PublicRawScoDaoImpl PRScoDao = new PublicRawScoDaoImpl();

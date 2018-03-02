@@ -1,5 +1,8 @@
 package com.sevenget.Rcode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.rosuda.REngine.REXPMismatchException;
 import org.rosuda.REngine.REngineException;
 import org.rosuda.REngine.RList;
@@ -12,6 +15,7 @@ import model.companySco.CompanyScoDto;
 public class MakingPlot {
 	
 	public String mPlot(CompanyScoDto CScoDto) throws REXPMismatchException, REngineException {
+		System.out.println("mplot "+CScoDto.getCid());
 		RConnection connection = null;
 		connection = new RConnection();
 		
@@ -61,6 +65,9 @@ public class MakingPlot {
 			}
 			System.out.println();
 		}
-		return "radarchart"+CScoDto.getCid()+".png";
+		/*List<Object> data = new ArrayList<Object>();
+		data.add("radarchart"+CScoDto.getCid()+".png");
+		data.add(CScoDto.getCid());*/
+		return "radarchart"+CScoDto.getCid()+".png";//data
 	}
 }

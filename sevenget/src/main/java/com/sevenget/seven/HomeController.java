@@ -1,5 +1,6 @@
 package com.sevenget.seven;
 
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,12 +20,15 @@ import org.springframework.web.servlet.ModelAndView;
 import com.sevenget.Rcode.Evaluation;
 import com.sevenget.Rcode.MakingPlot;
 
+import model.company.InterestedRCDAO;
 import model.companySco.CompanyRawScoDaoImpl;
 import model.companySco.CompanyRawScoDto;
 import model.companySco.CompanyScoDaoImpl;
 import model.companySco.CompanyScoDto;
 import model.companySco.PublicRawScoDaoImpl;
 import model.companySco.PublicRawScoDto;
+import model.member.MemBasicInfoDAO;
+import model.member.MemBasicInfoDTO;
 import model.plots.PlotsDaoImpl;
 import model.plots.PlotsDto;
 
@@ -54,44 +58,44 @@ public class HomeController {
 
 	// 연습용 메인페이지
 	@RequestMapping(value = "/main/joeh", method = RequestMethod.GET)
-	public String mainPractice(Locale locale, Model model) {
-
+	public String mainPractice(MemBasicInfoDAO DAO, InterestedRCDAO CDAO, HttpServletRequest request,HttpSession session,Locale locale, Model model) {
+		String id = (String)session.getAttribute("id");
+		System.out.println("/main/joeh "+id);
+		
 		return "main/joeh";
 	}
 	
-	public ModelAndView mainPractice(HttpSession session, Locale locale, ModelAndView mav) {
-		session.setAttribute("id", "mem");
-		String id = (String)session.getAttribute("id");
-		
-		mav.setViewName("main/joeh");
-		mav.addObject("id", id);
-		return mav;
-	}
-
 	// loading
 	@RequestMapping(value = "/main/loading", method = RequestMethod.GET)
-	public String MPlot(PlotsDaoImpl DAO, HttpServletRequest request, @RequestParam int cid) throws REXPMismatchException, REngineException{
+	public ModelAndView MPlot(PlotsDaoImpl DAO, HttpSession session, HttpServletRequest request, @RequestParam("cid") int cid/*, @RequestParam("id") String id*/) throws REXPMismatchException, REngineException{
+		ModelAndView mav = new ModelAndView();
+
 		System.out.println("loading을 시작합니다. 빙글빙글");
-		//int cid= Integer.parseInt(request.getParameter("cid"));
 		System.out.println(cid);
-		//int cid = 1; // 기업아이디는 파라미터나 세션으로 받아와야 함!!
-		String id = "mem"; // 세션..
+		String id = (String)session.getAttribute("id"); // 파라메터로 받아오기
+		
+		if(id==null){
+			mav.setViewName("redirect:/main/login");
+			return mav;
+		}
+		//String id = "mem"; // 세션..
+		System.out.println("아이디 세션으로 받아와 봄! id : " + id);
 
 		CompanyScoDto CScoDto = new CompanyScoDto(); 
 
 		//DB에서 R로 넘길 정보 받아오기(Raw 점수 받아오고, 가공해서 다시 CompanyScoDto에 저장!)
 		System.out.println("************점수 계산 시작***********");
 		Evaluation ev = new Evaluation();
+		// 기능1
 		CScoDto = ev.FinalSco(cid,id); // 반환해서 R로 넘길 준비 완료..
 		System.out.println("************점수 계산 완료***********");
-
-		
 		
 		MakingPlot mplot = new MakingPlot();
 		String plotName=null;
 		
 		// plot 뽑는 중..
 		System.out.println("R시작");
+		// 기능2
 		plotName = mplot.mPlot(CScoDto);
 		System.out.println("R종료");
 		
@@ -100,26 +104,50 @@ public class HomeController {
 		
 		// plot
 		PlotsDaoImpl plotDao = new PlotsDaoImpl();
-		PlotsDto plotDto = plotDao.insertOrUpdatePlots(id,plotName);
-		System.out.printf("%s\t%s\t%s\t%s\t",plotDto.getMemid(),plotDto.getCid(),plotDto.getPlotpng(),plotDto.getSavedTime());
-
-		request.setAttribute("id", DAO.inquiryId(id));
-
+		System.out.println("여기요요기요*********************"+id);
+		PlotsDto plotDto = plotDao.insertOrUpdatePlots(id, plotName, cid);
+		System.out.printf("여기요요기요2***********%s\t%s\t%s\t%s\n",plotDto.getMemid(),plotDto.getCid(),plotDto.getPlotpng(),plotDto.getSavedTime());
+		System.out.println("++++++++++++++++++++++++++++++++");
+		System.out.println("+++++"+plotDto.getMemid());
+		System.out.println("+++++"+plotDto.getCid());
+		System.out.println("+++++"+plotDto.getPlotpng());
+		System.out.println("++++++++++++++++++++++++++++++++");
 		
 		
+		/*request.setAttribute("id", plotDto.getMemid());
+		request.setAttribute("cid", plotDto.getCid());
+		request.setAttribute("plotpng", plotDto.getPlotpng());
+*/
+		System.out.println("로딩페이지 뜬다!!! id : "+plotDto.getMemid()+" cid : "+plotDto.getCid());
 		
 		
+		mav.addObject("id", plotDto.getMemid());
+		mav.addObject("cid",plotDto.getCid());
+		mav.addObject("plotpng",plotDto.getPlotpng());
 		
+		mav.setViewName("main/loading");
 		
-		return "main/loading";
+		session.setAttribute("id", id);
+		session.setAttribute("cid", cid);
+		session.setAttribute("plotpng", plotName);
+		
+		return mav;
 	}
 
 	// loadContent
 	@RequestMapping(value = "/main/loadContent", method = RequestMethod.GET)
-	public String LContent(PlotsDaoImpl DAO, HttpServletRequest request) {
+	public String LContent(PlotsDaoImpl DAO, HttpSession session, HttpServletRequest request) {
+		System.out.println("/main/loadContent");
+		System.out.println(session.getAttribute("id")+", "+session.getAttribute("cid"));
+		request.setAttribute("plotpng", DAO.inquiryId((String)session.getAttribute("id"),(Integer)session.getAttribute("cid")).getPlotpng());// mem을 어떻게 받아와야....
+		System.out.println("***********************************"+DAO.inquiryId((String)session.getAttribute("id"),(Integer)session.getAttribute("cid")).getPlotpng());
 		
-		request.setAttribute("plotpng", DAO.inquiryId("mem").getPlotpng());// mem을 어떻게 받아와야....
+		
+		
+/*		request.setAttribute("plotpng", DAO.inquiryId("mem").getPlotpng());// mem을 어떻게 받아와야....
 		System.out.println("***********************************"+DAO.inquiryId("mem").getPlotpng());
+*/
+		
 		return "main/loadContent";
 	}
 

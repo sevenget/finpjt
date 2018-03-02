@@ -79,7 +79,7 @@
 				$('#loadData').html(resultText);
 			},
 			error : function() {
-				alert("호출 실패");
+				alert("호출 실패 detailpage");
 			}
 		});
 	}
@@ -188,7 +188,7 @@
 
 	<div id="all">
 		<div id=contect">
-			${cid }
+			
 			<!-- 여기 안에다 작업하시면 돼요 -->
 			<div class="container2">
 

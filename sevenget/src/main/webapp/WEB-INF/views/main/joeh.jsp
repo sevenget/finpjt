@@ -19,7 +19,6 @@
 			}
 		});
 	}
-
 </script>
 
 <meta charset="UTF-8">
@@ -28,6 +27,8 @@
 	href="../resources/css/session.css " media="all" flush="false">
 <link rel="stylesheet" type="text/css"
 	href="../resources/css/loading.css " media="all" flush="false">
+<link rel="stylesheet" type="text/css"
+	href="../resources/css/barchart.css " media="all" flush="false">
 <script src='https://code.jquery.com/jquery-3.0.0.min.js'></script>
 </head>
 <body>
@@ -38,7 +39,7 @@
 
 	<div id="all">
 		<div id="contect">
-			${ id }
+			${ id }<br /> ${member }
 			<!-- 여기 안에다 작업하시면 돼요 -->
 			<div class="container2">
 
@@ -67,42 +68,67 @@
 
 				<!-- 버튼 클릭시 로딩 화면 5초/R작동, 결과출력 -->
 
-				<div id="loadData"
+				<!-- <div id="loadData"
 					style="width: 500px; height: 400px; margin-top: 20px; border: 1px solid #CCCCCC; background: #EFEFEF; display: inlne;">
 				</div>
 				<div style="margin-top: 20px; display: inline;">
 					<input type="button" value="호출" onClick="fLoadData()" />
-				</div>
+				</div> -->
 
 
 
+				<!-- barchart -->
 
 
 
+				<script>
+					(function($) {
+						"use strict";
+						$(function() {
+							function animated_contents() {
+								$(".zt-skill-bar > div ").each(
+										function(i) {
+											var $this = $(this), skills = $this
+													.data('width');
 
+											$this.css({
+												'width' : skills + '%'
+											});
 
+										});
+							}
 
+							if (jQuery().appear) {
+								$('.zt-skill-bar').appear().on('appear',
+										function() {
+											animated_contents();
+										});
+							} else {
+								animated_contents();
+							}
+						});
+					}(jQuery));
+					
+					
+					
+					$( ".zt-skill-bar > div " ).each(
+							(function(){ $( "#block1" ).animate( { width: "90%" }, { queue: false, duration: 3000 }) .animate({ fontSize: "24px" }, 1500 ) .animate({ borderRightWidth: "15px" }, 1500 ); });
+							);
 
+				</script>
+				
+<div class="zt-span6 last">
+<h3><strong>진행율 바</strong></h3>
+<div class="zt-skill-bar"><div data-width="${10*10}" style="">연애<span>88%</span></div></div>
+<div class="zt-skill-bar"><div data-width="${10*8}" style="">결혼<span>92%</span></div></div>
+<div class="zt-skill-bar"><div data-width="${10*7}" style=";">출산및육아<span>82%</span></div></div>
+<div class="zt-skill-bar"><div data-width="${10*5}" style=";">내집마련<span>85%</span></div></div>
+<div class="zt-skill-bar"><div data-width="${10*3}" style=";">인간관계<span>60%</span></div></div>
+<div class="zt-skill-bar"><div data-width="${10*6}" style=";">꿈<span>60%</span></div></div>
+<div class="zt-skill-bar"><div data-width="${10*1}" style=";">희망<span>60%</span></div></div>
 
+</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			</div>
-		</div>
-	</div>
 
 
 
