@@ -27,14 +27,16 @@ public class ReviewController {
 		
 		String id = (String)session.getAttribute("id"); // 파라메터로 받아오기
 		//int cid = 2; // 1번 = 카카오 , 2번 = 네이버
-		System.out.println(cid);
+		System.out.println("main/detailpage을 불러오는 컨트롤러.."+cid);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("review", reviewDao.selectReview());
 		mav.addObject("member", DAO.getMemBasicInfo(id));
 		mav.addObject("company",CDAO.selectCompany(cid));
+		mav.addObject("cid", cid);
 		//mav.addObject("company", CDAO.selectRelatedAll(id));
 		
 		mav.setViewName("main/detailpage");
+		System.out.println("응 main/detailpage끝이야.");
 		//request.setAttribute("review", reviewDao.selectReview());
 		return mav;
 	}

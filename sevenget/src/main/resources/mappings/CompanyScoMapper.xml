@@ -32,6 +32,7 @@
 	
 	<update id="updateSCs">
 		UPDATE companyscore
-		SET cid = #{cid}, dateSco=#{dateSco},marrySco=#{marrySco},babySco=#{babySco},houseSco=#{houseSco},relationSco=#{relationSco},dreamSco=#{dreamSco},hopeSco=#{hopeSco}
+		SET dateSco=#{dateSco},marrySco=#{marrySco},babySco=#{babySco},houseSco=#{houseSco},relationSco=#{relationSco},dreamSco=#{dreamSco},hopeSco=#{hopeSco}
+		WHERE cid=#{cid}
 	</update>
 </mapper>

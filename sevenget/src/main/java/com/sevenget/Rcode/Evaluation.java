@@ -44,6 +44,7 @@ public class Evaluation {
 		
 		System.out.println("EvalCompanyPUP");
 		System.out.println(CScoDtoPP.getCid());
+		System.out.println(PRScoDto.getCid());
 
 		double datePuP = (PRScoDto.getNoOTPuP()*46 +
 				PRScoDto.getWeekendWorkPuP()*15 +
@@ -51,6 +52,7 @@ public class Evaluation {
 				PRScoDto.getFinanSupportPuP()*6 +
 				PRScoDto.getApprAmountWorkPuP()*6
 				)*6.8/790;
+		System.out.println("되는거니...?");
 		double marriagePuP = ((PRScoDto.getRelSysAfterMarriagePuP()*18 + 
 				PRScoDto.getSuffSalaryPuP()*13 + 
 				PRScoDto.getEggshellsPuP()*11 + 
@@ -98,22 +100,30 @@ public class Evaluation {
 	}
 	
 	public CompanyScoDto FinalSco(int cid,String id){
+		System.out.println("cid : "+cid);
 		CompanyScoDaoImpl ComScoDao = new CompanyScoDaoImpl();
 		CompanyScoDto CScoDto = new CompanyScoDto(); 
 		CScoDto.setCid(cid);
 		System.out.println("*********CScoDto.getCid() : "+CScoDto.getCid());
 		//전문 패널 점수
 		CompanyRawScoDaoImpl CRScoDao = new CompanyRawScoDaoImpl();
+		System.out.println(1);
 		CompanyScoDto dtoEP = new CompanyScoDto();
+		System.out.println(2);
 		Evaluation ev = new Evaluation();
+		System.out.println(3);
 
 		dtoEP = ev.EvalCompanyEPR(CRScoDao.selectbyCid(cid));//값을 입력을 먼저 해줘서 그걸 넘겨줘야 하는데... 일단 값을 미리 넣어둠.
+		System.out.println(4);
 
 		// 일반인 평가
 		PublicRawScoDaoImpl PRScoDao = new PublicRawScoDaoImpl();
+		System.out.println(5);
 		CompanyScoDto dtoPP = new CompanyScoDto();
+		System.out.println(6);
 
 		dtoPP = ev.EvalCompanyPUP(PRScoDao.selectbyCid(cid));// 이것도 값을 입력을 해줘야 하는데 일단 db로 강제 입력함!
+		System.out.println(7);
 
 		////점수환산 과정 중 마지막! 다 합쳐주는 것!
 		//CScoDto = evaluation.EvalCompanyEPR(CRScoDto);
@@ -142,6 +152,7 @@ public class Evaluation {
 			double hopePP = Double.parseDouble(String.format("%.2f" , dtoPP.getHopeSco()*4/3));
 
 			
+			System.out.println(8);
 			CScoDto.setDateSco(Double.parseDouble(String.format("%.2f" , dateEP + datePP)));
 			CScoDto.setMarrySco(Double.parseDouble(String.format("%.2f" , marryEP + marryPP)));
 			CScoDto.setBabySco(Double.parseDouble(String.format("%.2f" , babyEP + babyPP)));

@@ -58,24 +58,24 @@ public class PublicRawScoDaoImpl implements PublicRawScoDao {
 		System.out.println("데이터 입력 시작");
 		
 		dto.setId("mem");
-		dto.setCid(1);
-		dto.setNoOTPuP(10);
-		dto.setFlexWorkPuP(10);
-		dto.setWeekendWorkPuP(10);
-		dto.setEggshellsPuP(10);
-		dto.setFinanSupportPuP(10);
-		dto.setDormiHousingSupportPuP(10);
-		dto.setLoanSupportPuP(10);
-		dto.setSelfDevSupportPuP(10);
-		dto.setApprAmountWorkPuP(10);
-		dto.setSuffSalaryPuP(10);
-		dto.setRelSysAfterMarriagePuP(10);
-		dto.setChildcareLeavePuP(10);
-		dto.setGuarantReinstatementPuP(10);
-		dto.setVacationPuP(10);
-		dto.setMoodEnvImprovPuP(10);
-		dto.setDiningTogetherPuP(10);
-		dto.setMoneyManageCoachPuP(10);
+		dto.setCid(2);
+		dto.setNoOTPuP(9);
+		dto.setFlexWorkPuP(9);
+		dto.setWeekendWorkPuP(8);
+		dto.setEggshellsPuP(8);
+		dto.setFinanSupportPuP(7);
+		dto.setDormiHousingSupportPuP(7);
+		dto.setLoanSupportPuP(6);
+		dto.setSelfDevSupportPuP(6);
+		dto.setApprAmountWorkPuP(5);
+		dto.setSuffSalaryPuP(5);
+		dto.setRelSysAfterMarriagePuP(4);
+		dto.setChildcareLeavePuP(4);
+		dto.setGuarantReinstatementPuP(3);
+		dto.setVacationPuP(3);
+		dto.setMoodEnvImprovPuP(2);
+		dto.setDiningTogetherPuP(2);
+		dto.setMoneyManageCoachPuP(1);
 			
 		mybatis.update("PublicRawScoDAO.insertRawScore", dto);
 		System.out.println("데이터 입력 완료");
@@ -90,7 +90,9 @@ public class PublicRawScoDaoImpl implements PublicRawScoDao {
 		pp.selectPublicRawScores();
 		pp.insertOrUpdatePlots("mem1");// mem은 세션에서 받아온 게 없어서 그냥 해 둠.
 		pp.selectPlots();*/
-		pp.insertPublicRawScore();
-		pp.selectbyCid(1);
+		//pp.insertPublicRawScore();
+		pp.selectbyCid(2);
+		//pp.selectbyCid(1);
+		
 	}
 }

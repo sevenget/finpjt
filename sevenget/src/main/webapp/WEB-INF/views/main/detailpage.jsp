@@ -74,7 +74,7 @@
 		$.ajax({
 			//type: "POST",
 			url : "loading",//loadContent
-			data : "",
+			data : "cid=${cid}",
 			success : function(resultText) {
 				$('#loadData').html(resultText);
 			},
@@ -188,7 +188,7 @@
 
 	<div id="all">
 		<div id=contect">
-
+			${cid }
 			<!-- 여기 안에다 작업하시면 돼요 -->
 			<div class="container2">
 

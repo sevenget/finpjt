@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sevenget.Rcode.Evaluation;
@@ -69,8 +70,11 @@ public class HomeController {
 
 	// loading
 	@RequestMapping(value = "/main/loading", method = RequestMethod.GET)
-	public String MPlot(PlotsDaoImpl DAO, HttpServletRequest request) throws REXPMismatchException, REngineException{
-		int cid = 1; // 기업아이디는 파라미터나 세션으로 받아와야 함!!
+	public String MPlot(PlotsDaoImpl DAO, HttpServletRequest request, @RequestParam int cid) throws REXPMismatchException, REngineException{
+		System.out.println("loading을 시작합니다. 빙글빙글");
+		//int cid= Integer.parseInt(request.getParameter("cid"));
+		System.out.println(cid);
+		//int cid = 1; // 기업아이디는 파라미터나 세션으로 받아와야 함!!
 		String id = "mem"; // 세션..
 
 		CompanyScoDto CScoDto = new CompanyScoDto(); 
