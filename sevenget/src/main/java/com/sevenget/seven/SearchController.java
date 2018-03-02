@@ -13,6 +13,8 @@ import org.springframework.web.servlet.ModelAndView;
 import model.company.CompanyBasicDAO;
 import model.company.InterestedRCDAO;
 import model.company.InterestedRCDTO;
+import model.member.MemBasicInfoDAO;
+import model.member.MemBasicInfoDTO;
 import model.member.MemConcernDAO;
 import model.member.MemConcernDto;
 import model.search.FilterDTO;
@@ -24,16 +26,16 @@ import model.search.SearchDTO;
 public class SearchController {
 		// 진짜 메인페이지(로그인 후 첫화면)
 		@RequestMapping(value = "/main/main", method = RequestMethod.GET)
-		public ModelAndView main(MemConcernDAO mdao, KeywordAndSearchDAO kdao, InterestedRCDAO idao, HttpSession session, ModelAndView mav) {
+		public ModelAndView main(MemBasicInfoDAO mbdao, MemConcernDAO mcdao, KeywordAndSearchDAO kdao, InterestedRCDAO idao, HttpSession session, ModelAndView mav) {
 			/*session.setAttribute("id", "mem");*/
 			String id = (String)session.getAttribute("id");
-			
+			System.out.println(id);
 			if(id==null) {
-				session.setAttribute("id", "Guest");
-				id="Guest";
+				mav.setViewName("redirect:/main/login");
+				return mav;
 			}
 			
-			MemConcernDto memCon = mdao.getMemConcern(id);
+			MemConcernDto memCon = mcdao.getMemConcern(id);
 			List list = kdao.searchByFilter(getFilterByMemberCon(memCon));
 			
 			if(list.size()>0&&!id.equals("Guest")){
@@ -44,15 +46,21 @@ public class SearchController {
 			if(id.equals("Guest")||list.size()==0){
 				mav.addObject("companylist", kdao.searchAdvs());		
 			}
-		
+			
+			List memList = (List) mbdao.getMemBasicInfo(id);
+			
+			if(memList.size()>0){
+				mav.addObject("member", memList.get(0));
+			}
 			mav.setViewName("main/main");
 			return mav;
 		}
 		
 		// 로그인 전 검색페이지
 			@RequestMapping(value = "/main/search")
-			public ModelAndView search(FilterDTO fdto, SearchDTO sdto, KeywordDTO kdto, KeywordAndSearchDAO kdao, InterestedRCDAO idao, CompanyBasicDAO cdao, ModelAndView mav, HttpSession session) {
+			public ModelAndView search(MemBasicInfoDAO mbdao, FilterDTO fdto, SearchDTO sdto, KeywordDTO kdto, KeywordAndSearchDAO kdao, InterestedRCDAO idao, CompanyBasicDAO cdao, ModelAndView mav, HttpSession session) {
 				//키워드가 ""이 들어왔을 때 예외 처리
+				
 				if(!kdto.getKeyword().equals("")){
 					kdao.insertKeyword(kdto.getKeyword());
 				} else{
@@ -61,7 +69,17 @@ public class SearchController {
 				};
 				
 				String id = (String)session.getAttribute("id");
-				System.out.println(id+sdto.getKeyword());
+				
+				if(id==null) {
+					mav.setViewName("redirect:/main/login");
+					return mav;
+				}
+				
+				List memList = (List) mbdao.getMemBasicInfo(id);
+				
+				if(memList.size()>0){
+					mav.addObject("member", memList.get(0));
+				}
 				sdto.setSearchMem(id);
 				kdao.insertSearch(sdto);
 					
