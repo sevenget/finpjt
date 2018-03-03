@@ -2,7 +2,7 @@
 a { text-decoration:none; }
 
 /* main */
-.right { background-color:#fff; width:955px; height:808px; margin-top:40px; margin-left:20px; float:left; }
+.right { background-color:#fff; width:955px; min-height:808px; height:auto; overflow:hidden;margin-top:40px; margin-left:20px; float:left; }
 
 .sevenpo { width:915px; height:500px; margin-top:30px; margin-left:20px; }
 .sevenpo h4 { margin-left:10px; }
@@ -46,13 +46,14 @@ a { text-decoration:none; }
 
 .head_rv { margin-left:10px; font-weight:bold; color:#595959; font-size:16px; margin-top:-3px; }
 
-.review { width:915px; height:281px; margin-left:20px; }
+.reviewHolder{overflow:hidden; height:auto; width:900px; margin:50px auto;}
+.review {padding:10px; height:auto; overflow:hidden; margin-left:20px; background-color:#595959;}
 .review h4 { margin-left:10px; margin-top:-3px; }
 
 .dt_hr { margin-top:-10px; color:#595959; }
 
 
-.c_review { width:835px; height:154px; margin-left:40px; margin-top:10px; float:left;  /* background-color:#cedf45; */ }
+.c_review { width:835px; margin-left:40px; margin-top:10px; float:left;  /* background-color:#cedf45; */ }
 .c_write { width:835px; height:65px; margin-left:40px; margin-top:5px; }
 
 .review1 { .review_rr { width:800px; height:40px; margin-top:5px; /* margin-left:34px; */ float:left; }

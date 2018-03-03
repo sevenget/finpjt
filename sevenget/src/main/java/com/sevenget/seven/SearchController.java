@@ -112,7 +112,7 @@ public class SearchController {
 				mav.setViewName("main/search");
 				
 				if(list.size()==0){
-					mav.setViewName("main/searchnothing");
+					mav.addObject("nothing", true);
 				}
 
 				return mav;

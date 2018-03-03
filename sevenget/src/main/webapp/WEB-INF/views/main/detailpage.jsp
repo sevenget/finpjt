@@ -330,7 +330,7 @@
 					</div>
 						
 
-				<div class="review">
+				<div class="reviewHolder">
 					<p class="head_rv">
 						<a href="#layer" onclick="openContent('${comapny.cid}')">리뷰</a>
 					</p>
@@ -343,8 +343,8 @@
 							<c:forEach var="review" items="${reviewList}">
 								<div class="review">
 									<p class="cr_view">${review.content}</p>
-									<p class="cr_view">${review.reviewdate}</p>
-									<p class="cr_view">${review.writer}</p>
+									
+									<p class="cr_view"> ${review.reviewdate} ${review.writer}</p>
 								</div>
 							</c:forEach>
 						</div>

@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <%@ include file="/WEB-INF/views/include/filter_include.jsp" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 <link rel="stylesheet" href="../resources/css/searchBody.css" >
 	<script>
 		$(function(){
@@ -42,6 +43,9 @@
 		</div>
 
 		<hr width="915px" color="#aaa" size="1" class="dt_hr">
+		<c:if test="${fn:length(companylist)==0}">
+			<img src="../resources/img/searchnothing.png" style="margin:20px 100px; width:80%">
+		</c:if>
 		<c:forEach var="company" items="${ companylist }">
 		<form action="detailpage" id="form_${company.cid}">
 			<input type="hidden" name= "cid" value="${company.cid }">

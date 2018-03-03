@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 
-.right { background-color:#fff; width:955px; height:808px; margin-top:40px; margin-left:20px; float:left; }
+.right { background-color:#fff; width:955px; height:auto; overflow:hidden; padding-bottom:50px;margin-top:40px; margin-left:20px; float:left; }
 .rightTop > div{float: left;}
 
 .recommend{width: 220px; height: 150px;  float:left; }
