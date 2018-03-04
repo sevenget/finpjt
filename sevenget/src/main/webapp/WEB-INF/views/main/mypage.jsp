@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>7Get - MyPage</title>
 <link rel="stylesheet" type="text/css" href="../resources/css/session.css"
 	media="all">
 <link rel="stylesheet" type="text/css" href="../resources/css/RightPage.css"
@@ -104,12 +104,17 @@
 							</ol>
 						</div>
 						<div class="most">
-							<h4 class="right_title">최다 검색 기업 리스트</h4>
-							<hr width="260px" color="#aaa"
+							<h4 class="right_title">최다 검색 키워드</h4>
+							<hr width="250px" color="#aaa"
 								size="1" class="hr">
-							<h4 style="padding-left: 90px">1.</h4>
-							<h4 style="padding-left: 90px">2.</h4>
-							<h4 style="padding-left: 90px">3.</h4>
+							<ol>
+								<c:if test="${fn:length(recentKeywords)==0}">
+									<h4><li>검색 키워드가 없습니다<a></a></li></h4>
+								</c:if>
+								<c:forEach items="${mostSearched}" var="keyword" begin="0" end="2">
+								<h4><li>${keyword.keyword}(${keyword.searchNum}회)</li></h4>
+								</c:forEach>
+							</ol>
 						</div>
 						<div style="margin-top: 130px; clear: both">
 

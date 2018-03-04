@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>상세 분석 페이지</title>
+<title>7Get - CompanyDetail</title>
 
 <link rel="stylesheet" type="text/css"
 	href="../resources/css/session.css " media="all" flush="false">

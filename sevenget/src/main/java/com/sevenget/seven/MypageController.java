@@ -46,7 +46,8 @@ public class MypageController {
 		MemConcernDto mcdto = mcdao.getMemConcern(id);
 		mav.addObject("recommendList", kdao.searchByFilter(SearchController.getFilterByMemberCon(mcdto)));
 		mav.addObject("recentKeywords", kdao.selectSearchById(id));
-
+		mav.addObject("mostSearched", kdao.selectMostSearched());
+		
 		mav.setViewName("main/mypage");
 		return mav; 
 	}

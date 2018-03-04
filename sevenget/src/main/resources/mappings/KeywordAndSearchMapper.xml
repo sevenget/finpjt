@@ -15,8 +15,8 @@
 		SELECT * FROM keywords
 	</select>
 	
-	<select id="selectKeywordsByKeyword" resultType="keyword">
-		SELECT * FROM keywords order
+	<select id="selectMostSearched" resultType="keyword">
+		<![CDATA[ SELECT * FROM (select * from keywords order by searchnum desc) where rownum<=3 ]]> 
 	</select>
 
 	<insert id="insertKeyword" parameterType = "String">
@@ -137,7 +137,7 @@
 	</select>
 	
 	<select id="selectSearchById" parameterType="String" resultType="search">
-		SELECT * FROM SEARCH WHERE searchmem=#{id} order by searchdate desc
+		SELECT * FROM SEARCH WHERE searchmem=#{id} AND KEYWORD != '.X' order by searchdate desc
 	</select>
 	
 	<select id="selectAdvs" resultType="companybasic">

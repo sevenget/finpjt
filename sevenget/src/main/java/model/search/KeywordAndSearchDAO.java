@@ -60,4 +60,7 @@ public class KeywordAndSearchDAO {
 		return mybatis.selectList("KeywordAndSearchDAO.selectSearchById", id);
 	}
 
+	public List selectMostSearched() {
+		return mybatis.selectList("KeywordAndSearchDAO.selectMostSearched");
+	}
 }

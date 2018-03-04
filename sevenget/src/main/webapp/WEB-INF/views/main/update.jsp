@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>정보 수정 페이지</title>
+<title>7get - Info Update</title>
 <script type="text/javascript">
 //		/main 앞에 /seven 써줘야하는지 모르겠음
 $(function(){

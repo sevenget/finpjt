@@ -6,7 +6,7 @@
 %>
 <html>
 <head>
-<title>중복확인</title>
+<title>7get - Check</title>
 <script>
 function windowclose(){
 	opener.document.form_1.id.value='<%=id%>';

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Seven Get Main</title>
+<title>7Get - Login</title>
 <link rel="stylesheet" type="text/css" href="../resources/css/session.css " media="all" flush="false">
 <link rel="stylesheet" type="text/css" href="../resources/css/login.css" media="all">
 <script src='https://code.jquery.com/jquery-3.0.0.min.js'></script>
