@@ -133,7 +133,7 @@ public class SearchController {
 			}
 			
 			
-			public FilterDTO getFilterByMemberCon(MemConcernDto memCon){
+			public static FilterDTO getFilterByMemberCon(MemConcernDto memCon){
 				
 				List<Integer> list = new ArrayList<Integer>();
 				

@@ -15,6 +15,9 @@ import org.springframework.web.servlet.ModelAndView;
 import model.company.InterestedRCDAO;
 import model.member.MemBasicInfoDAO;
 import model.member.MemBasicInfoDTO;
+import model.member.MemConcernDAO;
+import model.member.MemConcernDto;
+import model.search.KeywordAndSearchDAO;
 
 @Controller
 public class MypageController {
@@ -35,12 +38,17 @@ public class MypageController {
 	
 	//마이페이지1
 	@RequestMapping(value = "/main/mypage", method = RequestMethod.GET)
-	public String Mypage(MemBasicInfoDAO DAO, InterestedRCDAO CDAO ,HttpServletRequest request, HttpSession session) {
+	public ModelAndView Mypage(MemBasicInfoDAO mbdao, MemConcernDAO mcdao, KeywordAndSearchDAO kdao, MemBasicInfoDAO DAO, InterestedRCDAO CDAO ,HttpServletRequest request, HttpSession session) {
 		String id = (String)session.getAttribute("id");
 		request.setAttribute("member", DAO.getMemBasicInfo(id));
-		/*request.setAttribute("company", CDAO.selectRelatedAllAndMemBasicInFo(id));*/
-		System.out.println("mypage");
-		return "main/mypage"; 
+		
+		ModelAndView mav = new ModelAndView();
+		MemConcernDto mcdto = mcdao.getMemConcern(id);
+		mav.addObject("recommendList", kdao.searchByFilter(SearchController.getFilterByMemberCon(mcdto)));
+		mav.addObject("recentKeywords", kdao.selectSearchById(id));
+
+		mav.setViewName("main/mypage");
+		return mav; 
 	}
 
 	//마이페이지2

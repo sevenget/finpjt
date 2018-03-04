@@ -2,7 +2,16 @@
 
 .right { background-color:#fff; width:955px; height:auto; overflow:hidden; padding-bottom:50px;margin-top:40px; margin-left:20px; float:left; }
 .rightTop > div{float: left;}
+.right ol{
+ margin: 0 30px;	
+}
 
-.recommend{width: 220px; height: 150px;  float:left; }
+.rigtht_title, .right hr{
+	text-align:center;
+}
+
+.recommend{width: 33%; height: 150px;  float:left; }
+.recent{width: 33%; height: 150px;  float:left; }
+.most{width: 33%; height: 150px;  float:left; }
 
 /* 기업리스트 */

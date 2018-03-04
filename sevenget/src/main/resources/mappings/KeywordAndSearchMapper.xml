@@ -14,6 +14,10 @@
 	<select id="selectAllKeywords" resultType="keyword">
 		SELECT * FROM keywords
 	</select>
+	
+	<select id="selectKeywordsByKeyword" resultType="keyword">
+		SELECT * FROM keywords order
+	</select>
 
 	<insert id="insertKeyword" parameterType = "String">
 		INSERT INTO keywords VALUES(#{keyword}, 0)
@@ -128,8 +132,12 @@
 		</if>
 	</select
 	>
-	<select id="selectAllSearch" resultType="keyword">
-		SELECT * FROM search
+	<select id="selectAllSearch" resultType="search">
+		SELECT * FROM SEARCH
+	</select>
+	
+	<select id="selectSearchById" parameterType="String" resultType="search">
+		SELECT * FROM SEARCH WHERE searchmem=#{id} order by searchdate desc
 	</select>
 	
 	<select id="selectAdvs" resultType="companybasic">
