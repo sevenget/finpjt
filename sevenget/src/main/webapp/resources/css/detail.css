@@ -47,7 +47,7 @@ a { text-decoration:none; }
 .head_rv { margin-left:10px; font-weight:bold; color:#595959; font-size:16px; margin-top:-3px; }
 
 .reviewHolder{overflow:hidden; height:auto; width:900px; margin:50px auto;}
-.review {padding:10px; height:auto; overflow:hidden; margin-left:20px; background-color:#595959;}
+.review {padding:10px; height:auto; overflow:hidden; margin-left:20px;}
 .review h4 { margin-left:10px; margin-top:-3px; }
 
 .dt_hr { margin-top:-10px; color:#595959; }
@@ -63,7 +63,7 @@ a { text-decoration:none; }
 .review2 { width:100%; height:40px; margin-top:5px; }
 .review3 { width:100%; height:40px; margin-top:5px; }
 
-.input.cr_write { width:700px; height:50px; margin-top:5px; border:1px solid #ccc; font-size:16px; color:#666; float:left; }
+input.cr_write { width:700px; height:50px; margin-top:5px; border:1px solid #ccc; font-size:16px; color:#666; float:left; }
 .cr_write {  width:700px; height:50px; margin-top:5px; border:1px solid #ccc; font-size:16px; color:#666; float:left; }
 .cr_btn { width:130px; height:54px; margin-top:4.3px; background-color:#8772b8; margin-left:3px; float:left; border:0; text-align:center; display:table; font-size:15px; color:#fff;  }
 .cr_btn a { font-size:15px; color:#fff; display:table-cell; vertical-align:middle; }

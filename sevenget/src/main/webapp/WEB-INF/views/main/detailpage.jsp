@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -108,6 +109,14 @@
 							}
 						})
 
+	$('form[action="review"]').submit(function(){
+		if ($(this).find('input[type="text"]').val() == "") {
+			alert("리뷰를 입력해주세요.");
+			return false;
+		} else {
+			alert("리뷰가 등록되었습니다.");
+		}
+	});
 	function addrep() {
 		repform.submit();
 	}
@@ -339,25 +348,21 @@
 					<br />
 					
 
-						<div class="c_review">
-							<c:forEach var="review" items="${reviewList}">
-								<div class="review">
-									<p class="cr_view">${review.content}</p>
-									
-									<p class="cr_view"> ${review.reviewdate} ${review.writer}</p>
-								</div>
-							</c:forEach>
-						</div>
-					<form action="review" method="post">
-						<div class="c_write">
-							<input type="hidden" name="cid" value="${company.cid}">
-							<input type="text" placeholder=" 리뷰 작성하기(50자 이내) "
-								class="cr_write" maxlength="50" name="content"></label> <input type="submit"
-								value="리뷰입력" class="cr_btn"></label>
-						</div>
-					</form>
+					<div class="c_review review_short">
+					         총 리뷰 수 : ${fn:length(reviewList)} <button onclick="openContent('${comapny.cid}')">전체 리뷰 보기</button>
+						<jsp:include page="../include/review_short_include.jsp"></jsp:include>
+					</div>
+					<div class="c_review">
+						<form action="review" method="get">
+							<div class="c_write">
+								<input type="hidden" name="cid" value="${company.cid}">
+								<input type="text" placeholder=" 리뷰 작성하기(50자 이내)" class="cr_write" maxlength="50" name="content"> <input type="submit"
+									value="리뷰입력1" class="cr_btn">
+							</div>
+						</form>
+					
+					</div>
 
-							
 
 					<!-- light box -->
 
@@ -365,8 +370,8 @@
 
 						<div class="bg"></div>
 
-						<div id="layer">
-							<%@ include file="/WEB-INF/views/main/review.jsp"%>
+						<div id="layer" class="review_long">
+							<%@ include file="/WEB-INF/views/include/review_long_include.jsp"%>
 						</div>
 
 					</div>
@@ -377,7 +382,7 @@
 
 
 				</div>
-
+				<div id="nothing"></div>
 			</div>
 
 		</div>

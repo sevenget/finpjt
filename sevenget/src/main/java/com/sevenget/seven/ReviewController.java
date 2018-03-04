@@ -67,15 +67,19 @@ public class ReviewController {
 		}*/
 
 	// 기업 상세페이지-리뷰
-	@RequestMapping(value = "/main/review", method = RequestMethod.GET)
-	public ModelAndView ReviewP(ReviewDaoImpl reviewDao, @RequestParam int cid, HttpSession session, ModelAndView mav) {		
+	@RequestMapping(value = "/main/review", method = RequestMethod.POST)
+	public ModelAndView ReviewP(ReviewDaoImpl reviewDao, @RequestParam int cid, String type, HttpSession session, ModelAndView mav) {		
+		System.out.println(type);
+		if(type=="add") {
+			
+		}
 		mav.addObject("reviewList", reviewDao.selectReview(cid));
 		mav.addObject("cnt", reviewDao.getListCount()); // 전체 댓글 수
-		mav.setViewName("review");
+		mav.setViewName("review_"+type+"_include");
 		return mav;
 	}
 	
-	@RequestMapping(value = "/main/review", method = RequestMethod.POST)
+	@RequestMapping(value = "/main/review", method = RequestMethod.GET)
 	/* public String ReviewP(Locale locale, Model model) { */
 	public String ReviewAdd(ReviewDaoImpl reviewDao, ReviewDto dto, HttpSession session, ModelAndView mav) {
 
