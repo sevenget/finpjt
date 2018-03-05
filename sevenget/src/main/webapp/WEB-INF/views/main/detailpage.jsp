@@ -224,7 +224,7 @@ img.interested { float:right; }
 									<a onClick="fLoadData()"><%-- ${plotpng } --%>
 										<div id="loadData" style="width: 502px; height: 400px; margin-top: 20px; background: #EFEFEF; display: table;">
 											<c:if test="${plotpng!=null}">
-												<div "style="background-color:white; width: 502px; height: 404px; margin-top: 20px;"><img src="../resources/img/plots/${plotpng}" /></div>
+												<div "style="background-color:white; width: 502px; height: 404px; margin-top: 20px;"><img alt="../resources/img/plots/default.png" src="../resources/img/plots/${plotpng}" /></div>
 											</c:if> 
 											<c:if test="${plotpng==null}">
 												<p class="pp">정보를 호출하시려면 클릭하세요</p>
