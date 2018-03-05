@@ -23,13 +23,13 @@ import model.search.KeywordDTO;
 import model.search.SearchDTO;
 
 @Controller
+@RequestMapping(value="/main")
 public class SearchController {
 		// 진짜 메인페이지(로그인 후 첫화면)
-		@RequestMapping(value = "/main/main", method = RequestMethod.GET)
-		public ModelAndView main(MemBasicInfoDAO mbdao, MemConcernDAO mcdao, KeywordAndSearchDAO kdao, InterestedRCDAO idao, HttpSession session, ModelAndView mav) {
-			/*session.setAttribute("id", "mem");*/
+		@RequestMapping(value = "/main", method = RequestMethod.GET)
+		public ModelAndView main(MemBasicInfoDAO mbdao, MemConcernDAO mcdao,KeywordAndSearchDAO kdao,
+				InterestedRCDAO idao, HttpSession session, ModelAndView mav) {
 			String id = (String)session.getAttribute("id");
-			System.out.println(id);
 			if(id==null) {
 				mav.setViewName("redirect:/main/login");
 				return mav;
@@ -57,10 +57,11 @@ public class SearchController {
 		}
 		
 		// 로그인 전 검색페이지
-			@RequestMapping(value = "/main/search")
-			public ModelAndView search(MemBasicInfoDAO mbdao, FilterDTO fdto, SearchDTO sdto, KeywordDTO kdto, KeywordAndSearchDAO kdao, InterestedRCDAO idao, CompanyBasicDAO cdao, ModelAndView mav, HttpSession session) {
+			@RequestMapping(value = "/search")
+			public ModelAndView search(MemBasicInfoDAO mbdao, FilterDTO fdto, SearchDTO sdto, KeywordDTO kdto,
+					KeywordAndSearchDAO kdao, InterestedRCDAO idao, CompanyBasicDAO cdao, ModelAndView mav,
+					HttpSession session) {
 				//키워드가 ""이 들어왔을 때 예외 처리
-				
 				if(!kdto.getKeyword().equals("")){
 					kdao.insertKeyword(kdto.getKeyword());
 				} else{
@@ -118,7 +119,7 @@ public class SearchController {
 				return mav;
 			}
 			
-			@RequestMapping(value = "/main/regInter")
+			@RequestMapping(value = "/regInter")
 			public String regInter(InterestedRCDAO dao, InterestedRCDTO dto, HttpSession session) {
 				dto.setMemid((String)session.getAttribute("id"));
 				dao.insertReg(dto);
