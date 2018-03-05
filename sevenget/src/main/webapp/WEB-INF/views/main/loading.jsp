@@ -36,8 +36,8 @@
   function locateKap(){
 	  location.replace("loadContent");
 	}
-  function Mplot(){
-	  alert("Mplot");
+/*  function Mplot(){
+ 	  alert("Mplot");
 	  $.ajax({
 		//type: "POST",
 		url : "mplot",//loadContent
@@ -50,11 +50,11 @@
 			alert("호출 실패 detailpage2");
 		}
 	});
-  }
+  } */
 </script>
 <title>Insert title here</title>
 </head>
-<body onLoad="Mplot();"><!--  onLoad="Timer();" -->
+<body><!--  onLoad="Timer();" --><!--  onLoad="Mplot();" -->
 <div id="choonDiv"></div>
 
 <script>countdown();</script>
