@@ -112,7 +112,7 @@ public class SearchController {
 				mav.setViewName("main/search");
 				
 				if(list.size()==0){
-					mav.setViewName("main/searchnothing");
+					mav.addObject("nothing", true);
 				}
 
 				return mav;
@@ -133,7 +133,7 @@ public class SearchController {
 			}
 			
 			
-			public FilterDTO getFilterByMemberCon(MemConcernDto memCon){
+			public static FilterDTO getFilterByMemberCon(MemConcernDto memCon){
 				
 				List<Integer> list = new ArrayList<Integer>();
 				

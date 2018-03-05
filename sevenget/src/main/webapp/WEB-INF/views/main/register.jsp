@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Seven Get Register</title>
+<title>7Get - Register</title>
 <link rel="stylesheet" type="text/css" href="../resources/css/session.css " media="all">
 <link rel="stylesheet" type="text/css" href="../resources/css/register.css" media="all">
 <link rel="stylesheet" type="text/css" href="../resources/css/score.css" media="all">

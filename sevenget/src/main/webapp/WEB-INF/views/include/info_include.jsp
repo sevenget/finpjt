@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<script>
+	$(function(){
+		$('input.MyPage_btn').click(function(){
+			location.href="./mypage"
+		})
+	})
+	
+</script>
 
 <form action="mypage">
 	<div class="infocontholder_2">

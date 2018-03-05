@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +10,7 @@
 <!-- <link rel="stylesheet" type="text/css" href="../resources/css/review.css" media="all"> -->
 
 <script type="text/javascript">
-	function addrv() {
+	/* function addrv() {
 		var fm = document.getElementById("rvfm");
 
 		if (fm.rvtxt.value == "") {
@@ -22,11 +24,11 @@
 
 			$.ajax({
 				url : "insert",
-				data : "fm.rvtxt.value"
+				data : "fm.rvtxt.val"
 			});
 		}
 
-	}
+	} */
 
 	/* function checkFunc(){
 	     if(httpRequest.readyState == 4){
@@ -52,36 +54,24 @@
 				</div>
 
 
-				<form id="rvfm" name="rvfm" method="get">
-
-
-
 					<div class="cc_review">
-						<!-- 댓글 전체 불러오기!!! -->
-						${review}
-						<%-- <c:forEach var="i" begin="0" end="2">
-							<div class="review${i+1}">
-
-								<p class="cr_view">"${review.get(i).content }"</p>
-								<p class="cr_view">${review.get(i).reviewdate }</p>
-							</div>
-						</c:forEach> --%>
-						<%-- <c:forEach items="${review}" var ="reviewdto">
-							<div class="review">
-								<p class="cr_view">"${reviewdto.content }"</p>
-								<p class="cr_view">${reviewdto.reviewdate }</p>
-							
-							</div>
-						</c:forEach> --%>
-
+						<c:forEach var="review" items="${reviewList}">
+								<div class="review">
+									<hr>
+									<p class="cr_view">${review.content}</p>
+									${review.reviewdate}
+									${review.writer}
+								</div>
+							</c:forEach>
 					</div>
-
+				<form action="review">
 					<div class="cc_write">
-						<input type="text" name="rvtxt" placeholder=" 리뷰 작성하기(50자 이내)"
+						<input type="hidden" name="cid" value="${company.cid}">
+						<input type="text" name="content" placeholder=" 리뷰 작성하기(50자 이내)"
 							class="rr_write" maxlength="50"></label>
 						<div class="rr_btn">
-							<a href="javascript:addrv()">리뷰입력</a>
-						</div>
+							<input type="submit" value="리뷰입력">
+						</div>s
 					</div>
 
 				</form>

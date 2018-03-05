@@ -55,6 +55,12 @@ public class KeywordAndSearchDAO {
 	public List searchAdvs(){
 		return mybatis.selectList("KeywordAndSearchDAO.selectAdvs");
 	}
+	
+	public List selectSearchById(String id) {
+		return mybatis.selectList("KeywordAndSearchDAO.selectSearchById", id);
+	}
 
-
+	public List selectMostSearched() {
+		return mybatis.selectList("KeywordAndSearchDAO.selectMostSearched");
+	}
 }

@@ -2,11 +2,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>상세 분석 페이지</title>
+<title>7Get - CompanyDetail</title>
 
 <link rel="stylesheet" type="text/css"
 	href="../resources/css/session.css " media="all" flush="false">
@@ -36,6 +37,7 @@
 			}
 		})
 	}
+	
 	jQuery(function($) {
 
 		var layerWindow = $('.mw_layer');
@@ -87,26 +89,38 @@
 
 			$(this).show();
 		})
-		
-		$('img.interested').click(function(){
-				if("${id}"=="Guest"){
-					alert("관심기업 등록 및 해지는 로그인 이후 사용이 가능합니다");
-					return false;
-				}
-				
-				if($(this).attr('src')=='../resources/img/whiteheart2.png'){
-					$(this).attr('src', '../resources/img/colorheart2.png')
-					$('span.nothing').load('regInter?cid='+$(this).attr('data-cid'))
-				} else{
-					$(this).attr('src', '../resources/img/whiteheart2.png')
-					$('span.nothing').load('canInter?cid='+$(this).attr('data-cid'))
-				}
-			})
-	});
+		$('img.interested').click(
+						function() {
+							if ("${id}" == "Guest") {
+								alert("관심기업 등록 및 해지는 로그인 이후 사용이 가능합니다");
+								return false;
+							}
 
+							if ($(this).attr('src') == '../resources/img/whiteheart2.png') {
+								$(this).attr('src','../resources/img/colorheart2.png')
+								$('#interestedText').html('포함')
+								$('#interestedNum').html(parseInt($('#interestedNum').html()) + 1)
+								$('span.nothing').load('regInter?cid='	+ $(this).attr('data-cid'))
+							} else {
+								$(this).attr('src','../resources/img/whiteheart2.png')
+								$('#interestedText').html('외에')
+								$('#interestedNum').html(parseInt($('#interestedNum').html()) - 1)
+								$('span.nothing').load('canInter?cid='+ $(this).attr('data-cid'))
+							}
+						})
+
+	$('form[action="review"]').submit(function(){
+		if ($(this).find('input[type="text"]').val() == "") {
+			alert("리뷰를 입력해주세요.");
+			return false;
+		} else {
+			alert("리뷰가 등록되었습니다.");
+		}
+	});
 	function addrep() {
 		repform.submit();
 	}
+	})
 </script>
 
 <style type="text/css">
@@ -169,6 +183,7 @@
 
 				<div class="left">
 					<%@ include file="/WEB-INF/views/include/portside.jsp"%>
+		
 				</div>
 
 				<div class="right">
@@ -182,8 +197,7 @@
 									<!-- 버튼 클릭시 로딩 화면 5초/R작동, 결과출력 -->
 
 									<a onClick="fLoadData()">
-										<div id="loadData"
-											style="width: 502px; height: 400px; margin-top: 20px; background: #EFEFEF; display: table;">
+										<div id="loadData" style="width: 502px; height: 400px; margin-top: 20px; background: #EFEFEF; display: table;">
 											<p class="pp">정보를 호출하시려면 클릭하세요</p>
 										</div>
 									</a>
@@ -198,7 +212,24 @@
 
 								<div class="c_head_name">
 									<div class="c_heart">
-										<img class="interested" src="../resources/img/whiteheart2.png" data-cid="${company.cid}">
+										${id }님
+										<c:if test="${isInterested=='T'}">
+											<span id="interestedText">포함</span>
+										</c:if>
+										<c:if test="${isInterested=='F'}">
+											<span id="interestedText">외에</span>
+										</c:if>
+										<span id="interestedNum">${ interTimes }</span>명의 관심기업
+										<c:if test="${isInterested=='T'}">
+											<img class="interested"
+												src="../resources/img/colorheart2.png"
+												data-cid="${company.cid}" />
+										</c:if>
+										<c:if test="${isInterested=='F'}">
+											<img class="interested"
+												src="../resources/img/whiteheart2.png"
+												data-cid="${company.cid}" />
+										</c:if>
 									</div>
 								</div>
 
@@ -306,62 +337,32 @@
 						</div>
 
 					</div>
+						
 
+				<div class="reviewHolder">
+					<p class="head_rv">
+						<a href="#layer" onclick="openContent('${comapny.cid}')">리뷰</a>
+					</p>
 
+					<hr width="915px" color="#aaa" size="1" class="dt_hr">
+					<br />
+					
 
-					<form action="review">
-						<div class="c_write">
-									<input type="hidden" name="cid" value="${company.cid }">
-									<input type="text" placeholder=" 리뷰 작성하기(50자 이내) "
-										class="cr_write" maxlength="50" name="content"></label> <input type="submit"
-										value="리뷰입력" class="cr_btn"></label>
-								</div>
-						<div class="c_review">
+					<div class="c_review review_short">
+					         총 리뷰 수 : ${fn:length(reviewList)} <button onclick="openContent('${comapny.cid}')">전체 리뷰 보기</button>
+						<jsp:include page="../include/review_short_include.jsp"></jsp:include>
+					</div>
+					<div class="c_review">
+						<form action="review" method="get">
+							<div class="c_write">
+								<input type="hidden" name="cid" value="${company.cid}">
+								<input type="text" placeholder=" 리뷰 작성하기(50자 이내)" class="cr_write" maxlength="50" name="content"> <input type="submit"
+									value="리뷰입력1" class="cr_btn">
+							</div>
+						</form>
+					
+					</div>
 
-							<div class="review">
-
-
-								<p class="head_rv">
-									<a href="#layer" onclick="openContent('${comapny.cid}')">리뷰</a>
-								</p>
-
-								<hr width="915px" color="#aaa" size="1" class="dt_hr">
-
-								<br />
-								<form action="" method="post" enctype="" name="">
-									<div class="c_review">
-
-
-										<!-- 댓글 3개 불러오기!!! -->
-										<%-- <c:forEach var="i" begin="0" end="2">
-											<div class="review${i+1}">
-
-												<p class="cr_view">"${review.get(i).content }"</p>
-													<p class="cr_view">${review.get(i).reviewdate }</p>
-												<p class="cr_view">"${review.get(i).reviewDate }"</p>
-											</div>
-										</c:forEach> --%>
-										<!-- <div class="review1">
-                           <p class="cr_view">"기술직이 자신의 능력만큼 대우 받을 수 있는 회사. 대한민국에서
-                              만족스러운 수준의 워라벨."</p>
-                           <p class="cr_date">2018/02/07</p>
-                        </div>
-
-                        <div class="review2">
-                           <p class="cr_view">"개발자가 그나마 다른 회사에 비해 HOW에 집중 할 수 있다."</p>
-                           <p class="cr_date">2018/01/14</p>
-                        </div>
-
-                        <div class="review3">
-                           <p class="cr_view">"국내에서 IT관련 모든 직군을 경험해 볼 수 있는 몇 안되는 좋은 회사
-                              입니다."</p>
-                           <p class="cr_date">2018/01/11</p>
-                        </div> -->
-									</div>
-								</form>
-
-								
-					</form>
 
 					<!-- light box -->
 
@@ -369,8 +370,8 @@
 
 						<div class="bg"></div>
 
-						<div id="layer">
-							<%@ include file="/WEB-INF/views/main/review.jsp"%>
+						<div id="layer" class="review_long">
+							<%@ include file="/WEB-INF/views/include/review_long_include.jsp"%>
 						</div>
 
 					</div>
@@ -381,7 +382,7 @@
 
 
 				</div>
-
+				<div id="nothing"></div>
 			</div>
 
 		</div>

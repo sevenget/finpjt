@@ -14,6 +14,10 @@
 	<select id="selectAllKeywords" resultType="keyword">
 		SELECT * FROM keywords
 	</select>
+	
+	<select id="selectMostSearched" resultType="keyword">
+		<![CDATA[ SELECT * FROM (select * from keywords order by searchnum desc) where rownum<=3 ]]> 
+	</select>
 
 	<insert id="insertKeyword" parameterType = "String">
 		INSERT INTO keywords VALUES(#{keyword}, 0)
@@ -128,8 +132,12 @@
 		</if>
 	</select
 	>
-	<select id="selectAllSearch" resultType="keyword">
-		SELECT * FROM search
+	<select id="selectAllSearch" resultType="search">
+		SELECT * FROM SEARCH
+	</select>
+	
+	<select id="selectSearchById" parameterType="String" resultType="search">
+		SELECT * FROM SEARCH WHERE searchmem=#{id} AND KEYWORD != '.X' order by searchdate desc
 	</select>
 	
 	<select id="selectAdvs" resultType="companybasic">

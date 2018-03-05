@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <%-- <% 
 	String k = request.getParameter("cake");
@@ -11,7 +12,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>7Get - MyPage</title>
 <link rel="stylesheet" type="text/css" href="../resources/css/session.css"
 	media="all">
 <link rel="stylesheet" type="text/css" href="../resources/css/RightPage.css"
@@ -76,29 +77,44 @@
 							<!-- 저는 오른쪽 화면에서 위와 아래, 두 개로 나뉘는 거라 div 두개로 나눈 거예요 -->
 							<!-- class 명 지정해서 css 가서 width, height 값 지정해주고 float:left; 전에 설계하신대로 3개로 
 							  만들 수 있을 거예요  border:1px solid red; 이거 추가해서 작업하면 더 보기 편해요 -->
-							<h4 style="margin-left: 50px;">나에게 추천하는 기업</h4>
-							<hr style="margin-left: 30px;" width="230px" color="#aaa"
+							<h4 class="right_title">나에게 추천하는 기업</h4>
+							<hr width="230px" color="#aaa"
 								size="1" class="hr">
 							<!-- 구분선 -->
-							<h4 style="padding-left: 60px">1.</h4>
-							<h4 style="padding-left: 60px">2.</h4>
-							<h4 style="padding-left: 60px">3.</h4>
+							<ol>
+								<c:if test="${fn:length(recommendList)==0}">
+									<h4><li>추천기업이 없습니다</li></h4>
+								</c:if>
+								<c:forEach items="${recommendList}" var="recommend" begin="0" end="2">
+									<h4><a href="./detailpage?cid=${recommend.cid}"><li>${recommend.cname}</li></a></h4>
+								</c:forEach>
+							</ol>
 						</div>
 						<div class="recent">
-							<h4 style="padding-left: 110px;">최근 검색 기업 리스트</h4>
-							<hr style="margin-left: 90px;" width="250px" color="#aaa"
+							<h4 class="right_title">최근 검색 키워드</h4>
+							<hr width="250px" color="#aaa"
 								size="1" class="hr">
-							<h4 style="padding-left: 130px">1.</h4>
-							<h4 style="padding-left: 130px">2.</h4>
-							<h4 style="padding-left: 130px">3.</h4>
+							<ol>
+								<c:if test="${fn:length(recentKeywords)==0}">
+									<h4><li>최근 검색 키워드가 없습니다<a></a></li></h4>
+								</c:if>
+								<c:forEach items="${recentKeywords}" var="keyword" begin="0" end="2">
+								<h4><li>${keyword.keyword}</li></h4>
+								</c:forEach>
+							</ol>
 						</div>
 						<div class="most">
-							<h4 style="padding-left: 70px;">최다 검색 기업 리스트</h4>
-							<hr style="margin-left: 50px;" width="260px" color="#aaa"
+							<h4 class="right_title">최다 검색 키워드</h4>
+							<hr width="250px" color="#aaa"
 								size="1" class="hr">
-							<h4 style="padding-left: 90px">1.</h4>
-							<h4 style="padding-left: 90px">2.</h4>
-							<h4 style="padding-left: 90px">3.</h4>
+							<ol>
+								<c:if test="${fn:length(recentKeywords)==0}">
+									<h4><li>검색 키워드가 없습니다<a></a></li></h4>
+								</c:if>
+								<c:forEach items="${mostSearched}" var="keyword" begin="0" end="2">
+								<h4><li>${keyword.keyword}(${keyword.searchNum}회)</li></h4>
+								</c:forEach>
+							</ol>
 						</div>
 						<div style="margin-top: 130px; clear: both">
 

@@ -58,7 +58,9 @@ public class LoginController {
 	public String Login(HttpSession session, Locale locale, Model model) {
 		
 		String id = (String)session.getAttribute("id");
-		
+		if(id!=null) {
+			return "redirect:/main/main";
+		}
 		return "main/login";
 	}
 	
