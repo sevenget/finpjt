@@ -45,12 +45,12 @@ function windowclose(){
 					<p class="ic_p2"><font class="ic_red2">다른 아이디를 선택하세요.</font></p>
 				</div>
 				<!-- </font><p> -->
-					<div class="ic_div6">
+					<div class="ic_div6"> 
 						<input type="text" size="10" maxlength="12" name="id" class="ic_txt" /> 
 						<input type="submit" value="중복확인" class="ic_btn2"/></td>
 					</div>
-			</tr>
-		</table>
+		<!-- 	</tr>
+		</table> -->
 	</form>
 	<%
 		} else {

@@ -217,7 +217,7 @@
 						<div class="r_btn_div1">
 							<input id="submit" class="table_input" type="submit" value="회원가입">
 						</div>
-						
+						 
 						<div class="r_btn_div2"><p class="p_or">또는</p></div>
 						
 						<div class="r_btn_div3">
