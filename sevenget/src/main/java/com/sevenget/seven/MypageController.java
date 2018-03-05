@@ -1,7 +1,7 @@
 package com.sevenget.seven;
 
 import java.util.Locale;
-
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -11,13 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
+import model.company.InterCompDaoImpl;
 import model.company.InterestedRCDAO;
 import model.member.MemBasicInfoDAO;
 import model.member.MemBasicInfoDTO;
 import model.member.MemConcernDAO;
 import model.member.MemConcernDto;
 import model.search.KeywordAndSearchDAO;
+import model.company.CompanyBasicDTO;
 
 @Controller
 public class MypageController {
@@ -38,10 +39,12 @@ public class MypageController {
 	
 	//마이페이지1
 	@RequestMapping(value = "/main/mypage", method = RequestMethod.GET)
-	public ModelAndView Mypage(MemBasicInfoDAO mbdao, MemConcernDAO mcdao, KeywordAndSearchDAO kdao, MemBasicInfoDAO DAO, InterestedRCDAO CDAO ,HttpServletRequest request, HttpSession session) {
+	public ModelAndView Mypage(MemBasicInfoDAO mbdao, MemConcernDAO mcdao,InterCompDaoImpl comDao, KeywordAndSearchDAO kdao, MemBasicInfoDAO DAO, InterestedRCDAO CDAO ,HttpServletRequest request, HttpSession session) {
 		String id = (String)session.getAttribute("id");
 		request.setAttribute("member", DAO.getMemBasicInfo(id));
-		
+		List<CompanyBasicDTO> list;
+		list = comDao.selectInterComp(id);
+		request.setAttribute("company", list);
 		ModelAndView mav = new ModelAndView();
 		MemConcernDto mcdto = mcdao.getMemConcern(id);
 		mav.addObject("recommendList", kdao.searchByFilter(SearchController.getFilterByMemberCon(mcdto)));
