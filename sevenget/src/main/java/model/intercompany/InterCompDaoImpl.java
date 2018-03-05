@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
+import model.company.CompanyBasicDTO;
 import model.common.SqlSessionFactoryBean;
 
 @Repository
@@ -23,9 +23,9 @@ private SqlSession mybatis;
 		return bean;
 	}
 	
-	public List<String> selectInterComp(String mem){
-		List<String> list;
-		list = mybatis.selectList("selectInterComp",mem);
+	public List<CompanyBasicDTO> selectInterComp(String mem){
+		List<CompanyBasicDTO> list;
+		list = mybatis.selectList("InterCompDAO.selectInterComp",mem);
 		return list;
 	}
 	
