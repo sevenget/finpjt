@@ -18,7 +18,9 @@ tr td{width:200px; height:30px;border:0;}
 
 
 .login1 { position:absolute; /* left:50%; top:50%; */ left:50%; top:55%; /* width:100%; */ width:420px; height:300px; max-width:400px; margin-left:-200px; margin-top:-222px; 
-      opacity:0.95; padding:20px; z-index:2; background-color: #fff; line-height: 1.8; }
+      opacity:0.75; padding:20px; z-index:2; background-color: #fff; line-height: 1.8; }
+.login1:HOVER {	opacity:0.98; }
+
 #BigWrap { height:100%; hegiht:100%; position:relative; }
 
 #BigWrap #videoEle{ position: absolute; overflow: hidden; left: 0; top: 0; width: 100%; height: 100%; z-index: 1; }

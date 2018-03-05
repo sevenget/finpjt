@@ -80,3 +80,8 @@ span { margin-left:50px; }
 
 .regi_head { font-size: 18px; color:#595959; font-weight:bold; margin-left:250px; margin-top:50px; }
 .regi_head2 { font-size: 18px; color:#595959; font-weight:bold; margin-left:225px; margin-top:50px; }
+
+.ic_btn { width:100px; height:33px; border:0; background-color:#ebebeb; color:#929292; }
+input.ic_btn { width:100px; height:33px; border:0; background-color:#ebebeb; color:#929292; }
+
+
