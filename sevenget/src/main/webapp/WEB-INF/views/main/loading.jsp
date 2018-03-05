@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script language='javascript'>
-  cnt = 5; // 카운트다운 시간 초단위로 표시
+  cnt = 7; // 카운트다운 시간 초단위로 표시
   function countdown() {
    if(cnt == 0){
           // 시간이 0일경우
@@ -28,7 +28,8 @@
          // 시간이 남았을 경우 카운트다운을 지속한다.
         document.all.choonDiv.innerHTML = cnt + "초후에 loadContent 페이지로 이동이 됩니다..";
         setTimeout("countdown()",1000); // 1초마다 -1씩 됨.
-  cnt--;
+  		cnt--;
+  		console.log(cnt);
    }
   }
   function locateKap(){

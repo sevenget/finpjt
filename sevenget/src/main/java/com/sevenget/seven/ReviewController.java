@@ -13,6 +13,8 @@ import model.company.CompanyBasicDAO;
 import model.company.InterestedRCDAO;
 import model.company.InterestedRCDTO;
 import model.member.MemBasicInfoDAO;
+import model.plots.PlotsDaoImpl;
+import model.plots.PlotsDto;
 import model.review.ReviewDaoImpl;
 import model.review.ReviewDto;
 
@@ -22,7 +24,7 @@ public class ReviewController {
 	// 기업 상세페이지
 	@RequestMapping(value = "main/detailpage", method = RequestMethod.GET)
 	public ModelAndView DetailP(ReviewDaoImpl reviewDao, InterestedRCDAO idao, MemBasicInfoDAO mdao,CompanyBasicDAO cdao, HttpServletRequest request,HttpSession session, @RequestParam int cid) {
-		String id = (String)session.getAttribute("id"); // 파라메터로 받아오기
+		String id = (String)session.getAttribute("id"); // 세션으로 받아오기
 		System.out.println("main/detailpage"+id);
 		
 		ModelAndView mav = new ModelAndView();
@@ -40,6 +42,18 @@ public class ReviewController {
 		} else{
 			mav.addObject("isInterested", "F");
 		}
+		
+		PlotsDaoImpl PlotDao = new PlotsDaoImpl();
+		PlotsDto PlotDto = new PlotsDto();
+		
+		PlotDto = PlotDao.inquiryId(id, cid);
+		if(PlotDto.getPlotpng() != null){
+			System.out.println("detailpage 불러올건데 plotpng가 있다! 불러올거다!");
+			mav.addObject("plotpng", PlotDto.getPlotpng());
+		}else{
+			//mav.addObject 할거 없음..
+		}
+		
 		
 		mav.addObject("interTimes", idao.getInterTimesByCid(cid));
 		mav.addObject("reviewList", reviewDao.selectReview(cid));

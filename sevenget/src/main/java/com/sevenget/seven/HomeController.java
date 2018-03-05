@@ -64,13 +64,21 @@ public class HomeController {
 		
 		return "main/joeh";
 	}
-	
 	// loading
 	@RequestMapping(value = "/main/loading", method = RequestMethod.GET)
+	public ModelAndView Loading(PlotsDaoImpl DAO, HttpSession session, HttpServletRequest request, @RequestParam("cid") int cid/*, @RequestParam("id") String id*/){
+		System.out.println("loading을 시작합니다. 빙글빙글");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/main/loading");
+		return mav;
+	}
+	
+	// loading
+	@RequestMapping(value = "/main/mplot", method = RequestMethod.GET)
 	public ModelAndView MPlot(PlotsDaoImpl DAO, HttpSession session, HttpServletRequest request, @RequestParam("cid") int cid/*, @RequestParam("id") String id*/) throws REXPMismatchException, REngineException{
+		System.out.println("mplotmplotmplotmplotmplotmplotmplot");
 		ModelAndView mav = new ModelAndView();
 
-		System.out.println("loading을 시작합니다. 빙글빙글");
 		System.out.println(cid);
 		String id = (String)session.getAttribute("id"); // 파라메터로 받아오기
 		
@@ -125,7 +133,7 @@ public class HomeController {
 		mav.addObject("cid",plotDto.getCid());
 		mav.addObject("plotpng",plotDto.getPlotpng());
 		
-		mav.setViewName("main/loading");
+		mav.setViewName("main/mplot");
 		
 		session.setAttribute("id", id);
 		session.setAttribute("cid", cid);

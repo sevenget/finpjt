@@ -11,7 +11,7 @@
 
 <link rel="stylesheet" type="text/css" href="../resources/css/session.css " media="all" flush="false">
 <link rel="stylesheet" type="text/css" href="../resources/css/loading.css " media="all" flush="false">
-<link rel="stylesheet" type="text/css" href="../resources/css/detail.css?ver=1" media="all">
+<link rel="stylesheet" type="text/css" href="../resources/css/detail.css?ver=3" media="all" >
 <link rel="stylesheet" type="text/css" href="../resources/css/portside.css" media="all">
 <link rel="stylesheet" type="text/css" href="../resources/css/lightbox.css" media="all">
 <link rel="stylesheet" type="text/css" href="../resources/css/review.css" media="all">
@@ -59,17 +59,29 @@
 	 "width=950,height=500,resizable=1,scrollbars=1");
 	 } */
 	function fLoadData() {
-		$.ajax({
-			//type: "POST",
-			url : "loading",//loadContent
-			data : "cid=${cid}",
-			success : function(resultText) {
-				$('#loadData').html(resultText);
-			},
-			error : function() {
-				alert("호출 실패 detailpage");
-			}
-		});
+			$.ajax({
+				//type: "POST",
+				url : "loading",//loadContent
+				data : "cid=${cid}",
+				success : function(resultText) {
+					$('#loadData').html(resultText);
+				},
+				error : function() {
+					alert("호출 실패 detailpage1");
+				}
+			});
+			
+			$.ajax({
+				//type: "POST",
+				url : "mplot",//loadContent
+				data : "cid=${cid}",
+				success : function(resultText) {
+					$('#loadData').html(resultText);
+				},
+				error : function() {
+					alert("호출 실패 detailpage2");
+				}
+			});
 	}
 
 	$(document).ready(function() {
@@ -161,6 +173,17 @@
 	line-height: normal;
 	white-space: normal
 }
+.personnel { width:328px; float:right; font-size:15px; font-weight:normal; margin-right:10px; margin-top:8px; color:#595959; text-align:right; }
+.interested { float:right; }
+img.interested { float:right; }
+
+.review_short { width:850px; height:30px; /* background-color:#ccfcfc; *//*  margin-top:-6px;  */text-align:right; float:left;  }
+.rs_btn { width:80px; height:30px; border:0; color:#aaa; background-color:#f2f2f2; margin-top: -2px; }
+.tt_rv { font-size:15px; }
+
+.cr_btn { width:130px; height:43px; margin-top:4.7px; background-color:#8772b8; margin-left:3px; float:left; border:0; text-align:center; display:table; font-size:15px; color:#fff;  }
+.cr_write {  width:700px; height:40px; margin-top:5px; border:1px solid #ccc; font-size:16px; color:#666; float:left; }
+
 </style>
 
 </head>
@@ -183,17 +206,22 @@
 
 				<div class="right">
 					<div class="sevenpo">
-						<p class="head_rv">7포</p>
-						<hr width="915px" color="#aaa" size="1" class="dt_hr">
+						<p class="head_rv2">7포</p>
+						<hr width="915px" color="#aaa" size="1" class="dt_hr2" s>
 
 						<div class="company">
 							<div class="graph">
 								<div class="graph_img">
 									<!-- 버튼 클릭시 로딩 화면 5초/R작동, 결과출력 -->
 
-									<a onClick="fLoadData()">
+									<a onClick="fLoadData()"><%-- ${plotpng } --%>
 										<div id="loadData" style="width: 502px; height: 400px; margin-top: 20px; background: #EFEFEF; display: table;">
-											<p class="pp">정보를 호출하시려면 클릭하세요</p>
+											<c:if test="${plotpng!=null}">
+												<div "style="background-color:white; width: 502px; height: 404px; margin-top: 20px;"><img src="../resources/img/plots/${plotpng}" /></div>
+											</c:if> 
+											<c:if test="${plotpng==null}">
+												<p class="pp">정보를 호출하시려면 클릭하세요</p>
+											</c:if>
 										</div>
 									</a>
 
@@ -285,7 +313,7 @@
 							<div class="c_result">
 								<!-- <p class="marks">"</p> -->
 								<img src="../resources/img/marks1.png" class="marks">
-								<p class="get">
+								<font class="get">
 									<c:if test="${company.dateGet=='T'}">
 										<nobr>데이트</nobr>
 									</c:if>
@@ -307,9 +335,9 @@
 									<c:if test="${company.hopeGet=='T'}">
 										<nobr>희망</nobr>
 									</c:if>
-								</p>
-								<p class="ex">을 득하고,</p>
-								<p class="lose">
+								</font>
+								<font class="ex">을 득하고,</font>
+								<font class="lose">
 									<c:if test="${company.dateGet=='F'}">
 										<nobr>데이트</nobr>
 									</c:if>
@@ -331,8 +359,8 @@
 									<c:if test="${company.dateGet=='F'}">
 										<nobr>희망</nobr>
 									</c:if>
-								</p>
-								<p class="ex">를 포기하였습니다.</p>
+								</font>
+								<font class="ex">를 포기하였습니다.</font>
 								<!-- <p class="marks">"</p> -->
 								<img src="../resources/img/marks2.png" class="marks">
 							</div>
@@ -343,24 +371,30 @@
 						
 
 				<div class="reviewHolder">
-					<p class="head_rv">
-						<a href="#layer" onclick="openContent('${comapny.cid}')">리뷰</a>
+					<p class="head_rv1">
+						<a<%--  href="#layer" onclick="openContent('${comapny.cid}')" --%>>리뷰</a>
 					</p>
-
+					<div class="review_short">
+					         <font class="tt_rv">총 리뷰 수 : ${fn:length(reviewList)}</font> 
+					         <button onclick="openContent('${comapny.cid}')" class="rs_btn">전체보기</button>
+						<jsp:include page="../include/review_short_include.jsp"></jsp:include>
+					</div>
 					<hr width="915px" color="#aaa" size="1" class="dt_hr">
 					<br />
 					
 
-					<div class="c_review review_short">
-					         총 리뷰 수 : ${fn:length(reviewList)} <button onclick="openContent('${comapny.cid}')">전체 리뷰 보기</button>
+					<%-- <div class="review_short">
+					         총 리뷰 수 : ${fn:length(reviewList)} 
+					         <button onclick="openContent('${comapny.cid}')">전체보기</button>
 						<jsp:include page="../include/review_short_include.jsp"></jsp:include>
-					</div>
+					</div> --%>
+					
 					<div class="c_review">
 						<form action="review" method="get">
 							<div class="c_write">
 								<input type="hidden" name="cid" value="${company.cid}">
-								<input type="text" placeholder=" 리뷰 작성하기(50자 이내)" class="cr_write" maxlength="50" name="content"> <input type="submit"
-									value="리뷰입력1" class="cr_btn">
+								<input type="text" placeholder=" 리뷰 작성하기(50자 이내)" class="cr_write" maxlength="50" name="content"> 
+								<input type="submit" value="리뷰입력" class="cr_btn">
 							</div>
 						</form>
 					

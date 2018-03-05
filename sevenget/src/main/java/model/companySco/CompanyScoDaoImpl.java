@@ -42,6 +42,13 @@ public class CompanyScoDaoImpl implements CompanyScoDao {
 
 	}
 	
+	public CompanyScoDto selectByCid(int cid){
+		CompanyScoDto dto = new CompanyScoDto();
+		dto = mybatis.selectOne("CompanyScoDAO.getById", cid);
+
+		return dto;
+	}
+	
 	/*public void insertCompanyScore(CompanyScoDto dto) {
 		dto.setId("mem");
 		dto.setCid(1);

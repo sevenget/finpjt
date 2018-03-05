@@ -16,6 +16,14 @@ public class PublicRawScoDaoImpl implements PublicRawScoDao {
 	public PublicRawScoDaoImpl() {
 		mybatis = SqlSessionFactoryBean.getSqlSessionInstance();
 	}
+	
+	// 회사별 일반인 평가의 갯수 구하기. 30개가 넘어야 점수 반영하는데 사용할 것.
+	public int selectCntPublicRawScores(int cid){
+		int cnt = (int) mybatis.selectOne("PublicRawScoDAO.selectCount",cid);
+		System.out.println(cnt);
+		return cnt;
+		
+	}
 
 	public void selectPublicRawScores() {
 		List<PublicRawScoDto> list;
