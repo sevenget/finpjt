@@ -67,8 +67,8 @@
 				<form action="review">
 					<div class="cc_write">
 						<input type="hidden" name="cid" value="${company.cid}">
-						<input type="text" name="content" placeholder=" 리뷰 작성하기(50자 이내)"
-							class="rr_write" maxlength="50"></label>
+						<input type="text" name="content" placeholder=" 리뷰 작성하기(40자 이내)"
+							class="rr_write" maxlength="40"></label>
 						<div class="rr_btn">
 							<input type="submit"  class="rr_btn" value="리뷰입력">
 						</div>

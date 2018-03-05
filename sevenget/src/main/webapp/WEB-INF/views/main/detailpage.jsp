@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css" href="../resources/css/detail.css?ver=3" media="all" >
 <link rel="stylesheet" type="text/css" href="../resources/css/portside.css" media="all">
 <link rel="stylesheet" type="text/css" href="../resources/css/lightbox.css" media="all">
-<link rel="stylesheet" type="text/css" href="../resources/css/review.css" media="all">
+<link rel="stylesheet" type="text/css" href="../resources/css/review.css?ver=4" media="all">
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
 
@@ -187,7 +187,7 @@ img.interested { float:right; }
 .cr_write {  width:700px; height:40px; margin-top:5px; border:1px solid #ccc; font-size:16px; color:#666; float:left; }
 
 .sr_view { margin-left:8px; font-size:16px; color:#595959; float:left;/*  font-weight: bold;  */}
-.sr_date { margin-left:25px; /* margin-top:20px; */ font-size:14px; color:#c9c9c9; float:left; }
+.sr_date { margin-left:25px; margin-top:2px;  font-size:14px; color:#c9c9c9; float:left; }
 
 .rrr { margin-top:17px; float:left; }
 
@@ -400,7 +400,7 @@ img.interested { float:right; }
 						<form action="review" method="get">
 							<div class="c_write">
 								<input type="hidden" name="cid" value="${company.cid}">
-								<input type="text" placeholder=" 리뷰 작성하기(50자 이내)" class="cr_write" maxlength="50" name="content"> 
+								<input type="text" placeholder=" 리뷰 작성하기(40자 이내)" class="cr_write" maxlength="40" name="content"> 
 								<input type="submit" value="리뷰입력" class="cr_btn">
 							</div>
 						</form>
