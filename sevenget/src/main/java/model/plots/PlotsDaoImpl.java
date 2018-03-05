@@ -75,13 +75,14 @@ public class PlotsDaoImpl implements PlotsDao {
 			dto.setPlotpng(plotName);
 			System.out.println(dto.getCid());
 			System.out.println(dto.getMemid());
+			System.out.println(dto.getPlotpng());
 
 			mybatis.update("PlotsDAO.updatePlts", dto);
 			mybatis.commit();
 
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("해당 아이디가 존재하지 않습니다. UpdatePlots실패");
+			System.out.println("해당 아이디의 정보가 존재하지 않습니다. UpdatePlots실패");
 			System.out.println("정보의 삽입을 시도합니다.");
 			System.out.println("cid : " + cid);
 			System.out.println("id : " + id);
