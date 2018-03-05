@@ -59,7 +59,7 @@
 								<div class="review">
 									<hr width="900px" color="#aaa" size="1" class="dt_hr2">
 									<p class="cr_view">${review.content}</p>
-									${review.reviewdate}
+									${review.reviewdate} 
 									${review.writer}
 								</div>
 							</c:forEach>

@@ -10,4 +10,4 @@
 
 		<font class="sr_date">${review.reviewdate} ${review.writer}</font>
 	</div>
-</c:forEach>
+</c:forEach> 

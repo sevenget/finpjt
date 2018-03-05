@@ -373,7 +373,7 @@ img.interested { float:right; }
 
 						</div>
 
-					</div>
+					</div> 
 						
 
 				<div class="reviewHolder">
