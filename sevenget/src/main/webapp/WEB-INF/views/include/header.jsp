@@ -5,10 +5,8 @@
 	if(session.getAttribute("id") != null){
 	id = (String)session.getAttribute("id");
 	}
-	System.out.println(id);
 %>
 	<div id="wrap">
-
 		<header id="top">
 
 			<div class="container1">
