@@ -79,7 +79,7 @@
 					$('#loadData').html(resultText);
 				},
 				error : function() {
-					alert("호출 실패 detailpage2");
+					alert("호출 실패 detailpage2");/*  */
 				}
 			});
 	}
