@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <title>7Get - Register</title>
 <link rel="stylesheet" type="text/css" href="../resources/css/session.css " media="all">
-<link rel="stylesheet" type="text/css" href="../resources/css/register.css" media="all">
+<link rel="stylesheet" type="text/css" href="../resources/css/register.css?ver=1" media="all">
 <link rel="stylesheet" type="text/css" href="../resources/css/score.css" media="all">
 <script src='https://code.jquery.com/jquery-3.0.0.min.js'></script>
 </head>
@@ -174,26 +174,26 @@
 					<table class="table_abs" >
 						<tr>
 							<td>아이디</td>
-							<td class="input_td"><input id="id" name="id" class="table_input" type="text" placeholder="아이디(4자 이상)"></td>
+							<td class="input_td"><input id="id" name="id" class="table_input" type="text" placeholder="  아이디(4자 이상)"></td>
 							<td class="" ><input type="button" value="중복확인"
 													onclick="checkId(this.form)" class="overlap_btn"></td>
 						</tr>
 						<tr>
 							<td>비밀번호</td>
-							<td class="input_td"><input id="password" name="password" class="table_input" type="password" placeholder="비밀번호(8자 이상)"></td>
+							<td class="input_td"><input id="password" name="password" class="table_input" type="password" placeholder=" 비밀번호(8자 이상)"></td>
 						</tr>
 						<tr>
 							<td>비밀번호 확인</td>
-							<td class="input_td"><input id="pwc" name="pwc" class="table_input" type="password" placeholder="비밀번호 확인"></td>
+							<td class="input_td"><input id="pwc" name="pwc" class="table_input" type="password" placeholder=" 비밀번호 확인"></td>
 						</tr>
 					
 						<tr>
 							<td>이름</td>
-							<td class="input_td"><input id="name" name="name" class="table_input" type="text" placeholder="이름"></td>
+							<td class="input_td"><input id="name" name="name" class="table_input" type="text" placeholder=" 이름"></td>
 						</tr>
 						<tr>
 							<td>생년월일</td>
-							<td class="input_td"><input id="birth" name="birth" class="table_input" type="text" placeholder="생년월일(예시. 920101)" maxlength="6"></td>
+							<td class="input_td"><input id="birth" name="birth" class="table_input" type="text" placeholder=" 생년월일(예시. 920101)" maxlength="6"></td>
 						</tr>	
 						<tr>
 							<td>성 별</td>
@@ -206,11 +206,11 @@
 						</tr>
 						<tr>
 							<td>주 소</td>
-							<td class="input_td"><input id="address" name="address" class="table_input" type="text" placeholder="주소 입력"></td>
+							<td class="input_td"><input id="address" name="address" class="table_input" type="text" placeholder=" 주소 입력"></td>
 						</tr>
 						<tr>
 							<td>이메일</td>
-							<td class="input_td"><input id="email" name="email" class="table_input" type="text" placeholder="이메일(예시. abc@naver.com)"></td>
+							<td class="input_td"><input id="email" name="email" class="table_input" type="text" placeholder=" 이메일(예시. abc@naver.com)"></td>
 						</tr>
 					</table>	
 						

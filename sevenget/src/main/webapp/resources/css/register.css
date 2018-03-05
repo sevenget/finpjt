@@ -80,7 +80,25 @@ span { margin-left:50px; }
 .regi_head { font-size: 18px; color:#595959; font-weight:bold; margin-left:250px; margin-top:50px; }
 .regi_head2 { font-size: 18px; color:#595959; font-weight:bold; margin-left:225px; margin-top:50px; }
 
+
+/* member_id_check.jsp */
+
+.ic_red { color:red; }
+.ic_red2 { color:#bbb; font-size:13px; }
+
+.ic_head { width:320px; margin-left:32px; font-size:15px; font-weight:bold; color:#666; margin-top:10px;] }
+.ic_div1 { width:320px; margin-left:32px; text-align:center;  height:30px; margin-top:25px; font-size:14px; }
+.ic_div2 { width:320px; margin-left:32px; text-align:center; height:40px; margin-top:-3px; font-size:14px; }
+.ic_div3 { width:320px; margin-left:32px; text-align:center; height:40px; font-size:14px; }
+
+.ic_div4 { width:320px; margin-left:32px; text-align:center;  height:20px; margin-top:2px; font-size:14px; }
+.ic_div5 { width:320px; margin-left:32px; text-align:center;  height:20px; margin-top:-3px; font-size:14px; }
+.ic_div6 { width:320px; margin-left:32px; text-align:center; height:40px; font-size:14px; margin-top:8px; }
+
+.ic_txt { width:200px; height:33px; border:1px solid #c6c6c6; }
+
 .ic_btn { width:100px; height:33px; border:0; background-color:#ebebeb; color:#929292; }
 input.ic_btn { width:100px; height:33px; border:0; background-color:#ebebeb; color:#929292; }
+.ic_btn2 { width:100px; height:33px; border:0; background-color:#ebebeb; color:#929292; margin-left:2px; }
 
 
