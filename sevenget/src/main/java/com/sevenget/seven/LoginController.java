@@ -58,7 +58,7 @@ public class LoginController {
 			}
             return null;
 		}else{
-			System.out.printf("컨트롤러 - %d 로그인 성공",id);
+			System.out.printf("컨트롤러 - %s 로그인 성공",id);
 			session.setAttribute("id", id);
 			mav.setViewName("main/loginCheck");
 			return mav;
