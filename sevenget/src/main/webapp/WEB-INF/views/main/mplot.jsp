@@ -8,6 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<%response.sendRedirect("loadContent"); %>
 </body>
 </html>

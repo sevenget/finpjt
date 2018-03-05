@@ -8,7 +8,7 @@
 		$.ajax({
 			//type: "POST",
 			url : "loading",//loadContent
-			data : "",
+			data : "cid=${cid}",
 			success : function(resultText) {
 				$('#loadData').html(resultText);
 			},
@@ -38,7 +38,7 @@
 		 }); */
 	});
 </script>
-${plotpng }
+
 <a style="background-color:white;" onClick="fLoadData()"> <img
 	src="../resources/img/plots/${plotpng}" />
 	

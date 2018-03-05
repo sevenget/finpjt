@@ -147,14 +147,8 @@ public class HomeController {
 	public String LContent(PlotsDaoImpl DAO, HttpSession session, HttpServletRequest request) {
 		System.out.println("/main/loadContent");
 		System.out.println(session.getAttribute("id")+", "+session.getAttribute("cid"));
-		request.setAttribute("plotpng", DAO.inquiryId((String)session.getAttribute("id"),(Integer)session.getAttribute("cid")).getPlotpng());// mem을 어떻게 받아와야....
-		System.out.println("***********************************"+DAO.inquiryId((String)session.getAttribute("id"),(Integer)session.getAttribute("cid")).getPlotpng());
-		
-		
-		
-/*		request.setAttribute("plotpng", DAO.inquiryId("mem").getPlotpng());// mem을 어떻게 받아와야....
-		System.out.println("***********************************"+DAO.inquiryId("mem").getPlotpng());
-*/
+		System.out.println(session.getAttribute("plotpng"));
+		request.setAttribute("plotpng", session.getAttribute("plotpng"));// mem을 어떻게 받아와야....
 		
 		return "main/loadContent";
 	}

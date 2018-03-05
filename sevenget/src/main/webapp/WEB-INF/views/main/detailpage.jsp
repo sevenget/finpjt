@@ -71,7 +71,7 @@
 				}
 			});
 			
-			$.ajax({
+			 /* $.ajax({
 				//type: "POST",
 				url : "mplot",//loadContent
 				data : "cid=${cid}",
@@ -79,9 +79,9 @@
 					$('#loadData').html(resultText);
 				},
 				error : function() {
-					alert("호출 실패 detailpage2");/*  */
+					alert("호출 실패 detailpage2");
 				}
-			});
+			});  */
 	}
 
 	$(document).ready(function() {
@@ -113,7 +113,7 @@
 								$('#interestedText').html('외에')
 								$('#interestedNum').html(parseInt($('#interestedNum').html()) - 1)
 								$('span.nothing').load('canInter?cid='+$(this).attr('data-cid'))
-							}s
+							}
 						})
 
 	$('form[action="review"]').submit(function(){
