@@ -13,21 +13,20 @@ public class SqlSessionFactoryBean {
 	static {
 		try {
 			if(sessionFactory == null) {
-				System.out.println("mybatis1");
+				//System.out.println("mybatis1");
 				Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
-				System.out.println("mybatis2");
+				//System.out.println("mybatis2");
 				sessionFactory = new SqlSessionFactoryBuilder().build(reader);
-				System.out.println("mybatis3");
+				//System.out.println("mybatis3");
 			} 
 		} catch(Exception e) {
-			System.out.println("mybatis Error");
-			e.printStackTrace();
+			System.out.println("mybatis Error "+e.getMessage());
 		}
 		
 	}
 
 	public static SqlSession getSqlSessionInstance() {
-		System.out.println("mybatis4");
+		//System.out.println("mybatis4");
 		return sessionFactory.openSession();
 	}
 }
