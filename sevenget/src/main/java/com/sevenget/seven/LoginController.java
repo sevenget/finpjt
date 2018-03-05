@@ -4,15 +4,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Locale;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.jasper.tagplugins.jstl.core.Out;
-import org.rosuda.REngine.REXPMismatchException;
-import org.rosuda.REngine.REngineException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,21 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.sevenget.Rcode.Evaluation;
-import com.sevenget.Rcode.MakingPlot;
-
-import model.company.CompanyBasicDAO;
-import model.company.InterestedRCDAO;
-import model.companySco.CompanyRawScoDaoImpl;
-import model.companySco.CompanyRawScoDto;
-import model.companySco.CompanyScoDto;
 import model.member.MemBasicInfoDAO;
 import model.member.MemBasicInfoDTO;
 import model.member.MemIdCheckDaoImpl;
 import model.member.MemLoginDao;
-import model.plots.PlotsDaoImpl;
-import model.plots.PlotsDto;
-import model.review.ReviewDaoImpl;
 
 /**
  * Handles requests for the application home page.
@@ -44,17 +27,8 @@ import model.review.ReviewDaoImpl;
 @RequestMapping(value="/main")
 public class LoginController {
 
-	/*
-	 * @Autowired private MakingPlot mPlot;
-	 */
-
-	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
-
-	
-	
-	// 로그인
+	// 로그인화면
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-
 	public String Login(HttpSession session, Locale locale, Model model) {
 		
 		String id = (String)session.getAttribute("id");
@@ -69,8 +43,6 @@ public class LoginController {
 	@RequestMapping(value = "/loginCheck", method = RequestMethod.GET)
 	public ModelAndView loginCheck(String id,String pw, MemLoginDao dao,MemBasicInfoDTO dto,
 			ModelAndView mav, HttpSession session, HttpServletResponse response) {
-		
-		System.out.println("로그인 ID = "+id+" 입력한 PW = "+pw);
 		dto = dao.loginCheck(id,pw);
 		
 		if(dto == null){
@@ -82,25 +54,21 @@ public class LoginController {
 				out.println("<script>alert('로그인 정보를 확인해주세요.'); history.go(-1);</script>");
 				return null;
 			} catch (IOException e) {
-				System.out.println("HomeController -> loginCheck -> PrintWriter 변수 생성 오류");
+				System.out.println("LoginController -> loginCheck -> PrintWriter 변수 생성 오류");
 			}
             return null;
 		}else{
-			System.out.println("컨트롤러 - 로그인 성공");
+			System.out.printf("컨트롤러 - %d 로그인 성공",id);
 			session.setAttribute("id", id);
 			mav.setViewName("main/loginCheck");
 			return mav;
 		}
-		
-		
 	}
 	
 	// 로그아웃
 	@RequestMapping(value = "/logOut", method = RequestMethod.GET)
 	public ModelAndView loginCheck(MemLoginDao dao, ModelAndView mav, HttpSession session) {
-		
 		session.invalidate();
-		
 		mav.setViewName("main/logOut");
 		return mav;
 	}
