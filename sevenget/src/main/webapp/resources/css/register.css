@@ -102,3 +102,7 @@ input.ic_btn { width:100px; height:33px; border:0; background-color:#ebebeb; col
 .ic_btn2 { width:100px; height:33px; border:0; background-color:#ebebeb; color:#929292; margin-left:2px; }
 
 
+
+.check_td > h5{
+	height:1px;
+}
