@@ -25,7 +25,7 @@ public class ReviewController {
 	@RequestMapping(value = "main/detailpage", method = RequestMethod.GET)
 	public ModelAndView DetailP(ReviewDaoImpl reviewDao, InterestedRCDAO idao, MemBasicInfoDAO mdao,CompanyBasicDAO cdao, HttpServletRequest request,HttpSession session, @RequestParam int cid) {
 		String id = (String)session.getAttribute("id"); // 세션으로 받아오기
-		System.out.println("main/detailpage"+id);
+		System.out.println("main/detailpage "+id);
 		
 		ModelAndView mav = new ModelAndView();
 		if(id==null){
@@ -57,6 +57,7 @@ public class ReviewController {
 			}
 		}catch (Exception e) {
 			// TODO: handle exception
+			System.out.println("detailpage 불러올건데 plotpng가 아마도 없다");
 		}
 		
 		
