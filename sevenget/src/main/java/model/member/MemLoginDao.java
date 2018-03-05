@@ -30,8 +30,6 @@ public class MemLoginDao {
 			System.out.println("비밀번호가 틀렸습니다.");
 			return null;
 		}else{
-			System.out.println("비밀번호 일치.");
-			
 			dto.setId(list.get(0).id);
 			dto.setPassword(list.get(0).password);
 			dto.setName(list.get(0).name);

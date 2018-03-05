@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 
-.right { background-color:#fff; width:955px; height:auto; overflow:hidden; padding-bottom:50px;margin-top:40px; margin-left:20px; float:left; }
+.right { background-color:#fff; width:955px; min-height:758px; height:auto; overflow:hidden; padding-bottom:50px;margin-top:40px; margin-left:20px; float:left; }
 .rightTop > div{float: left;}
 .right ol{
  margin: 0 30px;	

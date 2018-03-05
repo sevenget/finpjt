@@ -126,15 +126,15 @@
 						
 						
 						
-						<div id=btnHolder1 style="clear: both; margin-top: 150px; margin-left: 100px;">
+						<!-- <div id=btnHolder1 style="clear: both; margin-top: 150px; margin-left: 100px;">
 							<button id='btnPrev'  >&lt;</button>
-						</div>
+						</div> -->
 						<div id="interComp" style="float: left;">
 							<jsp:include page="../include/interComp.jsp" />
 						</div>
-						<div id=btnHolder2 style="margin-left:10px; margin-top: 150px;">
+						<!-- <div id=btnHolder2 style="margin-left:10px; margin-top: 150px;">
 							<button id='btnNext'>&gt;</button>
-						</div>
+						</div> -->
 
 					</div> <!--rightTop  -->
 				</div> <!-- right -->
