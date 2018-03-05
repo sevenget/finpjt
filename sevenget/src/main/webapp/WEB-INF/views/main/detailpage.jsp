@@ -107,12 +107,12 @@
 								$(this).attr('src','../resources/img/colorheart2.png')
 								$('#interestedText').html('포함')
 								$('#interestedNum').html(parseInt($('#interestedNum').html()) + 1)
-								$('div.nothing').load('regInter?cid='+$(this).attr('data-cid'))
+								$('span.nothing').load('regInter?cid='+$(this).attr('data-cid'))
 							} else {
 								$(this).attr('src','../resources/img/whiteheart2.png')
 								$('#interestedText').html('외에')
 								$('#interestedNum').html(parseInt($('#interestedNum').html()) - 1)
-								$('div.nothing').load('canInter?cid='+$(this).attr('data-cid'))
+								$('span.nothing').load('canInter?cid='+$(this).attr('data-cid'))
 							}s
 						})
 
@@ -419,7 +419,7 @@ img.interested { float:right; }
 
 
 				</div>
-				<div id="nothing"></div>
+				<span class="nothing"></span>
 			</div>
 
 		</div>
