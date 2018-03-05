@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import model.company.InterCompDaoImpl;
+import model.intercompany.InterCompDaoImpl;
 import model.company.InterestedRCDAO;
 import model.member.MemBasicInfoDAO;
 import model.member.MemBasicInfoDTO;
@@ -38,8 +38,8 @@ public class MypageController {
 	}
 	
 	//마이페이지1
-	@RequestMapping(value = "/main/mypage", method = RequestMethod.GET)
-	public ModelAndView Mypage(MemBasicInfoDAO mbdao, MemConcernDAO mcdao,InterCompDaoImpl comDao, KeywordAndSearchDAO kdao, MemBasicInfoDAO DAO, InterestedRCDAO CDAO ,HttpServletRequest request, HttpSession session) {
+	@RequestMapping(value = "/main/mypage", method = RequestMethod.GET)	
+	public ModelAndView Mypage(MemBasicInfoDAO mbdao, MemConcernDAO mcdao, InterCompDaoImpl comDao, KeywordAndSearchDAO kdao, MemBasicInfoDAO DAO, InterestedRCDAO CDAO ,HttpServletRequest request, HttpSession session) {
 		String id = (String)session.getAttribute("id");
 		request.setAttribute("member", DAO.getMemBasicInfo(id));
 		List<CompanyBasicDTO> list;
