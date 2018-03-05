@@ -25,7 +25,7 @@ public class Evaluation2 {
 		
 		CSDto = eval2.selectComSco(cid);
 		CSDto.setCid(cid);
-
+// TF조건을 if로 걸어주고 나머지를 N으로 하는 걸로 바꿔주기!
 		if(CSDto.getDateSco()>=4 || CSDto.getDateSco()<7){
 			CBDto.setDateGet("N");
 		}else if(CSDto.getDateSco()<4){
@@ -83,7 +83,7 @@ public class Evaluation2 {
 		}
 		
 		CompanyBasicDAO CBDao = new CompanyBasicDAO();
-		CBDao.insertOrUpdate(CBDto);
+		CBDao.insertOrUpdate(CBDto);//update만 됨!!
 	}
 	
 	public static void main(String[] args) {
