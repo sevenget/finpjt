@@ -65,6 +65,7 @@
 				data : "cid=${cid}",
 				success : function(resultText) {
 					$('#loadData').html(resultText);
+					console.log("detailpage cid : "+${cid});
 				},
 				error : function() {
 					alert("호출 실패 detailpage1");

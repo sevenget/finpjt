@@ -11,6 +11,7 @@
 			data : "cid=${cid}",
 			success : function(resultText) {
 				$('#loadData').html(resultText);
+				/* console.log("loadContent cid : "+${cid}); */
 			},
 			error : function() {
 				alert("호출 실패 loadContent");

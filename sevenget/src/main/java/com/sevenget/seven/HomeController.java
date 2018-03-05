@@ -66,22 +66,31 @@ public class HomeController {
 	}
 	// loading
 	@RequestMapping(value = "/main/loading", method = RequestMethod.GET)
-	public ModelAndView Loading(PlotsDaoImpl DAO, HttpSession session, HttpServletRequest request, @RequestParam("cid") int cid/*, @RequestParam("id") String id*/){
+	public ModelAndView Loading(PlotsDaoImpl DAO, HttpSession session, HttpServletRequest request){
+		String id = (String) session.getAttribute("id");
+		int cid = (int) session.getAttribute("cid");
+		
 		System.out.println("loading을 시작합니다. 빙글빙글");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("/main/loading");
+
+		session.setAttribute("id", id);
+		session.setAttribute("cid", cid);
+
 		return mav;
 	}
 	
 	// loading
 	@RequestMapping(value = "/main/mplot", method = RequestMethod.GET)
-	public ModelAndView MPlot(PlotsDaoImpl DAO, HttpSession session, HttpServletRequest request, @RequestParam("cid") int cid/*, @RequestParam("id") String id*/) throws REXPMismatchException, REngineException{
+	public ModelAndView MPlot(PlotsDaoImpl DAO, HttpSession session, HttpServletRequest request/*, @RequestParam("id") String id*/) throws REXPMismatchException, REngineException{
+		String id = (String) session.getAttribute("id");
+		int cid = (int) session.getAttribute("cid");
+		
 		System.out.println("mplotmplotmplotmplotmplotmplotmplot");
 		ModelAndView mav = new ModelAndView();
 
 		System.out.println(cid);
-		String id = (String)session.getAttribute("id"); // 파라메터로 받아오기
-		
+				
 		if(id==null){
 			mav.setViewName("redirect:/main/login");
 			return mav;
@@ -145,11 +154,17 @@ public class HomeController {
 	// loadContent
 	@RequestMapping(value = "/main/loadContent", method = RequestMethod.GET)
 	public String LContent(PlotsDaoImpl DAO, HttpSession session, HttpServletRequest request) {
+		String id = (String) session.getAttribute("id");
+		int cid = (int) session.getAttribute("cid");
+		
 		System.out.println("/main/loadContent");
 		System.out.println(session.getAttribute("id")+", "+session.getAttribute("cid"));
 		System.out.println(session.getAttribute("plotpng"));
 		request.setAttribute("plotpng", session.getAttribute("plotpng"));// mem을 어떻게 받아와야....
 		
+		session.setAttribute("id", id);
+		session.setAttribute("cid", cid);
+
 		return "main/loadContent";
 	}
 
