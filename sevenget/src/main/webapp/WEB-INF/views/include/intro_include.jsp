@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script type="text/javascript">
 		jQuery(function($) {
 			
@@ -58,7 +57,7 @@
 	filter: alpha(opacity = 50)
 }
 
-#layer {
+#layer2 {
 	position: absolute;
 	top: 40%;
 	left: 38%;
@@ -82,7 +81,7 @@
 	<div class="mw_layer2">
 		<div class="bg"></div>
 	
-		<div id="layer">
+		<div id="layer2">
 			전문가 평가와 임직원 및 일반 이용자 평가를 분석해 7가지 지표를 <br>각 항목 별로 10점 만점 기준의 점수가 부여됩니다.
 			<h3>
 			<br>
