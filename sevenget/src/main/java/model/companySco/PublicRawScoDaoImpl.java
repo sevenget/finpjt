@@ -41,7 +41,7 @@ public class PublicRawScoDaoImpl implements PublicRawScoDao {
 					dto.getMoodEnvImprovPuP(),dto.getDiningTogetherPuP(),dto.getMoneyManageCoachPuP());
 		}
 
-		mybatis.commit();
+	
 	}
 	
 	public PublicRawScoDto selectbyCid(int cid, String id){
@@ -96,7 +96,7 @@ public class PublicRawScoDaoImpl implements PublicRawScoDao {
 		mybatis.update("PublicRawScoDAO.insertRawScore", dto);
 		System.out.println("데이터 입력 완료");
 		
-		mybatis.commit();
+
 
 		}
 
