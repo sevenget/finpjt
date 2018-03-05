@@ -203,14 +203,14 @@
 								<div class="graph_img">
 									<!-- 버튼 클릭시 로딩 화면 5초/R작동, 결과출력 -->
 
-									<a onClick="fLoadData()">
+									<a onClick="fLoadData()"><%-- ${plotpng } --%>
 										<div id="loadData" style="width: 502px; height: 400px; margin-top: 20px; background: #EFEFEF; display: table;">
-											<%-- <c:if test="${plotpng!=null}">
-												<p "style="background-color:white;"><img src="../resources/img/plots/${plotpng}" /></p>
+											<c:if test="${plotpng!=null}">
+												<div "style="background-color:white; width: 502px; height: 404px; margin-top: 20px;"><img src="../resources/img/plots/${plotpng}" /></div>
 											</c:if> 
-											<c:if test="${plotpng==null}">--%>
+											<c:if test="${plotpng==null}">
 												<p class="pp">정보를 호출하시려면 클릭하세요</p>
-											<%-- </c:if> --%>
+											</c:if>
 										</div>
 									</a>
 

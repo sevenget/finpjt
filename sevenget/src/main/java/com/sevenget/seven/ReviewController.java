@@ -43,7 +43,7 @@ public class ReviewController {
 			mav.addObject("isInterested", "F");
 		}
 		
-		/*PlotsDaoImpl PlotDao = new PlotsDaoImpl();
+		PlotsDaoImpl PlotDao = new PlotsDaoImpl();
 		PlotsDto PlotDto = new PlotsDto();
 		
 		PlotDto = PlotDao.inquiryId(id, cid);
@@ -52,7 +52,7 @@ public class ReviewController {
 			mav.addObject("plotpng", PlotDto.getPlotpng());
 		}else{
 			//mav.addObject 할거 없음..
-		}*/
+		}
 		
 		
 		mav.addObject("interTimes", idao.getInterTimesByCid(cid));
