@@ -8,40 +8,47 @@
 <%
 	List<String> list = (List<String>) request.getAttribute("company");
 %>
-			
-						
-						<table style="border:0; clear:both; margin-left:145px;">
-							<tr>
-							
-							<c:forEach items="${company }" var="list" begin="0" end="2">
-							
-								<td style="width: 220px; height:150px; border:0; clear:both;">
 
-									<img onclick="location.href='./detailpage?cid=${list.cid}'" style="width: 220px; height: 150px;" src="../resources/img/logos/${list.logo}" />
 
-								</td>
-								
-							</c:forEach>
-							
-							</tr>
-							
-							<tr>
-							
-							<c:forEach items="${company }" var="list" begin="3" end="5">
-							
-								<td style="width: 220px; height:150px; border:0; clear:both;">
+<table
+	style="border: 0; clear: both; margin-top: 80px; margin-left: 145px; border-collapse: collapse;">
+	<tr>
 
-									<img onclick="location.href='./detailpage?cid=${list.cid}'" style="width: 220px; height: 150px;" src="../resources/img/logos/${list.logo}" />
+		<c:forEach items="${company }" var="list" begin="0" end="2">
 
-								</td>
-								
-							</c:forEach>
-							
-							
-							</tr>
-							
-						</table>
-						
-						
+			<td
+				style="width: 220px; height: 150px; border: 2px solid purple; clear: both;">
+
+				<img onclick="location.href='./detailpage?cid=${list.cid}'"
+				style="width: 220px; height: 150px;"
+				src="../resources/img/logos/${list.logo}" />
+
+			</td>
+
+		</c:forEach>
+
+	</tr>
+
+	<tr>
+
+		<c:forEach items="${company }" var="list" begin="3" end="5">
+
+			<td
+				style="width: 220px; height: 150px; border: 2px solid purple; clear: both;">
+
+				<img onclick="location.href='./detailpage?cid=${list.cid}'"
+				style="width: 220px; height: 150px;"
+				src="../resources/img/logos/${list.logo}" />
+
+			</td>
+
+		</c:forEach>
+
+
+	</tr>
+
+</table>
+
+
 
 
