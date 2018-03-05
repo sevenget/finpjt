@@ -5,11 +5,12 @@
 <meta charset="UTF-8">
 <title>7Get - Register</title>
 <link rel="stylesheet" type="text/css" href="../resources/css/session.css " media="all">
-<link rel="stylesheet" type="text/css" href="../resources/css/register.css" media="all">
+<link rel="stylesheet" type="text/css" href="../resources/css/register.css?ver=1" media="all">
 <link rel="stylesheet" type="text/css" href="../resources/css/score.css" media="all">
 <script src='https://code.jquery.com/jquery-3.0.0.min.js'></script>
 </head>
 <body>
+
 
 <script type="text/javascript">
 	/* 이미지 드래그 앤 드랍 */
@@ -84,6 +85,7 @@
 			return false;
 		}
 		
+		alert('칠득 회원가입을 환영합니다.');
 		/* var url = "./insertUser?id="+forms.id.value
 		+"&password="+forms.password.value
 		+"&name="+forms.name.value
@@ -103,6 +105,45 @@
 		return true;
 		
 	} 
+	
+	 $(function() {
+	      $('#password').keyup(function() {
+	         if ($("#password").val().length < 8) {
+	            $('font[name=check1]').html('<font style="color:#ff0000">&nbsp8글자 이상</font>');
+	            return false;
+	         } else if ($("#password").val().length >= 8) {
+	            $('font[name=check1]').html('<font style="color:#47C83E">&nbsp사용 가능</font>');
+	            return false;
+	         } else if ($.trim($("#password").val()) !== $("#password").val()) {
+	            $('font[name=check1]').html('<font style="color:#ff0000">&nbsp공백 불가</font>');
+	            return false;
+	         }
+	      });
+	   
+	      $('#pwc').keyup(function() {
+	         if ($('#password').val() == $('#pwc').val()) {
+	            $('font[name=check2]').html('<font style="color:#47C83E">&nbsp일치</font>');
+	         } else {
+	            $('font[name=check2]').html('<font style="color:#ff0000">&nbsp불일치</font>');
+	         }
+	      });
+	      
+	      $('#birth').keyup(function(){
+	    	  if ($.trim($("#birth").val()) !== $("#birth").val()) {
+	    		  $('font[name=check3]').html('<font style="color:#ff0000">&nbsp공백 불가</font>');
+		            return false;
+	    	  }else if ($("#birth").val().length < 6) {
+		            $('font[name=check3]').html('<font style="color:#ff0000">&nbsp예.)920101</font>');
+		            return false;
+	         }else if ($("#birth").val().length == 6) {
+		            $('font[name=check3]').html('<font style="color:#47C83E">&nbsp사용 가능</font>');
+		            return false;
+		         }
+	      })
+	   });
+
+	
+	
 	/* 아이디 중복확인 */
  	function checkId() {
 		var forms = document.getElementById("form_1");
@@ -170,29 +211,33 @@
 					
 				
 					<!--  테이블 1-->
-					<table class="table_abs" >
+					<table class="table_abs">
 						<tr>
 							<td>아이디</td>
-							<td class="input_td"><input id="id" name="id" class="table_input" type="text" placeholder="아이디(4자 이상)"></td>
+							<td class="input_td"><input id="id" name="id" class="table_input" type="text" placeholder="  아이디(4자 이상)"></td>
 							<td class="" ><input type="button" value="중복확인"
 													onclick="checkId(this.form)" class="overlap_btn"></td>
 						</tr>
-						<tr>
+						<tr style="overflow: hidden;">
 							<td>비밀번호</td>
-							<td class="input_td"><input id="password" name="password" class="table_input" type="password" placeholder="비밀번호(8자 이상)"></td>
+							<td class="input_td"><input id="password" name="password" class="table_input" type="password" placeholder=" 비밀번호(8자 이상)"></td>
+							<td class="check_td"><h5><font name = "check1" size="2" color="#FA8181"> </font></h5></td>
 						</tr>
 						<tr>
 							<td>비밀번호 확인</td>
-							<td class="input_td"><input id="pwc" name="pwc" class="table_input" type="password" placeholder="비밀번호 확인"></td>
+							<td class="input_td"><input id="pwc" name="pwc" class="table_input" type="password" placeholder=" 비밀번호 확인"></td>
+							<td class="check_td"><h5><font name = "check2" size="2" color="#FA8181"></font></h5></td>
 						</tr>
+						
 					
 						<tr>
 							<td>이름</td>
-							<td class="input_td"><input id="name" name="name" class="table_input" type="text" placeholder="이름"></td>
+							<td class="input_td"><input id="name" name="name" class="table_input" type="text" placeholder=" 이름"></td>
 						</tr>
 						<tr>
 							<td>생년월일</td>
-							<td class="input_td"><input id="birth" name="birth" class="table_input" type="text" placeholder="생년월일(예시. 920101)" maxlength="6"></td>
+							<td class="input_td"><input id="birth" name="birth" class="table_input" type="text" placeholder=" 생년월일(예시. 920101)" maxlength="6"></td>
+							<td class="check_td"><h5><font name = "check3" size="2" color="#FA8181"> </font></h5></td>
 						</tr>	
 						<tr>
 							<td>성 별</td>
@@ -205,18 +250,18 @@
 						</tr>
 						<tr>
 							<td>주 소</td>
-							<td class="input_td"><input id="address" name="address" class="table_input" type="text" placeholder="주소 입력"></td>
+							<td class="input_td"><input id="address" name="address" class="table_input" type="text" placeholder=" 주소 입력"></td>
 						</tr>
 						<tr>
 							<td>이메일</td>
-							<td class="input_td"><input id="email" name="email" class="table_input" type="text" placeholder="이메일(예시. abc@naver.com)"></td>
+							<td class="input_td"><input id="email" name="email" class="table_input" type="text" placeholder=" 이메일(예시. abc@naver.com)"></td>
 						</tr>
 					</table>	
 						
 						<div class="r_btn_div1">
 							<input id="submit" class="table_input" type="submit" value="회원가입">
 						</div>
-						
+						 
 						<div class="r_btn_div2"><p class="p_or">또는</p></div>
 						
 						<div class="r_btn_div3">

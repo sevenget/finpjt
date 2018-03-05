@@ -9,20 +9,15 @@
 <meta charset="UTF-8">
 <title>7Get - CompanyDetail</title>
 
-<link rel="stylesheet" type="text/css"
-	href="../resources/css/session.css " media="all" flush="false">
-<link rel="stylesheet" type="text/css"
-	href="../resources/css/loading.css " media="all" flush="false">
-<link rel="stylesheet" type="text/css"
-	href="../resources/css/detail.css" media="all">
-<link rel="stylesheet" type="text/css"
-	href="../resources/css/portside.css" media="all">
-<link rel="stylesheet" type="text/css"
-	href="../resources/css/lightbox.css" media="all">
-<link rel="stylesheet" type="text/css"
-	href="../resources/css/review.css" media="all">
+<link rel="stylesheet" type="text/css" href="../resources/css/session.css " media="all" flush="false">
+<link rel="stylesheet" type="text/css" href="../resources/css/loading.css " media="all" flush="false">
+<link rel="stylesheet" type="text/css" href="../resources/css/detail.css?ver=1" media="all">
+<link rel="stylesheet" type="text/css" href="../resources/css/portside.css" media="all">
+<link rel="stylesheet" type="text/css" href="../resources/css/lightbox.css" media="all">
+<link rel="stylesheet" type="text/css" href="../resources/css/review.css" media="all">
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+
 <script type="text/javascript">
 	function openContent(cid) {
 
@@ -229,24 +224,32 @@
 
 								<div class="c_head_name">
 									<div class="c_heart">
-										${id }님
-										<c:if test="${isInterested=='T'}">
-											<span id="interestedText">포함</span>
-										</c:if>
-										<c:if test="${isInterested=='F'}">
-											<span id="interestedText">외에</span>
-										</c:if>
-										<span id="interestedNum">${ interTimes }</span>명의 관심기업
-										<c:if test="${isInterested=='T'}">
-											<img class="interested"
-												src="../resources/img/colorheart2.png"
-												data-cid="${company.cid}" />
-										</c:if>
 										<c:if test="${isInterested=='F'}">
 											<img class="interested"
 												src="../resources/img/whiteheart2.png"
 												data-cid="${company.cid}" />
 										</c:if>
+										<div class="personnel"> 
+											${id }님
+											<c:if test="${isInterested=='T'}">
+												<span id="interestedText">포함</span>
+											</c:if>
+											<c:if test="${isInterested=='F'}">
+												<span id="interestedText">외에</span>
+											</c:if>
+											<span id="interestedNum">${ interTimes }</span>명의 관심기업
+											<c:if test="${isInterested=='T'}">
+												<img class="interested"
+													src="../resources/img/colorheart2.png"
+													data-cid="${company.cid}" />
+											</c:if>
+										</div>
+										<%-- <c:if test="${isInterested=='F'}">
+											<img class="interested"
+												src="../resources/img/whiteheart2.png"
+												data-cid="${company.cid}" />
+										</c:if> --%>
+										
 									</div>
 								</div>
 
