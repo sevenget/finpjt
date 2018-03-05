@@ -18,7 +18,7 @@
 		INSERT INTO keywords VALUES(#{keyword},#{searchedNum})
 	</insert>
 	
-	<select id="selectInterComp" parameterType="String" resultType="String">
-		select logo from companyBasicInfo where cid in (select cid from INTERESTEDRC where memid = #{mem} and canTime is null)
+	<select id="selectInterComp" parameterType="String" resultType="companybasic">
+		select cid,logo from companyBasicInfo where cid in (select cid from INTERESTEDRC where memid = #{mem} and canTime is null)
 	</select>
 </mapper>

@@ -21,6 +21,13 @@
 		]]>
 	</select>
 	
+	<select id="getMemBasicInfo2" resultType="memBasicInfo">
+		<![CDATA[
+		SELECT id,password,name, to_char(birth,'yymmdd') "birth", gender, address, email, picture,
+		dateCon,marryCon,babyCon,houseCon,relationCon,dreamCon,hopeCon from MEMBASICINFO where id = #{id}
+		]]>
+	</select>
+	
 	<insert id="insertMember" parameterType="memBasicInfo" >
 		
 		insert into memBasicInfo values(
@@ -44,8 +51,19 @@
 	
 	<update id="updateMember" parameterType="memBasicInfo">
 		update memBasicInfo
-			set name=#{name}, password=#{password}, birth=#{birth},address=	#{address}, email=#{email}
-			where id=#{id}
+			set
+			name=#{name},
+			birth=#{birth},
+			address= #{address},
+			email=#{email},
+			dateCon = #{dateCon},
+			marryCon = #{marryCon},
+			babyCon = #{babyCon},
+			houseCon = #{houseCon},
+			relationCon = #{relationCon},
+			dreamCon = #{dreamCon},
+			hopeCon = #{hopeCon} 
+			where id = #{id}
 	</update>
 
 </mapper>

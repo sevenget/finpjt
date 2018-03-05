@@ -77,7 +77,7 @@
 							<!-- 저는 오른쪽 화면에서 위와 아래, 두 개로 나뉘는 거라 div 두개로 나눈 거예요 -->
 							<!-- class 명 지정해서 css 가서 width, height 값 지정해주고 float:left; 전에 설계하신대로 3개로 
 							  만들 수 있을 거예요  border:1px solid red; 이거 추가해서 작업하면 더 보기 편해요 -->
-							<h4 class="right_title">나에게 추천하는 기업</h4>
+							<h4 class="right_title" style="margin-left: 65px;">나에게 추천하는 기업</h4>
 							<hr width="230px" color="#aaa"
 								size="1" class="hr">
 							<!-- 구분선 -->
@@ -91,7 +91,7 @@
 							</ol>
 						</div>
 						<div class="recent">
-							<h4 class="right_title">최근 검색 키워드</h4>
+							<h4 class="right_title"  style="margin-left: 75px;">최근 검색 키워드</h4>
 							<hr width="250px" color="#aaa"
 								size="1" class="hr">
 							<ol>
@@ -104,7 +104,7 @@
 							</ol>
 						</div>
 						<div class="most">
-							<h4 class="right_title">최다 검색 키워드</h4>
+							<h4 class="right_title"  style="margin-left: 75px;">최다 검색 키워드</h4>
 							<hr width="250px" color="#aaa"
 								size="1" class="hr">
 							<ol>
