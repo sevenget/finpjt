@@ -46,5 +46,6 @@
 		<mapper resource="mappings/InterestedRCMapper.xml"/>
 		<mapper resource="mappings/MemBasicInfoMapper.xml"/>
 		<mapper resource="mappings/MemIdCheckMapper.xml"/>
+		<mapper resource="mappings/InterCompMapper.xml"/>
 	</mappers>
 </configuration>
