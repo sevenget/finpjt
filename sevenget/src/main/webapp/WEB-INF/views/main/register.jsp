@@ -11,7 +11,6 @@
 </head>
 <body>
 
-
 <script type="text/javascript">
 	/* 이미지 드래그 앤 드랍 */
 
@@ -85,6 +84,7 @@
 			return false;
 		}
 		
+		alert('칠득 회원가입을 환영합니다.');
 		/* var url = "./insertUser?id="+forms.id.value
 		+"&password="+forms.password.value
 		+"&name="+forms.name.value
@@ -104,6 +104,45 @@
 		return true;
 		
 	} 
+	
+	 $(function() {
+	      $('#password').keyup(function() {
+	         if ($("#password").val().length < 8) {
+	            $('font[name=check1]').html('<font style="color:#ff0000">&nbsp8글자 이상</font>');
+	            return false;
+	         } else if ($("#password").val().length >= 8) {
+	            $('font[name=check1]').html('<font style="color:#47C83E">&nbsp사용 가능</font>');
+	            return false;
+	         } else if ($.trim($("#password").val()) !== $("#password").val()) {
+	            $('font[name=check1]').html('<font style="color:#ff0000">&nbsp공백 불가</font>');
+	            return false;
+	         }
+	      });
+	   
+	      $('#pwc').keyup(function() {
+	         if ($('#password').val() == $('#pwc').val()) {
+	            $('font[name=check2]').html('<font style="color:#47C83E">&nbsp일치</font>');
+	         } else {
+	            $('font[name=check2]').html('<font style="color:#ff0000">&nbsp불일치</font>');
+	         }
+	      });
+	      
+	      $('#birth').keyup(function(){
+	    	  if ($.trim($("#birth").val()) !== $("#birth").val()) {
+	    		  $('font[name=check3]').html('<font style="color:#ff0000">&nbsp공백 불가</font>');
+		            return false;
+	    	  }else if ($("#birth").val().length < 6) {
+		            $('font[name=check3]').html('<font style="color:#ff0000">&nbsp예.)920101</font>');
+		            return false;
+	         }else if ($("#birth").val().length == 6) {
+		            $('font[name=check3]').html('<font style="color:#47C83E">&nbsp사용 가능</font>');
+		            return false;
+		         }
+	      })
+	   });
+
+	
+	
 	/* 아이디 중복확인 */
  	function checkId() {
 		var forms = document.getElementById("form_1");
@@ -171,7 +210,7 @@
 					
 				
 					<!--  테이블 1-->
-					<table class="table_abs" >
+					<table class="table_abs">
 						<tr>
 							<td>아이디</td>
 							<td class="input_td"><input id="id" name="id" class="table_input" type="text" placeholder="아이디(4자 이상)"></td>
@@ -181,11 +220,14 @@
 						<tr>
 							<td>비밀번호</td>
 							<td class="input_td"><input id="password" name="password" class="table_input" type="password" placeholder="비밀번호(8자 이상)"></td>
+							<td><h5><font name = "check1" size="2" color="#FA8181"> </font></h5></td>
 						</tr>
 						<tr>
 							<td>비밀번호 확인</td>
 							<td class="input_td"><input id="pwc" name="pwc" class="table_input" type="password" placeholder="비밀번호 확인"></td>
+							<td><h5><font name = "check2" size="2" color="#FA8181"></font></h5></td>
 						</tr>
+						
 					
 						<tr>
 							<td>이름</td>
@@ -194,6 +236,7 @@
 						<tr>
 							<td>생년월일</td>
 							<td class="input_td"><input id="birth" name="birth" class="table_input" type="text" placeholder="생년월일(예시. 920101)" maxlength="6"></td>
+							<td><h5><font name = "check3" size="2" color="#FA8181"> </font></h5></td>
 						</tr>	
 						<tr>
 							<td>성 별</td>
