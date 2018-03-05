@@ -22,7 +22,7 @@
 	function openContent(cid) {
 
 		$('.mw_layer').addClass('open');
-		alert(cid)
+		/* alert(cid) */
 		$.ajax({
 			type : 'get',
 			url : 'review',
@@ -107,12 +107,12 @@
 								$(this).attr('src','../resources/img/colorheart2.png')
 								$('#interestedText').html('포함')
 								$('#interestedNum').html(parseInt($('#interestedNum').html()) + 1)
-								$('div.nothing').load('regInter?cid='+$(this).attr('data-cid'))
+								$('span.nothing').load('regInter?cid='+$(this).attr('data-cid'))
 							} else {
 								$(this).attr('src','../resources/img/whiteheart2.png')
 								$('#interestedText').html('외에')
 								$('#interestedNum').html(parseInt($('#interestedNum').html()) - 1)
-								$('div.nothing').load('canInter?cid='+$(this).attr('data-cid'))
+								$('span.nothing').load('canInter?cid='+$(this).attr('data-cid'))
 							}s
 						})
 
@@ -181,8 +181,14 @@ img.interested { float:right; }
 .rs_btn { width:80px; height:30px; border:0; color:#aaa; background-color:#f2f2f2; margin-top: -2px; }
 .tt_rv { font-size:15px; }
 
+.c_review { width:835px; margin-left:40px; margin-top:120px; float:left;  /* background-color:#cedf45; */ }
 .cr_btn { width:130px; height:43px; margin-top:4.7px; background-color:#8772b8; margin-left:3px; float:left; border:0; text-align:center; display:table; font-size:15px; color:#fff;  }
 .cr_write {  width:700px; height:40px; margin-top:5px; border:1px solid #ccc; font-size:16px; color:#666; float:left; }
+
+.sr_view { margin-left:8px; font-size:16px; color:#595959; float:left;/*  font-weight: bold;  */}
+.sr_date { margin-left:25px; /* margin-top:20px; */ font-size:14px; color:#c9c9c9; float:left; }
+
+.rrr { margin-top:17px; float:left; }
 
 </style>
 
@@ -367,7 +373,7 @@ img.interested { float:right; }
 
 						</div>
 
-					</div>
+					</div> 
 						
 
 				<div class="reviewHolder">
@@ -377,7 +383,7 @@ img.interested { float:right; }
 					<div class="review_short">
 					         <font class="tt_rv">총 리뷰 수 : ${fn:length(reviewList)}</font> 
 					         <button onclick="openContent('${comapny.cid}')" class="rs_btn">전체보기</button>
-						<jsp:include page="../include/review_short_include.jsp"></jsp:include>
+						<div class="rrr"><jsp:include page="../include/review_short_include.jsp"></jsp:include></div>
 					</div>
 					<hr width="915px" color="#aaa" size="1" class="dt_hr">
 					<br />
@@ -419,7 +425,7 @@ img.interested { float:right; }
 
 
 				</div>
-				<div id="nothing"></div>
+				<span class="nothing"></span>
 			</div>
 
 		</div>

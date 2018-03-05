@@ -57,9 +57,9 @@
 					<div class="cc_review">
 						<c:forEach var="review" items="${reviewList}">
 								<div class="review">
-									<hr>
+									<hr width="900px" color="#aaa" size="1" class="dt_hr2">
 									<p class="cr_view">${review.content}</p>
-									${review.reviewdate}
+									${review.reviewdate} 
 									${review.writer}
 								</div>
 							</c:forEach>
@@ -70,8 +70,8 @@
 						<input type="text" name="content" placeholder=" 리뷰 작성하기(50자 이내)"
 							class="rr_write" maxlength="50"></label>
 						<div class="rr_btn">
-							<input type="submit" value="리뷰입력">
-						</div>s
+							<input type="submit"  class="rr_btn" value="리뷰입력">
+						</div>
 					</div>
 
 				</form>

@@ -23,4 +23,10 @@ private SqlSession mybatis;
 		return bean;
 	}
 	
+	public List<String> selectInterComp(String mem){
+		List<String> list;
+		list = mybatis.selectList("selectInterComp",mem);
+		return list;
+	}
+	
 }
