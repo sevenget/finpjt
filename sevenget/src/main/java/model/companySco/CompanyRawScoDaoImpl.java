@@ -42,12 +42,11 @@ public class CompanyRawScoDaoImpl implements CompanyScoDao {
 		return dto;
 	}
 
-	public void insertCompanyRawScore(/*int id*/) {
+	public void insertCompanyRawScore(int cid) {
 		CompanyRawScoDto dto = new CompanyRawScoDto();
 		System.out.println("데이터 입력 시작");
 		
-		//dto.setCid(2);
-		dto.setCid(1);
+		dto.setCid(cid);
 		dto.setNoOTEPr(5);
 		dto.setFlexWorkEPr(1);
 		dto.setWeekendWorkEPr(1);
