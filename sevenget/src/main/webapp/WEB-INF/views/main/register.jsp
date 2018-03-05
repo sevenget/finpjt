@@ -109,8 +109,17 @@
 	 $(function() {
 	      $('#password').keyup(function() {
 	         if ($("#password").val().length < 8) {
-	            $('font[name=check1]').html('<font style="color:#ff0000">&nbsp8글자 이상</font>');
-	            return false;
+	        	 if ($("#password").val().length == 0) {
+			            $('font[name=check1]').html('<font style="color="#FA8181">&nbsp</font>');
+			            return false;
+		            }else{
+		            	$('font[name=check1]').html('<font style="color:#ff0000">&nbsp8글자 이상</font>');
+			            return false;
+		            }
+	            
+	            if ($("#password").val().length == 0) {
+		            $('font[name=check1]').html('<font style="color="#FA8181">&nbsp</font>');
+	            }
 	         } else if ($("#password").val().length >= 8) {
 	            $('font[name=check1]').html('<font style="color:#47C83E">&nbsp사용 가능</font>');
 	            return false;
@@ -118,7 +127,7 @@
 	            $('font[name=check1]').html('<font style="color:#ff0000">&nbsp공백 불가</font>');
 	            return false;
 	         }
-	      });
+      });
 	   
 	      $('#pwc').keyup(function() {
 	         if ($('#password').val() == $('#pwc').val()) {
