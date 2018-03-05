@@ -46,13 +46,18 @@ public class ReviewController {
 		PlotsDaoImpl PlotDao = new PlotsDaoImpl();
 		PlotsDto PlotDto = new PlotsDto();
 		
-		PlotDto = PlotDao.inquiryId(id, cid);
-		if(PlotDto.getPlotpng() != null){
-			System.out.println("detailpage 불러올건데 plotpng가 있다! 불러올거다!");
-			mav.addObject("plotpng", PlotDto.getPlotpng());
-		}else{
-			//mav.addObject 할거 없음..
+		try{
+			PlotDto = PlotDao.inquiryId(id, cid);
+			if(PlotDto.getPlotpng() != null){
+				System.out.println("detailpage 불러올건데 plotpng가 있다! 불러올거다!");
+				mav.addObject("plotpng", PlotDto.getPlotpng());
+			}else{
+				//mav.addObject 할거 없음..
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
 		}
+		
 		
 		
 		mav.addObject("interTimes", idao.getInterTimesByCid(cid));

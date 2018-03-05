@@ -38,7 +38,7 @@
 		 }); */
 	});
 </script>
-
+${plotpng }
 <a style="background-color:white;" onClick="fLoadData()"> <img
 	src="../resources/img/plots/${plotpng}" />
 	
