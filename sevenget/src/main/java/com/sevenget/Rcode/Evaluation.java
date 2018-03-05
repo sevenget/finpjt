@@ -104,7 +104,13 @@ public class Evaluation {
 
 		// 일반인 평가
 		try { // 세부 점수를 넣어줬으면
-			dtoEP = ev.EvalCompanyEPR(CRScoDao.selectbyCid(cid));// 전문가 평가는 일단 값을 DB에 강제로 넣어둠. 나중에 관리자 페이지랑.. 그런거 생기면 웹에서도 입력할 수 있게 해보자..
+			try{
+				dtoEP = ev.EvalCompanyEPR(CRScoDao.selectbyCid(cid));// 전문가 평가는 일단 값을 DB에 강제로 넣어둠. 나중에 관리자 페이지랑.. 그런거 생기면 웹에서도 입력할 수 있게 해보자..
+			}catch (Exception e) {
+				System.out.println("기업점수 없어서 강제로 입력!");
+				CRScoDao.insertCompanyRawScore(cid);
+				dtoEP = ev.EvalCompanyEPR(CRScoDao.selectbyCid(cid));// 전문가 평가는 일단 값을 DB에 강제로 넣어둠. 나중에 관리자 페이지랑.. 그런거 생기면 웹에서도 입력할 수 있게 해보자..
+			}
 			System.out.println("+++++++++++++++++++++++++++++++++++++");
 			System.out.println(dtoEP.getCid()+" "+dtoEP.getDateSco()+" "+dtoEP.getMarrySco()+" "+dtoEP.getBabySco()+" "+dtoEP.getHouseSco()+" "+dtoEP.getRelationSco()+" "+dtoEP.getDreamSco()+" "+dtoEP.getHopeSco());
 			System.out.println("+++++++++++++++++++++++++++++++++++++");
