@@ -37,7 +37,7 @@
 	         if(resultText == 1){ 
 	             document.location.reload(); // 상세보기 창 새로고침
 	         }
-	     }
+	     } 
 	 } */
 </script>
 

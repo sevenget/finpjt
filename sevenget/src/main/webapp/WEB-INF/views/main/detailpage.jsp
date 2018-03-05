@@ -167,7 +167,7 @@
 	margin: -150px 0 0 -194px;
 	padding: 28px 28px 0 28px;
 	border: 2px solid #555;
-	background: #fff;
+	background: #fff; 
 	font-size: 12px;
 	font-family: Tahoma, Geneva, sans-serif;
 	color: #767676;
