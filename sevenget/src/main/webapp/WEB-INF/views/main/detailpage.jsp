@@ -212,7 +212,7 @@
 												src="../resources/img/whiteheart2.png"
 												data-cid="${company.cid}" />
 										</c:if>
-										<div class="personnel">
+										<div class="personnel"> 
 											${id }님
 											<c:if test="${isInterested=='T'}">
 												<span id="interestedText">포함</span>
