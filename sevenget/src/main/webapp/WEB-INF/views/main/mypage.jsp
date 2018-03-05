@@ -120,7 +120,7 @@
 
 							<h4 style="padding-left: 400px">관심 기업 리스트</h4>
 							<hr id="line4" width="885px" color="#aaa" size="1" class="hr"
-								style="margin-left: 30px">
+								style="margin-left: 35px">
 						</div>
 						<!-- 관심 기업 리스트 표 -->
 						
