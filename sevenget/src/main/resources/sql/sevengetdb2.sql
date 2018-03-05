@@ -420,6 +420,76 @@ insert into companyBasicInfo values(
 	'N','N','N','N','N','N','N'
 );
 
+insert into companyBasicInfo values(
+	21, 
+	'SKT.jpg', 
+	'에스케이텔레콤',
+	'무선통신업',
+	'본사 서울 중구 을지로 65',
+	'18조',
+	4481,
+	'이동통신 및 ICT 서비스 전반에서 고객의 눈 높이에 맞는 차별화되고 혁신적인 상품과 서비스를 제공하자', 
+	'사업 부문은 이동전화  등의 무선통신사업과 전화, 초고속인터넷 등을 포함한 유선통신사업, 그리고 인터넷포탈서비스, 게임제작 등의 기타사업부문으로 구별됨', 
+	0,
+	'N','N','N','N','N','N','N'
+);
+
+insert into companyBasicInfo values(
+	22, 
+	'Emnet.jpg', 
+	'이엠넷',
+	'미디어/디자인/프로그래밍',
+	'서울 구로구 디지털로34길 27',
+	'284억',
+	400,
+	'디지털마켓팅의 선두주자', 
+	'온라인 마케팅 전문 컨설팅 그룹', 
+	0,
+	'N','N','N','N','N','N','N'
+);
+
+insert into companyBasicInfo values(
+	23, 
+	'ncsoft.jpg', 
+	'엔씨소프트',
+	'온라인, 모바일 게임 소프트웨어 개발 및 공급업',
+	'경기 성남시 분당구 삼평동 668번지',
+	'9835억',
+	3050,
+	'우주 정복', 
+	'리니지를 시작으로 인터넷 기반 온라인 게임의 대중화를 이끌었으며, 해외 시장으로 개척, 아시아,북미,유럽 등에 글로벌 네트워크를 확보해 나가고 있다.', 
+	0,
+	'N','N','N','N','N','N','N'
+);
+
+insert into companyBasicInfo values(
+	24, 
+	'webcruit.jpg', 
+	'웹크루트',
+	'홈페이지제작 및 관리, IT전문 아웃소싱',
+	'서울 마포구 백범로199 1111호',
+	'-',
+	5,
+	'-', 
+	'다양한 웹 및 모바일 환경을 구축하고있다.', 
+	0,
+	'N','N','N','N','N','N','N'
+);
+
+insert into companyBasicInfo values(
+	25, 
+	'hyosung.jpg', 
+	'효성아이티엑스',
+	'콜센터 및 텔레마케팅 서비스업',
+	'서울시 영등포구 선유동2로 57 15층',
+	'3403억',
+	7674,
+	'경쟁력 있는 IT 환경을 만들자', 
+	'유연한 IT는 새로운 기회를 활용하고, 시장 출시 기간을 단축하며, 혁신을 통해 경쟁업체보다 앞서나갈 수 있도록 하자.', 
+	0,
+	'N','N','N','N','N','N','N'
+);
+
 -- 기업 점수
 create table companyScore(
    cid number(10) constraint companyConcern_id_fk references companyBasicInfo(cid),
