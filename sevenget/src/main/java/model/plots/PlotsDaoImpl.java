@@ -68,10 +68,7 @@ public class PlotsDaoImpl implements PlotsDao {
 
 		try {
 			System.out.println();
-			dto = inquiryId(id, cid);// 세션에서 받아온 아이디
-																// 확인. 없는 경우는 생각
-																// 안해봄... 설마
-																// 있겠지...
+			dto = inquiryId(id, cid);// 세션에서 받아온 아이디 확인. 없는 경우는 controller에서 걸러줌.
 			System.out.println("ID: " + id + " 확인되었습니다.");
 			System.out.println(dto.getPlotpng()); // 되는 건가..
 

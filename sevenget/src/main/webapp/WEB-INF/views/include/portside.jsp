@@ -102,7 +102,7 @@ $(function(){
 							<p class="ml">연애</p>
 							<!-- <div class="bar1">미음</div> -->
 							<div class="zt-skill-bar bar1">
-								<div data-width="${iid.dateCon*10}" style="">
+								<div data-width="${iid.dateCon*9}" style="">
 									　<span>${iid.dateCon}</span>
 								</div>
 							</div>
@@ -112,7 +112,7 @@ $(function(){
 							<p class="ml">결혼</p>
 							<!-- <div class="bar1">미음</div> -->
 							<div class="zt-skill-bar bar1">
-								<div data-width="${iid.marryCon*10}" style="">
+								<div data-width="${iid.marryCon*9}" style="">
 									　<span>${iid.marryCon}</span>
 								</div>
 							</div>
@@ -123,7 +123,7 @@ $(function(){
 							<p class="ml">출산</p>
 							<!-- <div class="bar1">미음</div> -->
 							<div class="zt-skill-bar bar1">
-								<div data-width="${iid.babyCon*10}" style="">
+								<div data-width="${iid.babyCon*9}" style="">
 									　<span>${iid.babyCon}</span>
 								</div>
 							</div>
@@ -134,7 +134,7 @@ $(function(){
 							<p class="ml3">내집마련</p>
 							<!-- <div class="bar3">미음</div> -->
 							<div class="zt-skill-bar bar3">
-								<div data-width="${iid.houseCon*10}" style="">
+								<div data-width="${iid.houseCon*9}" style="">
 									　<span>${iid.houseCon}</span>
 								</div>
 							</div>
@@ -145,7 +145,7 @@ $(function(){
 							<p class="ml3">인간관계</p>
 							<!-- <div class="bar3">미음</div> -->
 							<div class="zt-skill-bar bar3">
-								<div data-width="${iid.relationCon*10}" style="">
+								<div data-width="${iid.relationCon*9}" style="">
 									　<span>${iid.relationCon}</span>
 								</div>
 							</div>
@@ -156,7 +156,7 @@ $(function(){
 							<p class="ml2">꿈</p>
 							<!-- <div class="bar2">미음</div> -->
 							<div class="zt-skill-bar bar2">
-								<div data-width="${iid.dreamCon*10}" style="">
+								<div data-width="${iid.dreamCon*9}" style="">
 									　<span>${iid.dreamCon}</span>
 								</div>
 							</div>
@@ -167,7 +167,7 @@ $(function(){
 							<p class="ml3">희망직업</p>
 							<!-- <div class="bar3">미음</div> -->
 							<div class="zt-skill-bar bar3">
-								<div data-width="${iid.hopeCon*10}" style="">
+								<div data-width="${iid.hopeCon*9}" style="">
 									　<span>${iid.hopeCon}</span>
 								</div>
 							</div>

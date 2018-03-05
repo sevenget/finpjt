@@ -64,17 +64,29 @@
 	 "width=950,height=500,resizable=1,scrollbars=1");
 	 } */
 	function fLoadData() {
-		$.ajax({
-			//type: "POST",
-			url : "loading",//loadContent
-			data : "cid=${cid}",
-			success : function(resultText) {
-				$('#loadData').html(resultText);
-			},
-			error : function() {
-				alert("호출 실패 detailpage");
-			}
-		});
+			$.ajax({
+				//type: "POST",
+				url : "loading",//loadContent
+				data : "cid=${cid}",
+				success : function(resultText) {
+					$('#loadData').html(resultText);
+				},
+				error : function() {
+					alert("호출 실패 detailpage1");
+				}
+			});
+			
+			$.ajax({
+				//type: "POST",
+				url : "mplot",//loadContent
+				data : "cid=${cid}",
+				success : function(resultText) {
+					$('#loadData').html(resultText);
+				},
+				error : function() {
+					alert("호출 실패 detailpage2");
+				}
+			});
 	}
 
 	$(document).ready(function() {
@@ -198,7 +210,12 @@
 
 									<a onClick="fLoadData()">
 										<div id="loadData" style="width: 502px; height: 400px; margin-top: 20px; background: #EFEFEF; display: table;">
-											<p class="pp">정보를 호출하시려면 클릭하세요</p>
+											<%-- <c:if test="${plotpng!=null}">
+												<p "style="background-color:white;"><img src="../resources/img/plots/${plotpng}" /></p>
+											</c:if> 
+											<c:if test="${plotpng==null}">--%>
+												<p class="pp">정보를 호출하시려면 클릭하세요</p>
+											<%-- </c:if> --%>
 										</div>
 									</a>
 
