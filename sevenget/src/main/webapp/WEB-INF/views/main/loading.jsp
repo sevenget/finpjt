@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script language='javascript'>
-  cnt = 7; // 카운트다운 시간 초단위로 표시
+  cnt = 5; // 카운트다운 시간 초단위로 표시
   function countdown() {
    if(cnt == 0){
           // 시간이 0일경우
@@ -35,10 +35,23 @@
   function locateKap(){
 	  location.replace("loadContent");
 	}
+  function Mplot(){
+	  $.ajax({
+		//type: "POST",
+		url : "mplot",//loadContent
+		data : "cid=${cid}",
+		success : function(resultText) {
+			$('#loadData').html(resultText);
+		},
+		error : function() {
+			alert("호출 실패 detailpage2");
+		}
+	});
+  }
 </script>
 <title>Insert title here</title>
 </head>
-<body onLoad="Timer();">
+<body onLoad="Mplot();"><!--  onLoad="Timer();" -->
 <div id="choonDiv"></div>
 
 <script>countdown();</script>

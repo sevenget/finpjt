@@ -8,7 +8,7 @@
 		$.ajax({
 			//type: "POST",
 			url : "loading",//loadContent
-			data : "",
+			data : "cid=${cid}",
 			success : function(resultText) {
 				$('#loadData').html(resultText);
 			},

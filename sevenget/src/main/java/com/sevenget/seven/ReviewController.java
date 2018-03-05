@@ -48,6 +48,7 @@ public class ReviewController {
 		
 		try{
 			PlotDto = PlotDao.inquiryId(id, cid);
+			System.out.println("있는 Plot "+PlotDto.getPlotpng());
 			if(PlotDto.getPlotpng() != null){
 				System.out.println("detailpage 불러올건데 plotpng가 있다! 불러올거다!");
 				mav.addObject("plotpng", PlotDto.getPlotpng());
