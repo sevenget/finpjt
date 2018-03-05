@@ -14,7 +14,6 @@ import model.company.CompanyBasicDAO;
 import model.company.InterestedRCDAO;
 import model.company.InterestedRCDTO;
 import model.member.MemBasicInfoDAO;
-import model.member.MemBasicInfoDTO;
 import model.member.MemConcernDAO;
 import model.member.MemConcernDto;
 import model.search.FilterDTO;
