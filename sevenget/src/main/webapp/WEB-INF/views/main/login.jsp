@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>7Get - Login</title>
 <link rel="stylesheet" type="text/css" href="../resources/css/session.css " media="all" flush="false">
-<link rel="stylesheet" type="text/css" href="../resources/css/login.css" media="all">
+<link rel="stylesheet" type="text/css" href="../resources/css/login.css?ver=5" media="all">
 <script src='https://code.jquery.com/jquery-3.0.0.min.js'></script>
 
 <script src="../resources/js/jquery-1.11.1.min.js"></script>
@@ -42,7 +42,7 @@
 				<div id="regiMain">
 					<article id="BigWrap">
 
-						<!-- 로그인 -->
+						<!-- 로그인 --><a class="at_v">
 						<form id="login_form" class="login1" action="loginCheck">
 							<table class="login">
 								<tr>
@@ -72,7 +72,7 @@
 									<!-- 회원가입 버튼 누르면 회원가입페이지로 넘어가게 수정 완료. -->
 								</tr>
 							</table>
-						</form>
+						</form></a>
 
 						<div class="black"></div>
 						<!-- 배경 영상 -->
