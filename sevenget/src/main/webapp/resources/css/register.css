@@ -84,3 +84,7 @@ span { margin-left:50px; }
 input.ic_btn { width:100px; height:33px; border:0; background-color:#ebebeb; color:#929292; }
 
 
+
+.check_td > h5{
+	height:1px;
+}
