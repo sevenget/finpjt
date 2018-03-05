@@ -7,16 +7,6 @@
 	}
 	System.out.println(id);
 %>
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>7get</title>
-<!-- <link rel="stylesheet" type="text/css" href="../css/session.css" media="all"> -->
-</head>
-<body>
-
 	<div id="wrap">
 
 		<header id="top">
@@ -28,9 +18,10 @@
 				</div>
 
 				<div class="top_left">
+					<a class="intro_getloss">'득포'개념</a><div></div>
 					<a href="main">검색</a> <div></div>
 					<a href="void(0);" onclick="alert('준비 중입니다.');return false;">Q&A</a> <div></div>
-				</div>	
+				</div>
 				
 				<%if(id == null){ %>
  				<div class="top_right">
@@ -50,6 +41,4 @@
 		</header>
 
 	</div>
-
-</body>
-</html>
+	<jsp:include page="/WEB-INF/views/include/intro_include.jsp"></jsp:include>

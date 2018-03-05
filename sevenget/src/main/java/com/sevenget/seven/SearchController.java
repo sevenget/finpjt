@@ -122,6 +122,7 @@ public class SearchController {
 			public String regInter(InterestedRCDAO dao, InterestedRCDTO dto, HttpSession session) {
 				dto.setMemid((String)session.getAttribute("id"));
 				dao.insertReg(dto);
+				System.out.println("regInter 관심기업 등록 완료");
 				return "main/nothing";
 			}
 			
@@ -129,6 +130,7 @@ public class SearchController {
 			public String canInter(InterestedRCDAO dao, InterestedRCDTO dto, HttpSession session) {
 				dto.setMemid((String)session.getAttribute("id"));
 				dao.updateCan(dto);
+				System.out.println("canInter 관심기업 취소 완료");
 				return "main/nothing";
 			}
 			
