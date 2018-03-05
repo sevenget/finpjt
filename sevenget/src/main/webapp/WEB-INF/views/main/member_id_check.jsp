@@ -13,6 +13,7 @@ function windowclose(){
 	opener.document.form_1.id.value='<%=id%>';
 		self.close();
 	}
+	
 </script>
 </head>
 <body bgcolor="#fff">
