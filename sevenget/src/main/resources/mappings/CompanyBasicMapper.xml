@@ -11,14 +11,23 @@
 	</select>
 
 	<select id="selectAllCompany" resultType="companybasic">
-		SELECT * FROM companybasicinfo
-	</select>
-	
-	<select id="selectCompany" resultType="companybasic">
-		SELECT * FROM companybasicinfo where cid = #{cid}
+		SELECT * FROM
+		companybasicinfo
 	</select>
 
-	<insert id="insertKeyword">
-		INSERT INTO keywords VALUES(#{keyword},#{searchedNum})
+	<select id="selectCompany" resultType="companybasic">
+		SELECT * FROM
+		companybasicinfo where cid = #{cid}
+	</select>
+
+<!-- 	<insert id="insertseven">
+		INSERT INTO companybasicinfo
+		VALUES(#{cid}#{dateGet},#{marryGet},#{babyGet},#{houseGet},#{relationGet},#{dreamGet},#{hopeGet})
 	</insert>
+ -->	
+	<update id="updateseven">
+		UPDATE INTO companybasicinfo
+		set dateGet = #{dateGet},marryGet = #{marryGet}, babyGet = #{babyGet},houseGet = #{houseGet}, relationGet = #{relationGet}, dreamGet = #{dreamGet}, hopeGet = #{hopeGet}
+		WHERE cid= #{cid}
+	</update>
 </mapper>

@@ -33,8 +33,10 @@ public class MakingPlot {
 		+CScoDto.getDateSco()+","+CScoDto.getMarrySco()+","+CScoDto.getBabySco()+","+CScoDto.getHouseSco()+","+CScoDto.getRelationSco()+","+CScoDto.getDreamSco()+","+CScoDto.getHopeSco()+
 		")))}").asList();
 		System.out.println("데이터 집어넣기2");
-		connection.eval("colnames(data)=c('연애' , '결혼' , '육아 및 출산', '인간관계' , '내집마련', '꿈' , '희망' )"); // 컬럼명은 이것으로 고정.
+		connection.eval("colnames(data)=c('연애' , '결혼' , '육아 및 출산',  '내집마련', '인간관계' , '꿈' , '희망' )"); // 컬럼명은 이것으로 고정.
 		connection.eval("rownames(data)=paste('mister' , letters[1:2] , sep='-')"); //회사와 사용자로 변경하기
+//		connection.eval("rownames(data)=c("+id+","+CScoDto.getCid()+")"); //회사와 사용자로 변경하기
+
 		connection.eval("data=rbind(rep(10,7) , rep(0,7) , data)"); //DB에서 받아온 데이터 삽입 구간. 회사와 사용자의 7가지 점수가 들어갈 예정.
 		
 		// plot 그래픽 설정 및 파일 저장

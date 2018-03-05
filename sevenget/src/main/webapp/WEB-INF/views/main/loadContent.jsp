@@ -39,8 +39,9 @@
 	});
 </script>
 
-<a onClick="fLoadData()"> <img
+<a style="background-color:white;" onClick="fLoadData()"> <img
 	src="../resources/img/plots/${plotpng}" />
+	
 </a>
 </head>
 <body>

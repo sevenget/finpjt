@@ -59,17 +59,29 @@
 	 "width=950,height=500,resizable=1,scrollbars=1");
 	 } */
 	function fLoadData() {
-		$.ajax({
-			//type: "POST",
-			url : "loading",//loadContent
-			data : "cid=${cid}",
-			success : function(resultText) {
-				$('#loadData').html(resultText);
-			},
-			error : function() {
-				alert("호출 실패 detailpage");
-			}
-		});
+			$.ajax({
+				//type: "POST",
+				url : "loading",//loadContent
+				data : "cid=${cid}",
+				success : function(resultText) {
+					$('#loadData').html(resultText);
+				},
+				error : function() {
+					alert("호출 실패 detailpage1");
+				}
+			});
+			
+			$.ajax({
+				//type: "POST",
+				url : "mplot",//loadContent
+				data : "cid=${cid}",
+				success : function(resultText) {
+					$('#loadData').html(resultText);
+				},
+				error : function() {
+					alert("호출 실패 detailpage2");
+				}
+			});
 	}
 
 	$(document).ready(function() {
@@ -95,13 +107,13 @@
 								$(this).attr('src','../resources/img/colorheart2.png')
 								$('#interestedText').html('포함')
 								$('#interestedNum').html(parseInt($('#interestedNum').html()) + 1)
-								$('span.nothing').load('regInter?cid='	+ $(this).attr('data-cid'))
+								$('div.nothing').load('regInter?cid='+$(this).attr('data-cid'))
 							} else {
 								$(this).attr('src','../resources/img/whiteheart2.png')
 								$('#interestedText').html('외에')
 								$('#interestedNum').html(parseInt($('#interestedNum').html()) - 1)
-								$('span.nothing').load('canInter?cid='+ $(this).attr('data-cid'))
-							}
+								$('div.nothing').load('canInter?cid='+$(this).attr('data-cid'))
+							}s
 						})
 
 	$('form[action="review"]').submit(function(){
@@ -202,9 +214,14 @@ img.interested { float:right; }
 								<div class="graph_img">
 									<!-- 버튼 클릭시 로딩 화면 5초/R작동, 결과출력 -->
 
-									<a onClick="fLoadData()">
+									<a onClick="fLoadData()"><%-- ${plotpng } --%>
 										<div id="loadData" style="width: 502px; height: 400px; margin-top: 20px; background: #EFEFEF; display: table;">
-											<p class="pp">정보를 호출하시려면 클릭하세요</p>
+											<c:if test="${plotpng!=null}">
+												<div "style="background-color:white; width: 502px; height: 404px; margin-top: 20px;"><img src="../resources/img/plots/${plotpng}" /></div>
+											</c:if> 
+											<c:if test="${plotpng==null}">
+												<p class="pp">정보를 호출하시려면 클릭하세요</p>
+											</c:if>
 										</div>
 									</a>
 

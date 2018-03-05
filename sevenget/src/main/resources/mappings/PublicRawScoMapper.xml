@@ -26,6 +26,10 @@
 		<result column="moneyManageCoachPuP" property="moneyManageCoachPuP" />
 	</resultMap>
 
+	<select id="selectCount" parameterType="int" resultType="java.lang.Integer">
+		SELECT count(*) as cnt from publicrawscore where cid=#{cid}
+	</select>
+
 	<select id="getAll" resultMap="PublicRawScoMap">
 		SELECT * FROM publicrawscore
 	</select>

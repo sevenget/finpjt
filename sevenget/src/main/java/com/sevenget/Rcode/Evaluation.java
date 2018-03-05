@@ -61,7 +61,6 @@ public class Evaluation {
 		double datePuP = (PRScoDto.getNoOTPuP() * 46 + PRScoDto.getWeekendWorkPuP() * 15
 				+ PRScoDto.getEggshellsPuP() * 6 + PRScoDto.getFinanSupportPuP() * 6
 				+ PRScoDto.getApprAmountWorkPuP() * 6) * 6.8 / 790;
-		System.out.println("되는거니...?");
 		double marriagePuP = ((PRScoDto.getRelSysAfterMarriagePuP() * 18 + PRScoDto.getSuffSalaryPuP() * 13
 				+ PRScoDto.getEggshellsPuP() * 11 + PRScoDto.getNoOTPuP() * 11 + PRScoDto.getFinanSupportPuP() * 9)
 				* 6.8 / 620);
@@ -105,26 +104,23 @@ public class Evaluation {
 
 		// 일반인 평가
 		try { // 세부 점수를 넣어줬으면
-			dtoEP = ev.EvalCompanyEPR(CRScoDao.selectbyCid(cid));// 값을 입력을 먼저
-																	// 해줘서 그걸
-																	// 넘겨줘야
-																	// 하는데... 일단
-																	// 값을 미리
-																	// 넣어둠.
-
+			dtoEP = ev.EvalCompanyEPR(CRScoDao.selectbyCid(cid));// 전문가 평가는 일단 값을 DB에 강제로 넣어둠. 나중에 관리자 페이지랑.. 그런거 생기면 웹에서도 입력할 수 있게 해보자..
+			System.out.println("+++++++++++++++++++++++++++++++++++++");
+			System.out.println(dtoEP.getCid()+" "+dtoEP.getDateSco()+" "+dtoEP.getMarrySco()+" "+dtoEP.getBabySco()+" "+dtoEP.getHouseSco()+" "+dtoEP.getRelationSco()+" "+dtoEP.getDreamSco()+" "+dtoEP.getHopeSco());
+			System.out.println("+++++++++++++++++++++++++++++++++++++");
 			PublicRawScoDaoImpl PRScoDao = new PublicRawScoDaoImpl();
 			System.out.println(5);
 			CompanyScoDto dtoPP = new CompanyScoDto();
 			System.out.println(6);
+			
+			// 일반인 평가가 30개가 넘는지 확인! 안넘으면 null 처리.
+			int PRcnt = PRScoDao.selectCntPublicRawScores(cid);
+			if(PRcnt <30 ){
+				dtoPP = null;
+			}else{
+				dtoPP = ev.EvalCompanyPUP(PRScoDao.selectbyCid(cid, id));
+			}
 
-			dtoPP = ev.EvalCompanyPUP(PRScoDao.selectbyCid(cid, id));// 이것도 값을
-																		// 입력을
-																		// 해줘야
-																		// 하는데
-																		// 일단
-																		// db로
-																		// 강제
-																		// 입력함!
 			System.out.println(7);
 
 			//// 점수환산 과정 중 마지막! 다 합쳐주는 것!
@@ -135,6 +131,8 @@ public class Evaluation {
 			//// CScoDto.getRelationSco(), CScoDto.getDreamSco(),
 			//// CScoDto.getHopeSco());
 			if (dtoPP != null) {
+				System.out.println("세부점수 없음 시나리오1");
+
 				System.out.println("일반인 평가 있을 때"); // 10 6.8 -> 6 4
 				double dateEP = Double.parseDouble(String.format("%.2f", dtoEP.getDateSco() * 0.6));
 				double datePP = Double.parseDouble(String.format("%.2f", dtoPP.getDateSco() * 4 / 6.8));
@@ -174,17 +172,20 @@ public class Evaluation {
 				return CScoDto;
 
 			} else {
-				System.out.println("일반인 평가 없을 때");
+				System.out.println("세부점수 없음 시나리오2");
+
+				System.out.println("일반인 평가 없거나 30개 미만일 때");
 				System.out.println("dtoEP에 저장된 cid" + dtoEP.getCid());
+				
 
 				System.out.println(16);
-				CScoDto.setDateSco(Double.parseDouble(String.format("%.2f", dtoEP.getDateSco() * 10 / 6)));
-				CScoDto.setMarrySco(Double.parseDouble(String.format("%.2f", dtoEP.getMarrySco() * 10 / 6)));
-				CScoDto.setBabySco(Double.parseDouble(String.format("%.2f", dtoEP.getBabySco() * 10 / 6)));
-				CScoDto.setHouseSco(Double.parseDouble(String.format("%.2f", dtoEP.getHouseSco() * 10 / 6)));
-				CScoDto.setRelationSco(Double.parseDouble(String.format("%.2f", dtoEP.getRelationSco() * 10 / 6)));
-				CScoDto.setDreamSco(Double.parseDouble(String.format("%.2f", dtoEP.getDreamSco() * 10 / 6)));
-				CScoDto.setHopeSco(Double.parseDouble(String.format("%.2f", dtoEP.getHopeSco() * 10 / 6)));
+				CScoDto.setDateSco(Double.parseDouble(String.format("%.2f", dtoEP.getDateSco())));
+				CScoDto.setMarrySco(Double.parseDouble(String.format("%.2f", dtoEP.getMarrySco())));
+				CScoDto.setBabySco(Double.parseDouble(String.format("%.2f", dtoEP.getBabySco())));
+				CScoDto.setHouseSco(Double.parseDouble(String.format("%.2f", dtoEP.getHouseSco())));
+				CScoDto.setRelationSco(Double.parseDouble(String.format("%.2f", dtoEP.getRelationSco())));
+				CScoDto.setDreamSco(Double.parseDouble(String.format("%.2f", dtoEP.getDreamSco() * 2)));
+				CScoDto.setHopeSco(Double.parseDouble(String.format("%.2f", dtoEP.getHopeSco() * 2)));
 				System.out.printf("연애%s\t결혼%s\t아기%s\t내집%s\t인간%s\t꿈%s\t희망%s\n", CScoDto.getDateSco(),
 						CScoDto.getMarrySco(), CScoDto.getBabySco(), CScoDto.getHouseSco(), CScoDto.getRelationSco(),
 						CScoDto.getDreamSco(), CScoDto.getHopeSco());
@@ -194,6 +195,7 @@ public class Evaluation {
 				System.out.println(18);
 			}
 		} catch (Exception e) {// 세부 점수를 안 넣어줬으면
+			System.out.println("세부점수 없음 시나리오");
 			MemConcernDAO MCdao = new MemConcernDAO();
 			System.out.println(19);
 			MemConcernDto MCdto = new MemConcernDto();
