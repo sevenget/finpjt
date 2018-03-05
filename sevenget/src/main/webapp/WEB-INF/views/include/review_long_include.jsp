@@ -58,9 +58,9 @@
 						<c:forEach var="review" items="${reviewList}">
 								<div class="review">
 									<!-- <hr width="900px" color="#aaa" size="1" class="dt_hr2"> -->
-									<font class="sr_view">${review.content}</font>
-									<font class="sr_date">${review.reviewdate}
-									${review.writer}</font> 
+									<font class="sr_view">${review.content}</font> 
+									<font class="sr_date">${review.reviewdate}</font>
+									<font class="by_id">by.${review.writer}</font> 
 								</div>
 							</c:forEach>
 					</div>

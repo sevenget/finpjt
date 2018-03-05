@@ -172,7 +172,7 @@
 	font-family: Tahoma, Geneva, sans-serif;
 	color: #767676;
 	line-height: normal;
-	white-space: normal
+	white-space: normal 
 }
 .personnel { width:328px; float:right; font-size:15px; font-weight:normal; margin-right:10px; margin-top:8px; color:#595959; text-align:right; }
 .interested { float:right; }
