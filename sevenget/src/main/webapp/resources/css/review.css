@@ -4,12 +4,12 @@ body, div, header, h1, a { margin:0; padding:0; }
 .container_rv{ width:950px; height:500px; margin:0 auto; overflow:hidden; display:table; position:relative; /* border:1px solid black; */ }
 
 /* 리뷰 */
-#rv__ { /* border:1px solid blue; */ position:fixed; z-index:555; background-color:#fff; float:left;}
+#rv__ { border:1px solid #fff; position:fixed; z-index:555; background-color:#fff; float:left;}
 
 
 .head_rv { margin-left:10px; font-weight:bold; color:#654ea3; font-size:17px; }
 
-.r_review { width:900px; height:460px; margin-left:20px; margin-top:25px; /* border:1px solid red; */ }
+.r_review { width:900px; height:460px; margin-left:20px; /* margin-top:25px; / * border:1px solid red; */ }
 .r_review h4 { margin-left:10px; margin-top:-3px; }
 
 .r_dt_hr { margin-top:-10px; color:#595959; }
