@@ -6,8 +6,8 @@
 
 <c:forEach var="review" items="${reviewList}" begin="0" end="2">
 	<div class="review">
-		<p class="cr_view">${review.content}</p>
+		<font class="cr_view">${review.content}</font>
 
-		<p class="cr_view">${review.reviewdate} ${review.writer}</p>
+		<font class="cr_date">${review.reviewdate} ${review.writer}</font>
 	</div>
 </c:forEach>
