@@ -105,7 +105,6 @@ table.search_filter {
 	margin: 5px auto !important;
 	width: 700px !important;
 	height: 60px !important;
-	border: 3px solid #595959;
 	border-radius: 3px;
 	text-align: center;
 	margin-top: 10px;
@@ -123,6 +122,13 @@ table.search_filter td {
 	width: 80px;
 	background-color: #a4a4a4;
 }
+
+table.search_filter td:last-child{
+	background-color: #ebecee;
+	color:#654ea3;
+	font-size:2em;
+}
+
 
 .mw_layer {
 	display: none;
@@ -155,16 +161,17 @@ table.search_filter td {
 	top: 40%;
 	left: 38%;
 	width: 800px;
-	height: 170px;
+	height: 380px;
 	margin: -150px 0 0 -194px;
-	padding: 28px 28px 0 28px;s
+	padding: 28px 28px 0 28px;
 	border: 2px solid #555;
 	background: #ebecee;
-	font-size: 12px;
+	font-size: 18px;
 	font-family: Tahoma, Geneva, sans-serif;
 	color: #767676;
 	line-height: normal;
-	white-space: normal
+	white-space: normal;
+	text-align:center;
 }
 </style>
 </head>
@@ -184,6 +191,7 @@ table.search_filter td {
 					<td data-get="F" name="relationget">인간관계</td>
 					<td data-get="F" name="dreamget">꿈</td>
 					<td data-get="F" name="hopeget">희망</td>
+					<td style="background-color:none;"><b>>7점</b></td>
 				</tr>
 			</table>
 			<table class="search_filter">
@@ -196,9 +204,18 @@ table.search_filter td {
 					<td data-loss="F" name="relationloss">인간관계</td>
 					<td data-loss="F" name="dreamloss">꿈</td>
 					<td data-loss="F" name="hopeloss">희망</td>
+					<td><b>>4점</b></td>
 				</tr>
 			</table>
+		<br>
+			<b>- 예시 -</b><br><br>
+			꿈, 희망, 내집마련 등 다른 것을 포기하더라도 반드시 연애를 하고 싶다면 <br><b style="color:#654ea3">'이건 꼭 득'</b>에서 연애를 클릭하시면 됩니다.
+		<br>
+		<br>
+			연애가 다른 것을 포기할 정도는 아니지만 없으면 안돼라는 분은 <br><b style="color:#654ea3">'이건 포기 못해'</b>에서 연애를 클릭하시면 됩니다.
 		</div>
+		
+		
 
 
 	</div>

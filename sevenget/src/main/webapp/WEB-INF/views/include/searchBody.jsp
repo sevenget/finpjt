@@ -119,4 +119,4 @@
 		</form>
 		<hr width="888px" color="#aaa" size="1" class="dt_hr">
 		</c:forEach>
-		<span class="nothing">
+		<span class="nothing"></span>
