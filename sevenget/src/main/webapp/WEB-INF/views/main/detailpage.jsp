@@ -113,7 +113,7 @@
 								$('#interestedText').html('외에')
 								$('#interestedNum').html(parseInt($('#interestedNum').html()) - 1)
 								$('span.nothing').load('canInter?cid='+$(this).attr('data-cid'))
-							}s
+							}
 						})
 
 	$('form[action="review"]').submit(function(){
