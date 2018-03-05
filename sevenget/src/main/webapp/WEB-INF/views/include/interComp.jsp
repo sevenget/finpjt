@@ -26,7 +26,7 @@
 							
 								<td style="width: 220px; height:150px; border:0; clear:both;">
 
-									<img style="width: 220px; height: 150px;" src="../resources/img/logos/${list}" />
+									<img onclick="location.href='./detailpage?cid=${list.cid}'" style="width: 220px; height: 150px;" src="../resources/img/logos/${list.logo}" />
 
 								</td>
 								
@@ -40,7 +40,7 @@
 							
 								<td style="width: 220px; height:150px; border:0; clear:both;">
 
-									<img style="width: 220px; height: 150px;" src="../resources/img/logos/${list}" />
+									<img onclick="location.href='./detailpage?cid=${list.cid}'" style="width: 220px; height: 150px;" src="../resources/img/logos/${list.logo}" />
 
 								</td>
 								
