@@ -57,10 +57,10 @@
 					<div class="cc_review">
 						<c:forEach var="review" items="${reviewList}">
 								<div class="review">
-									<hr width="900px" color="#aaa" size="1" class="dt_hr2">
-									<p class="cr_view">${review.content}</p>
-									${review.reviewdate} 
-									${review.writer}
+									<!-- <hr width="900px" color="#aaa" size="1" class="dt_hr2"> -->
+									<font class="sr_view">${review.content}</font>
+									<font class="sr_date">${review.reviewdate}
+									${review.writer}</font> 
 								</div>
 							</c:forEach>
 					</div>
