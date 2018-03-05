@@ -33,20 +33,12 @@
 					$('span.filter_apply').html(parseInt($('span.filter_apply').html())+1)
 			}
 		}
-		
-		
-		
 	})
 </script>
 </c:forEach>
 
-
-
-
-
 <script type="text/javascript">
 		jQuery(function($) {
-			
 		var layerWindow = $('.mw_layer');
 
 		// ESC Event
@@ -128,7 +120,6 @@ table.search_filter td:last-child{
 	color:#654ea3;
 	font-size:2em;
 }
-
 
 .mw_layer {
 	display: none;

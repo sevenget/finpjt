@@ -10,18 +10,19 @@
    if(cnt == 0){
           // 시간이 0일경우
           
-          $.ajax({
+        $.ajax({
 		//type: "POST",
-		url: "loadContent",//loadContent
+		url: "mplot",//loadContent
 		data: "",
 		success: function(resultText)
 		{
 			$('#loadData').html(resultText);
+			console.log("loading cid : "+${cid});
 		},
 		error: function() {
 			alert("호출 실패 loading");
 		}
-	});
+	}); 
           
          //locateKap();
    }else {
@@ -36,12 +37,14 @@
 	  location.replace("loadContent");
 	}
   function Mplot(){
+	  alert("Mplot");
 	  $.ajax({
 		//type: "POST",
 		url : "mplot",//loadContent
 		data : "cid=${cid}",
 		success : function(resultText) {
 			$('#loadData').html(resultText);
+			console.log("왜 안되는 건데.. mplot cid : "+${cid});
 		},
 		error : function() {
 			alert("호출 실패 detailpage2");
