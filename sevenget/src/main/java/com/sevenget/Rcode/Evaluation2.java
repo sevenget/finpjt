@@ -26,7 +26,7 @@ public class Evaluation2 {
 		CSDto = eval2.selectComSco(cid);
 		CSDto.setCid(cid);
 
-		if(CSDto.getDateSco()>=4 || CSDto.getDateSco()<=7){
+		if(CSDto.getDateSco()>=4 || CSDto.getDateSco()<7){
 			CBDto.setDateGet("N");
 		}else if(CSDto.getDateSco()<4){
 			CBDto.setDateGet("F");
@@ -34,7 +34,7 @@ public class Evaluation2 {
 			CBDto.setDateGet("T");
 		}
 		
-		if(CSDto.getMarrySco()>=4 || CSDto.getMarrySco()<=7){
+		if(CSDto.getMarrySco()>=4 || CSDto.getMarrySco()<7){
 			CBDto.setMarryGet("N");
 		}else if(CSDto.getMarrySco()<4){
 			CBDto.setMarryGet("F");
@@ -42,7 +42,7 @@ public class Evaluation2 {
 			CBDto.setMarryGet("T");
 		}
 		
-		if(CSDto.getBabySco()>=4 || CSDto.getBabySco()<=7){
+		if(CSDto.getBabySco()>=4 || CSDto.getBabySco()<7){
 			CBDto.setBabyGet("N");
 		}else if(CSDto.getBabySco()<4){
 			CBDto.setBabyGet("F");
@@ -50,7 +50,7 @@ public class Evaluation2 {
 			CBDto.setBabyGet("T");
 		}
 		
-		if(CSDto.getHouseSco()>=4 || CSDto.getHouseSco()<=7){
+		if(CSDto.getHouseSco()>=4 || CSDto.getHouseSco()<7){
 			CBDto.setHouseGet("N");
 		}else if(CSDto.getHouseSco()<4){
 			CBDto.setHouseGet("F");
@@ -58,7 +58,7 @@ public class Evaluation2 {
 			CBDto.setHouseGet("T");
 		}
 		
-		if(CSDto.getRelationSco()>=4 || CSDto.getRelationSco()<=7){
+		if(CSDto.getRelationSco()>=4 || CSDto.getRelationSco()<7){
 			CBDto.setRelationGet("N");
 		}else if(CSDto.getRelationSco()<4){
 			CBDto.setRelationGet("F");
@@ -66,7 +66,7 @@ public class Evaluation2 {
 			CBDto.setRelationGet("T");
 		}
 		
-		if(CSDto.getDreamSco()>=4 || CSDto.getDreamSco()<=7){
+		if(CSDto.getDreamSco()>=4 || CSDto.getDreamSco()<7){
 			CBDto.setDreamGet("N");
 		}else if(CSDto.getDreamSco()<4){
 			CBDto.setDreamGet("F");
@@ -74,7 +74,7 @@ public class Evaluation2 {
 			CBDto.setDreamGet("T");
 		}
 		
-		if(CSDto.getHopeSco()>=4 || CSDto.getHopeSco()<=7){
+		if(CSDto.getHopeSco()>=4 || CSDto.getHopeSco()<7){
 			CBDto.setHopeGet("N");
 		}else if(CSDto.getHopeSco()<4){
 			CBDto.setHopeGet("F");
