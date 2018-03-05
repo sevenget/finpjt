@@ -46,7 +46,7 @@
 		<c:if test="${fn:length(companylist)==0}">
 			<img src="../resources/img/searchnothing.png" style="margin:20px 100px; width:80%">
 		</c:if>
-		<c:forEach var="company" items="${ companylist }">
+		<c:forEach var="company" items="${ companylist }" begin="0" end="20">
 		<form action="detailpage" id="form_${company.cid}">
 			<input type="hidden" name= "cid" value="${company.cid }">
 			<table>
