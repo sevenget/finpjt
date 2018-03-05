@@ -2,11 +2,8 @@ package model.review;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 /*만들어진 plot의 저장 및 수정에 대한 내용을 우선적으로 만듦*/
 import org.apache.ibatis.session.SqlSession;
-import org.springframework.stereotype.Service;
 
 import model.common.SqlSessionFactoryBean;
 
@@ -24,7 +21,7 @@ public class ReviewDaoImpl implements ReviewDao {
 	//댓글의 개수 구하기
 	public int getListCount() {
 		int cnt = (int) mybatis.selectOne("ReviewDAO.selectCount",1);
-		System.out.println(cnt);
+		//System.out.println(cnt);
 		return cnt;
 	}
 	
