@@ -66,7 +66,10 @@ public class ReviewController {
 		mav.addObject("member", mdao.getMemBasicInfo(id));
 		mav.addObject("company",cdao.selectCompany(cid).get(0));
 		mav.addObject("cid", cid);
-				
+		
+		session.setAttribute("id", id);
+		session.setAttribute("cid", cid);
+		
 		mav.setViewName("main/detailpage");
 		return mav;
 	}
