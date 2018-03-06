@@ -48,25 +48,25 @@ public class CompanyRawScoDaoImpl implements CompanyScoDao {
 		dto.setCid(cid);
 		dto.setNoOTEPr(5);
 		dto.setFlexWorkEPr(1);
-		dto.setWeekendWorkEPr(1);
+		dto.setWeekendWorkEPr(0);
 		dto.setNewcomerSalEPr(3000);
-		dto.setPaidVacaEPr(15);
+		dto.setPaidVacaEPr(5);
 		dto.setCompKindergartenEPr(0);
 		dto.setEduSupportEPr(1);
-		dto.setLoanSupportEPr(1);
+		dto.setLoanSupportEPr(0);
 		dto.setDormiHousingSupportEPr(1);
-		dto.setOpClubEPr(1);
-		dto.setSupportClubEPr(1);
-		dto.setClubMemRateEPr(80);
-		dto.setSelfDevSupportEPr(1);
+		dto.setOpClubEPr(0);
+		dto.setSupportClubEPr(0);
+		dto.setClubMemRateEPr(100);
+		dto.setSelfDevSupportEPr(0);
 		dto.setSeminarInvEPr(0);
 		dto.setHorizStrucEPr(1);
 		dto.setVarWorkExpEPr(0);
-		dto.setTelAvailEPr(1);
+		dto.setTelAvailEPr(0);
 		dto.setSalIncreRateEPr(0);
-		dto.setRetireRateEPr(1);
+		dto.setRetireRateEPr(0);
 		dto.setBusiGrowthEPr(0);
-		dto.setInduGrowthEPr(1);
+		dto.setInduGrowthEPr(0);
 		dto.setGovSupportEPr(0);
 			
 		mybatis.insert("CompanyRawScoDAO.insertRawScore", dto);
@@ -79,10 +79,10 @@ public class CompanyRawScoDaoImpl implements CompanyScoDao {
 		System.out.println("update데이터 입력 시작"+cid);
 		
 		dto.setCid(cid);
-		dto.setNoOTEPr(3);
+		dto.setNoOTEPr(5);
 		dto.setFlexWorkEPr(1);
-		dto.setWeekendWorkEPr(0);
-		dto.setNewcomerSalEPr(2000);
+		dto.setWeekendWorkEPr(1);
+		dto.setNewcomerSalEPr(3000);
 		dto.setPaidVacaEPr(15);
 		dto.setCompKindergartenEPr(0);
 		dto.setEduSupportEPr(1);
@@ -112,18 +112,18 @@ public class CompanyRawScoDaoImpl implements CompanyScoDao {
 		CompanyRawScoDaoImpl pp = new CompanyRawScoDaoImpl();
 		CompanyScoDto dto = new CompanyScoDto();
 		try{
-				for(int i=2; i<20;i++){
+				for(int i=7; i<26;i++){
 				pp.selectbyCid(i);
 				pp.insertCompanyRawScore(i);
 				}
 			}catch (Exception e) {
-				for(int i=2; i<20;i++){
+				for(int i=7; i<26;i++){
 				pp.updateCompanyRawScore(i);
 				}
 			}
-		/*pp.selectCompanyRawScores();
+		//pp.selectCompanyRawScores();
 		for(int i=1; i<26;i++){
-			pp.selectbyCid(7);
-		}*/
+			pp.selectbyCid(i);
+		}
 	}
 }
