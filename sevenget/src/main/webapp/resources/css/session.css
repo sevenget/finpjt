@@ -10,6 +10,8 @@ body, div, header, h1, a { margin:0; padding:0; color:#666; }
 #contect{ clear:both; width:100%; min-height:888px; height:auto; overflow:hidden;}
 .container2{ width:1300px; margin:0 auto; /* min-height:888px; */ height:789px; overflow:hidden;padding-bottom:100px; }
 
+/* .container3{ width:1300px; margin:0 auto; height:auto; overflow:hidden; padding-bottom:40px; margin-top:80px; }
+ */
 /* header.jsp */
 .title { float:left; width:160px; height:59px; /* border:1px solid yellow; */ position:absolute; margin:0 auto; left:557px; }
 

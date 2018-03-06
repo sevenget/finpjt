@@ -1,6 +1,7 @@
 /* result 관련  */
- 	#resultHolder{
- 		margin-top:100px;
+ 	#resultHolder1{
+ 		/* margin-top:100px; */
+ 		margin-top:40px;
  		background-color:white;
  		width:955px; 
  		min-height:468px;
@@ -9,8 +10,21 @@
  		/* padding:20px; */
  		float:left;
  		display:inline-block;
-
  	}
+ 	
+ 	#resultHolder {
+ 		margin-top:100px;
+ 		/* margin-top:40px; */
+ 		background-color:white;
+ 		width:955px; 
+ 		min-height:468px;
+ 		height:auto;
+ 		overflow:hidden;
+ 		/* padding:20px; */
+ 		float:left;
+ 		display:inline-block;
+ 	}
+ 	
  	
  	#resultHolder hr{
  	
