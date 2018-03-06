@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css"
-	href="../resources/css/mypage_portside.css" media="all">
+	href="../resources/css/mypage_portside.css?ver=108" media="all">
 <!-- 이거 css명 작업하시는 css 파일명으로 바꾸세요 안 그럼 저랑 꼬여요..!  -->
 <link rel="stylesheet" type="text/css"
 	href="../resources/css/barchart.css" media="all">
