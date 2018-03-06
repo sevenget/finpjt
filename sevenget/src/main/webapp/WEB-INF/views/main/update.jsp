@@ -19,6 +19,9 @@
 	media="all">
 <link rel="stylesheet" type="text/css"
 	href="../resources/css/portside.css" media="all">
+	
+<link rel="stylesheet" type="text/css" href="../resources/css/register2.css" media="all">
+<link rel="stylesheet" type="text/css" href="../resources/css/score.css" media="all">
 <!-- 이거 css명 작업하시는 css 파일명으로 바꾸세요 안 그럼 저랑 꼬여요..!  -->
 <script src='https://code.jquery.com/jquery-3.0.0.min.js'></script>
 <script src="http://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
@@ -143,18 +146,7 @@ function check(){
 		return false;
 	}
 	
-	/* var fileValue = $("#file").val().split("\\");
-	var fileName = fileValue[fileValue.length-1]; // 파일명
-	
-	var url = '/main/updateUser?'; */
-	
 	alert('회원정보 수정 성공.');
-	
-	
-	/* location.href = url+'memName='+forms.memName.value+'&memPassword='+forms.memPassword.value+'&file='+fileName+'&memBirthCon='+forms.memBirth.value+
-	'&memAddress='+forms.memAddress.value+'&memEmail='+forms.memEmail.value+'&memDateCon='+forms.memDateCon.value+'&memMarryCon='+forms.memMarryCon.value+
-	'&memBabyCon='+forms.memBabyCon.value+'&memHouseCon='+forms.memHouseCon.value+'&memRelationCon='+forms.memRelationCon.value+
-	'&memDreamCon='+forms.memDreamCon.value+'&memHopeCon='+forms.memHopeCon.value; */
 	
 	return true;
 }
@@ -175,7 +167,6 @@ function check(){
 			<!-- 여기 안에다 작업하시면 돼요 -->
 			<div class="container2">
 
-
 				<div class="left">
 					<jsp:include page="../include/portside.jsp" flush="false" />
 				</div>
@@ -183,91 +174,89 @@ function check(){
 				<div class="right" style="padding-bottom: 0">
 					<div class="rightTop">
 						<!-- 여기 안에다 작업하시면 돼요 -->
-
+					<h1 style="text-align: center; margin-top: 50px;" >회원 정보 수정</h1>
+					<hr width="600">
 						<form id="form1" name="form1" method="post" action="updateUser" enctype="multipart/form-data" onsubmit="return check()">
- <table border="1" height="808" width="808">
+ <table class="table_abs">
  <c:forEach items="${member2}" var="iid" >
 				
 				<tr>
-					<td align="center" bgcolor="#8772bf" style="color: white" >아이디</td>
+					<td align="center" bgcolor="#8772bf" style="color: white; width: 100px; height: 30px;" >아이디</td>
 					<td>${iid.id}</td>
 				</tr>
 				<tr>
-					<td align="center" bgcolor="#8772bf" style="color: white"  >이름</td>
-					<td><input  id="name" type="text" class="font" name="memName" value="${iid.name}" > </td>
+					<td align="center" bgcolor="#8772bf" style="color: white; width: 100px; height: 30px;"  >이름</td>
+					<td><input  id="name" type="text" class="font input_td" name="memName" value="${iid.name}" > </td>
 				</tr>
 				<tr>
-					<td align="center" bgcolor="#8772bf" style="color: white"  >비밀번호</td>
-					<td><input  id="password" type="password" class="font" name="memPassword" value="${iid.password}" > </td>
+					<td align="center" bgcolor="#8772bf" style="color: white; width: 100px; height: 30px;"  >비밀번호</td>
+					<td><input  id="password" type="password" class="font input_td" name="memPassword" value="${iid.password}" > </td>
 				</tr>
 				<tr>
-					<td align="center" bgcolor="#8772bf" style="color: white"  >내 사진</td>
-					<td><input  id="memPicture" type="file" class="font" name="memPicture"> </td>
+					<td align="center" bgcolor="#8772bf" style="color: white; width: 100px; height: 30px;"  >내 사진</td>
+					<td><input  id="memPicture" type="file" class="font input_td" name="memPicture" accept=".png,.gif,.jpg,.jpeg,.bmp"> </td>
 				</tr>
 				<tr>
-					<td align="center" bgcolor="#8772bf" style="color: white"  >생년월일</td>
-					<td><input  id="birth" type="text" class="font" name="memBirth" value="${iid.birth}" placeholder="주민번호 앞자리만 입력하시오(예시 901010)" > </td>
+					<td align="center" bgcolor="#8772bf" style="color: white; width: 100px; height: 30px;"  >생년월일</td>
+					<td><input  id="birth" type="text" class="font input_td" name="memBirth" value="${iid.birth}" placeholder="주민번호 앞자리만 입력하시오(예시 901010)" > </td>
 				</tr>
 				<tr>
-					<td align="center" bgcolor="#8772bf" style="color: white"  >주소</td>
-					<td><input  id="address" type="text" class="font" name="memAddress" value="${iid.address}" > </td>
+					<td align="center" bgcolor="#8772bf" style="color: white; width: 100px; height: 30px;"  >주소</td>
+					<td><input  id="address" type="text" class="font input_td" name="memAddress" value="${iid.address}" > </td>
 				</tr>
 				<tr>
-					<td align="center" bgcolor="#8772bf" style="color: white"  >이메일</td>
-					<td><input  id="email" type="text" class="font" name="memEmail" value="${iid.email}" > </td>
+					<td align="center" bgcolor="#8772bf" style="color: white; width: 100px; height: 30px;"  >이메일</td>
+					<td><input  id="email" type="text" class="font input_td" name="memEmail" value="${iid.email}" > </td>
 				</tr>
 
 				<tr>
-					<td align="center" bgcolor="#8772bf" style="color: white"  >연애</td>
+					<td align="center" bgcolor="#8772bf" style="color: white; width: 100px; height: 30px;"  >연애</td>
 					<td>	
-					<input  id="dateCon" type="text" class="font" name="memDateCon" value="${iid.dateCon}" >
+					<input  id="dateCon" type="text" class="font input_td" name="memDateCon" value="${iid.dateCon}" >
 					</td>
 				</tr>
 				<tr>
-					<td align="center" bgcolor="#8772bf" style="color: white"  >결혼</td>
-					<td><input  id="marryCon" type="text" class="font" name="memMarryCon" value="${iid.marryCon}" > </td>
+					<td align="center" bgcolor="#8772bf" style="color: white; width: 100px; height: 30px;"  >결혼</td>
+					<td><input  id="marryCon" type="text" class="font input_td" name="memMarryCon" value="${iid.marryCon}" > </td>
 				</tr>
 				<tr>
-					<td align="center" bgcolor="#8772bf" style="color: white"  >육아</td>
-					<td><input  id="babyCon" type="text" class="font" name="memBabyCon" value="${iid.babyCon}" > </td>
+					<td align="center" bgcolor="#8772bf" style="color: white; width: 100px; height: 30px;"  >육아</td>
+					<td><input  id="babyCon" type="text" class="font input_td" name="memBabyCon" value="${iid.babyCon}" > </td>
 				</tr>
 				<tr>
-					<td align="center" bgcolor="#8772bf" style="color: white"  >내집마련</td>
-					<td><input  id="houseCon" type="text" class="font" name="memHouseCon" value="${iid.houseCon}" > </td>
+					<td align="center" bgcolor="#8772bf" style="color: white; width: 100px; height: 30px;"  >내집마련</td>
+					<td><input  id="houseCon" type="text" class="font input_td" name="memHouseCon" value="${iid.houseCon}" > </td>
 				</tr>
 				<tr>
-					<td align="center" bgcolor="#8772bf" style="color: white"  >인간관계</td>
-					<td><input  id="relationCon" type="text" class="font" name="memRelationCon" value="${iid.relationCon}" > </td>
+					<td align="center" bgcolor="#8772bf" style="color: white; width: 100px; height: 30px;"  >인간관계</td>
+					<td><input  id="relationCon" type="text" class="font input_td" name="memRelationCon" value="${iid.relationCon}" > </td>
 				</tr>
 				<tr>
-					<td align="center" bgcolor="#8772bf" style="color: white"  >꿈</td>
-					<td><input  id="dreamCon" type="text" class="font" name="memDreamCon" value="${iid.dreamCon}" > </td>
+					<td align="center" bgcolor="#8772bf" style="color: white; width: 100px; height: 30px;"  >꿈</td>
+					<td><input  id="dreamCon" type="text" class="font input_td" name="memDreamCon" value="${iid.dreamCon}" > </td>
 				</tr>
 				<tr>
-					<td align="center" bgcolor="#8772bf" style="color: white"  >희망</td>
-					<td><input  id="hopeCon" type="text" class="font" name="memHopeCon" value="${iid.hopeCon}" > </td>
+					<td align="center" bgcolor="#8772bf" style="color: white; width: 100px; height: 30px;"  >희망</td>
+					<td><input  id="hopeCon" type="text" class="font input_td" name="memHopeCon" value="${iid.hopeCon}" > </td>
 				</tr>
 				<tr>
-					<td colspan="2" align="center">
-						<input type="submit" id="submit" value="수정" ><input type="button" onclick=" history.go(-1);" value="취소" > 
+					<td colspan="2"  style="margin-left:0;">
+					<br><br>
+						<input type="submit" id="submit" value="수정" ><br><br>
+						<input type="button"  id="submit" onclick=" history.go(-1);" value="취소" > 
 						<div style="color: red;">${message }</div>
 					</td>
 				</tr>
-							 
+				
 				</c:forEach>
 				
  </table>
  </form>
-
 					</div> <!--rightTop  -->
 				</div> <!-- right -->
-
 			</div><!-- container2 -->
-
 		</div><!-- contect -->
 	</div>
-
-
 
 </body>
 </html>

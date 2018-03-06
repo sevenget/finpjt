@@ -4,10 +4,8 @@ import java.util.Locale;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -18,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 import model.intercompany.InterCompDaoImpl;
 import model.company.InterestedRCDAO;
@@ -31,13 +28,6 @@ import model.company.CompanyBasicDTO;
 
 @Controller
 public class MypageController {
-	
-	/*@RequestMapping(value = "include/interComp", method= RequestMethod.GET)
-	public String interComp(Locale locale, Model model){
-		System.out.println("1");
-		return "include/interComp";
-	}*/
-	
 	
 	@RequestMapping(value="/include/interComp", method= RequestMethod.GET)
 	public String interComp(MemBasicInfoDAO DAO, HttpServletRequest request){
@@ -97,12 +87,7 @@ public class MypageController {
 			
 			String id =(String) session.getAttribute("id");
 			String savePath = "C:/Users/user/git/finpjt/sevenget/src/main/webapp/resources/img/memPicture";
-			//request.getRealPath("img/memPicture");
-			String originalFilename = picture.getOriginalFilename(); // fileName.jpg
-		    String onlyFileName = originalFilename.substring(0, originalFilename.indexOf(".")); // fileName
-		    String extension = originalFilename.substring(originalFilename.indexOf(".")); // .jpg
-		     
-		    String rename = onlyFileName + "_" + getCurrentDayTime() + extension; // fileName_20150721-14-07-50.jpg
+			String originalFilename = picture.getOriginalFilename(); 
 		    String fullPath = savePath + "\\" + originalFilename;
 		    
 		    if (!picture.isEmpty()) {
@@ -135,45 +120,10 @@ public class MypageController {
 			dto.setDreamCon(dreamCon);
 			dto.setHopeCon(hopeCon);
 			
-			dao.updateMember(dto);
-			
-			/*File dir = new File(uploadPath);
-			if (!dir.isDirectory()) {
-				dir.mkdirs();
-			}
-
-			Iterator<String> iter = mRequest.getFileNames();
-
-			while (iter.hasNext()) {
-				String uploadFileName = iter.next();
-				MultipartFile mFile = mRequest.getFile(uploadFileName);
-				String originalFileName = mFile.getOriginalFilename();
-				String saveFileName = originalFileName;
-
-				if (saveFileName != null && !saveFileName.equals("")) {
-					if (new File(uploadPath + saveFileName).exists()) {
-						saveFileName = saveFileName + "_" + System.currentTimeMillis();
-					}
-					try {
-						mFile.transferTo(new File(uploadPath + saveFileName));
-						System.out.println(uploadFileName);
-						mav.addObject("Memimg", uploadFileName);	//이미지 이름 올라가는지 확인
-						
-					} catch (IllegalStateException e) {
-						System.out.println("사진업로드실패");
-						
-					} catch (IOException e) {
-						System.out.println("사진업로드실패");
-						
-					}
-				}
-			}*/
-			
-			
+			dao.updateMember(dto);			
 			
 			mav.setViewName("redirect:/main/mypage");		
 			return mav;
-			//return "redirect:/main/mypage";
 		}
 		
 		/*@RequestMapping("main/delete.do")

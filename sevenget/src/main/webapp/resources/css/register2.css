@@ -1,0 +1,108 @@
+@charset "utf-8";
+
+td { color:#9a9a9a; font-size:14px; }
+span { margin-left:50px; }
+
+#regiHead { width:1300px; height:90px; border:1px solid white; background-color: white; margin-bottom: 40px;}
+#header { text-align: center; padding-top:10px; }
+
+#regiMain1 { width:635px; height:718px; border:1px solid white; background-color:white; float:left; display:block; }
+#regiMain2 { width:635px; height:718px; border:1px solid white; background-color:white; float:left; display:block; margin-left:25px;}
+
+/* #facebook {  width:310px; height:38px; }
+#submit { background-color:#8772bf; color: white; width:auto; height:50px; } */
+
+.table_abs {  border:0; margin-top:40px; margin-left:auto; margin-right:auto; height:360px; }
+.table_input { height:35px; width:250px; border:1px solid #ccc; margin-top:2px; }
+#idCheck { height:30px; width:100px; }
+.input_td { padding-left:15px; width:220px; }
+
+
+.r_btn_div1 { width:462px; height:50px; margin-top:35px; margin-left:89px; }
+.r_btn_div2 { width:462px; height:30px; margin-top:-10px; margin-left:89px; }
+.r_btn_div3 { width:462px; height:50px; margin-top:1px; margin-left:89px; }
+.p_or { text-align:center; padding:5px; font-size:14px;  }
+
+#submit { background-color:#8772bf; color: white; /* width:100%;  */ width:350px; height:50px; /* margin-top:40px; */ border:0px; font-size:14px; }
+#facebook { /* width:100%; */ width:350px; height:50px; background-color:#3b5998; color:white; border:0px; margin-left:58px; font-size:14px; }
+
+
+.choice { width:50px; border:1px solid black; background:#c9c9c9; }
+
+#choose{
+	border:1px solid black;
+	margin-left:10px;
+}
+
+#layer{
+	/* padding: 0 10px 0 10px;
+	border: 2px solid #555;
+	background: #ebecee; */
+	font-size: 12px;
+	font-family: Tahoma, Geneva, sans-serif;
+	color: #767676;
+	line-height: normal;
+	white-space: normal;
+	margin-top:60px;
+}
+#layer img{
+	width:50px;
+	height:50px;
+}
+
+.table {
+	background-color:white;
+	width: 600px;
+	height: 60px !important;
+	border: 3px solid #595959;
+	border-radius: 3px;
+	text-align: center;
+	margin-top: 10px;
+	color: black;
+}
+.table th{
+	padding-right:10px;
+	padding-left:10px;
+}
+
+.table td {
+	border-radius: 2px;
+	width: 80px;
+	background-color: white;
+}
+
+.overlap_btn { border:0px; background-color:#ebebeb; width:80px; height:38px; margin-left:1px; color:#929292; } 
+.face_logo1 { width:20px; height:20px; margin-right:5px; }
+
+.selectbox { border:1px solid #ccc; color:#666; }
+.selectbox option { color:#666; }
+
+.regi_head { font-size: 18px; color:#595959; font-weight:bold; margin-left:250px; margin-top:50px; }
+.regi_head2 { font-size: 18px; color:#595959; font-weight:bold; margin-left:225px; margin-top:50px; }
+
+ 
+/* member_id_check.jsp */
+
+.ic_red { color:red; }
+.ic_red2 { color:#bbb; font-size:13px; }
+
+.ic_head { width:320px; margin-left:32px; font-size:15px; font-weight:bold; color:#666; margin-top:10px;] }
+.ic_div1 { width:320px; margin-left:32px; text-align:center;  height:30px; margin-top:25px; font-size:14px; }
+.ic_div2 { width:320px; margin-left:32px; text-align:center; height:40px; margin-top:-3px; font-size:14px; }
+.ic_div3 { width:320px; margin-left:32px; text-align:center; height:40px; font-size:14px; }
+
+.ic_div4 { width:320px; margin-left:32px; text-align:center;  height:20px; margin-top:2px; font-size:14px; }
+.ic_div5 { width:320px; margin-left:32px; text-align:center;  height:20px; margin-top:-3px; font-size:14px; }
+.ic_div6 { width:320px; margin-left:32px; text-align:center; height:40px; font-size:14px; margin-top:8px; }
+
+.ic_txt { width:200px; height:33px; border:1px solid #c6c6c6; }
+
+.ic_btn { width:100px; height:33px; border:0; background-color:#ebebeb; color:#929292; }
+input.ic_btn { width:100px; height:33px; border:0; background-color:#ebebeb; color:#929292; }
+.ic_btn2 { width:100px; height:33px; border:0; background-color:#ebebeb; color:#929292; margin-left:2px; }
+
+
+
+.check_td > h5{
+	height:1px;
+}
