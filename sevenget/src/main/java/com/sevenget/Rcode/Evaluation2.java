@@ -25,61 +25,62 @@ public class Evaluation2 {
 		
 		CSDto = eval2.selectComSco(cid);
 		CSDto.setCid(cid);
-// TF조건을 if로 걸어주고 나머지를 N으로 하는 걸로 바꿔주기!
-		if(CSDto.getDateSco()>=4 || CSDto.getDateSco()<7){
-			CBDto.setDateGet("N");
+		
+		// TF조건을 if로 걸어주고 나머지를 N으로 하는 걸로 바꿔주기!
+		if(CSDto.getDateSco()>=7){
+			CBDto.setDateGet("T");
 		}else if(CSDto.getDateSco()<4){
 			CBDto.setDateGet("F");
 		}else{
-			CBDto.setDateGet("T");
+			CBDto.setDateGet("N");
 		}
 		
-		if(CSDto.getMarrySco()>=4 || CSDto.getMarrySco()<7){
-			CBDto.setMarryGet("N");
+		if(CSDto.getMarrySco()>=7){
+			CBDto.setMarryGet("T");
 		}else if(CSDto.getMarrySco()<4){
 			CBDto.setMarryGet("F");
 		}else{
-			CBDto.setMarryGet("T");
+			CBDto.setMarryGet("N");
 		}
 		
-		if(CSDto.getBabySco()>=4 || CSDto.getBabySco()<7){
-			CBDto.setBabyGet("N");
+		if(CSDto.getBabySco()>=7){
+			CBDto.setBabyGet("T");
 		}else if(CSDto.getBabySco()<4){
 			CBDto.setBabyGet("F");
 		}else{
-			CBDto.setBabyGet("T");
+			CBDto.setBabyGet("N");
 		}
 		
-		if(CSDto.getHouseSco()>=4 || CSDto.getHouseSco()<7){
-			CBDto.setHouseGet("N");
+		if(CSDto.getHouseSco()>=7){
+			CBDto.setHouseGet("T");
 		}else if(CSDto.getHouseSco()<4){
 			CBDto.setHouseGet("F");
 		}else{
-			CBDto.setHouseGet("T");
+			CBDto.setHouseGet("N");
 		}
 		
-		if(CSDto.getRelationSco()>=4 || CSDto.getRelationSco()<7){
-			CBDto.setRelationGet("N");
+		if(CSDto.getRelationSco()>=7){
+			CBDto.setRelationGet("T");
 		}else if(CSDto.getRelationSco()<4){
 			CBDto.setRelationGet("F");
 		}else{
-			CBDto.setRelationGet("T");
+			CBDto.setRelationGet("N");
 		}
 		
-		if(CSDto.getDreamSco()>=4 || CSDto.getDreamSco()<7){
-			CBDto.setDreamGet("N");
+		if(CSDto.getDreamSco()>=7){
+			CBDto.setDreamGet("T");
 		}else if(CSDto.getDreamSco()<4){
 			CBDto.setDreamGet("F");
 		}else{
-			CBDto.setDreamGet("T");
+			CBDto.setDreamGet("N");
 		}
 		
-		if(CSDto.getHopeSco()>=4 || CSDto.getHopeSco()<7){
-			CBDto.setHopeGet("N");
+		if(CSDto.getHopeSco()>=7){
+			CBDto.setHopeGet("T");
 		}else if(CSDto.getHopeSco()<4){
 			CBDto.setHopeGet("F");
 		}else{
-			CBDto.setHopeGet("T");
+			CBDto.setHopeGet("N");
 		}
 		
 		CompanyBasicDAO CBDao = new CompanyBasicDAO();

@@ -26,5 +26,6 @@ public class CompanyBasicDAO {
 	public void insertOrUpdate(CompanyBasicDTO dto){//insert 구문을 어떻게 써야 하나 싶어서 일단 update문만 사용.
 		//mybatis.insert(statement);
 		mybatis.update("CompanyBasicDAO.updateseven", dto);
+		mybatis.commit();
 	}
 }

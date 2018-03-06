@@ -7,7 +7,7 @@ drop table companyreview purge;
 drop table advCompany purge;
 drop table keywords CASCADE CONSTRAINTS purge;
 drop table search purge;
-drop table plots purge;
+drop table plots CASCADE CONSTRAINTS purge;
 drop table comprawscore purge;
 drop table publicrawscore purge;
 

@@ -64,6 +64,9 @@ public class ReviewController {
 			session.setAttribute("plotpng", null);
 		}
 		
+		// detailpage로 넘어가기 전에 득포 계산 해줘야함!
+		
+		
 		
 		
 		mav.addObject("interTimes", idao.getInterTimesByCid(cid));
