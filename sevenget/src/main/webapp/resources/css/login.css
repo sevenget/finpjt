@@ -1,9 +1,9 @@
 @charset "utf-8";
 
-#regiHead { width:1300px; height:90px; border:1px solid white; background-color: white; margin-bottom: 40px;}
+#regiHead { width:100%/* 1300px */; height:90px; border:1px solid white; background-color: white; /* margin-bottom: 40px; */}
 #header { text-align:center; padding-top:10px; }
 
-#regiMain { width:1300px; height:718px; border:1px solid white; background-color:white; margin-bottom: 40px; display:table}
+#regiMain { width:100%/* 1300px */; height:/* 718px */798px; border:1px solid white; background-color:white; /* margin-bottom: 40px; */ display:table}
 .login { width:200px;margin:0 auto; border:0px; /* margin-left:492px; */ /* margin-top:252px; */ margin-top:6px; z-index:999; }
 #id { width:200px; height:40px; }
 #pw { width:200px; height:40px; margin-top:3px; }
@@ -17,9 +17,9 @@ tr td{width:200px; height:30px;border:0;}
 .adgif img { width:1301px; height:720px; margin-left:-0.6px; margin-top:-537px; z-index:-1; }
 
 
-.login1 { position:absolute; /* left:50%; top:50%; */ left:50%; top:55%; /* width:100%; */ width:420px; height:300px; max-width:400px; margin-left:-200px; margin-top:-222px; 
-      opacity:0.75; padding:20px; z-index:2; background-color: #fff; line-height: 1.8; }
-.login1:HOVER {	opacity:0.98; } 
+.login1 { position:absolute; left:50%; top:55%; /* width:100%; */ width:420px; height:300px; max-width:400px; margin-left:-200px; margin-top:-222px; 
+      /* opacity:0.75 */; padding:20px; z-index:2; background-color: #fff; line-height: 1.8; }
+
 
 #BigWrap { height:100%; hegiht:100%; position:relative; }
 

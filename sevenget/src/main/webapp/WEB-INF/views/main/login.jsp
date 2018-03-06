@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>7Get - Login</title>
 <link rel="stylesheet" type="text/css" href="../resources/css/session.css " media="all" flush="false">
-<link rel="stylesheet" type="text/css" href="../resources/css/login.css?ver=5" media="all">
+<link rel="stylesheet" type="text/css" href="../resources/css/login.css?ver=55" media="all">
 <script src='https://code.jquery.com/jquery-3.0.0.min.js'></script>
 
 <script src="../resources/js/jquery-1.11.1.min.js"></script>
@@ -20,6 +20,8 @@
 
 <script src="../resources/js/imagesloaded.pkgd.min.js"></script>
 <!-- 4. 비디오가 아닌 이미지로 풀사이즈일 경우 bigvideo.js에서 이 파일을 호출하게 됩니다. -->
+
+
 </head>
 <body>
 
@@ -32,7 +34,7 @@
 		<div id="contect">
 
 			<!-- 여기 안에다 작업하시면 돼요 -->
-			<div class="container2">
+			<div class="container4">
 				<div id="regiHead">
 					<!-- <img src="../resources/img/mainad.gif">  -->
 					<h3 id="header">빅데이터 분석을 통해 잃어버린 7가지를 되찾아주는 기업 정보 분석 플랫폼</h3>
@@ -42,13 +44,13 @@
 				<div id="regiMain">
 					<article id="BigWrap">
 
-						<!-- 로그인 --><a class="at_v">
-						<form id="login_form" class="login1" action="loginCheck">
+						<!-- 로그인 --><!-- <a class="at_v"> -->
+						<!-- <form id="login_form" class="login1" action="loginCheck">
 							<table class="login">
 								<tr>
 									<td><input id="id" name="id" type="text" placeholder="아이디"></td>
 									<td rowspan=2><input id="login" type="submit" value="로그인"></td>
-									<!-- 일단 로그인 버튼 누르면 무조건 메인페이지로 이동하게 만들어뒀어요!! -->
+									일단 로그인 버튼 누르면 무조건 메인페이지로 이동하게 만들어뒀어요!!
 								</tr>
 								<tr>
 									<td><input id="pw" name="pw" type="password"
@@ -69,12 +71,11 @@
 								<tr>
 									<td colspan="2"><button id="submit"
 											onclick="location.href='register'; return false;">회원가입</button></td>
-									<!-- 회원가입 버튼 누르면 회원가입페이지로 넘어가게 수정 완료. -->
+									회원가입 버튼 누르면 회원가입페이지로 넘어가게 수정 완료.
 								</tr>
 							</table>
-						</form></a>
+						</form></a> -->
 
-						<div class="black"></div>
 						<!-- 배경 영상 -->
 						<!-- <div class="adgif">
                   <img src="../resources/img/1gif.gif">
@@ -107,15 +108,15 @@
 						} else {
 							BV.show({
 								type : "video/mp4",
-								src : "../resources/img/XoP2EV.mp4",
+								src : "../resources/img/7get.mp4",
 								doLoop : true
 							}, {
 								type : "video/webm",
-								src : "../resources/img/XoP2EV.webm",
+								src : "../resources/img/7get.webm",
 								doLoop : true
 							}, {
 								type : "video/ogv",
-								src : "../resources/img/XoP2EV.ogv",
+								src : "../resources/img/7get.ogv",
 								doLoop : true
 							});
 							//웹브라우저마다 지원하는 비디오 형식이 다르기 때문에 다양하게 만들어서 제공해야합니다. 변환은 다음팟인코더나, 카카오인코더를 이용하세요. 
@@ -124,7 +125,8 @@
 							//사운드를 0 즉 음소거 상태로 만듭니다. 
 						}
 					</script>
-
+						
+						
 				</div>
 			</div>
 		</div>
