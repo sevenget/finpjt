@@ -56,23 +56,6 @@ public class MakingPlot {
 		connection.eval("dev.off ()");
 		System.out.println("=========================");
 
-		int cols = dataframe.size();
-		int rows = dataframe.at(0).length();
-		String[][] s = new String[cols][];
-
-		for (int i = 0; i < cols; i++) {
-			s[i] = dataframe.at(i).asStrings();
-		}
-
-		for (int i = 0; i < cols; i++) {
-			for (int j = 0; j < rows; j++) {
-				System.out.print(s[i][j]+" ");
-			}
-			System.out.println();
-		}
-		/*List<Object> data = new ArrayList<Object>();
-		data.add("radarchart"+CScoDto.getCid()+".png");
-		data.add(CScoDto.getCid());*/
 		return "radarchart"+CScoDto.getCid()+"_"+id+".png";//data
 	}
 }

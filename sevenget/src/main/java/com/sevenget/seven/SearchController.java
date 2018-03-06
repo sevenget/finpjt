@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import model.company.CompanyBasicDAO;
+import model.company.CompanyBasicDTO;
 import model.company.InterestedRCDAO;
 import model.company.InterestedRCDTO;
+import model.companySco.CompanyScoDto;
 import model.member.MemBasicInfoDAO;
 import model.member.MemConcernDAO;
 import model.member.MemConcernDto;
@@ -28,6 +30,20 @@ public class SearchController {
 		@RequestMapping(value = "/main", method = RequestMethod.GET)
 		public ModelAndView main(MemBasicInfoDAO mbdao, MemConcernDAO mcdao,KeywordAndSearchDAO kdao,
 				InterestedRCDAO idao, HttpSession session, ModelAndView mav) {
+			// 메인 페이지로 들어오는 순간 가지고 있는 회사 전부 끌어와서 data update.
+			/*try {
+				CompanyBasicDTO dto = new CompanyBasicDTO();
+				CompanyBasicDAO CBdao = new CompanyBasicDAO();
+				
+				CBdao.insertOrUpdate(dto);
+			
+			} catch (Exception e) {
+				// TODO: handle exception
+			}*/
+			
+
+			
+			
 			String id = (String)session.getAttribute("id");
 			if(id==null) {
 				mav.setViewName("redirect:/main/login");

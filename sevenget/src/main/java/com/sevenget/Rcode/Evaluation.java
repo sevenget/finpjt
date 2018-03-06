@@ -14,11 +14,7 @@ import model.member.MemConcernDto;
 
 public class Evaluation {
 
-	public CompanyScoDto EvalCompanyEPR(
-			CompanyRawScoDto CRScoDto)/*
-										 * throws REXPMismatchException,
-										 * REngineException
-										 */ {
+	public CompanyScoDto EvalCompanyEPR(CompanyRawScoDto CRScoDto){
 		CompanyScoDto CScoDtoEP = new CompanyScoDto();
 
 		double dateEPr = CRScoDto.getNoOTEPr() * 1 + CRScoDto.getFlexWorkEPr() * 2.5
@@ -108,16 +104,19 @@ public class Evaluation {
 				dtoEP = ev.EvalCompanyEPR(CRScoDao.selectbyCid(cid));// 전문가 평가는 일단 값을 DB에 강제로 넣어둠. 나중에 관리자 페이지랑.. 그런거 생기면 웹에서도 입력할 수 있게 해보자..
 			}catch (Exception e) {
 				System.out.println("기업점수 없어서 강제로 입력!");
-				CRScoDao.insertCompanyRawScore(cid);
-				dtoEP = ev.EvalCompanyEPR(CRScoDao.selectbyCid(cid));// 전문가 평가는 일단 값을 DB에 강제로 넣어둠. 나중에 관리자 페이지랑.. 그런거 생기면 웹에서도 입력할 수 있게 해보자..
+				try{
+					CRScoDao.insertCompanyRawScore(cid);
+					dtoEP = ev.EvalCompanyEPR(CRScoDao.selectbyCid(cid));// 전문가 평가는 일단 값을 DB에 강제로 넣어둠. 나중에 관리자 페이지랑.. 그런거 생기면 웹에서도 입력할 수 있게 해보자..
+				}catch (Exception e1) {
+					CRScoDao.updateCompanyRawScore(cid);
+					dtoEP = ev.EvalCompanyEPR(CRScoDao.selectbyCid(cid));// 전문가 평가는 일단 값을 DB에 강제로 넣어둠. 나중에 관리자 페이지랑.. 그런거 생기면 웹에서도 입력할 수 있게 해보자..
+				}
 			}
 			System.out.println("+++++++++++++++++++++++++++++++++++++");
 			System.out.println(dtoEP.getCid()+" "+dtoEP.getDateSco()+" "+dtoEP.getMarrySco()+" "+dtoEP.getBabySco()+" "+dtoEP.getHouseSco()+" "+dtoEP.getRelationSco()+" "+dtoEP.getDreamSco()+" "+dtoEP.getHopeSco());
 			System.out.println("+++++++++++++++++++++++++++++++++++++");
 			PublicRawScoDaoImpl PRScoDao = new PublicRawScoDaoImpl();
-			System.out.println(5);
 			CompanyScoDto dtoPP = new CompanyScoDto();
-			System.out.println(6);
 			
 			// 일반인 평가가 30개가 넘는지 확인! 안넘으면 null 처리.
 			int PRcnt = PRScoDao.selectCntPublicRawScores(cid);
@@ -127,18 +126,22 @@ public class Evaluation {
 				dtoPP = ev.EvalCompanyPUP(PRScoDao.selectbyCid(cid, id));
 			}
 
-			System.out.println(7);
 
 			//// 점수환산 과정 중 마지막! 다 합쳐주는 것!
-			// CScoDto = evaluation.EvalCompanyEPR(CRScoDto);
-			// System.out.printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n",
-			//// CScoDto.getCid(), CScoDto.getDateSco(), CScoDto.getMarrySco(),
-			//// CScoDto.getBabySco(), CScoDto.getHouseSco(),
-			//// CScoDto.getRelationSco(), CScoDto.getDreamSco(),
-			//// CScoDto.getHopeSco());
 			if (dtoPP != null) {
 				System.out.println("세부점수 없음 시나리오1");
-
+				try{
+					dtoEP = ev.EvalCompanyEPR(CRScoDao.selectbyCid(cid));// 전문가 평가는 일단 값을 DB에 강제로 넣어둠. 나중에 관리자 페이지랑.. 그런거 생기면 웹에서도 입력할 수 있게 해보자..
+				}catch (Exception e) {
+					System.out.println("기업점수 없어서 강제로 입력!");
+					try{
+						CRScoDao.insertCompanyRawScore(cid);
+						dtoEP = ev.EvalCompanyEPR(CRScoDao.selectbyCid(cid));// 전문가 평가는 일단 값을 DB에 강제로 넣어둠. 나중에 관리자 페이지랑.. 그런거 생기면 웹에서도 입력할 수 있게 해보자..
+					}catch (Exception e2) {
+						CRScoDao.updateCompanyRawScore(cid);
+						dtoEP = ev.EvalCompanyEPR(CRScoDao.selectbyCid(cid));// 전문가 평가는 일단 값을 DB에 강제로 넣어둠. 나중에 관리자 페이지랑.. 그런거 생기면 웹에서도 입력할 수 있게 해보자..
+					}
+				}
 				System.out.println("일반인 평가 있을 때"); // 10 6.8 -> 6 4
 				double dateEP = Double.parseDouble(String.format("%.2f", dtoEP.getDateSco() * 0.6));
 				double datePP = Double.parseDouble(String.format("%.2f", dtoPP.getDateSco() * 4 / 6.8));
@@ -161,7 +164,6 @@ public class Evaluation {
 				double hopeEP = Double.parseDouble(String.format("%.2f", dtoEP.getHopeSco() * 1.2));
 				double hopePP = Double.parseDouble(String.format("%.2f", dtoPP.getHopeSco() * 4 / 3));
 
-				System.out.println(8);
 				CScoDto.setDateSco(Double.parseDouble(String.format("%.2f", dateEP + datePP)));
 				CScoDto.setMarrySco(Double.parseDouble(String.format("%.2f", marryEP + marryPP)));
 				CScoDto.setBabySco(Double.parseDouble(String.format("%.2f", babyEP + babyPP)));
@@ -179,12 +181,22 @@ public class Evaluation {
 
 			} else {
 				System.out.println("세부점수 없음 시나리오2");
-
+				try{
+					dtoEP = ev.EvalCompanyEPR(CRScoDao.selectbyCid(cid));// 전문가 평가는 일단 값을 DB에 강제로 넣어둠. 나중에 관리자 페이지랑.. 그런거 생기면 웹에서도 입력할 수 있게 해보자..
+				}catch (Exception e) {
+					System.out.println("기업점수 없어서 강제로 입력!");
+					try{
+						CRScoDao.insertCompanyRawScore(cid);
+						dtoEP = ev.EvalCompanyEPR(CRScoDao.selectbyCid(cid));// 전문가 평가는 일단 값을 DB에 강제로 넣어둠. 나중에 관리자 페이지랑.. 그런거 생기면 웹에서도 입력할 수 있게 해보자..
+					}catch (Exception e3) {
+						CRScoDao.updateCompanyRawScore(cid);
+						dtoEP = ev.EvalCompanyEPR(CRScoDao.selectbyCid(cid));// 전문가 평가는 일단 값을 DB에 강제로 넣어둠. 나중에 관리자 페이지랑.. 그런거 생기면 웹에서도 입력할 수 있게 해보자..
+					}
+				}
 				System.out.println("일반인 평가 없거나 30개 미만일 때");
 				System.out.println("dtoEP에 저장된 cid" + dtoEP.getCid());
 				
 
-				System.out.println(16);
 				CScoDto.setDateSco(Double.parseDouble(String.format("%.2f", dtoEP.getDateSco())));
 				CScoDto.setMarrySco(Double.parseDouble(String.format("%.2f", dtoEP.getMarrySco())));
 				CScoDto.setBabySco(Double.parseDouble(String.format("%.2f", dtoEP.getBabySco())));
@@ -196,18 +208,25 @@ public class Evaluation {
 						CScoDto.getMarrySco(), CScoDto.getBabySco(), CScoDto.getHouseSco(), CScoDto.getRelationSco(),
 						CScoDto.getDreamSco(), CScoDto.getHopeSco());
 
-				System.out.println(17);
 				ComScoDao.insertCompanyScore(CScoDto);
-				System.out.println(18);
 			}
 		} catch (Exception e) {// 세부 점수를 안 넣어줬으면
 			System.out.println("세부점수 없음 시나리오");
+			try{
+				dtoEP = ev.EvalCompanyEPR(CRScoDao.selectbyCid(cid));// 전문가 평가는 일단 값을 DB에 강제로 넣어둠. 나중에 관리자 페이지랑.. 그런거 생기면 웹에서도 입력할 수 있게 해보자..
+			}catch (Exception ee) {
+				System.out.println("기업점수 없어서 강제로 입력!");
+				try{
+					CRScoDao.insertCompanyRawScore(cid);
+					dtoEP = ev.EvalCompanyEPR(CRScoDao.selectbyCid(cid));// 전문가 평가는 일단 값을 DB에 강제로 넣어둠. 나중에 관리자 페이지랑.. 그런거 생기면 웹에서도 입력할 수 있게 해보자..
+				}catch (Exception e3) {
+					CRScoDao.updateCompanyRawScore(cid);
+					dtoEP = ev.EvalCompanyEPR(CRScoDao.selectbyCid(cid));// 전문가 평가는 일단 값을 DB에 강제로 넣어둠. 나중에 관리자 페이지랑.. 그런거 생기면 웹에서도 입력할 수 있게 해보자..
+				}
+			}
 			MemConcernDAO MCdao = new MemConcernDAO();
-			System.out.println(19);
 			MemConcernDto MCdto = new MemConcernDto();
-			System.out.println(20);
 			MCdto = MCdao.getMemConcern(id);
-			System.out.println(21);
 
 			double dateEP = Double.parseDouble(String.format("%.2f", dtoEP.getDateSco() * 0.6));
 			double datePP = Double.parseDouble(String.format("%.2f", MCdto.getDateCon() * 0.4));

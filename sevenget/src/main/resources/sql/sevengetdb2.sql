@@ -10,7 +10,7 @@ drop table search purge;
 drop table plots CASCADE CONSTRAINTS purge;
 drop table comprawscore purge;
 drop table publicrawscore purge;
-
+select * from comprawscore;
 -- sequence 삭제
 drop sequence combasic_seq;
 drop sequence inter_seq;
@@ -586,6 +586,7 @@ create table comprawscore(
    govSupportEPr number(6),
    constraint comapnyRawscore_id_pk primary key(cid)
 );
+select * from companyrawsco;
 
 -- 점수입력(설문조사 결과 반영한 기준으로..)
 create table publicrawscore(

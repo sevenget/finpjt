@@ -39,7 +39,7 @@
 
 	<div id="all">
 		<div id="contect">
-			${ id }<br /> ${member }
+			${ id }<br /> ${member } <br/>${cid}
 			<!-- 여기 안에다 작업하시면 돼요 -->
 			<div class="container2">
 
@@ -116,6 +116,7 @@
 <div class="zt-skill-bar bar7"><div data-width="${10*1}" style=";">미음<span>60%</span></div></div>
 
 </div>
+
 
 
 

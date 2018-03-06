@@ -26,7 +26,7 @@
 	</insert>
  -->	
 	<update id="updateseven">
-		UPDATE INTO companybasicinfo
+		UPDATE  companybasicinfo
 		set dateGet = #{dateGet}, marryGet = #{marryGet}, babyGet = #{babyGet},houseGet = #{houseGet}, relationGet = #{relationGet}, dreamGet = #{dreamGet}, hopeGet = #{hopeGet}
 		WHERE cid= #{cid}
 	</update>
