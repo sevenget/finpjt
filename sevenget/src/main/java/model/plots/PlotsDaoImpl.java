@@ -34,27 +34,22 @@ public class PlotsDaoImpl implements PlotsDao {
 
 	public PlotsDto inquiryId(String id, int cid) {
 		PlotsDto dto = new PlotsDto();
+		dto.setCid(cid);
+		dto.setMemid(id);
 		
-		try {
-			System.out.println("기존에 있는 아이디인지 확인 중");
-			System.out.println("id "+id);
-			System.out.println("cid "+cid);
+		System.out.println("기존에 있는 아이디인지 확인 중");
+		System.out.println("id : "+id);
+		System.out.println("cid : "+cid);
+		
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("memid", id);
+		parameters.put("cid", cid);
 
-			Map<String, Object> parameters = new HashMap<String, Object>();
-			parameters.put("memid", id);
-			parameters.put("cid", cid);
+		dto = (PlotsDto) mybatis.selectOne("PlotsDAO.getById", dto);
+		System.out.printf("+++++++++++PlotsDto inquiryId\n%s\t%s\t%s\t%s\n*******************\n", dto.getMemid(), dto.getCid(), dto.getPlotpng(),dto.getSavedTime());
 
-			dto = (PlotsDto) mybatis.selectOne("PlotsDAO.getById", parameters);
-
-			System.out.printf("+++++++++++PlotsDto inquiryId\n%s\t%s\t%s\t%s\n*******************\n", dto.getMemid(), dto.getCid(), dto.getPlotpng(),dto.getSavedTime());
-
-			return dto;
+		return dto;
 			
-		} catch (Exception e) {
-			System.out.println("조회실패 왜 때문에?");
-			System.out.println(e);
-			return dto;
-		}
 	}
 
 	public PlotsDto insertOrUpdatePlots(String id, String plotName, int cid) {
@@ -70,7 +65,6 @@ public class PlotsDaoImpl implements PlotsDao {
 
 		try {
 			PlotsDto dto = new PlotsDto();
-			System.out.println();
 			dto = inquiryId(id, cid);// 세션에서 받아온 아이디 확인. 없는 경우는 controller에서 걸러줌.
 			System.out.println("ID: " + id + " 확인되었습니다.");
 			System.out.println("CID: " + cid + " 확인되었습니다.");
@@ -84,9 +78,8 @@ public class PlotsDaoImpl implements PlotsDao {
 			System.out.println(dto.getCid());
 			System.out.println(dto.getMemid());
 			System.out.println(dto.getPlotpng());
-
+			System.out.println("update!!!!!!!!");
 			mybatis.update("PlotsDAO.updatePlts", dto);
-			mybatis.commit();
 			return dto;
 
 		} catch (Exception e) {
@@ -144,11 +137,11 @@ public class PlotsDaoImpl implements PlotsDao {
 		PlotsDaoImpl pp = new PlotsDaoImpl();
 		PlotsDto dto = new PlotsDto();
 		System.out.println("insert or update");
-		pp.insertOrUpdatePlots("1","1.png",1);
+		pp.insertOrUpdatePlots("joeh","radarchart4_joeh.png",4);
 		System.out.println("select");
 		pp.selectPlots();
 		System.out.println("inquiry");
-		pp.inquiryId("1", 1);
+		pp.inquiryId("joeh", 4);
 		// pp.selectPlots();
 	}
 }

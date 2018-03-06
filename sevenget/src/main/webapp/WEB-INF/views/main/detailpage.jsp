@@ -225,17 +225,15 @@ img.interested { float:right; }
 										<div id="loadData" style="width: 502px; height: 400px; margin-top: 20px; background: #EFEFEF; display: table;">
 											<%System.out.println("detailpage.jsp : "+session.getAttribute("plotpng")); %>
 											<%if(session.getAttribute("plotpng") != null){%><%-- <c:if test="${plotpng!=null}"> --%>
-												<div "style="background-color:white; width: 502px; height: 404px; margin-top: 20px;"><img alt="../resources/img/plots/default.png" src="../resources/img/plots/${plotpng}" /></div>
+												<div "style="background-color:white; width: 502px; height: 404px; margin-top: 20px;">
+													<img alt="정보를 호출하시려면 클릭하세요" src="../resources/img/plots/${plotpng}" onerror="../resources/img/plots/this.src=default.png"/>
+												</div>
 											<%}else{%><%-- </c:if>  --%>
-											<%-- <c:if test="${plotpng==null}"> --%>
 												<p class="pp">정보를 호출하시려면 클릭하세요</p>
-											<%-- </c:if> --%><%} %>
+											<%} %>
 										</div>
 									</a>
 
-									<!--  <div style="margin-top: 20px; display:inline;">
-                              <input type="button" value="호출" onClick="fLoadData()" />
-                           </div> -->
 								</div>
 							</div>
 

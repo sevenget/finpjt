@@ -556,7 +556,7 @@ create table plots(
    plotpng varchar2(20),
    savedTime date default sysdate
 );
-
+select * from plots;
 
 
 -- 점수입력(전문가?패널)
