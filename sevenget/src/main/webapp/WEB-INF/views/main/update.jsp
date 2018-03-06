@@ -146,11 +146,6 @@ function check(){
 	alert('회원 정보가 수정 되었습니다.');
 	return true;
 }
-	
-/* function btnUpdate(){
-	var forms = document.getElementById("form1");
-	forms.submit();
-} */
 		
 </script>
 
