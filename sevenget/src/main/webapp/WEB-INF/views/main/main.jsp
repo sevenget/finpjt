@@ -22,8 +22,8 @@ $(function(){
 });
 </script>
 
-<link rel="stylesheet" type="text/css" href="../resources/css/session.css " media="all" flush="false">
-<link rel="stylesheet" href="../resources/css/searchMain.css" >
+<link rel="stylesheet" type="text/css" href="../resources/css/session.css?ver=17" media="all" flush="false">
+<link rel="stylesheet" href="../resources/css/searchMain.css?ver=10" >
 
 
 </head>
