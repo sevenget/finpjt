@@ -43,7 +43,8 @@ public class SearchController {
 			}
 			
 			if(id.equals("Guest")||list.size()==0){
-				mav.addObject("companylist", kdao.searchAdvs());		
+				mav.addObject("companylist", kdao.searchAdvs());
+				session.setAttribute("interestedComList", idao.selectRelatedAll(id));
 			}
 			
 			List memList = (List) mbdao.getMemBasicInfo(id);

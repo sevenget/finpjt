@@ -23,7 +23,7 @@ public class InterestedRCDAO {
 		if((int)mybatis.selectOne("InterestedRCDAO.getInterTimes", dto)==0){
 			return;
 		}
-		mybatis.update("InterestedRCDAO.register_sub", dto);
+		mybatis.update("InterestedRCDAO.cancel_sub", dto);
 	}
 	
 	public InterestedRCDTO selectRelatedOne(InterestedRCDTO dto){
