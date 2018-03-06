@@ -56,6 +56,7 @@
 			birth=#{birth},
 			address= #{address},
 			email=#{email},
+			picture=#{picture},
 			dateCon = #{dateCon},
 			marryCon = #{marryCon},
 			babyCon = #{babyCon},

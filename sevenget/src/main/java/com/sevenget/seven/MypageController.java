@@ -1,6 +1,13 @@
 package com.sevenget.seven;
 
 import java.util.Locale;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -10,6 +17,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 import model.intercompany.InterCompDaoImpl;
 import model.company.InterestedRCDAO;
@@ -75,23 +84,49 @@ public class MypageController {
 	
 	//정보 수정후 이동할 페이지
 		@RequestMapping(value = "/main/updateUser", method = RequestMethod.POST)
-		public String update1(ModelAndView mav,HttpSession session,
+		public ModelAndView update1(ModelAndView mav,HttpSession session,
 				@RequestParam(value="memName", required=false)String name,@RequestParam(value="memBirth", required=false) String birth,
-				@RequestParam(value="memAddress", required=false)String address,
+				@RequestParam(value="memAddress", required=false)String address,@RequestParam(value="file", required=false)String file,
 				@RequestParam(value="memEmail", required=false)String email,@RequestParam(value="memDateCon", required=false)int dateCon,
 				@RequestParam(value="memMarryCon", required=false)int marryCon,@RequestParam(value="memBabyCon", required=false)int babyCon,
 				@RequestParam(value="memHouseCon", required=false)int houseCon,@RequestParam(value="memRelationCon", required=false)int relationCon,
-				@RequestParam(value="memDreamCon", required=false)int dreamCon,@RequestParam(value="memHopeCon", required=false)int hopeCon) {
+				@RequestParam(value="memDreamCon", required=false)int dreamCon,@RequestParam(value="memHopeCon", required=false)int hopeCon,
+				@RequestParam(value="memPicture", required=false)MultipartFile picture, HttpServletRequest request) {
 			MemBasicInfoDAO dao = new MemBasicInfoDAO();
 			MemBasicInfoDTO dto = new MemBasicInfoDTO();
 			
 			String id =(String) session.getAttribute("id");
+			String savePath = "C:/Users/user/git/finpjt/sevenget/src/main/webapp/resources/img/memPicture";
+			//request.getRealPath("img/memPicture");
+			String originalFilename = picture.getOriginalFilename(); // fileName.jpg
+		    String onlyFileName = originalFilename.substring(0, originalFilename.indexOf(".")); // fileName
+		    String extension = originalFilename.substring(originalFilename.indexOf(".")); // .jpg
+		     
+		    String rename = onlyFileName + "_" + getCurrentDayTime() + extension; // fileName_20150721-14-07-50.jpg
+		    String fullPath = savePath + "\\" + originalFilename;
+		    
+		    if (!picture.isEmpty()) {
+		        try {
+		            byte[] bytes = picture.getBytes();
+		            BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(fullPath)));
+		            stream.write(bytes);
+		            stream.close();
+		            System.out.println("파일 업로드 성공!");
+		            System.out.println("파일 이름 = "+originalFilename);
+		            System.out.println("세이브패스 = "+savePath+" 풀패스 = "+fullPath);
+		        } catch (Exception e) {
+		            System.out.println("파일 업로드 실패! "+e+e.getMessage());
+		            System.out.println("파일 이름 = "+originalFilename);
+		            System.out.println("세이브패스 = "+savePath+" 풀패스 = "+fullPath);
+		        }
+		    }
 			
 			dto.setId(id);
 			dto.setName(name);
 			dto.setBirth(birth);
 			dto.setAddress(address);
 			dto.setEmail(email);
+			dto.setPicture(originalFilename);
 			dto.setDateCon(dateCon);
 			dto.setMarryCon(marryCon);
 			dto.setBabyCon(babyCon);
@@ -102,9 +137,43 @@ public class MypageController {
 			
 			dao.updateMember(dto);
 			
-			//mav.setViewName("main/mypage");
-			//return mav;
-			return "redirect:/main/mypage";
+			/*File dir = new File(uploadPath);
+			if (!dir.isDirectory()) {
+				dir.mkdirs();
+			}
+
+			Iterator<String> iter = mRequest.getFileNames();
+
+			while (iter.hasNext()) {
+				String uploadFileName = iter.next();
+				MultipartFile mFile = mRequest.getFile(uploadFileName);
+				String originalFileName = mFile.getOriginalFilename();
+				String saveFileName = originalFileName;
+
+				if (saveFileName != null && !saveFileName.equals("")) {
+					if (new File(uploadPath + saveFileName).exists()) {
+						saveFileName = saveFileName + "_" + System.currentTimeMillis();
+					}
+					try {
+						mFile.transferTo(new File(uploadPath + saveFileName));
+						System.out.println(uploadFileName);
+						mav.addObject("Memimg", uploadFileName);	//이미지 이름 올라가는지 확인
+						
+					} catch (IllegalStateException e) {
+						System.out.println("사진업로드실패");
+						
+					} catch (IOException e) {
+						System.out.println("사진업로드실패");
+						
+					}
+				}
+			}*/
+			
+			
+			
+			mav.setViewName("redirect:/main/mypage");		
+			return mav;
+			//return "redirect:/main/mypage";
 		}
 		
 		/*@RequestMapping("main/delete.do")
@@ -119,6 +188,10 @@ public class MypageController {
 				return "main/mypage";
 			}
 		}*/
+		public String getCurrentDayTime(){
+		    long time = System.currentTimeMillis();
+		    SimpleDateFormat dayTime = new SimpleDateFormat("yyyyMMdd-HH-mm-ss", Locale.KOREA);
+		    return dayTime.format(new Date(time));
+		}
 		
-
 }

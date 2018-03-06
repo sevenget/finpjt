@@ -143,7 +143,19 @@ function check(){
 		return false;
 	}
 	
-	alert('회원 정보가 수정 되었습니다.');
+	/* var fileValue = $("#file").val().split("\\");
+	var fileName = fileValue[fileValue.length-1]; // 파일명
+	
+	var url = '/main/updateUser?'; */
+	
+	alert('회원정보 수정 성공.');
+	
+	
+	/* location.href = url+'memName='+forms.memName.value+'&memPassword='+forms.memPassword.value+'&file='+fileName+'&memBirthCon='+forms.memBirth.value+
+	'&memAddress='+forms.memAddress.value+'&memEmail='+forms.memEmail.value+'&memDateCon='+forms.memDateCon.value+'&memMarryCon='+forms.memMarryCon.value+
+	'&memBabyCon='+forms.memBabyCon.value+'&memHouseCon='+forms.memHouseCon.value+'&memRelationCon='+forms.memRelationCon.value+
+	'&memDreamCon='+forms.memDreamCon.value+'&memHopeCon='+forms.memHopeCon.value; */
+	
 	return true;
 }
 		
@@ -172,7 +184,7 @@ function check(){
 					<div class="rightTop">
 						<!-- 여기 안에다 작업하시면 돼요 -->
 
-						<form id="form1" name="form1" method="post" action="updateUser" onsubmit="return check()">
+						<form id="form1" name="form1" method="post" action="updateUser" enctype="multipart/form-data" onsubmit="return check()">
  <table border="1" height="808" width="808">
  <c:forEach items="${member2}" var="iid" >
 				
@@ -187,6 +199,10 @@ function check(){
 				<tr>
 					<td align="center" bgcolor="#8772bf" style="color: white"  >비밀번호</td>
 					<td><input  id="password" type="password" class="font" name="memPassword" value="${iid.password}" > </td>
+				</tr>
+				<tr>
+					<td align="center" bgcolor="#8772bf" style="color: white"  >내 사진</td>
+					<td><input  id="memPicture" type="file" class="font" name="memPicture"> </td>
 				</tr>
 				<tr>
 					<td align="center" bgcolor="#8772bf" style="color: white"  >생년월일</td>
