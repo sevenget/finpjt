@@ -51,13 +51,17 @@ public class ReviewController {
 			System.out.println("있는 Plot "+PlotDto.getPlotpng());
 			if(PlotDto.getPlotpng() != null){
 				System.out.println("detailpage 불러올건데 plotpng가 있다! 불러올거다!");
-				mav.addObject("plotpng", PlotDto.getPlotpng());
+				mav.addObject("plotpng", (String)PlotDto.getPlotpng());
+				session.setAttribute("plotpng", (String)PlotDto.getPlotpng());
+				System.out.println("세션 전송까지 완료");
 			}else{
-				//mav.addObject 할거 없음..
+				mav.addObject("plotpng", null);
 			}
 		}catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("detailpage 불러올건데 plotpng가 아마도 없다");
+			mav.addObject("plotpng", null);
+			session.setAttribute("plotpng", null);
 		}
 		
 		
