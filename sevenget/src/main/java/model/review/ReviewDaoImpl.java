@@ -39,7 +39,6 @@ public class ReviewDaoImpl implements ReviewDao {
 		dto.setContent(content);
 
 		mybatis.insert("ReviewDAO.insertReview", dto);
-		mybatis.commit();
 
 	}
 

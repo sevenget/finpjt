@@ -18,16 +18,13 @@ public class KeywordAndSearchDAO {
 		KeywordDTO dto = mybatis.selectOne("KeywordAndSearchDAO.selectOneKeyword", keyword);
 		if(dto!=null){
 			mybatis.update("KeywordAndSearchDAO.updateKeyword", keyword);
-			mybatis.commit();
 		} else{
 			mybatis.insert("KeywordAndSearchDAO.insertKeyword", keyword);
-			mybatis.commit();
 		}
 	}
 	
 	public void insertSearch(SearchDTO dto){
 		mybatis.insert("KeywordAndSearchDAO.insertSearch", dto);
-		mybatis.commit();
 	}
 	
 	public KeywordDTO selectOneKeword(String keyword){
