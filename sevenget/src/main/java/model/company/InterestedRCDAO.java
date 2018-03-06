@@ -16,17 +16,14 @@ public class InterestedRCDAO {
 	public void insertReg(InterestedRCDTO dto){
 		mybatis.insert("InterestedRCDAO.register", dto);
 		mybatis.update("InterestedRCDAO.register_sub", dto);
-		mybatis.commit();
 	}
 	
 	public void updateCan(InterestedRCDTO dto){
 		mybatis.update("InterestedRCDAO.cancel", dto);
 		if((int)mybatis.selectOne("InterestedRCDAO.getInterTimes", dto)==0){
-			mybatis.commit();
 			return;
 		}
 		mybatis.update("InterestedRCDAO.register_sub", dto);
-		mybatis.commit();
 	}
 	
 	public InterestedRCDTO selectRelatedOne(InterestedRCDTO dto){

@@ -27,7 +27,7 @@ public class CompanyScoDaoImpl implements CompanyScoDao {
 			System.out.printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n", dto.getCid(), dto.getDateSco(), dto.getMarrySco(), dto.getBabySco(), dto.getHouseSco(), dto.getRelationSco(), dto.getDreamSco(), dto.getHopeSco());
 		}
 
-		mybatis.commit();
+
 	}
 	
 	public void insertCompanyScore(CompanyScoDto dto) {
@@ -38,7 +38,7 @@ public class CompanyScoDaoImpl implements CompanyScoDao {
 			mybatis.update("CompanyScoDAO.updateSCs", dto);
 		}
 		System.out.println("기업 점수 삽입 완료");
-		mybatis.commit();
+
 
 	}
 	

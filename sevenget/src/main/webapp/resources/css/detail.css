@@ -21,15 +21,15 @@ a { text-decoration:none; }
 .c_head_name { width:400px; height:50px; }
 .c_information { width:400px; height:350px; }
 
-.c_logo { width:400px; height:100px; margin-top:5px; /* background-color:#ffd3d3;  */ }
-.c_logo img { /*  height:115px; */ /* width:50%; */ height:80px; margin-top:5px; margin-left:25%; }
+.c_logo { width:400px; height:100px; margin-top:5px; /* background-color:#ffd3d3;  */ text-align:center; }
+.c_logo img { /*  height:115px; */ /* width:50%; */ height:80px; margin-top:5px; /* margin-left:25%;  */}
 
 .c_content { width:400px;height:40px; margin-top:5px; float:left; }
 .c_content1 { width:400px; height:100px; margin-top:5px; float:left; }
 
-.c_group { float:left; font-weight:bold; color:#666; }
+.c_group { float:left; font-weight:bold; color:#666; } 
 .c_group_div { width:400px;height:20px; float:left; color:#666; }
-
+ 
 .c_gc { float:left; margin-left:10px; color:#666; }
 .c_gc1 { float:left; margin-top:25px; color:#666; }
 

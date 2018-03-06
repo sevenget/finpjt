@@ -30,7 +30,6 @@ public class PlotsDaoImpl implements PlotsDao {
 					dto1.getSavedTime());
 		}
 
-		mybatis.commit();
 		return dto;
 	}
 
@@ -49,7 +48,6 @@ public class PlotsDaoImpl implements PlotsDao {
 
 		System.out.printf("+++++++++++PlotsDto inquiryId\n%s\t%s\t%s\t%s\n*******************\n", dto.getMemid(), dto.getCid(), dto.getPlotpng(),dto.getSavedTime());
 
-		mybatis.commit();
 
 		return dto;
 	}

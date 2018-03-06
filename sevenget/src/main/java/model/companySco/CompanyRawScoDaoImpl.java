@@ -32,7 +32,6 @@ public class CompanyRawScoDaoImpl implements CompanyScoDao {
 					dto.getBusiGrowthEPr(),dto.getInduGrowthEPr(),dto.getGovSupportEPr());
 		}*/
 
-		mybatis.commit();
 	}
 	
 	public CompanyRawScoDto selectbyCid(int cid){

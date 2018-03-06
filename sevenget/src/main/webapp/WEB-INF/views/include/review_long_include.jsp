@@ -37,7 +37,7 @@
 	         if(resultText == 1){ 
 	             document.location.reload(); // 상세보기 창 새로고침
 	         }
-	     }
+	     } 
 	 } */
 </script>
 
@@ -58,17 +58,17 @@
 						<c:forEach var="review" items="${reviewList}">
 								<div class="review">
 									<!-- <hr width="900px" color="#aaa" size="1" class="dt_hr2"> -->
-									<font class="sr_view">${review.content}</font>
-									<font class="sr_date">${review.reviewdate}
-									${review.writer}</font> 
+									<font class="sr_view">${review.content}</font> 
+									<font class="sr_date">${review.reviewdate}</font>
+									<font class="by_id">by.${review.writer}</font> 
 								</div>
 							</c:forEach>
 					</div>
 				<form action="review">
 					<div class="cc_write">
 						<input type="hidden" name="cid" value="${company.cid}">
-						<input type="text" name="content" placeholder=" 리뷰 작성하기(50자 이내)"
-							class="rr_write" maxlength="50"></label>
+						<input type="text" name="content" placeholder=" 리뷰 작성하기(40자 이내)"
+							class="rr_write" maxlength="40"></label>
 						<div class="rr_btn">
 							<input type="submit"  class="rr_btn" value="리뷰입력">
 						</div>
