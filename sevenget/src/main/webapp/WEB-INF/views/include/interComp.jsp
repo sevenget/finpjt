@@ -10,45 +10,38 @@
 %>
 
 
-<table
-	style="border: 0; clear: both; margin-top: 80px; margin-left: 145px; border-collapse: collapse;">
-	<tr>
-
-		<c:forEach items="${company }" var="list" begin="0" end="2">
-
-			<td
-				style="width: 220px; height: 150px; border: 2px solid purple; clear: both;">
-
-				<img onclick="location.href='./detailpage?cid=${list.cid}'"
-				style="width: 220px; height: 150px;"
-				src="../resources/img/logos/${list.logo}" />
-
-			</td>
-
-		</c:forEach>
-
-	</tr>
-
-	<tr>
-
-		<c:forEach items="${company }" var="list" begin="3" end="5">
-
-			<td
-				style="width: 220px; height: 150px; border: 2px solid purple; clear: both;">
-
-				<img onclick="location.href='./detailpage?cid=${list.cid}'"
-				style="width: 220px; height: 150px;"
-				src="../resources/img/logos/${list.logo}" />
-
-			</td>
-
-		</c:forEach>
-
-
-	</tr>
-
-</table>
-
-
-
-
+	<div class="clist_table">
+		<div class="clist_tr">
+			<c:forEach items="${company }" var="list" begin="0" end="2">
+	
+				<div class="clist_td">
+	
+					<img onclick="location.href='./detailpage?cid=${list.cid}'"
+					style="width: 200px; height: 150px;"
+					src="../resources/img/logos/${list.logo}" />
+	
+				</div>
+	
+			</c:forEach>
+	
+		</div>
+	
+		<div class="clist_tr">
+	
+			<c:forEach items="${company }" var="list" begin="3" end="5">
+	
+				<div class="clist_td">
+	
+					<img onclick="location.href='./detailpage?cid=${list.cid}'"
+					style="width: 200px; height: 150px;"
+					src="../resources/img/logos/${list.logo}" />
+	
+				</div>
+	
+			</c:forEach>
+		</div>
+	</div>
+	
+	
+	
+	
