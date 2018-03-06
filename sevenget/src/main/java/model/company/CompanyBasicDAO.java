@@ -61,7 +61,7 @@ public class CompanyBasicDAO {
 
 	public static void main(String[] args) {
 		CompanyBasicDAO dao = new CompanyBasicDAO();
-		for(int i =1; i<26; i++){
+		for(int i =3; i<26; i++){
 			dao.insertOrUpdate(i);
 		}
 			
