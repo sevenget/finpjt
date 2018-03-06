@@ -23,7 +23,7 @@ $(function(){
 </script>
 
 <link rel="stylesheet" type="text/css" href="../resources/css/session.css?ver=17" media="all" flush="false">
-<link rel="stylesheet" href="../resources/css/searchMain.css?ver=10" >
+<link rel="stylesheet" href="../resources/css/searchMain.css?ver=55" >
 
 
 </head>
@@ -79,7 +79,7 @@ $(function(){
 				<div id="resultHolder">
 					<jsp:include page="/WEB-INF/views/include/searchBody.jsp"></jsp:include>
 				</div>
-				<div id="infoHolder">
+				<div id="infoHolder1">
 					 <!-- 배너 광고 -->
 					 <div class="info_ad">
 						<a href="void(0);" onclick="alert('준비중 입니다.');return false;"><img src="../resources/img/ad1.png"></span></a>

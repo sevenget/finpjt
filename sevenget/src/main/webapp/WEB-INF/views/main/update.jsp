@@ -65,8 +65,8 @@ function check(){
 		return false;
 	}
 	
-	if (forms.dateCon.value > 7) {
-		alert('연애 점수를 7이하로 작성 해주세요.');
+	if (forms.dateCon.value > 10) {
+		alert('연애 점수를 10이하로 작성 해주세요.');
 		forms.email.focus();
 		return false;
 	}
@@ -77,8 +77,8 @@ function check(){
 		return false;
 	}
 	
-	if (forms.marryCon.value > 7) {
-		alert('결혼 점수를 7이하로 작성 해주세요.');
+	if (forms.marryCon.value > 10) {
+		alert('결혼 점수를 10이하로 작성 해주세요.');
 		forms.email.focus();
 		return false;
 	}
@@ -89,9 +89,9 @@ function check(){
 		return false;
 	}
 	
-	if (forms.babyCon.value > 7) {
-		alert('육아 점수를 7이하로 작성 해주세요.');
-		forms.email.focus();
+	if (forms.babyCon.value > 10) {
+		alert('육아 점수를 10이하로 작성 해주세요.');
+		forms.email.focus(); 
 		return false;
 	}
 
@@ -101,8 +101,8 @@ function check(){
 		return false;
 	}
 	
-	if (forms.houseCon.value > 7) {
-		alert('내집마련 점수를 7이하로 작성 해주세요.');
+	if (forms.houseCon.value > 10) {
+		alert('내집마련 점수를 10이하로 작성 해주세요.');
 		forms.email.focus();
 		return false;
 	}
@@ -113,8 +113,8 @@ function check(){
 		return false;
 	}
 	
-	if (forms.relationCon.value > 7) {
-		alert('인간관계 점수를 7이하로 작성 해주세요.');
+	if (forms.relationCon.value > 10) {
+		alert('인간관계 점수를 10이하로 작성 해주세요.');
 		forms.email.focus();
 		return false;
 	}
@@ -125,20 +125,20 @@ function check(){
 		return false;
 	}
 	
-	if (forms.dreamCon.value > 7) {
-		alert('꿈 점수를 7이하로 작성 해주세요.');
+	if (forms.dreamCon.value > 10) {
+		alert('꿈 점수를 10이하로 작성 해주세요.');
 		forms.email.focus();
 		return false;
 	}
 
 	if (forms.hopeCon.value == "" || forms.hopeCon.value.length < 1) {
-		alert('꿈 점수를 확인 해주세요.');
+		alert('희망 점수를 확인 해주세요.');
 		forms.email.focus();
 		return false;
 	}
 	
-	if (forms.hopeCon.value > 7) {
-		alert('꿈 점수를 7이하로 작성 해주세요.');
+	if (forms.hopeCon.value > 10) {
+		alert('희망 점수를 10이하로 작성 해주세요.');
 		forms.email.focus();
 		return false;
 	}

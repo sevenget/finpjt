@@ -28,8 +28,8 @@ $(function(){
 		});
 });
 </script>
-<link rel="stylesheet" type="text/css" href="../resources/css/session.css " media="all" flush="false">
-<link rel="stylesheet" href="../resources/css/searchMain.css" >
+<link rel="stylesheet" type="text/css" href="../resources/css/session.css?ver=32 " media="all" flush="false">
+<link rel="stylesheet" href="../resources/css/searchMain.css?ver=59" >
 </head>
 <body>
 	<div id="head">
@@ -67,7 +67,7 @@ $(function(){
 				</div>
 		</div>
 
-			<div class="container2">	
+			<div class="container3">	
 				
 				
 				<!-- 기업 정보 -->
