@@ -28,6 +28,6 @@
 	
 	<update id="updatePlts">
 		UPDATE plots
-		SET plotpng = #{plotpng} WHERE memid = #{memid}
+		SET plotpng = #{plotpng} WHERE memid = #{memid} AND cid=#{cid}
 	</update>
 </mapper>
