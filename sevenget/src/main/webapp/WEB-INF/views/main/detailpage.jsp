@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="../resources/css/session.css " media="all" flush="false">
 <link rel="stylesheet" type="text/css" href="../resources/css/loading.css " media="all" flush="false">
 <link rel="stylesheet" type="text/css" href="../resources/css/detail.css?ver=3" media="all" >
-<link rel="stylesheet" type="text/css" href="../resources/css/portside.css" media="all">
+<link rel="stylesheet" type="text/css" href="../resources/css/portside.css?ver=45" media="all">
 <link rel="stylesheet" type="text/css" href="../resources/css/lightbox.css" media="all">
 <link rel="stylesheet" type="text/css" href="../resources/css/review.css?ver=4" media="all">
 
