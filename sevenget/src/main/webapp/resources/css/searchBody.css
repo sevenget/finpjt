@@ -26,13 +26,13 @@
  	}
  	
  	
- 	#resultHolder hr{
+ 	#resultHolder hr, #resultHolder1 hr{
  	
  		margin-top: 7px;
  	  /*   margin-bottom: 1.5px; */
  	}
  	
- 	#resultHolder table{
+ 	#resultHolder table, #resultHolder1 table{
  		width: 888px;
  		margin: 0 auto;
  		/* border-bottom: 1px solid #654ea3; */
@@ -51,11 +51,12 @@
 	
 	
  	
- 	#resultHolder tr:first-child, #resultHolder tr:last-child {
+ 	#resultHolder tr:first-child, #resultHolder tr:last-child, #resultHolder1 tr:first-child, #resultHolder1 tr:last-child {
  		height:20px;
  	}
  	
- 	#resultHolder tr:nth-child(2),#resultHolder tr:nth-child(3) {
+ 	
+ 	#resultHolder tr:nth-child(2),#resultHolder tr:nth-child(3) #resultHolder1 tr:nth-child(2),#resultHolder1 tr:nth-child(3) {
  		height:20px;
  	}
  	

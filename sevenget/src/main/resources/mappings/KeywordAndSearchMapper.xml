@@ -16,7 +16,7 @@
 	</select>
 	
 	<select id="selectMostSearched" resultType="keyword">
-		<![CDATA[ SELECT * FROM (select * from keywords order by searchnum desc) where rownum<=3 ]]> 
+		<![CDATA[ SELECT * FROM (select * from keywords where keyword != '.X'order by searchnum desc) where rownum<=3 ]]> 
 	</select>
 
 	<insert id="insertKeyword" parameterType = "String">

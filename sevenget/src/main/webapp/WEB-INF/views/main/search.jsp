@@ -72,7 +72,7 @@ $(function(){
 				
 				<!-- 기업 정보 -->
 			
-				<div id="resultHolder">
+				<div id="resultHolder1">
 					<jsp:include page="/WEB-INF/views/include/searchBody.jsp"></jsp:include>
 				</div>
 				
