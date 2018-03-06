@@ -14,21 +14,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sevenget.Rcode.Evaluation;
 import com.sevenget.Rcode.MakingPlot;
 
 import model.company.InterestedRCDAO;
-import model.companySco.CompanyRawScoDaoImpl;
-import model.companySco.CompanyRawScoDto;
-import model.companySco.CompanyScoDaoImpl;
 import model.companySco.CompanyScoDto;
-import model.companySco.PublicRawScoDaoImpl;
-import model.companySco.PublicRawScoDto;
 import model.member.MemBasicInfoDAO;
-import model.member.MemBasicInfoDTO;
 import model.plots.PlotsDaoImpl;
 import model.plots.PlotsDto;
 
