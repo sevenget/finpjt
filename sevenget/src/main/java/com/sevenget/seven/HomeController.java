@@ -120,14 +120,11 @@ public class HomeController {
 		System.out.println("저장된 plot이름 : "+plotName);
 		
 		// plot
-		PlotsDaoImpl plotDao = new PlotsDaoImpl();
-		System.out.println("여기요요기요*********************"+id);
-		PlotsDto plotDto = plotDao.insertOrUpdatePlots(id, plotName, cid);
-		System.out.printf("여기요요기요2***********%s\t%s\t%s\t%s\n",plotDto.getMemid(),plotDto.getCid(),plotDto.getPlotpng(),plotDto.getSavedTime());
 		System.out.println("++++++++++++++++++++++++++++++++");
-		System.out.println("+++++"+plotDto.getMemid());
-		System.out.println("+++++"+plotDto.getCid());
-		System.out.println("+++++"+plotDto.getPlotpng());
+		PlotsDaoImpl plotDao = new PlotsDaoImpl();
+		System.out.println("최종 입력 전 아이디 확인"+id);
+		PlotsDto plotDto = plotDao.insertOrUpdatePlots(id, plotName, cid);
+		System.out.printf("최종 입력 후 전체 데이터 확인",plotDto.getMemid(),plotDto.getCid(),plotDto.getPlotpng(),plotDto.getSavedTime());
 		System.out.println("++++++++++++++++++++++++++++++++");
 		
 		
