@@ -25,17 +25,16 @@ public class MakingPlot {
 		connection.eval("library(fmsb)");
 		
 		// DB에서 받아온 데이터 집어넣기
-		System.out.println("데이터 집어넣기1");
-		
 		MemConcernDAO MemCdao = new MemConcernDAO();
 		
 		RList dataframe = connection.eval("{data=as.data.frame(rbind( c("+MemCdao.getMemConcern(id).getDateCon()+","+MemCdao.getMemConcern(id).getMarryCon()+","+MemCdao.getMemConcern(id).getBabyCon()+","+MemCdao.getMemConcern(id).getHouseCon()+","+MemCdao.getMemConcern(id).getRelationCon()+","+MemCdao.getMemConcern(id).getDreamCon()+","+MemCdao.getMemConcern(id).getHopeCon()+"), c("
-		+CScoDto.getDateSco()+","+CScoDto.getMarrySco()+","+CScoDto.getBabySco()+","+CScoDto.getHouseSco()+","+CScoDto.getRelationSco()+","+CScoDto.getDreamSco()+","+CScoDto.getHopeSco()+
-		")))}").asList();
-		System.out.println("데이터 집어넣기2");
+		+CScoDto.getDateSco()+","+CScoDto.getMarrySco()+","+CScoDto.getBabySco()+","+CScoDto.getHouseSco()+","+CScoDto.getRelationSco()+","+CScoDto.getDreamSco()+","+CScoDto.getHopeSco()+")))}").asList();
 		connection.eval("colnames(data)=c('연애' , '결혼' , '육아 및 출산',  '내집마련', '인간관계' , '꿈' , '희망' )"); // 컬럼명은 이것으로 고정.
-		connection.eval("rownames(data)=paste('mister' , letters[1:2] , sep='-')"); //회사와 사용자로 변경하기
-//		connection.eval("rownames(data)=c("+id+","+CScoDto.getCid()+")"); //회사와 사용자로 변경하기
+//		connection.eval("rownames(data)=paste('mister' , letters[1:2] , sep='-')"); //회사와 사용자로 변경하기
+		System.out.println(id);
+		System.out.println(CScoDto.getCid());
+		System.out.println("rownames(data)=c("+id+", '회사"+CScoDto.getCid()+"')");
+		connection.eval("rownames(data)=c('"+id+"', '회사"+CScoDto.getCid()+"')"); //회사와 사용자로 변경하기
 
 		connection.eval("data=rbind(rep(10,7) , rep(0,7) , data)"); //DB에서 받아온 데이터 삽입 구간. 회사와 사용자의 7가지 점수가 들어갈 예정.
 		
