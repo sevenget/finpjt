@@ -40,7 +40,7 @@ public class MakingPlot {
 		
 		// plot 그래픽 설정 및 파일 저장
 		connection.eval("colors_border=c(rgb(0/255, 0/255, 0/255,0.9), rgb(101/255, 78/255, 163/255,0.9))");
-		connection.eval("colors_in=c( rgb(0/255, 0/255, 0/255,0.05), rgb(195/255, 188/255, 210/255,0.9))");
+		connection.eval("colors_in=c( rgb(0/255, 0/255, 0/255,0.1), rgb(195/255, 188/255, 210/255,0.9))");
 		connection.eval("setwd('C:/Users/user/git/finpjt/sevenget/src/main/webapp/resources/img/plots')"); // 저장 장소 설정
 		
 		System.out.println("=====================");

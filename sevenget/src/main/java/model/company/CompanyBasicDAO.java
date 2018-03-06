@@ -34,7 +34,6 @@ public class CompanyBasicDAO {
 		Evaluation2 eval2 = new Evaluation2();
 		CompanyScoDto CSDto = new CompanyScoDto();
 		CompanyBasicDTO CBDto = new CompanyBasicDTO();
-		CSDto = eval2.selectComSco(cid);
 		/*CSDto.getDateSco();
 		CSDto.getMarrySco();
 		CSDto.getBabySco();
@@ -46,7 +45,7 @@ public class CompanyBasicDAO {
 		
 		CBDto = (CompanyBasicDTO) CBDao.selectCompany(cid).get(0);
 		
-		System.out.println("wawawa"+CBDto.getCid());
+		System.out.println(eval2.Categorization(cid).getDateGet());
 		CBDto.setDateGet(eval2.Categorization(cid).getDateGet());
 		CBDto.setMarryGet(eval2.Categorization(cid).getMarryGet());
 		CBDto.setBabyGet(eval2.Categorization(cid).getBabyGet());
@@ -66,7 +65,7 @@ public class CompanyBasicDAO {
 		}
 			
 		//이건 잘 작동함.
-		List<CompanyBasicDTO> list = dao.selectAllCompanyBasic();
+		/*List<CompanyBasicDTO> list = dao.selectAllCompanyBasic();
 			try{
 				for(int i = 0; i<25; i++){
 					System.out.println(list.get(i).getCid());
@@ -80,6 +79,6 @@ public class CompanyBasicDAO {
 				}
 			}catch (Exception e) {
 				// TODO: handle exception
-			}
+			}*/
 	}
 }

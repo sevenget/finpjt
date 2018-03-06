@@ -266,5 +266,22 @@ public class Evaluation {
 		}
 
 	}
+	
+	public static void main(String args[]) {
+		Evaluation pp = new Evaluation();
+		CompanyScoDto dto = new CompanyScoDto();
+		try{
+				for(int i=3; i<26;i++){
+				}
+			}catch (Exception e) {
+				for(int i=3; i<26;i++){
+					pp.FinalSco(i, "joeh");
+				}
+			}
+		/*pp.selectCompanyRawScores();
+		for(int i=1; i<26;i++){
+			pp.selectbyCid(7);
+		}*/
+	}
 
 }

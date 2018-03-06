@@ -87,19 +87,19 @@ public class CompanyRawScoDaoImpl implements CompanyScoDao {
 		dto.setCompKindergartenEPr(0);
 		dto.setEduSupportEPr(1);
 		dto.setLoanSupportEPr(1);
-		dto.setDormiHousingSupportEPr(1);
-		dto.setOpClubEPr(1);
-		dto.setSupportClubEPr(1);
-		dto.setClubMemRateEPr(80);
-		dto.setSelfDevSupportEPr(1);
+		dto.setDormiHousingSupportEPr(0);
+		dto.setOpClubEPr(0);
+		dto.setSupportClubEPr(0);
+		dto.setClubMemRateEPr(60);
+		dto.setSelfDevSupportEPr(0);
 		dto.setSeminarInvEPr(0);
-		dto.setHorizStrucEPr(1);
+		dto.setHorizStrucEPr(0);
 		dto.setVarWorkExpEPr(0);
-		dto.setTelAvailEPr(1);
+		dto.setTelAvailEPr(0);
 		dto.setSalIncreRateEPr(0);
-		dto.setRetireRateEPr(1);
+		dto.setRetireRateEPr(0);
 		dto.setBusiGrowthEPr(0);
-		dto.setInduGrowthEPr(1);
+		dto.setInduGrowthEPr(0);
 		dto.setGovSupportEPr(0);
 			
 		mybatis.update("CompanyRawScoDAO.updateRawScore", dto);
@@ -112,12 +112,12 @@ public class CompanyRawScoDaoImpl implements CompanyScoDao {
 		CompanyRawScoDaoImpl pp = new CompanyRawScoDaoImpl();
 		CompanyScoDto dto = new CompanyScoDto();
 		try{
-				for(int i=2; i<20;i++){
+				for(int i=3; i<26;i++){
 				pp.selectbyCid(i);
 				pp.insertCompanyRawScore(i);
 				}
 			}catch (Exception e) {
-				for(int i=2; i<20;i++){
+				for(int i=3; i<26;i++){
 				pp.updateCompanyRawScore(i);
 				}
 			}

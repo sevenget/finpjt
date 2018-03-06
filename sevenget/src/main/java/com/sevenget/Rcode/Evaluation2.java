@@ -4,6 +4,7 @@ import model.company.CompanyBasicDAO;
 import model.company.CompanyBasicDTO;
 import model.companySco.CompanyRawScoDaoImpl;
 import model.companySco.CompanyRawScoDto;
+import model.companySco.CompanyScoDao;
 import model.companySco.CompanyScoDaoImpl;
 import model.companySco.CompanyScoDto;
 
@@ -21,13 +22,25 @@ public class Evaluation2 {
 	// 불러온 점수를 4점 미만, 4이상 7미만, 7이상으로 범주화 (F,N,T) 하는 메서드-insert or update
 	// 범주화된 점수는 companyBasicInfo 테이블에 입력!
 	public CompanyBasicDTO Categorization(int cid) {
+		CompanyScoDaoImpl CSDao = new CompanyScoDaoImpl();
 		CompanyScoDto CSDto = new CompanyScoDto();
 		Evaluation2 eval2 = new Evaluation2();
+		Evaluation eval = new Evaluation();
 		CompanyBasicDTO CBDto = new CompanyBasicDTO();
-
+		
+		CSDto = eval.FinalSco(cid, "joeh");
+		
 		//CSDto = eval2.selectComSco(cid);
 		CSDto.setCid(cid);
-
+		
+		System.out.println("지금 여기는 Evaluation2");
+		System.out.print(CSDto.getDateSco());
+		System.out.print(CSDto.getMarrySco());
+		System.out.print(CSDto.getBabySco());
+		System.out.print(CSDto.getHouseSco());
+		System.out.print(CSDto.getRelationSco());
+		System.out.print(CSDto.getDreamSco());
+		System.out.println(CSDto.getHopeSco());
 		// TF조건을 if로 걸어주고 나머지를 N으로 하는 걸로 바꿔주기!
 		if (CSDto.getDateSco() >= 7) {
 			CBDto.setDateGet("T");
@@ -107,9 +120,9 @@ public class Evaluation2 {
 		E2.Categorization(1);
 
 		//dto = pp.selectbyCid(1);
-		/*for(int i =1; i<26; i++){
+		for(int i =1; i<26; i++){
 			E2.Categorization(i);
-		}*/
+		}
 	}
 
 }
