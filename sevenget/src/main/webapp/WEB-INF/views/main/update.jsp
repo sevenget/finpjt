@@ -91,7 +91,7 @@ function check(){
 	
 	if (forms.babyCon.value > 10) {
 		alert('육아 점수를 10이하로 작성 해주세요.');
-		forms.email.focus();
+		forms.email.focus(); 
 		return false;
 	}
 
