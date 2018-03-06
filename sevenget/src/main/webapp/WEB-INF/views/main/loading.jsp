@@ -54,13 +54,16 @@
 </script>
 <title>Insert title here</title>
 </head>
-<body><!--  onLoad="Timer();" --><!--  onLoad="Mplot();" -->
-<div id="choonDiv"></div>
+<body>
+	<!--  onLoad="Timer();" -->
+	<!--  onLoad="Mplot();" -->
+	<div id="choonDiv" style="margin-top:40px; margin-bottom:40px;"></div>
 
-<script>countdown();</script>
+	<script>countdown();</script>
 	<div class="loading-container">
 		<div class="loading"></div>
 		<div id="loading-text">loading</div>
 	</div>
+		<div class ="choonDiv2" style="margin-top:40px; margin-bottom:40px;">기업 내외부의 정보를 당신에게 딱 맞게 분석하고 있습니다<br>치킨보다 빠르다... 맞춤 정보 배달 중..!</div>
 </body>
 </html>

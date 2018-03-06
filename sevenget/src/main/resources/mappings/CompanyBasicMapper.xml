@@ -27,7 +27,7 @@
  -->	
 	<update id="updateseven">
 		UPDATE INTO companybasicinfo
-		set dateGet = #{dateGet},marryGet = #{marryGet}, babyGet = #{babyGet},houseGet = #{houseGet}, relationGet = #{relationGet}, dreamGet = #{dreamGet}, hopeGet = #{hopeGet}
+		set dateGet = #{dateGet}, marryGet = #{marryGet}, babyGet = #{babyGet},houseGet = #{houseGet}, relationGet = #{relationGet}, dreamGet = #{dreamGet}, hopeGet = #{hopeGet}
 		WHERE cid= #{cid}
 	</update>
 </mapper>
