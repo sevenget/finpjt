@@ -18,7 +18,7 @@ create table memBasicInfo(
       hopeCon number(2)
 );
 SELECT * FROM memBasicInfo where id = 'Guest'
-select id from memBasicInfo where id='mem';
+select * from memBasicInfo where id='mem';
 select * from MEMBASICINFO,interestedRC ;
 
 -- 회원 속성

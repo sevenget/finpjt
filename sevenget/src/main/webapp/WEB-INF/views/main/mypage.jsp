@@ -15,7 +15,7 @@
 <title>7Get - MyPage</title>
 <link rel="stylesheet" type="text/css" href="../resources/css/session.css"
 	media="all">
-<link rel="stylesheet" type="text/css" href="../resources/css/RightPage.css"
+<link rel="stylesheet" type="text/css" href="../resources/css/RightPage.css?ver=111"
 	media="all">
 <link rel="stylesheet" type="text/css"
 	href="../resources/css/portside.css" media="all">
@@ -74,16 +74,13 @@
 						<!-- 여기 안에다 작업하시면 돼요 -->
 
 						<div class="recommend">
-							<!-- 저는 오른쪽 화면에서 위와 아래, 두 개로 나뉘는 거라 div 두개로 나눈 거예요 -->
-							<!-- class 명 지정해서 css 가서 width, height 값 지정해주고 float:left; 전에 설계하신대로 3개로 
-							  만들 수 있을 거예요  border:1px solid red; 이거 추가해서 작업하면 더 보기 편해요 -->
-							<h4 class="right_title" style="margin-left: 65px;">나에게 추천하는 기업</h4>
-							<hr width="230px" color="#aaa"
+							<p class="right_title">나에게 추천하는 기업</p>
+							<hr width="250px" color="#aaa"
 								size="1" class="hr">
 							<!-- 구분선 -->
 							<ol>
 								<c:if test="${fn:length(recommendList)==0}">
-									<h4><li>추천기업이 없습니다</li></h4>
+									<li class="cl_p">추천기업이 없습니다</li>
 								</c:if>
 								<c:forEach items="${recommendList}" var="recommend" begin="0" end="2">
 									<h4><a href="./detailpage?cid=${recommend.cid}"><li>${recommend.cname}</li></a></h4>
@@ -91,36 +88,36 @@
 							</ol>
 						</div>
 						<div class="recent">
-							<h4 class="right_title"  style="margin-left: 75px;">최근 검색 키워드</h4>
+							<p class="right_title">최근 검색 키워드</p>
 							<hr width="250px" color="#aaa"
 								size="1" class="hr">
 							<ol>
 								<c:if test="${fn:length(recentKeywords)==0}">
-									<h4><li>최근 검색 키워드가 없습니다<a></a></li></h4>
+									<li class="cl_p">최근 검색 키워드가 없습니다<a></a></li>
 								</c:if>
 								<c:forEach items="${recentKeywords}" var="keyword" begin="0" end="2">
-								<h4><li>${keyword.keyword}</li></h4>
+								<li class="cl_p">${keyword.keyword}</li>
 								</c:forEach>
 							</ol>
 						</div>
 						<div class="most">
-							<h4 class="right_title"  style="margin-left: 75px;">최다 검색 키워드</h4>
+							<p class="right_title">최다 검색 키워드</p>
 							<hr width="250px" color="#aaa"
 								size="1" class="hr">
 							<ol>
 								<c:if test="${fn:length(recentKeywords)==0}">
-									<h4><li>검색 키워드가 없습니다<a></a></li></h4>
+									<li class="cl_p">검색 키워드가 없습니다<a></a></li>
 								</c:if>
 								<c:forEach items="${mostSearched}" var="keyword" begin="0" end="2">
-								<h4><li>${keyword.keyword}(${keyword.searchNum}회)</li></h4>
+								<li class="cl_p">${keyword.keyword}(${keyword.searchNum}회)</li>
 								</c:forEach>
 							</ol>
 						</div>
-						<div style="margin-top: 130px; clear: both">
+						
+						<div class="clist_div">
 
-							<h4 style="padding-left: 400px">관심 기업 리스트</h4>
-							<hr id="line4" width="885px" color="#aaa" size="1" class="hr"
-								style="margin-left: 35px">
+							<p class="right_title1">관심 기업 리스트</p>
+							<hr id="line4" width="850px" color="#aaa" size="1" class="hr">
 						</div>
 						<!-- 관심 기업 리스트 표 -->
 						
@@ -129,7 +126,7 @@
 						<!-- <div id=btnHolder1 style="clear: both; margin-top: 150px; margin-left: 100px;">
 							<button id='btnPrev'  >&lt;</button>
 						</div> -->
-						<div id="interComp" style="float: left;">
+						<div id="interComp">
 							<jsp:include page="../include/interComp.jsp" />
 						</div>
 						<!-- <div id=btnHolder2 style="margin-left:10px; margin-top: 150px;">

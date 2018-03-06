@@ -59,7 +59,7 @@ $(function(){
 		<div id="portside1">
 
 			<div class="info">
-				<p class="head_member" align="center">회원 정보</p>
+				<p class="head_member3" align="center">회원 정보</p>
 				<div class="m_btn"><a onclick="location.href='${path}/seven/main/update'"><p class="mp">수정</p></a></div>
 				<hr width="285px" color="#aaa" size="1" class="hr">
 
