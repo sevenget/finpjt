@@ -126,7 +126,7 @@ public class SearchController {
 				return "main/nothing";
 			}
 			
-			@RequestMapping(value = "/main/canInter")
+			@RequestMapping(value = "/canInter")
 			public String canInter(InterestedRCDAO dao, InterestedRCDTO dto, HttpSession session) {
 				dto.setMemid((String)session.getAttribute("id"));
 				dao.updateCan(dto);
@@ -200,7 +200,7 @@ public class SearchController {
 				}else{
 					fdto.setHopeget("N");
 				}
-	
+				
 				return fdto;
 			}
 			
