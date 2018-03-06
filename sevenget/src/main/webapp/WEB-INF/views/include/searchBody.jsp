@@ -33,7 +33,7 @@
 	<c:forEach var= "loveComp" items="${ interestedComList }">
 		<script>
 			$(function(){
-				$('img[data-cid='+${loveComp.cid}+']').attr('src', '../resources/img/colorheart.jpg')	
+				$('img[data-cid='+${loveComp.cid}+']').attr('src', '../resources/img/colorheart.jpg')
 			})
 		</script>
 	</c:forEach>
