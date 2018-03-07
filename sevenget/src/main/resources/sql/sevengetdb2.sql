@@ -102,8 +102,9 @@ insert into companyBasicInfo values(
 	동사는 세계 최초로 모바일 메신저 기반 전자고지결제(Electronic Bill Presentment and Payment; 이하 EBPP) 서비스인 `카카오페이 청구서`를 출시하였음
 	매출구성은 콘텐츠 플랫폼 50.4%, 광고 플랫폼 30.55%, 기타 19.04% 등으로 구성', 
 	0,
-	'T','T','T','N','F','F','F' 
+	'T','T','T','T','T','T','T' 
 );
+delete from companyBasicInfo where cid=2; 
 
 insert into companyBasicInfo values(
 	2, 
@@ -120,7 +121,7 @@ insert into companyBasicInfo values(
 	동사는 세계 최초로 모바일 메신저 기반 전자고지결제(Electronic Bill Presentment and Payment; 이하 EBPP) 서비스인 `카카오페이 청구서`를 출시하였음
 	매출구성은 콘텐츠 플랫폼 50.4%, 광고 플랫폼 30.55%, 기타 19.04% 등으로 구성', 
 	0,
-	'T','F','F','T','N','N','N'
+	'F','F','F','F','F','F','F'
 );
 
 insert into companyBasicInfo values(

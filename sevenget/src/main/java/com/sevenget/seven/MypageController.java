@@ -86,7 +86,7 @@ public class MypageController {
 			MemBasicInfoDTO dto = new MemBasicInfoDTO();
 			
 			String id =(String) session.getAttribute("id");
-			String savePath = "C:/Users/user/git/finpjt/sevenget/src/main/webapp/resources/img/memPicture";
+			String savePath = "C:/workspace/spring/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/sevenget/resources/img/memPicture";
 			String originalFilename = picture.getOriginalFilename(); 
 		    String fullPath = savePath + "\\" + originalFilename;
 		    

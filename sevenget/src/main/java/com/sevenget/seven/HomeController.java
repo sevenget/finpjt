@@ -1,5 +1,8 @@
 package com.sevenget.seven;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.List;
 import java.util.Locale;
 
@@ -120,6 +123,34 @@ public class HomeController {
 		System.out.printf("최종 입력 후 전체 데이터 확인",plotDto.getMemid(),plotDto.getCid(),plotDto.getPlotpng(),plotDto.getSavedTime());
 		System.out.println("++++++++++++++++++++++++++++++++");
 		
+		
+		
+		
+		
+		//////////////////////////////////////////////////////////////////////
+		
+		/*String savePath = "C:/workspace/spring/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/sevenget/resources/img/plots";
+		String originalFilename = plotDto.getPlotpng(); 
+	    String fullPath = savePath + "\\" + originalFilename;
+	    
+	    if (!plotDto.getPlotpng().isEmpty()) {
+	        try {
+	            byte[] bytes = plotDto.getPlotpng().getBytes();
+	            BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(fullPath)));
+	            stream.write(bytes);
+	            stream.close();
+	            System.out.println("plot파일 업로드 성공!");
+	            System.out.println("plot파일 이름 = "+originalFilename);
+	            System.out.println("plot세이브패스 = "+savePath+" 풀패스 = "+fullPath);
+	        } catch (Exception e) {
+	            System.out.println("plot파일 업로드 실패! "+e+e.getMessage());
+	            System.out.println("plot파일 이름 = "+originalFilename);
+	            System.out.println("plot세이브패스 = "+savePath+" 풀패스 = "+fullPath);
+	        }
+	    }*/
+		
+		
+		//////////////////////////////////////////////////////////////////////
 		
 		/*request.setAttribute("id", plotDto.getMemid());
 		request.setAttribute("cid", plotDto.getCid());
