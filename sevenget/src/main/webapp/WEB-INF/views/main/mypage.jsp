@@ -24,23 +24,6 @@
 <script src="http://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
 
 <script>
-
-	/* 디비먼저 하고나서 수정 */
-	/*  $(function(){
-		// 앞 버튼에 click 이벤트 등록
-		var page = 1;
-		$('#btnHolder1').click(function(){
-			if(page=1){
-				return;
-			}else{
-				page = page - 1
-				//ajax로 interComp 영역 업로드
-				$('#interComp').load(
-						'http://localhost:8090/vs/include/interComp?page='+page)
-			}
-			
-		})
-	}) */
 	
 	$(function(){
 		$('#btnHolder1').click(function(){
@@ -120,9 +103,7 @@
 							<hr id="line4" width="850px" color="#aaa" size="1" class="hr">
 						</div>
 						<!-- 관심 기업 리스트 표 -->
-						
-						
-						
+
 						<!-- <div id=btnHolder1 style="clear: both; margin-top: 150px; margin-left: 100px;">
 							<button id='btnPrev'  >&lt;</button>
 						</div> -->
