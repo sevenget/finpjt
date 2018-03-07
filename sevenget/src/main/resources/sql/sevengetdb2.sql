@@ -557,7 +557,9 @@ create table plots(
    plotpng varchar2(20),
    savedTime date default sysdate
 );
+alter table plots modify plotpng varchar2(500);
 select * from plots;
+insert into plots values((select nvl(max(pid), 0)+1 from plots), 'ppppp',2,'pppp',sysdate)
 
 
 -- 점수입력(전문가?패널)

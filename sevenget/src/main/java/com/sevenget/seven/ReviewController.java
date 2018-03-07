@@ -61,8 +61,11 @@ public class ReviewController {
 				session.setAttribute("plotpng", null);
 			}
 		}catch (Exception e) {
-			// TODO: handle exception
-		}
+			mav.addObject("plotpng", null);
+			System.out.println("detailpage 불러올건데 plotpng가 아마도 없다");
+			mav.addObject("plotpng", null);
+			session.setAttribute("plotpng", null);
+			}
 		
 		// detailpage로 넘어가기 전에 득포 계산 해줘야함!
 		
