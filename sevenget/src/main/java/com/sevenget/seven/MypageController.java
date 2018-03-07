@@ -86,7 +86,8 @@ public class MypageController {
 			MemBasicInfoDTO dto = new MemBasicInfoDTO();
 			
 			String id =(String) session.getAttribute("id");
-			String savePath = "C:/Users/user/git/finpjt/sevenget/src/main/webapp/resources/img/memPicture";
+			String savePath = "C:/Users/user/git/finpjt/sevenget/src/main/webapp/resources/img/memPicture";		// 폴더안에 이미지파일을 저장 시켜서 불러옴(단, sts에서 새로고침 해주고 사이트에서도 새로고침 해야지 이미지가 보임)
+			//String savePath = "C:/workspaces/spring/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/sevenget/resources/img/memPicture";		//서버로 이미지를 저장시켜서 새로고침 없이 이미지가 나옴(단, 프로젝트 내의 이미지 저장 폴더에는 저장 안되는듯)(C: 밑의 워크 스페이스주소를 본인이 지정한 폴더에 맞게 수정필요)
 			String originalFilename = picture.getOriginalFilename(); 
 		    String fullPath = savePath + "\\" + originalFilename;
 		    
