@@ -252,7 +252,7 @@ img.interested { float:right; }
 													data-cid="${company.cid}" />
 											</c:if>
 										<div class="personnel"> 
-											${id }님  
+											${id }님   
 											<c:if test="${isInterested=='T'}">
 												<span id="interestedText">포함</span>
 											</c:if>
