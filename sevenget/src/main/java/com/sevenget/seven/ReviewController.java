@@ -48,7 +48,7 @@ public class ReviewController {
 		
 		try{
 			PlotDto = PlotDao.inquiryId(id, cid);
-			System.out.println("있는 Plot "+PlotDto.getPlotpng());
+			//System.out.println("있는 Plot "+PlotDto.getPlotpng());
 			if(PlotDto.getPlotpng() != null){
 				System.out.println("detailpage 불러올건데 plotpng가 있다! 불러올거다!");
 				mav.addObject("plotpng", (String)PlotDto.getPlotpng());
@@ -56,12 +56,12 @@ public class ReviewController {
 				System.out.println("세션 전송까지 완료");
 			}else{
 				mav.addObject("plotpng", null);
+				System.out.println("detailpage 불러올건데 plotpng가 아마도 없다");
+				mav.addObject("plotpng", null);
+				session.setAttribute("plotpng", null);
 			}
 		}catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("detailpage 불러올건데 plotpng가 아마도 없다");
-			mav.addObject("plotpng", null);
-			session.setAttribute("plotpng", null);
 		}
 		
 		// detailpage로 넘어가기 전에 득포 계산 해줘야함!

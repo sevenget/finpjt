@@ -46,7 +46,7 @@ public class PlotsDaoImpl implements PlotsDao {
 		parameters.put("cid", cid);
 
 		dto = (PlotsDto) mybatis.selectOne("PlotsDAO.getById", dto);
-		System.out.printf("+++++++++++PlotsDto inquiryId\n%s\t%s\t%s\t%s\n*******************\n", dto.getMemid(), dto.getCid(), dto.getPlotpng(),dto.getSavedTime());
+		//System.out.printf("+++++++++++PlotsDto inquiryId\n%s\t%s\t%s\t%s\n*******************\n", dto.getMemid(), dto.getCid(), dto.getPlotpng(),dto.getSavedTime());
 
 		return dto;
 			
