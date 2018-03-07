@@ -15,7 +15,7 @@ ra
 #==================
 # Plot 2: Same plot with custom features  #ADD72E
 colors_border=c(rgb(0/255, 0/255, 0/255,0.9), rgb(101/255, 78/255, 163/255,0.9))
-colors_in=c( rgb(255/255, 255/255, 255/255,0.2), rgb(195/255, 188/255, 210/255,0.9))
+colors_in=c( rgb(0/255, 0/255, 0/255,0.3), rgb(195/255, 188/255, 210/255,0.9))
 radarchart( data  , axistype=1 , seg = 2,
             #custom polygon
             pcol=colors_border , pfcol=colors_in , plwd=c(1,4) , plty=c(3,1),

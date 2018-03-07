@@ -65,7 +65,7 @@ public class CompanyBasicDAO {
 		}
 			
 		//이건 잘 작동함.
-		/*List<CompanyBasicDTO> list = dao.selectAllCompanyBasic();
+		List<CompanyBasicDTO> list = dao.selectAllCompanyBasic();
 			try{
 				for(int i = 0; i<25; i++){
 					System.out.println(list.get(i).getCid());
@@ -79,6 +79,6 @@ public class CompanyBasicDAO {
 				}
 			}catch (Exception e) {
 				// TODO: handle exception
-			}*/
+			}
 	}
 }
