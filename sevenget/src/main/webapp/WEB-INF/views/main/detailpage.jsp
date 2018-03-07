@@ -246,6 +246,11 @@ img.interested { float:right; }
 												src="../resources/img/whiteheart2.png"
 												data-cid="${company.cid}" />
 										</c:if>
+										<c:if test="${isInterested=='T'}">
+												<img class="interested"
+													src="../resources/img/colorheart2.png"
+													data-cid="${company.cid}" />
+											</c:if>
 										<div class="personnel"> 
 											${id }님
 											<c:if test="${isInterested=='T'}">
@@ -255,11 +260,11 @@ img.interested { float:right; }
 												<span id="interestedText">외에</span>
 											</c:if>
 											<span id="interestedNum">${ interTimes }</span>명의 관심기업
-											<c:if test="${isInterested=='T'}">
+											<%-- <c:if test="${isInterested=='T'}">
 												<img class="interested"
 													src="../resources/img/colorheart2.png"
 													data-cid="${company.cid}" />
-											</c:if>
+											</c:if> --%>
 										</div>
 										<%-- <c:if test="${isInterested=='F'}">
 											<img class="interested"
