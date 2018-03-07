@@ -347,7 +347,7 @@ img.interested { float:right; }
 										<nobr>희망</nobr>
 									</c:if>
 								</font>
-								<font class="ex">을 득하고,</font>
+								<font class="ex">을/를 득하고,</font>
 								<font class="lose">
 									<c:if test="${company.dateGet=='F'}">
 										<nobr>데이트</nobr>
@@ -371,7 +371,7 @@ img.interested { float:right; }
 										<nobr>희망</nobr>
 									</c:if>
 								</font>
-								<font class="ex">를 포기하였습니다.</font>
+								<font class="ex">을/를 포기하였습니다.</font>
 								<!-- <p class="marks">"</p> -->
 								<img src="../resources/img/marks2.png" class="marks">
 							</div>

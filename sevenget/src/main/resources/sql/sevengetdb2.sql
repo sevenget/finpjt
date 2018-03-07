@@ -57,6 +57,7 @@ create table memBasicInfo(
     dreamCon number(2),
     hopeCon number(2)
 );
+alter table memBasicInfo modify picture varchar2(200);
 
 insert into memBasicInfo values('mem','mem', '멤버', '180220', 'F', 'seoul', 'email@email.com','mem.gif',1,2,3,4,5,6,7);
 insert into memBasicInfo values('Guest','Guest', '게스트', '180220', 'F', 'seoul', 'email2@email.com','Guest.jpg',1,2,3,4,5,6,7);
